@@ -1,0 +1,13 @@
+E:\Mr.King.Prj\山西大同\Winning.DownLoad.UI\Winning.DownLoad.Business\bin\Debug\Winning.DownLoad.Business.dll
+E:\Mr.King.Prj\山西大同\Winning.DownLoad.UI\Winning.DownLoad.Business\bin\Debug\Winning.DownLoad.Business.pdb
+E:\Mr.King.Prj\山西大同\Winning.DownLoad.UI\Winning.DownLoad.Business\bin\Debug\Newtonsoft.Json.dll
+E:\Mr.King.Prj\山西大同\Winning.DownLoad.UI\Winning.DownLoad.Business\bin\Debug\Winning.DownLoad.Core.dll
+E:\Mr.King.Prj\山西大同\Winning.DownLoad.UI\Winning.DownLoad.Business\bin\Debug\Quartz.dll
+E:\Mr.King.Prj\山西大同\Winning.DownLoad.UI\Winning.DownLoad.Business\bin\Debug\Common.Logging.Core.dll
+E:\Mr.King.Prj\山西大同\Winning.DownLoad.UI\Winning.DownLoad.Business\bin\Debug\Common.Logging.dll
+E:\Mr.King.Prj\山西大同\Winning.DownLoad.UI\Winning.DownLoad.Business\bin\Debug\Winning.DownLoad.Core.pdb
+E:\Mr.King.Prj\山西大同\Winning.DownLoad.UI\Winning.DownLoad.Business\obj\Debug\Winning.DownLoad.Business.csprojResolveAssemblyReference.cache
+E:\Mr.King.Prj\山西大同\Winning.DownLoad.UI\Winning.DownLoad.Business\obj\Debug\Winning.DownLoad.Business.dll
+E:\Mr.King.Prj\山西大同\Winning.DownLoad.UI\Winning.DownLoad.Business\obj\Debug\Winning.DownLoad.Business.pdb
+D:\康复数据下载程序\Winning.DownLoad.Business.dll
+D:\康复数据下载程序\Winning.DownLoad.Business.pdb

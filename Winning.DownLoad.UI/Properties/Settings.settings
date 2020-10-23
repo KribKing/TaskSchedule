@@ -1,0 +1,36 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Winning.DownLoad.UI.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="weburl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://localhost:8086/api/rims</Value>
+    </Setting>
+    <Setting Name="getPatEx" Type="System.String" Scope="User">
+      <Value Profile="(Default)">fKti04vHK0LqBv2mqFCEnj+LbEBG2haG0+Kfe/xTdTTl2xM2IBQWg9z1p+q2UGYCFOz8LDdMTaS0x/tBU/Fo62TNX6vWnl+q2NuCWO5pwryifsyWvJDEEmC6rqshDE07BbvxjX+23mZDcfvbX5QjUw==</Value>
+    </Setting>
+    <Setting Name="getJzPatEx" Type="System.String" Scope="User">
+      <Value Profile="(Default)">fKti04vHK0LqBv2mqFCEnj+LbEBG2haG0+Kfe/xTdTTl2xM2IBQWg9z1p+q2UGYCFOz8LDdMTaS0x/tBU/Fo68JTcKkGuFBsnisn7i20sKr8Na2vXpRs3GohL6E3TeVfLQ0uW9WToOke5jA8a1uAUtf8Pw2iUgl4</Value>
+    </Setting>
+    <Setting Name="getJzXmEx" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0/30 * * * * ? *</Value>
+    </Setting>
+    <Setting Name="getJzZdEx" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0/30 * * * * ? *</Value>
+    </Setting>
+    <Setting Name="contr_rims" Type="System.String" Scope="User">
+      <Value Profile="(Default)">fKti04vHK0LqBv2mqFCEnof3GLVr7Gciwne2+UINEPx7EVJAs4Gfbl8gsOroAHlcQqMKcxhIlcqT3O3+G9yiNcj7TMdAjz43HZfSGixx3jGr9G+5n9M0itwaNit1Ah0kJh6RdWhBULGUk0rM/brJXQ==</Value>
+    </Setting>
+    <Setting Name="contr_common" Type="System.String" Scope="User">
+      <Value Profile="(Default)">fKti04vHK0LqBv2mqFCEnof3GLVr7Gciwne2+UINEPx7EVJAs4Gfbl8gsOroAHlcQqMKcxhIlcqT3O3+G9yiNcj7TMdAjz43HZfSGixx3jGr9G+5n9M0itwaNit1Ah0kJh6RdWhBULGUk0rM/brJXQ==</Value>
+    </Setting>
+    <Setting Name="uid" Type="System.String" Scope="User">
+      <Value Profile="(Default)">2d4b181d-f4a2-4c85-bf05-0812c437fb6e</Value>
+    </Setting>
+    <Setting Name="appSecret" Type="System.String" Scope="User">
+      <Value Profile="(Default)">8f26f8e2-f95d-4f92-a9d9-37383c779fe5</Value>
+    </Setting>
+    <Setting Name="theme" Type="System.String" Scope="User">
+      <Value Profile="(Default)">DevExpress Style</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

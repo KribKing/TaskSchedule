@@ -1,0 +1,9 @@
+E:\Mr.King.Prj\山西大同\Winning.DownLoad.UI\JsonConvert\bin\Debug\JsonConvertFrm.exe
+E:\Mr.King.Prj\山西大同\Winning.DownLoad.UI\JsonConvert\bin\Debug\JsonConvertFrm.pdb
+E:\Mr.King.Prj\山西大同\Winning.DownLoad.UI\JsonConvert\bin\Debug\Newtonsoft.Json.dll
+E:\Mr.King.Prj\山西大同\Winning.DownLoad.UI\JsonConvert\obj\Debug\JsonConvertFrm.csprojResolveAssemblyReference.cache
+E:\Mr.King.Prj\山西大同\Winning.DownLoad.UI\JsonConvert\obj\Debug\JsonConvertFrm.Form1.resources
+E:\Mr.King.Prj\山西大同\Winning.DownLoad.UI\JsonConvert\obj\Debug\JsonConvertFrm.Properties.Resources.resources
+E:\Mr.King.Prj\山西大同\Winning.DownLoad.UI\JsonConvert\obj\Debug\JsonConvertFrm.csproj.GenerateResource.Cache
+E:\Mr.King.Prj\山西大同\Winning.DownLoad.UI\JsonConvert\obj\Debug\JsonConvertFrm.exe
+E:\Mr.King.Prj\山西大同\Winning.DownLoad.UI\JsonConvert\obj\Debug\JsonConvertFrm.pdb

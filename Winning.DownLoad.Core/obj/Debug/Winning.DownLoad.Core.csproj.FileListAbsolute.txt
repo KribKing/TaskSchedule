@@ -1,0 +1,9 @@
+E:\Mr.King.Prj\山西大同\Winning.DownLoad.UI\Winning.DownLoad.Core\bin\Debug\Winning.DownLoad.Core.dll
+E:\Mr.King.Prj\山西大同\Winning.DownLoad.UI\Winning.DownLoad.Core\bin\Debug\Winning.DownLoad.Core.pdb
+E:\Mr.King.Prj\山西大同\Winning.DownLoad.UI\Winning.DownLoad.Core\bin\Debug\Newtonsoft.Json.dll
+E:\Mr.King.Prj\山西大同\Winning.DownLoad.UI\Winning.DownLoad.Core\obj\Debug\Winning.DownLoad.Core.dll
+E:\Mr.King.Prj\山西大同\Winning.DownLoad.UI\Winning.DownLoad.Core\obj\Debug\Winning.DownLoad.Core.pdb
+D:\康复数据下载程序\Winning.DownLoad.Core.dll
+D:\康复数据下载程序\Winning.DownLoad.Core.pdb
+C:\bin\Winning.DownLoad.Core.dll
+C:\bin\Winning.DownLoad.Core.pdb
