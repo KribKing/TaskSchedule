@@ -20,7 +20,7 @@ namespace Winning.DownLoad.Business
             string strsql = "select * from RIMS_COM_SQL ";
             DataTable dt = TSqlHelper.ExecuteDataTableByRims(strsql);
             List<JobInfo> JobInfoList = Tools.ToDataList<JobInfo>(dt);
-         
+
             foreach (JobInfo item in JobInfoList)
             {
                 if (!string.IsNullOrEmpty(item.id))
@@ -47,7 +47,9 @@ namespace Winning.DownLoad.Business
             string strsql = "update a set a.expression=b.expression,a.tmpname=b.tmpname,a.createtmp=b.createtmp,a.sql=b.sql,a.weburl=b.weburl,a.jlzt=b.jlzt "
                          + " from RIMS_COM_SQL a(nolock) "
                          + " inner join RIMS_COM_SQLCOPY b(nolock) on a.id=b.id and a.system=b.system  drop table RIMS_COM_SQLCOPY";
-            ResultInfo retInfo = TSqlHelper.SqlBulkCopyByRims(@"IF NOT EXISTS(SELECT 1 FROM sysobjects WHERE name='RIMS_COM_SQLCOPY')
+
+            ResultInfo retInfo = new ResultInfo();
+            TSqlHelper.SqlBulkCopyByRims(@"IF NOT EXISTS(SELECT 1 FROM sysobjects WHERE name='RIMS_COM_SQLCOPY')
                                                                 BEGIN
 	                                                                CREATE TABLE RIMS_COM_SQLCOPY
 	                                                                (
@@ -68,7 +70,7 @@ namespace Winning.DownLoad.Business
                                                                 ELSE 
                                                                 BEGIN 
                                                                     TRUNCATE TABLE RIMS_COM_SQLCOPY
-                                                                END ", "RIMS_COM_SQLCOPY", dt, strsql);
+                                                                END ", "RIMS_COM_SQLCOPY", dt, strsql, ref retInfo);
             if (!retInfo.ackcode.Contains("100"))
             {
                 //MessageBox.Show(retInfo.ackmsg);
@@ -117,7 +119,7 @@ namespace Winning.DownLoad.Business
         public string tmpname { get; set; }
         public string sql { get; set; }
 
-        private string _jlzt="0";
+        private string _jlzt = "0";
         public string jlzt
         {
             get

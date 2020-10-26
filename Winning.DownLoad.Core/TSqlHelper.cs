@@ -119,18 +119,16 @@ namespace Winning.DownLoad.Core
 
             return new { Sql = sql, Fields = fieldNames };
         }
-        public static ResultInfo SqlBulkCopyByRims(string createtmp, string tmpname, DataTable table, string strSql)
+        public static ResultInfo SqlBulkCopyByRims(string createtmp, string tmpname, DataTable table, string strSql,ref ResultInfo retInfo)
         {
-            return SqlBulkCopy(contr_rims, createtmp, tmpname, strSql, table);
+            return SqlBulkCopy(contr_rims, createtmp, tmpname, strSql, table, ref retInfo);
         }
-        public static ResultInfo SqlBulkCopyByComm(string createtmp, string tmpname, DataTable table, string strSql)
+        public static ResultInfo SqlBulkCopyByComm(string createtmp, string tmpname, DataTable table, string strSql, ref ResultInfo retInfo)
         {
-            return SqlBulkCopy(contr_common, createtmp, tmpname, strSql, table);
+            return SqlBulkCopy(contr_common, createtmp, tmpname, strSql, table,ref retInfo);
         }
-        public static ResultInfo SqlBulkCopy(string connectionString, string creatTmp, string tmpname, string strSql, DataTable table)
-        {
-
-            ResultInfo info = new ResultInfo();
+        public static ResultInfo SqlBulkCopy(string connectionString, string creatTmp, string tmpname, string strSql, DataTable table, ref ResultInfo retInfo)
+        {       
             bool isSucc = false;
             //var tmpTableName = "tmp_" + tableName;
             try
@@ -175,10 +173,10 @@ namespace Winning.DownLoad.Core
                     {
 
                         tran.Rollback();
-                        info.ackcode = "300.2";
-                        info.ackflg = false;
-                        info.ackmsg = "histoTmp" + ex.Message;
-                        return info;
+                        retInfo.ackcode = "300.2";
+                        retInfo.ackflg = false;
+                        retInfo.ackmsg = "histoTmp" + ex.Message;
+                        return retInfo;
                     }
                     finally
                     {
@@ -187,10 +185,10 @@ namespace Winning.DownLoad.Core
                     }
                     if (!isSucc)
                     {
-                        info.ackcode = "300.2";
-                        info.ackflg = false;
-                        info.ackmsg = "Tmp失败{" + tmpname + "}";
-                        return info;
+                        retInfo.ackcode = "300.2";
+                        retInfo.ackflg = false;
+                        retInfo.ackmsg = "Tmp失败{" + tmpname + "}";
+                        return retInfo;
                     }
 
                     //LogHandler("histoTmp" + tmpTableName + "成功....");
@@ -208,31 +206,31 @@ namespace Winning.DownLoad.Core
                 isSucc = ExecuteSqlTran(connectionString, sqlList,out strmsg) > 0;
                 if (!isSucc)
                 {
-                    info.ackcode = "300.2";
-                    info.ackflg = false;
-                    info.ackmsg = "TmpToMiddle失败{" + tmpname + "}--{"+strmsg+"}";
+                    retInfo.ackcode = "300.2";
+                    retInfo.ackflg = false;
+                    retInfo.ackmsg = "TmpToMiddle失败{" + tmpname + "}--{"+strmsg+"}";
                     //throw new Exception("TmpToMiddle失败{" + tableName + "}");
                 }
                 else
                 {
-                    info.ackcode = "100.1";
-                    info.ackflg = true;
-                    info.ackmsg = "数据库操作成功";
+                    retInfo.ackcode = "100.1";
+                    retInfo.ackflg = true;
+                    retInfo.ackmsg = "数据库操作成功";
                 }
                 #endregion
             }
             catch (Exception e)
             {
-                info.ackcode = "300.2";
-                info.ackflg = false;
-                info.ackmsg = e.Message;
+                retInfo.ackcode = "300.2";
+                retInfo.ackflg = false;
+                retInfo.ackmsg = e.Message;
                 //LogHandler(e.Message);
             }
             finally
             {
                 //GC.Collect();
             }
-            return info;
+            return retInfo;
         }
 
         #region QueryMult

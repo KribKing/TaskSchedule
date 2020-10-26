@@ -10,6 +10,7 @@ namespace Winning.DownLoad.Business.RimsJk
 {
     public class RimsClearHistoryOperator : JkInterface
     {
+        
         public RimsClearHistoryOperator(string jkcode, string url)
             : base(jkcode, url, "", "")
         {
@@ -35,6 +36,7 @@ namespace Winning.DownLoad.Business.RimsJk
             }
             catch (Exception ex)
             {
+                retInfo.ackcode = "300.1";
                 retInfo.ackmsg = ex.Message;
                 retInfo.ackflg = false;
             }

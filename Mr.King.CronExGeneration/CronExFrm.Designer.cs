@@ -40,8 +40,8 @@
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtce = new DevExpress.XtraEditors.TextEdit();
+            this.txtsummary = new System.Windows.Forms.TextBox();
             this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.pcagain = new DevExpress.XtraEditors.PanelControl();
@@ -104,7 +104,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.deontime.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deontime.Properties)).BeginInit();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtce.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcagain)).BeginInit();
             this.pcagain.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -191,7 +191,7 @@
             this.panelControl2.Controls.Add(this.btnclose);
             this.panelControl2.Controls.Add(this.btnsave);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl2.Location = new System.Drawing.Point(0, 491);
+            this.panelControl2.Location = new System.Drawing.Point(0, 524);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(717, 37);
             this.panelControl2.TabIndex = 6;
@@ -274,36 +274,37 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.textEdit1);
-            this.groupBox5.Controls.Add(this.textBox1);
+            this.groupBox5.Controls.Add(this.txtce);
+            this.groupBox5.Controls.Add(this.txtsummary);
             this.groupBox5.Controls.Add(this.labelControl17);
             this.groupBox5.Controls.Add(this.labelControl4);
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox5.Location = new System.Drawing.Point(0, 373);
+            this.groupBox5.Location = new System.Drawing.Point(0, 375);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(717, 118);
+            this.groupBox5.Size = new System.Drawing.Size(717, 149);
             this.groupBox5.TabIndex = 10;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "摘要";
             // 
-            // textEdit1
+            // txtce
             // 
-            this.textEdit1.Location = new System.Drawing.Point(75, 17);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(635, 20);
-            this.textEdit1.TabIndex = 2;
+            this.txtce.Location = new System.Drawing.Point(75, 17);
+            this.txtce.Name = "txtce";
+            this.txtce.Size = new System.Drawing.Size(635, 20);
+            this.txtce.TabIndex = 2;
+            this.txtce.EditValueChanged += new System.EventHandler(this.txtce_EditValueChanged);
             // 
-            // textBox1
+            // txtsummary
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Location = new System.Drawing.Point(75, 45);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox1.Size = new System.Drawing.Size(635, 91);
-            this.textBox1.TabIndex = 1;
+            this.txtsummary.BackColor = System.Drawing.SystemColors.Control;
+            this.txtsummary.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtsummary.Location = new System.Drawing.Point(75, 45);
+            this.txtsummary.Multiline = true;
+            this.txtsummary.Name = "txtsummary";
+            this.txtsummary.ReadOnly = true;
+            this.txtsummary.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtsummary.Size = new System.Drawing.Size(635, 91);
+            this.txtsummary.TabIndex = 1;
             // 
             // labelControl17
             // 
@@ -329,7 +330,7 @@
             this.pcagain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pcagain.Location = new System.Drawing.Point(0, 86);
             this.pcagain.Name = "pcagain";
-            this.pcagain.Size = new System.Drawing.Size(717, 287);
+            this.pcagain.Size = new System.Drawing.Size(717, 289);
             this.pcagain.TabIndex = 11;
             // 
             // groupBox4
@@ -342,7 +343,7 @@
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(2, 2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(713, 122);
+            this.groupBox4.Size = new System.Drawing.Size(713, 124);
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "频率";
@@ -723,7 +724,7 @@
             this.groupBox3.Controls.Add(this.pcmtplzxyc);
             this.groupBox3.Controls.Add(this.rgmtpl);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox3.Location = new System.Drawing.Point(2, 124);
+            this.groupBox3.Location = new System.Drawing.Point(2, 126);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(713, 86);
             this.groupBox3.TabIndex = 2;
@@ -879,7 +880,7 @@
             this.groupBox2.Controls.Add(this.dateEdit2);
             this.groupBox2.Controls.Add(this.dateEdit1);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox2.Location = new System.Drawing.Point(2, 210);
+            this.groupBox2.Location = new System.Drawing.Point(2, 212);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(713, 75);
             this.groupBox2.TabIndex = 1;
@@ -935,7 +936,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(717, 528);
+            this.ClientSize = new System.Drawing.Size(717, 561);
             this.Controls.Add(this.pcagain);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.gbontime);
@@ -961,7 +962,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.deontime.Properties)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtce.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcagain)).EndInit();
             this.pcagain.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
@@ -1035,7 +1036,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtsummary;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.PanelControl pcagain;
         private System.Windows.Forms.GroupBox groupBox4;
@@ -1070,7 +1071,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.DateEdit dateEdit2;
         private DevExpress.XtraEditors.DateEdit dateEdit1;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit txtce;
         private DevExpress.XtraEditors.LabelControl labelControl17;
         private DevExpress.XtraEditors.PanelControl pcplmy;
         private System.Windows.Forms.RadioButton rbplmy2;

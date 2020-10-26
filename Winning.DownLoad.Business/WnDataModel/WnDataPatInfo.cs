@@ -79,7 +79,7 @@ namespace Winning.DownLoad.Business.WnDataModel
         /// <summary>
         /// 
         /// </summary>
-        public DateTime sdate { get; set; }
+        public string sdate { get; set; }
        
     }
 }

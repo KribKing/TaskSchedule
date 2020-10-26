@@ -49,10 +49,12 @@ namespace Winning.DownLoad.Business
             try
             {           
                 info.ackmsg =  GlobalWebRequestHelper.HttpPostRequest(url + method, body, token: TokenInfo.access_token);
+                info.body = info.ackmsg;
                 info.ackflg = true;
             }
             catch (Exception ex)
             {
+                info.ackcode = "300.0";
                 info.ackmsg = ex.Message;
                 info.ackflg = false;
             }
@@ -89,10 +91,8 @@ namespace Winning.DownLoad.Business
                 string createtmp = GlobalInstanceManager<JobInfoManager>.Intance.JobInfoDic[jkcode.ToLower()].createtmp;
                 string tmpname = GlobalInstanceManager<JobInfoManager>.Intance.JobInfoDic[jkcode.ToLower()].tmpname;
                 string strsql = GlobalInstanceManager<JobInfoManager>.Intance.JobInfoDic[jkcode.ToLower()].sql;
-                //dt = Tools.DeleteSameRow(dt, "ID");
-                string body = retInfo.ackmsg;
-                retInfo = TSqlHelper.SqlBulkCopyByRims(createtmp, tmpname, dt, strsql);
-                retInfo.body = body;
+                //dt = Tools.DeleteSameRow(dt, "ID");              
+                TSqlHelper.SqlBulkCopyByRims(createtmp, tmpname, dt, strsql,ref retInfo);              
             }
             else
             {

@@ -7,3 +7,7 @@ D:\GitHub\DownLoadExe\Mr.King.CronExGeneration\obj\Debug\Mr.King.CronExGeneratio
 D:\GitHub\DownLoadExe\Mr.King.CronExGeneration\obj\Debug\Mr.King.CronExGeneration.exe.licenses
 D:\GitHub\DownLoadExe\Mr.King.CronExGeneration\obj\Debug\Mr.King.CronExGeneration.exe
 D:\GitHub\DownLoadExe\Mr.King.CronExGeneration\obj\Debug\Mr.King.CronExGeneration.pdb
+D:\GitHub\DownLoadExe\Mr.King.CronExGeneration\bin\Debug\Common.Logging.Core.dll
+D:\GitHub\DownLoadExe\Mr.King.CronExGeneration\bin\Debug\Common.Logging.dll
+D:\GitHub\DownLoadExe\Mr.King.CronExGeneration\bin\Debug\Newtonsoft.Json.dll
+D:\GitHub\DownLoadExe\Mr.King.CronExGeneration\bin\Debug\Quartz.dll

@@ -86,5 +86,10 @@ namespace Mr.King.CronExGeneration
             this.rgpl.SelectedIndex = 0;
             this.rgmtpl.SelectedIndex = 0;
         }
+
+        private void txtce_EditValueChanged(object sender, EventArgs e)
+        {
+            this.txtsummary.Text = GlobalCronExpressionHelper.GetExpressionSummary(this.txtce.Text.Trim());
+        }
     }
 }

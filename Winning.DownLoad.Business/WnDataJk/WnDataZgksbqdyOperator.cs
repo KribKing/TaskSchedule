@@ -39,6 +39,7 @@ namespace Winning.DownLoad.Business.WnDataJk
             }
             catch (Exception ex)
             {
+                retInfo.ackcode = "300.1";
                 retInfo.ackmsg = ex.Message;
                 retInfo.ackflg = false;
             }

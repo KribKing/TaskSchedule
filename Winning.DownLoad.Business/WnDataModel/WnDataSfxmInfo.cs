@@ -42,7 +42,7 @@ namespace Winning.DownLoad.Business.WnDataModel
         /// <summary>
         /// 
         /// </summary>
-        public double xmdj { get; set; }       
+        public string xmdj { get; set; }       
        
         /// <summary>
         /// 

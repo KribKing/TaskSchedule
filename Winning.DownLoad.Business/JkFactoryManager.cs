@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Winning.DownLoad.Business.DTJk;
 using Winning.DownLoad.Business.RimsJk;
 using Winning.DownLoad.Business.WnDataJk;
 using Winning.DownLoad.Core;
@@ -14,60 +13,9 @@ namespace Winning.DownLoad.Business
         public static JkInterface CreateInstance(string jkcode)
         {
             string strurl=GlobalInstanceManager<JobInfoManager>.Intance.JobInfoDic[jkcode.ToLower()].weburl;
-            
-            #region 山西卫宁接口
-            if (jkcode.ToLower() == "dt00")//Token信息
-            {
-                return new GetTokenOperator(jkcode.ToLower(), strurl);
-            }
-            else if (jkcode.ToLower() == "dt01")//病区信息
-            {
-                return new BqOperator(jkcode.ToLower(), strurl);
-            }
-            else if (jkcode.ToLower() == "dt02")//收费项目信息
-            {
-                return new SfxxmOperator(jkcode.ToLower(), strurl);
-            }
-            else if (jkcode.ToLower() == "dt03")//职工信息
-            {
-                return new ZgOperator(jkcode.ToLower(), strurl);
-            }
-            else if (jkcode.ToLower() == "dt04")//科室信息
-            {
-                return new KsOperator(jkcode.ToLower(), strurl);
-            }
-            else if (jkcode.ToLower() == "dt05")//诊断字典
-            {
-                return new ZdOperator(jkcode.ToLower(), strurl);
-            }
-            else if (jkcode.ToLower() == "dt06")//患者基础信息
-            {
-                return new PatinfoOperator(jkcode.ToLower(), strurl);
-            }
-            else if (jkcode.ToLower() == "dt07")//就诊患者
-            {
-                return new JzinfoOperator(jkcode.ToLower(), strurl);
-            }
-            else if (jkcode.ToLower() == "dt08")//申请单信息
-            {
-                return new SqxminfoOperator(jkcode.ToLower(), strurl);
-            }
-            else if (jkcode.ToLower() == "dt09")//就诊诊断信息
-            {
-                return new JzzdinfoOperator(jkcode.ToLower(), strurl);
-            }
-            //else if (jkcode.ToLower() == "dt10")//就诊检验信息
-            //{
-            //    return new JyOperator(jkcode.ToLower(), "http://111.111.111.15:8090/api/");
-            //}
-            else if (jkcode.ToLower() == "dt10")//就诊诊断信息
-            {
-                return new HzinfoOperator(jkcode.ToLower(), strurl);
-            } 
-            #endregion
-
+                     
             #region 卫宁数据接口
-            else if (jkcode.ToLower() == "wndata00")//卫宁数据-获取医院信息
+            if (jkcode.ToLower() == "wndata00")//卫宁数据-获取医院信息
             {
                 return new WnDataHospitalOperator(jkcode.ToLower(), strurl);
             }
