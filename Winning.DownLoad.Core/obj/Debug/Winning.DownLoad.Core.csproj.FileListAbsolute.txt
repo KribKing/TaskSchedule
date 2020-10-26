@@ -7,3 +7,6 @@ D:\康复数据下载程序\Winning.DownLoad.Core.dll
 D:\康复数据下载程序\Winning.DownLoad.Core.pdb
 C:\bin\Winning.DownLoad.Core.dll
 C:\bin\Winning.DownLoad.Core.pdb
+D:\GitHub\DownLoadExe\Winning.DownLoad.Core\obj\Debug\Winning.DownLoad.Core.csprojResolveAssemblyReference.cache
+D:\GitHub\DownLoadExe\Winning.DownLoad.Core\obj\Debug\Winning.DownLoad.Core.dll
+D:\GitHub\DownLoadExe\Winning.DownLoad.Core\obj\Debug\Winning.DownLoad.Core.pdb

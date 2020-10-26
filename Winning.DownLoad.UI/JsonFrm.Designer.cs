@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JsonFrm));
             this.pbc = new DevExpress.XtraEditors.MarqueeProgressBarControl();
             this.textBox1 = new System.Windows.Forms.RichTextBox();
-            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu();
+            this.btnexportjson = new DevExpress.XtraBars.BarButtonItem();
+            this.barManager1 = new DevExpress.XtraBars.BarManager();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.pbc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
@@ -48,8 +48,7 @@
             this.pbc.EditValue = 0;
             this.pbc.Location = new System.Drawing.Point(29, 204);
             this.pbc.Name = "pbc";
-            this.pbc.Properties.MarqueeAnimationSpeed = 10;
-            this.pbc.Properties.ProgressAnimationMode = DevExpress.Utils.Drawing.ProgressAnimationMode.PingPong;
+            this.pbc.Properties.MarqueeAnimationSpeed = 50;
             this.pbc.Properties.ProgressViewStyle = DevExpress.XtraEditors.Controls.ProgressViewStyle.Solid;
             this.pbc.Properties.ShowTitle = true;
             this.pbc.Size = new System.Drawing.Size(492, 18);
@@ -64,13 +63,23 @@
             this.textBox1.Size = new System.Drawing.Size(561, 434);
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = "";
+            this.textBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textBox1_MouseDown);
             // 
             // popupMenu1
             // 
             this.popupMenu1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnexportjson)});
             this.popupMenu1.Manager = this.barManager1;
             this.popupMenu1.Name = "popupMenu1";
+            // 
+            // btnexportjson
+            // 
+            this.btnexportjson.Caption = "导出json";
+            this.btnexportjson.Glyph = ((System.Drawing.Image)(resources.GetObject("btnexportjson.Glyph")));
+            this.btnexportjson.Id = 0;
+            this.btnexportjson.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnexportjson.LargeGlyph")));
+            this.btnexportjson.Name = "btnexportjson";
+            this.btnexportjson.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnexportjson_ItemClick);
             // 
             // barManager1
             // 
@@ -80,7 +89,7 @@
             this.barManager1.DockControls.Add(this.barDockControlRight);
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.barButtonItem1});
+            this.btnexportjson});
             this.barManager1.MaxItemId = 1;
             // 
             // barDockControlTop
@@ -110,13 +119,6 @@
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(561, 0);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 434);
-            // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Caption = "导出json";
-            this.barButtonItem1.Id = 0;
-            this.barButtonItem1.Name = "barButtonItem1";
-            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
             // JsonFrm
             // 
@@ -149,7 +151,7 @@
         private System.Windows.Forms.RichTextBox textBox1;
         private DevExpress.XtraEditors.MarqueeProgressBarControl pbc;
         private DevExpress.XtraBars.PopupMenu popupMenu1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem btnexportjson;
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;

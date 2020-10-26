@@ -28,21 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.treeList1 = new DevExpress.XtraTreeList.TreeList();
             this.tPatKey = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.imageList1 = new System.Windows.Forms.ImageList();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnreset = new DevExpress.XtraEditors.SimpleButton();
             this.btnPause = new DevExpress.XtraEditors.SimpleButton();
             this.btnStart = new DevExpress.XtraEditors.SimpleButton();
             this.btnrefresh = new DevExpress.XtraEditors.SimpleButton();
             this.btnremove = new DevExpress.XtraEditors.SimpleButton();
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barManager1 = new DevExpress.XtraBars.BarManager();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -67,9 +66,9 @@
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
-            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip();
             this.退出程序ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();

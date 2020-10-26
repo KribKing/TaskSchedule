@@ -196,10 +196,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mr.King.CronExGeneration\Mr.King.CronExGeneration.csproj">
-      <Project>{23558227-3120-41ab-af29-3eaf7f3459c4}</Project>
-      <Name>Mr.King.CronExGeneration</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Winning.DownLoad.Business\Winning.DownLoad.Business.csproj">
       <Project>{2025684b-433c-451a-a6b7-a0ae6e150da6}</Project>
       <Name>Winning.DownLoad.Business</Name>
