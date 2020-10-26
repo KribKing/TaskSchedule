@@ -59,5 +59,13 @@ namespace Winning.DownLoad.UI
             //this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
+
+        private void txtexp_DoubleClick(object sender, EventArgs e)
+        {
+            using (ExecJob frm=new ExecJob(Cur_JobInfo))
+            {
+                frm.ShowDialog();
+            }
+        }
     }
 }

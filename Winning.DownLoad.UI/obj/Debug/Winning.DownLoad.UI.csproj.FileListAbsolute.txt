@@ -83,3 +83,16 @@ D:\康复数据下载程序\Winning.DownLoad.UI.exe.config
 D:\康复数据下载程序\Winning.DownLoad.UI.exe
 D:\康复数据下载程序\Winning.DownLoad.UI.pdb
 E:\Mr.King.Prj\山西大同\Winning.DownLoad.UI\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.JsonFrm.resources
+D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.exe
+D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.pdb
+D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.csprojResolveAssemblyReference.cache
+D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.ConfigFrm.resources
+D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.ExecJob.resources
+D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.FrmMain.resources
+D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.JsonFrm.resources
+D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.LoadFrm.resources
+D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.Properties.Resources.resources
+D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.RunFrm.resources
+D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.UrlFm.resources
+D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.csproj.GenerateResource.Cache
+D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.exe.licenses

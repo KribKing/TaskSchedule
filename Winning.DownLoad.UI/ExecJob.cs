@@ -6,118 +6,63 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Winning.DownLoad.Business;
 
 namespace Winning.DownLoad.UI
 {
     public partial class ExecJob : FrmBase
     {
+        private JobInfo Cur_job;
         public ExecJob()
         {
             InitializeComponent();
         }
-
-        private void CbkOnce_CheckedChanged(object sender, EventArgs e)
+        public ExecJob(JobInfo info)
         {
-            if(CbkOnce.Checked == true)
-            {
-                CbkDaySeq.Checked = false;
-                CbkZd.Checked = false;
-            }
-          
+            InitializeComponent();
+            this.Cur_job = info;
+            this.Text = "作业【" + this.Cur_job.name + "】的执行计划";
+        }
+        private void ExecJob_Load(object sender, EventArgs e)
+        {
+            this.InitCtrl();
+            this.SetZxlx();        
         }
 
-        private void CbkDaySeq_CheckedChanged(object sender, EventArgs e)
+        private void InitCtrl()
         {
-            if (CbkDaySeq.Checked == true)
-            {
-                CbkOnce.Checked = false;
-                CbkZd.Checked = false;
-            }
+            this.deontime.DateTime = DateTime.Now;
+            this.teontime.EditValue = DateTime.Now;
         }
 
-        private void CbkZd_CheckedChanged(object sender, EventArgs e)
+        private void rgzxlx_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (CbkZd.Checked == true)
-            {
-                CbkOnce.Checked = false;
-                CbkDaySeq.Checked = false;
-            }
+            this.SetZxlx();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void SetZxlx()
         {
-            if(CbkOnce.Checked)
+            if (this.rgzxlx.SelectedIndex==1)
             {
-                string StrCron = dtpOnceTime.Value.Second.ToString().Replace("00", "0") + " " + dtpOnceTime.Value.Minute.ToString().Replace("00", "0") + " " + dtpOnceTime.Value.Hour.ToString() + " " + dtpdata.Value.Day.ToString() + " " + dtpdata.Value.Month.ToString() + " ? " + dtpdata.Value.Year.ToString() + "-" + dtpdata.Value.Year.ToString();
-                txtMemo.Text = StrCron;
+                this.pcagain.Enabled = false;
+                this.gbontime.Enabled = true;
             }
-
-            else if(CbkDaySeq.Checked)
+            else
             {
-                string StrCron = "";
-                if(txtHour.Text == "" && txtMin.Text == "" && txtSec.Text == "")
-                {
-                    StrCron = dtpBegTime.Value.Second.ToString().Replace("00", "0") + "-" + dtpEndTime.Value.Second.ToString().Replace("00", "0") + " " + dtpBegTime.Value.Minute.ToString().Replace("00", "0") + "-" + dtpEndTime.Value.Minute.ToString().Replace("00", "0") + " " + dtpBegTime.Value.Hour + "-" + dtpEndTime.Value.Hour + " " + dtpBegDate.Value.Day + "-" + dtpEndDate.Value.Day + " " + dtpBegDate.Value.Month + "-" + dtpEndDate.Value.Month + " ? " + dtpBegDate.Value.Year + "-" + dtpEndDate.Value.Year;
-                }
-                else
-                {
-                    string strhour = "";
-                    string strmin = "";
-                    string strsec = "";
-                    if(txtHour.Text == "")
-                    {
-                        strhour = "*";
-                    }
-                    else
-                    {
-                        strhour = dtpBegTime.Value.Hour + "/" + txtHour.Text;
-                    }
-                    if (txtMin.Text == "")
-                    {
-                        strmin = "*";
-                    }
-                    else
-                    {
-                        strmin = dtpBegTime.Value.Minute.ToString().Replace("00", "0") + "/" + txtMin.Text;
-                    }
-                    if (txtSec.Text == "")
-                    {
-                        strsec = "*";
-                    }
-                    else
-                    {
-                        strsec = dtpBegTime.Value.Second.ToString().Replace("00", "0") + "/" + txtSec.Text;
-                    }
-
-                    StrCron = strsec + " " + strmin + " " + strhour + " " + dtpBegDate.Value.Day + "-" + dtpEndDate.Value.Day + " " + dtpBegDate.Value.Month + "-" + dtpEndDate.Value.Month + " ? " + dtpBegDate.Value.Year + "-" + dtpEndDate.Value.Year;
-
-                }
-
-
-                txtMemo.Text = StrCron;
-                
-               
-            }
-
-            else if(CbkZd.Checked)
-            {
-                string StrCron = sec.Text + " " + minute.Text + " " + hour.Text + " " + day.Text + " " + month.Text + " ? " + year.Text;
-                txtMemo.Text = StrCron;
+                this.pcagain.Enabled = true;
+                this.gbontime.Enabled = false;
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void btnclose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        private void btnsave_Click(object sender, EventArgs e)
+        {
 
-
+        }
 
     }
 }

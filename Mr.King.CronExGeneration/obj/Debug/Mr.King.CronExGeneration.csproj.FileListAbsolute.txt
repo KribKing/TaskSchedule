@@ -1,0 +1,9 @@
+D:\GitHub\DownLoadExe\Mr.King.CronExGeneration\bin\Debug\Mr.King.CronExGeneration.exe
+D:\GitHub\DownLoadExe\Mr.King.CronExGeneration\bin\Debug\Mr.King.CronExGeneration.pdb
+D:\GitHub\DownLoadExe\Mr.King.CronExGeneration\obj\Debug\Mr.King.CronExGeneration.csprojResolveAssemblyReference.cache
+D:\GitHub\DownLoadExe\Mr.King.CronExGeneration\obj\Debug\Mr.King.CronExGeneration.CronExFrm.resources
+D:\GitHub\DownLoadExe\Mr.King.CronExGeneration\obj\Debug\Mr.King.CronExGeneration.Properties.Resources.resources
+D:\GitHub\DownLoadExe\Mr.King.CronExGeneration\obj\Debug\Mr.King.CronExGeneration.csproj.GenerateResource.Cache
+D:\GitHub\DownLoadExe\Mr.King.CronExGeneration\obj\Debug\Mr.King.CronExGeneration.exe.licenses
+D:\GitHub\DownLoadExe\Mr.King.CronExGeneration\obj\Debug\Mr.King.CronExGeneration.exe
+D:\GitHub\DownLoadExe\Mr.King.CronExGeneration\obj\Debug\Mr.King.CronExGeneration.pdb

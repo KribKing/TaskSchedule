@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Winning.DownLoad.Core", "Wi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Winning.DownLoad.Business", "Winning.DownLoad.Business\Winning.DownLoad.Business.csproj", "{2025684B-433C-451A-A6B7-A0AE6E150DA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication6", "..\服务接口测试\WindowsFormsApplication6.csproj", "{93763C12-3E08-4485-948B-31AD38BB70BD}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonConvertFrm", "JsonConvert\JsonConvertFrm.csproj", "{5C0DEAE9-2D87-4A31-B861-2295EDFA6717}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Winning.Rims.WebBrower", "Winning.Rims.WebBrower\Winning.Rims.WebBrower.csproj", "{544718DC-62ED-4067-8DBD-1FC6514BA889}"
@@ -20,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{53625F41-1E08-450B-911C-9006F8BC392A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSTest", "WSTest\WSTest.csproj", "{62AE3DD3-26AB-4586-89A9-AF81C701EB42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mr.King.CronExGeneration", "Mr.King.CronExGeneration\Mr.King.CronExGeneration.csproj", "{23558227-3120-41AB-AF29-3EAF7F3459C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,16 +61,6 @@ Global
 		{2025684B-433C-451A-A6B7-A0AE6E150DA6}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{2025684B-433C-451A-A6B7-A0AE6E150DA6}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{2025684B-433C-451A-A6B7-A0AE6E150DA6}.Release|x86.ActiveCfg = Release|Any CPU
-		{93763C12-3E08-4485-948B-31AD38BB70BD}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{93763C12-3E08-4485-948B-31AD38BB70BD}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{93763C12-3E08-4485-948B-31AD38BB70BD}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{93763C12-3E08-4485-948B-31AD38BB70BD}.Debug|x86.ActiveCfg = Debug|x86
-		{93763C12-3E08-4485-948B-31AD38BB70BD}.Debug|x86.Build.0 = Debug|x86
-		{93763C12-3E08-4485-948B-31AD38BB70BD}.Release|Any CPU.ActiveCfg = Release|x86
-		{93763C12-3E08-4485-948B-31AD38BB70BD}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{93763C12-3E08-4485-948B-31AD38BB70BD}.Release|Mixed Platforms.Build.0 = Release|x86
-		{93763C12-3E08-4485-948B-31AD38BB70BD}.Release|x86.ActiveCfg = Release|x86
-		{93763C12-3E08-4485-948B-31AD38BB70BD}.Release|x86.Build.0 = Release|x86
 		{5C0DEAE9-2D87-4A31-B861-2295EDFA6717}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5C0DEAE9-2D87-4A31-B861-2295EDFA6717}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C0DEAE9-2D87-4A31-B861-2295EDFA6717}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -121,6 +111,16 @@ Global
 		{62AE3DD3-26AB-4586-89A9-AF81C701EB42}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{62AE3DD3-26AB-4586-89A9-AF81C701EB42}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{62AE3DD3-26AB-4586-89A9-AF81C701EB42}.Release|x86.ActiveCfg = Release|Any CPU
+		{23558227-3120-41AB-AF29-3EAF7F3459C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23558227-3120-41AB-AF29-3EAF7F3459C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23558227-3120-41AB-AF29-3EAF7F3459C4}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{23558227-3120-41AB-AF29-3EAF7F3459C4}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{23558227-3120-41AB-AF29-3EAF7F3459C4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{23558227-3120-41AB-AF29-3EAF7F3459C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23558227-3120-41AB-AF29-3EAF7F3459C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23558227-3120-41AB-AF29-3EAF7F3459C4}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{23558227-3120-41AB-AF29-3EAF7F3459C4}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{23558227-3120-41AB-AF29-3EAF7F3459C4}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

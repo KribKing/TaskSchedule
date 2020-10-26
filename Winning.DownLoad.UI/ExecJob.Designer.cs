@@ -28,596 +28,946 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.CbkOnce = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dtpdata = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.CbkDaySeq = new System.Windows.Forms.CheckBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dtpBegTime = new System.Windows.Forms.DateTimePicker();
-            this.dtpEndTime = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtHour = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtMin = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtSec = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.dtpBegDate = new System.Windows.Forms.DateTimePicker();
-            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtMemo = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.CbkZd = new System.Windows.Forms.CheckBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.sec = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.minute = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.hour = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.day = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.month = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.year = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.dtpOnceTime = new System.Windows.Forms.DateTimePicker();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
+            this.pcagain = new DevExpress.XtraEditors.PanelControl();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.radioGroup3 = new DevExpress.XtraEditors.RadioGroup();
+            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.timeEdit3 = new DevExpress.XtraEditors.TimeEdit();
+            this.timeEdit2 = new DevExpress.XtraEditors.TimeEdit();
+            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.spinEdit1 = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.timeEdit1 = new DevExpress.XtraEditors.TimeEdit();
+            this.radioGroup2 = new DevExpress.XtraEditors.RadioGroup();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.dateEdit2 = new DevExpress.XtraEditors.DateEdit();
+            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.gbontime = new System.Windows.Forms.GroupBox();
+            this.teontime = new DevExpress.XtraEditors.TimeEdit();
+            this.deontime = new DevExpress.XtraEditors.DateEdit();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.btnclose = new DevExpress.XtraEditors.SimpleButton();
+            this.btnsave = new DevExpress.XtraEditors.SimpleButton();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.rgzxlx = new DevExpress.XtraEditors.RadioGroup();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
+            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
+            this.spinEdit2 = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
+            this.spinEdit3 = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
+            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEdit2 = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEdit3 = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEdit4 = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEdit5 = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEdit6 = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEdit7 = new DevExpress.XtraEditors.CheckEdit();
+            this.radioGroup4 = new DevExpress.XtraEditors.RadioGroup();
+            this.spinEdit4 = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
+            this.spinEdit5 = new DevExpress.XtraEditors.SpinEdit();
+            this.comboBoxEdit2 = new DevExpress.XtraEditors.ComboBoxEdit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcagain)).BeginInit();
+            this.pcagain.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroup3.Properties)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.timeEdit3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroup2.Properties)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
+            this.groupBox5.SuspendLayout();
+            this.gbontime.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.teontime.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deontime.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deontime.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rgzxlx.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
+            this.xtraTabControl1.SuspendLayout();
+            this.xtraTabPage1.SuspendLayout();
+            this.xtraTabPage2.SuspendLayout();
+            this.xtraTabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spinEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinEdit3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit4.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit5.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit6.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit7.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroup4.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinEdit4.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinEdit5.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).BeginInit();
             this.SuspendLayout();
             // 
-            // CbkOnce
-            // 
-            this.CbkOnce.AutoSize = true;
-            this.CbkOnce.Location = new System.Drawing.Point(2, 2);
-            this.CbkOnce.Margin = new System.Windows.Forms.Padding(2);
-            this.CbkOnce.Name = "CbkOnce";
-            this.CbkOnce.Size = new System.Drawing.Size(72, 16);
-            this.CbkOnce.TabIndex = 0;
-            this.CbkOnce.Text = "执行一次";
-            this.CbkOnce.UseVisualStyleBackColor = true;
-            this.CbkOnce.CheckedChanged += new System.EventHandler(this.CbkOnce_CheckedChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(72, 5);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(779, 12);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "---------------------------------------------------------------------------------" +
-    "------------------------------------------------";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(0, 283);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(851, 12);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "---------------------------------------------------------------------------------" +
-    "------------------------------------------------------------";
-            // 
-            // dtpdata
-            // 
-            this.dtpdata.Location = new System.Drawing.Point(154, 37);
-            this.dtpdata.Margin = new System.Windows.Forms.Padding(2);
-            this.dtpdata.Name = "dtpdata";
-            this.dtpdata.Size = new System.Drawing.Size(129, 21);
-            this.dtpdata.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(73, 42);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 12);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "日期与时间：";
-            // 
-            // CbkDaySeq
-            // 
-            this.CbkDaySeq.AutoSize = true;
-            this.CbkDaySeq.Location = new System.Drawing.Point(2, 73);
-            this.CbkDaySeq.Margin = new System.Windows.Forms.Padding(2);
-            this.CbkDaySeq.Name = "CbkDaySeq";
-            this.CbkDaySeq.Size = new System.Drawing.Size(72, 16);
-            this.CbkDaySeq.TabIndex = 5;
-            this.CbkDaySeq.Text = "每天频率";
-            this.CbkDaySeq.UseVisualStyleBackColor = true;
-            this.CbkDaySeq.CheckedChanged += new System.EventHandler(this.CbkDaySeq_CheckedChanged);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(73, 194);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 12);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "开始时间：";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(481, 194);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 12);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "结束时间：";
-            // 
-            // dtpBegTime
-            // 
-            this.dtpBegTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpBegTime.Location = new System.Drawing.Point(153, 187);
-            this.dtpBegTime.Margin = new System.Windows.Forms.Padding(2);
-            this.dtpBegTime.Name = "dtpBegTime";
-            this.dtpBegTime.Size = new System.Drawing.Size(129, 21);
-            this.dtpBegTime.TabIndex = 8;
-            this.dtpBegTime.Value = new System.DateTime(2019, 8, 21, 15, 52, 0, 0);
-            // 
-            // dtpEndTime
-            // 
-            this.dtpEndTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpEndTime.Location = new System.Drawing.Point(545, 187);
-            this.dtpEndTime.Margin = new System.Windows.Forms.Padding(2);
-            this.dtpEndTime.Name = "dtpEndTime";
-            this.dtpEndTime.Size = new System.Drawing.Size(129, 21);
-            this.dtpEndTime.TabIndex = 9;
-            this.dtpEndTime.Value = new System.DateTime(2019, 8, 21, 15, 52, 0, 0);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(73, 253);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 12);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "间隔时间：";
-            // 
-            // txtHour
-            // 
-            this.txtHour.Location = new System.Drawing.Point(153, 251);
-            this.txtHour.Margin = new System.Windows.Forms.Padding(2);
-            this.txtHour.Name = "txtHour";
-            this.txtHour.Size = new System.Drawing.Size(68, 21);
-            this.txtHour.TabIndex = 11;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(223, 253);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(17, 12);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "时";
-            // 
-            // txtMin
-            // 
-            this.txtMin.Location = new System.Drawing.Point(245, 251);
-            this.txtMin.Margin = new System.Windows.Forms.Padding(2);
-            this.txtMin.Name = "txtMin";
-            this.txtMin.Size = new System.Drawing.Size(68, 21);
-            this.txtMin.TabIndex = 13;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(323, 253);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(17, 12);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "分";
-            // 
-            // txtSec
-            // 
-            this.txtSec.Location = new System.Drawing.Point(344, 251);
-            this.txtSec.Margin = new System.Windows.Forms.Padding(2);
-            this.txtSec.Name = "txtSec";
-            this.txtSec.Size = new System.Drawing.Size(68, 21);
-            this.txtSec.TabIndex = 15;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(421, 253);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(17, 12);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "秒";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(73, 137);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(65, 12);
-            this.label10.TabIndex = 17;
-            this.label10.Text = "开始日期：";
-            // 
-            // dtpBegDate
-            // 
-            this.dtpBegDate.Location = new System.Drawing.Point(153, 129);
-            this.dtpBegDate.Margin = new System.Windows.Forms.Padding(2);
-            this.dtpBegDate.Name = "dtpBegDate";
-            this.dtpBegDate.Size = new System.Drawing.Size(131, 21);
-            this.dtpBegDate.TabIndex = 18;
-            this.dtpBegDate.Value = new System.DateTime(2019, 8, 21, 0, 0, 0, 0);
-            // 
-            // dtpEndDate
-            // 
-            this.dtpEndDate.Location = new System.Drawing.Point(545, 137);
-            this.dtpEndDate.Margin = new System.Windows.Forms.Padding(2);
-            this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.Size = new System.Drawing.Size(131, 21);
-            this.dtpEndDate.TabIndex = 20;
-            this.dtpEndDate.Value = new System.DateTime(2019, 8, 21, 0, 0, 0, 0);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(481, 139);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(65, 12);
-            this.label11.TabIndex = 19;
-            this.label11.Text = "结束日期：";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(0, 76);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(851, 12);
-            this.label12.TabIndex = 21;
-            this.label12.Text = "---------------------------------------------------------------------------------" +
-    "------------------------------------------------------------";
-            // 
-            // txtMemo
-            // 
-            this.txtMemo.Location = new System.Drawing.Point(133, 345);
-            this.txtMemo.Margin = new System.Windows.Forms.Padding(2);
-            this.txtMemo.Name = "txtMemo";
-            this.txtMemo.Size = new System.Drawing.Size(603, 21);
-            this.txtMemo.TabIndex = 22;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(80, 347);
-            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(41, 12);
-            this.label13.TabIndex = 23;
-            this.label13.Text = "说明：";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(506, 377);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 30);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "确定";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(635, 377);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(110, 30);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "关闭";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(375, 375);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(110, 30);
-            this.button3.TabIndex = 26;
-            this.button3.Text = "生成";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // CbkZd
-            // 
-            this.CbkZd.AutoSize = true;
-            this.CbkZd.Location = new System.Drawing.Point(2, 281);
-            this.CbkZd.Margin = new System.Windows.Forms.Padding(2);
-            this.CbkZd.Name = "CbkZd";
-            this.CbkZd.Size = new System.Drawing.Size(72, 16);
-            this.CbkZd.TabIndex = 27;
-            this.CbkZd.Text = "指定执行";
-            this.CbkZd.UseVisualStyleBackColor = true;
-            this.CbkZd.CheckedChanged += new System.EventHandler(this.CbkZd_CheckedChanged);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(719, 310);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(17, 12);
-            this.label14.TabIndex = 34;
-            this.label14.Text = "秒";
-            // 
-            // sec
-            // 
-            this.sec.Location = new System.Drawing.Point(635, 308);
-            this.sec.Margin = new System.Windows.Forms.Padding(2);
-            this.sec.Name = "sec";
-            this.sec.Size = new System.Drawing.Size(68, 21);
-            this.sec.TabIndex = 33;
-            this.sec.Text = "*";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(613, 310);
-            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(17, 12);
-            this.label15.TabIndex = 32;
-            this.label15.Text = "分";
-            // 
-            // minute
-            // 
-            this.minute.Location = new System.Drawing.Point(535, 308);
-            this.minute.Margin = new System.Windows.Forms.Padding(2);
-            this.minute.Name = "minute";
-            this.minute.Size = new System.Drawing.Size(68, 21);
-            this.minute.TabIndex = 31;
-            this.minute.Text = "*";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(499, 310);
-            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(17, 12);
-            this.label16.TabIndex = 30;
-            this.label16.Text = "时";
-            // 
-            // hour
-            // 
-            this.hour.Location = new System.Drawing.Point(429, 308);
-            this.hour.Margin = new System.Windows.Forms.Padding(2);
-            this.hour.Name = "hour";
-            this.hour.Size = new System.Drawing.Size(68, 21);
-            this.hour.TabIndex = 29;
-            this.hour.Text = "*";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(73, 310);
-            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(65, 12);
-            this.label17.TabIndex = 28;
-            this.label17.Text = "指定时间：";
-            // 
-            // day
-            // 
-            this.day.Location = new System.Drawing.Point(325, 308);
-            this.day.Margin = new System.Windows.Forms.Padding(2);
-            this.day.Name = "day";
-            this.day.Size = new System.Drawing.Size(68, 21);
-            this.day.TabIndex = 39;
-            this.day.Text = "*";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(303, 310);
-            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(17, 12);
-            this.label18.TabIndex = 38;
-            this.label18.Text = "月";
-            // 
-            // month
-            // 
-            this.month.Location = new System.Drawing.Point(225, 308);
-            this.month.Margin = new System.Windows.Forms.Padding(2);
-            this.month.Name = "month";
-            this.month.Size = new System.Drawing.Size(68, 21);
-            this.month.TabIndex = 37;
-            this.month.Text = "*";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(204, 310);
-            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(17, 12);
-            this.label19.TabIndex = 36;
-            this.label19.Text = "年";
-            // 
-            // year
-            // 
-            this.year.Location = new System.Drawing.Point(133, 308);
-            this.year.Margin = new System.Windows.Forms.Padding(2);
-            this.year.Name = "year";
-            this.year.Size = new System.Drawing.Size(68, 21);
-            this.year.TabIndex = 35;
-            this.year.Text = "*";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(395, 310);
-            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(17, 12);
-            this.label20.TabIndex = 40;
-            this.label20.Text = "日";
-            // 
-            // dtpOnceTime
-            // 
-            this.dtpOnceTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpOnceTime.Location = new System.Drawing.Point(325, 37);
-            this.dtpOnceTime.Margin = new System.Windows.Forms.Padding(2);
-            this.dtpOnceTime.Name = "dtpOnceTime";
-            this.dtpOnceTime.Size = new System.Drawing.Size(129, 21);
-            this.dtpOnceTime.TabIndex = 41;
-            this.dtpOnceTime.Value = new System.DateTime(2019, 8, 21, 15, 52, 0, 0);
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.ForeColor = System.Drawing.Color.Red;
-            this.label21.Location = new System.Drawing.Point(8, 96);
-            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(791, 24);
-            this.label21.TabIndex = 42;
-            this.label21.Text = "说明：开始时间与日期的年月日时分秒是分开的，开始时间为6:00:00 结束时间为17:59:59秒 则计算结果为6-18点的0-59分钟的0-59秒每秒执行一次\r" +
-    "\n，若不选则不计入计算。例子：6:00:00-18:00:00则表示6-18点一小时执行一次";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.ForeColor = System.Drawing.Color.Red;
-            this.label22.Location = new System.Drawing.Point(8, 219);
-            this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(746, 32);
-            this.label22.TabIndex = 43;
-            this.label22.Text = "说明：根据规则，某时-某时和时间间隔只可用一种，若时间间隔内填值，则判断为采用时间间隔的方式。时间间隔只限于一天内的间隔\r\n开始时间的时分秒即为采集数据的开始时间" +
-    "，根据填入的间隔时间执行";
-            this.label22.UseCompatibleTextRendering = true;
+            // pcagain
+            // 
+            this.pcagain.Controls.Add(this.groupBox4);
+            this.pcagain.Controls.Add(this.groupBox3);
+            this.pcagain.Controls.Add(this.groupBox2);
+            this.pcagain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pcagain.Location = new System.Drawing.Point(0, 86);
+            this.pcagain.Name = "pcagain";
+            this.pcagain.Size = new System.Drawing.Size(658, 272);
+            this.pcagain.TabIndex = 10;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.xtraTabControl1);
+            this.groupBox4.Controls.Add(this.panelControl3);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox4.Location = new System.Drawing.Point(2, 2);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(654, 118);
+            this.groupBox4.TabIndex = 3;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "频率";
+            // 
+            // radioGroup3
+            // 
+            this.radioGroup3.Location = new System.Drawing.Point(75, 0);
+            this.radioGroup3.Name = "radioGroup3";
+            this.radioGroup3.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.radioGroup3.Properties.Appearance.Options.UseBackColor = true;
+            this.radioGroup3.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.radioGroup3.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "每天"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "每周"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "每月")});
+            this.radioGroup3.Size = new System.Drawing.Size(173, 26);
+            this.radioGroup3.TabIndex = 1;
+            this.radioGroup3.SelectedIndexChanged += new System.EventHandler(this.rgzxlx_SelectedIndexChanged);
+            // 
+            // labelControl8
+            // 
+            this.labelControl8.Location = new System.Drawing.Point(4, 7);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(48, 14);
+            this.labelControl8.TabIndex = 0;
+            this.labelControl8.Text = "执行周期";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.timeEdit3);
+            this.groupBox3.Controls.Add(this.timeEdit2);
+            this.groupBox3.Controls.Add(this.comboBoxEdit1);
+            this.groupBox3.Controls.Add(this.labelControl7);
+            this.groupBox3.Controls.Add(this.spinEdit1);
+            this.groupBox3.Controls.Add(this.labelControl6);
+            this.groupBox3.Controls.Add(this.timeEdit1);
+            this.groupBox3.Controls.Add(this.radioGroup2);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBox3.Location = new System.Drawing.Point(2, 120);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(654, 78);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "每天频率";
+            // 
+            // timeEdit3
+            // 
+            this.timeEdit3.EditValue = new System.DateTime(2020, 10, 24, 15, 0, 0, 0);
+            this.timeEdit3.Location = new System.Drawing.Point(492, 48);
+            this.timeEdit3.Name = "timeEdit3";
+            this.timeEdit3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.timeEdit3.Properties.DisplayFormat.FormatString = "T";
+            this.timeEdit3.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.timeEdit3.Properties.EditFormat.FormatString = "T";
+            this.timeEdit3.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.timeEdit3.Size = new System.Drawing.Size(110, 20);
+            this.timeEdit3.TabIndex = 2;
+            // 
+            // timeEdit2
+            // 
+            this.timeEdit2.EditValue = new System.DateTime(2020, 10, 24, 15, 0, 0, 0);
+            this.timeEdit2.Location = new System.Drawing.Point(320, 48);
+            this.timeEdit2.Name = "timeEdit2";
+            this.timeEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.timeEdit2.Properties.DisplayFormat.FormatString = "T";
+            this.timeEdit2.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.timeEdit2.Properties.EditFormat.FormatString = "T";
+            this.timeEdit2.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.timeEdit2.Size = new System.Drawing.Size(110, 20);
+            this.timeEdit2.TabIndex = 2;
+            // 
+            // comboBoxEdit1
+            // 
+            this.comboBoxEdit1.EditValue = "小时";
+            this.comboBoxEdit1.Location = new System.Drawing.Point(197, 48);
+            this.comboBoxEdit1.Name = "comboBoxEdit1";
+            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit1.Properties.Items.AddRange(new object[] {
+            "小时",
+            "分钟",
+            "秒"});
+            this.comboBoxEdit1.Size = new System.Drawing.Size(49, 20);
+            this.comboBoxEdit1.TabIndex = 4;
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Location = new System.Drawing.Point(441, 50);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(48, 14);
+            this.labelControl7.TabIndex = 0;
+            this.labelControl7.Text = "结束时间";
+            // 
+            // spinEdit1
+            // 
+            this.spinEdit1.EditValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.spinEdit1.Location = new System.Drawing.Point(146, 48);
+            this.spinEdit1.Name = "spinEdit1";
+            this.spinEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spinEdit1.Properties.MaxValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.spinEdit1.Properties.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.spinEdit1.Size = new System.Drawing.Size(47, 20);
+            this.spinEdit1.TabIndex = 3;
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(269, 50);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(48, 14);
+            this.labelControl6.TabIndex = 0;
+            this.labelControl6.Text = "开始时间";
+            // 
+            // timeEdit1
+            // 
+            this.timeEdit1.EditValue = new System.DateTime(2020, 10, 24, 15, 0, 0, 0);
+            this.timeEdit1.Location = new System.Drawing.Point(146, 25);
+            this.timeEdit1.Name = "timeEdit1";
+            this.timeEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.timeEdit1.Properties.DisplayFormat.FormatString = "T";
+            this.timeEdit1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.timeEdit1.Properties.EditFormat.FormatString = "T";
+            this.timeEdit1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.timeEdit1.Size = new System.Drawing.Size(100, 20);
+            this.timeEdit1.TabIndex = 2;
+            // 
+            // radioGroup2
+            // 
+            this.radioGroup2.Location = new System.Drawing.Point(7, 18);
+            this.radioGroup2.Name = "radioGroup2";
+            this.radioGroup2.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.radioGroup2.Properties.Appearance.Options.UseBackColor = true;
+            this.radioGroup2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.radioGroup2.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "执行一次，时间为"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "执行间隔")});
+            this.radioGroup2.Size = new System.Drawing.Size(135, 57);
+            this.radioGroup2.TabIndex = 1;
+            this.radioGroup2.SelectedIndexChanged += new System.EventHandler(this.rgzxlx_SelectedIndexChanged);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.radioGroup1);
+            this.groupBox2.Controls.Add(this.labelControl5);
+            this.groupBox2.Controls.Add(this.dateEdit2);
+            this.groupBox2.Controls.Add(this.dateEdit1);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBox2.Location = new System.Drawing.Point(2, 198);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(654, 72);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "持续时间";
+            // 
+            // radioGroup1
+            // 
+            this.radioGroup1.Location = new System.Drawing.Point(216, 13);
+            this.radioGroup1.Name = "radioGroup1";
+            this.radioGroup1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.radioGroup1.Properties.Appearance.Options.UseBackColor = true;
+            this.radioGroup1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.radioGroup1.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "结束日期"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "无结束日期")});
+            this.radioGroup1.Size = new System.Drawing.Size(101, 61);
+            this.radioGroup1.TabIndex = 1;
+            this.radioGroup1.SelectedIndexChanged += new System.EventHandler(this.rgzxlx_SelectedIndexChanged);
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(7, 23);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(48, 14);
+            this.labelControl5.TabIndex = 0;
+            this.labelControl5.Text = "开始日期";
+            // 
+            // dateEdit2
+            // 
+            this.dateEdit2.EditValue = new System.DateTime(2020, 10, 24, 0, 0, 0, 0);
+            this.dateEdit2.Location = new System.Drawing.Point(320, 20);
+            this.dateEdit2.Name = "dateEdit2";
+            this.dateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit2.Size = new System.Drawing.Size(110, 20);
+            this.dateEdit2.TabIndex = 1;
+            // 
+            // dateEdit1
+            // 
+            this.dateEdit1.EditValue = new System.DateTime(2020, 10, 24, 0, 0, 0, 0);
+            this.dateEdit1.Location = new System.Drawing.Point(73, 20);
+            this.dateEdit1.Name = "dateEdit1";
+            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit1.Size = new System.Drawing.Size(110, 20);
+            this.dateEdit1.TabIndex = 1;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.textBox1);
+            this.groupBox5.Controls.Add(this.labelControl4);
+            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBox5.Location = new System.Drawing.Point(0, 358);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(658, 113);
+            this.groupBox5.TabIndex = 9;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "摘要";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Location = new System.Drawing.Point(75, 22);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.textBox1.Size = new System.Drawing.Size(574, 91);
+            this.textBox1.TabIndex = 1;
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Location = new System.Drawing.Point(9, 21);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(48, 14);
+            this.labelControl4.TabIndex = 0;
+            this.labelControl4.Text = "摘要说明";
+            // 
+            // gbontime
+            // 
+            this.gbontime.Controls.Add(this.teontime);
+            this.gbontime.Controls.Add(this.deontime);
+            this.gbontime.Controls.Add(this.labelControl3);
+            this.gbontime.Controls.Add(this.labelControl2);
+            this.gbontime.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbontime.Location = new System.Drawing.Point(0, 36);
+            this.gbontime.Name = "gbontime";
+            this.gbontime.Size = new System.Drawing.Size(658, 50);
+            this.gbontime.TabIndex = 8;
+            this.gbontime.TabStop = false;
+            this.gbontime.Text = "执行一次";
+            // 
+            // teontime
+            // 
+            this.teontime.EditValue = new System.DateTime(2020, 10, 24, 15, 0, 0, 0);
+            this.teontime.Location = new System.Drawing.Point(272, 20);
+            this.teontime.Name = "teontime";
+            this.teontime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.teontime.Properties.DisplayFormat.FormatString = "T";
+            this.teontime.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.teontime.Properties.EditFormat.FormatString = "T";
+            this.teontime.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.teontime.Size = new System.Drawing.Size(100, 20);
+            this.teontime.TabIndex = 2;
+            // 
+            // deontime
+            // 
+            this.deontime.EditValue = new System.DateTime(2020, 10, 24, 0, 0, 0, 0);
+            this.deontime.Location = new System.Drawing.Point(75, 20);
+            this.deontime.Name = "deontime";
+            this.deontime.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.deontime.Properties.Appearance.Options.UseBackColor = true;
+            this.deontime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deontime.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deontime.Size = new System.Drawing.Size(110, 20);
+            this.deontime.TabIndex = 1;
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Location = new System.Drawing.Point(209, 23);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(48, 14);
+            this.labelControl3.TabIndex = 0;
+            this.labelControl3.Text = "执行时间";
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Location = new System.Drawing.Point(9, 23);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(48, 14);
+            this.labelControl2.TabIndex = 0;
+            this.labelControl2.Text = "执行时间";
+            // 
+            // panelControl2
+            // 
+            this.panelControl2.Controls.Add(this.btnclose);
+            this.panelControl2.Controls.Add(this.btnsave);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelControl2.Location = new System.Drawing.Point(0, 471);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(658, 37);
+            this.panelControl2.TabIndex = 5;
+            // 
+            // btnclose
+            // 
+            this.btnclose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnclose.Location = new System.Drawing.Point(573, 7);
+            this.btnclose.Name = "btnclose";
+            this.btnclose.Size = new System.Drawing.Size(75, 23);
+            this.btnclose.TabIndex = 1;
+            this.btnclose.Text = "关闭";
+            this.btnclose.Click += new System.EventHandler(this.btnclose_Click);
+            // 
+            // btnsave
+            // 
+            this.btnsave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnsave.Location = new System.Drawing.Point(463, 7);
+            this.btnsave.Name = "btnsave";
+            this.btnsave.Size = new System.Drawing.Size(75, 23);
+            this.btnsave.TabIndex = 2;
+            this.btnsave.Text = "保存";
+            this.btnsave.Click += new System.EventHandler(this.btnsave_Click);
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.rgzxlx);
+            this.panelControl1.Controls.Add(this.labelControl1);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(658, 36);
+            this.panelControl1.TabIndex = 0;
+            // 
+            // rgzxlx
+            // 
+            this.rgzxlx.Location = new System.Drawing.Point(75, 6);
+            this.rgzxlx.Name = "rgzxlx";
+            this.rgzxlx.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.rgzxlx.Properties.Appearance.Options.UseBackColor = true;
+            this.rgzxlx.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.rgzxlx.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "重复执行"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "执行一次")});
+            this.rgzxlx.Size = new System.Drawing.Size(235, 26);
+            this.rgzxlx.TabIndex = 1;
+            this.rgzxlx.SelectedIndexChanged += new System.EventHandler(this.rgzxlx_SelectedIndexChanged);
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(9, 10);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(48, 14);
+            this.labelControl1.TabIndex = 0;
+            this.labelControl1.Text = "执行类型";
+            // 
+            // panelControl3
+            // 
+            this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl3.Controls.Add(this.labelControl8);
+            this.panelControl3.Controls.Add(this.radioGroup3);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl3.Location = new System.Drawing.Point(3, 18);
+            this.panelControl3.Name = "panelControl3";
+            this.panelControl3.Size = new System.Drawing.Size(648, 26);
+            this.panelControl3.TabIndex = 2;
+            // 
+            // xtraTabControl1
+            // 
+            this.xtraTabControl1.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.xtraTabControl1.Appearance.Options.UseBackColor = true;
+            this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xtraTabControl1.HeaderLocation = DevExpress.XtraTab.TabHeaderLocation.Right;
+            this.xtraTabControl1.Location = new System.Drawing.Point(3, 44);
+            this.xtraTabControl1.Name = "xtraTabControl1";
+            this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
+            this.xtraTabControl1.ShowTabHeader = DevExpress.Utils.DefaultBoolean.False;
+            this.xtraTabControl1.Size = new System.Drawing.Size(648, 71);
+            this.xtraTabControl1.TabIndex = 3;
+            this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.xtraTabPage1,
+            this.xtraTabPage2,
+            this.xtraTabPage3});
+            // 
+            // xtraTabPage1
+            // 
+            this.xtraTabPage1.Controls.Add(this.spinEdit2);
+            this.xtraTabPage1.Controls.Add(this.labelControl10);
+            this.xtraTabPage1.Controls.Add(this.labelControl9);
+            this.xtraTabPage1.Name = "xtraTabPage1";
+            this.xtraTabPage1.Size = new System.Drawing.Size(618, 65);
+            this.xtraTabPage1.Text = "xtraTabPage1";
+            // 
+            // xtraTabPage2
+            // 
+            this.xtraTabPage2.Controls.Add(this.checkEdit7);
+            this.xtraTabPage2.Controls.Add(this.checkEdit6);
+            this.xtraTabPage2.Controls.Add(this.checkEdit5);
+            this.xtraTabPage2.Controls.Add(this.checkEdit4);
+            this.xtraTabPage2.Controls.Add(this.checkEdit3);
+            this.xtraTabPage2.Controls.Add(this.checkEdit2);
+            this.xtraTabPage2.Controls.Add(this.checkEdit1);
+            this.xtraTabPage2.Controls.Add(this.labelControl12);
+            this.xtraTabPage2.Controls.Add(this.labelControl11);
+            this.xtraTabPage2.Controls.Add(this.spinEdit3);
+            this.xtraTabPage2.Name = "xtraTabPage2";
+            this.xtraTabPage2.Size = new System.Drawing.Size(642, 65);
+            this.xtraTabPage2.Text = "xtraTabPage2";
+            // 
+            // xtraTabPage3
+            // 
+            this.xtraTabPage3.Controls.Add(this.radioGroup4);
+            this.xtraTabPage3.Controls.Add(this.spinEdit5);
+            this.xtraTabPage3.Controls.Add(this.comboBoxEdit2);
+            this.xtraTabPage3.Controls.Add(this.spinEdit4);
+            this.xtraTabPage3.Controls.Add(this.labelControl16);
+            this.xtraTabPage3.Controls.Add(this.labelControl15);
+            this.xtraTabPage3.Controls.Add(this.labelControl14);
+            this.xtraTabPage3.Controls.Add(this.labelControl13);
+            this.xtraTabPage3.Name = "xtraTabPage3";
+            this.xtraTabPage3.Size = new System.Drawing.Size(642, 65);
+            this.xtraTabPage3.Text = "xtraTabPage3";
+            // 
+            // spinEdit2
+            // 
+            this.spinEdit2.EditValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.spinEdit2.Location = new System.Drawing.Point(69, 18);
+            this.spinEdit2.Name = "spinEdit2";
+            this.spinEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spinEdit2.Properties.MaxValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.spinEdit2.Properties.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.spinEdit2.Size = new System.Drawing.Size(47, 20);
+            this.spinEdit2.TabIndex = 3;
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Location = new System.Drawing.Point(3, 20);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(48, 14);
+            this.labelControl9.TabIndex = 0;
+            this.labelControl9.Text = "执行间隔";
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Location = new System.Drawing.Point(119, 20);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(12, 14);
+            this.labelControl10.TabIndex = 0;
+            this.labelControl10.Text = "天";
+            // 
+            // labelControl11
+            // 
+            this.labelControl11.Location = new System.Drawing.Point(3, 17);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(48, 14);
+            this.labelControl11.TabIndex = 0;
+            this.labelControl11.Text = "执行间隔";
+            // 
+            // spinEdit3
+            // 
+            this.spinEdit3.EditValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.spinEdit3.Location = new System.Drawing.Point(69, 14);
+            this.spinEdit3.Name = "spinEdit3";
+            this.spinEdit3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spinEdit3.Properties.MaxValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.spinEdit3.Properties.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.spinEdit3.Size = new System.Drawing.Size(47, 20);
+            this.spinEdit3.TabIndex = 3;
+            // 
+            // labelControl12
+            // 
+            this.labelControl12.Location = new System.Drawing.Point(119, 17);
+            this.labelControl12.Name = "labelControl12";
+            this.labelControl12.Size = new System.Drawing.Size(36, 14);
+            this.labelControl12.TabIndex = 0;
+            this.labelControl12.Text = "周，在";
+            // 
+            // checkEdit1
+            // 
+            this.checkEdit1.Location = new System.Drawing.Point(167, 16);
+            this.checkEdit1.Name = "checkEdit1";
+            this.checkEdit1.Properties.Caption = "星期一";
+            this.checkEdit1.Size = new System.Drawing.Size(60, 15);
+            this.checkEdit1.TabIndex = 4;
+            // 
+            // checkEdit2
+            // 
+            this.checkEdit2.Location = new System.Drawing.Point(233, 16);
+            this.checkEdit2.Name = "checkEdit2";
+            this.checkEdit2.Properties.Caption = "星期二";
+            this.checkEdit2.Size = new System.Drawing.Size(60, 15);
+            this.checkEdit2.TabIndex = 4;
+            // 
+            // checkEdit3
+            // 
+            this.checkEdit3.Location = new System.Drawing.Point(299, 16);
+            this.checkEdit3.Name = "checkEdit3";
+            this.checkEdit3.Properties.Caption = "星期三";
+            this.checkEdit3.Size = new System.Drawing.Size(60, 15);
+            this.checkEdit3.TabIndex = 4;
+            // 
+            // checkEdit4
+            // 
+            this.checkEdit4.Location = new System.Drawing.Point(365, 16);
+            this.checkEdit4.Name = "checkEdit4";
+            this.checkEdit4.Properties.Caption = "星期四";
+            this.checkEdit4.Size = new System.Drawing.Size(60, 15);
+            this.checkEdit4.TabIndex = 4;
+            // 
+            // checkEdit5
+            // 
+            this.checkEdit5.Location = new System.Drawing.Point(431, 16);
+            this.checkEdit5.Name = "checkEdit5";
+            this.checkEdit5.Properties.Caption = "星期五 ";
+            this.checkEdit5.Size = new System.Drawing.Size(60, 15);
+            this.checkEdit5.TabIndex = 4;
+            // 
+            // checkEdit6
+            // 
+            this.checkEdit6.Location = new System.Drawing.Point(497, 16);
+            this.checkEdit6.Name = "checkEdit6";
+            this.checkEdit6.Properties.Caption = "星期六";
+            this.checkEdit6.Size = new System.Drawing.Size(60, 15);
+            this.checkEdit6.TabIndex = 4;
+            // 
+            // checkEdit7
+            // 
+            this.checkEdit7.Location = new System.Drawing.Point(558, 16);
+            this.checkEdit7.Name = "checkEdit7";
+            this.checkEdit7.Properties.Caption = "星期日";
+            this.checkEdit7.Size = new System.Drawing.Size(60, 15);
+            this.checkEdit7.TabIndex = 4;
+            // 
+            // radioGroup4
+            // 
+            this.radioGroup4.Location = new System.Drawing.Point(0, 0);
+            this.radioGroup4.Name = "radioGroup4";
+            this.radioGroup4.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.radioGroup4.Properties.Appearance.Options.UseBackColor = true;
+            this.radioGroup4.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.radioGroup4.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "天"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "在")});
+            this.radioGroup4.Size = new System.Drawing.Size(51, 62);
+            this.radioGroup4.TabIndex = 1;
+            this.radioGroup4.SelectedIndexChanged += new System.EventHandler(this.rgzxlx_SelectedIndexChanged);
+            // 
+            // spinEdit4
+            // 
+            this.spinEdit4.EditValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.spinEdit4.Location = new System.Drawing.Point(91, 8);
+            this.spinEdit4.Name = "spinEdit4";
+            this.spinEdit4.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spinEdit4.Properties.MaxValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.spinEdit4.Properties.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.spinEdit4.Size = new System.Drawing.Size(47, 20);
+            this.spinEdit4.TabIndex = 3;
+            // 
+            // labelControl13
+            // 
+            this.labelControl13.Location = new System.Drawing.Point(74, 10);
+            this.labelControl13.Name = "labelControl13";
+            this.labelControl13.Size = new System.Drawing.Size(12, 14);
+            this.labelControl13.TabIndex = 0;
+            this.labelControl13.Text = "第";
+            // 
+            // labelControl14
+            // 
+            this.labelControl14.Location = new System.Drawing.Point(141, 11);
+            this.labelControl14.Name = "labelControl14";
+            this.labelControl14.Size = new System.Drawing.Size(29, 14);
+            this.labelControl14.TabIndex = 0;
+            this.labelControl14.Text = "天/每";
+            // 
+            // labelControl15
+            // 
+            this.labelControl15.Location = new System.Drawing.Point(156, 12);
+            this.labelControl15.Name = "labelControl15";
+            this.labelControl15.Size = new System.Drawing.Size(0, 14);
+            this.labelControl15.TabIndex = 0;
+            // 
+            // labelControl16
+            // 
+            this.labelControl16.Location = new System.Drawing.Point(222, 10);
+            this.labelControl16.Name = "labelControl16";
+            this.labelControl16.Size = new System.Drawing.Size(12, 14);
+            this.labelControl16.TabIndex = 0;
+            this.labelControl16.Text = "月";
+            // 
+            // spinEdit5
+            // 
+            this.spinEdit5.EditValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.spinEdit5.Location = new System.Drawing.Point(173, 8);
+            this.spinEdit5.Name = "spinEdit5";
+            this.spinEdit5.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spinEdit5.Properties.MaxValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.spinEdit5.Properties.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.spinEdit5.Size = new System.Drawing.Size(47, 20);
+            this.spinEdit5.TabIndex = 3;
+            // 
+            // comboBoxEdit2
+            // 
+            this.comboBoxEdit2.EditValue = "小时";
+            this.comboBoxEdit2.Location = new System.Drawing.Point(74, 36);
+            this.comboBoxEdit2.Name = "comboBoxEdit2";
+            this.comboBoxEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit2.Properties.Items.AddRange(new object[] {
+            "小时",
+            "分钟",
+            "秒"});
+            this.comboBoxEdit2.Size = new System.Drawing.Size(49, 20);
+            this.comboBoxEdit2.TabIndex = 4;
             // 
             // ExecJob
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(850, 411);
+            this.ClientSize = new System.Drawing.Size(658, 508);
             this.ControlBox = false;
-            this.Controls.Add(this.label22);
-            this.Controls.Add(this.label21);
-            this.Controls.Add(this.dtpOnceTime);
-            this.Controls.Add(this.label20);
-            this.Controls.Add(this.day);
-            this.Controls.Add(this.label18);
-            this.Controls.Add(this.month);
-            this.Controls.Add(this.label19);
-            this.Controls.Add(this.year);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.sec);
-            this.Controls.Add(this.label15);
-            this.Controls.Add(this.minute);
-            this.Controls.Add(this.label16);
-            this.Controls.Add(this.hour);
-            this.Controls.Add(this.label17);
-            this.Controls.Add(this.CbkZd);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.txtMemo);
-            this.Controls.Add(this.CbkDaySeq);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.dtpEndDate);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.dtpBegDate);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.txtSec);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.txtMin);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.txtHour);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.dtpEndTime);
-            this.Controls.Add(this.dtpBegTime);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.dtpdata);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.CbkOnce);
+            this.Controls.Add(this.pcagain);
+            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.gbontime);
+            this.Controls.Add(this.panelControl2);
+            this.Controls.Add(this.panelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ExecJob";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "执行计划";
+            this.Load += new System.EventHandler(this.ExecJob_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pcagain)).EndInit();
+            this.pcagain.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroup3.Properties)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.timeEdit3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroup2.Properties)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.gbontime.ResumeLayout(false);
+            this.gbontime.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.teontime.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deontime.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deontime.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
+            this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rgzxlx.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            this.panelControl3.ResumeLayout(false);
+            this.panelControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
+            this.xtraTabControl1.ResumeLayout(false);
+            this.xtraTabPage1.ResumeLayout(false);
+            this.xtraTabPage1.PerformLayout();
+            this.xtraTabPage2.ResumeLayout(false);
+            this.xtraTabPage2.PerformLayout();
+            this.xtraTabPage3.ResumeLayout(false);
+            this.xtraTabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spinEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinEdit3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit4.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit5.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit6.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit7.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroup4.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinEdit4.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinEdit5.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.CheckBox CbkOnce;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dtpdata;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.CheckBox CbkDaySeq;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dtpBegTime;
-        private System.Windows.Forms.DateTimePicker dtpEndTime;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtHour;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtMin;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtSec;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DateTimePicker dtpBegDate;
-        private System.Windows.Forms.DateTimePicker dtpEndDate;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txtMemo;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.CheckBox CbkZd;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox sec;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox minute;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox hour;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox day;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox month;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox year;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.DateTimePicker dtpOnceTime;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.PanelControl panelControl2;
+        private DevExpress.XtraEditors.RadioGroup rgzxlx;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private System.Windows.Forms.GroupBox gbontime;
+        private DevExpress.XtraEditors.TimeEdit teontime;
+        private DevExpress.XtraEditors.DateEdit deontime;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private DevExpress.XtraEditors.PanelControl pcagain;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private DevExpress.XtraEditors.SimpleButton btnclose;
+        private DevExpress.XtraEditors.SimpleButton btnsave;
+        private System.Windows.Forms.TextBox textBox1;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.RadioGroup radioGroup3;
+        private DevExpress.XtraEditors.LabelControl labelControl8;
+        private DevExpress.XtraEditors.TimeEdit timeEdit3;
+        private DevExpress.XtraEditors.TimeEdit timeEdit2;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
+        private DevExpress.XtraEditors.SpinEdit spinEdit1;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.TimeEdit timeEdit1;
+        private DevExpress.XtraEditors.RadioGroup radioGroup2;
+        private DevExpress.XtraEditors.RadioGroup radioGroup1;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.DateEdit dateEdit2;
+        private DevExpress.XtraEditors.DateEdit dateEdit1;
+        private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
+        private DevExpress.XtraEditors.SpinEdit spinEdit2;
+        private DevExpress.XtraEditors.LabelControl labelControl10;
+        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
+        private DevExpress.XtraEditors.CheckEdit checkEdit7;
+        private DevExpress.XtraEditors.CheckEdit checkEdit6;
+        private DevExpress.XtraEditors.CheckEdit checkEdit5;
+        private DevExpress.XtraEditors.CheckEdit checkEdit4;
+        private DevExpress.XtraEditors.CheckEdit checkEdit3;
+        private DevExpress.XtraEditors.CheckEdit checkEdit2;
+        private DevExpress.XtraEditors.CheckEdit checkEdit1;
+        private DevExpress.XtraEditors.LabelControl labelControl12;
+        private DevExpress.XtraEditors.LabelControl labelControl11;
+        private DevExpress.XtraEditors.SpinEdit spinEdit3;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage3;
+        private DevExpress.XtraEditors.RadioGroup radioGroup4;
+        private DevExpress.XtraEditors.SpinEdit spinEdit5;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit2;
+        private DevExpress.XtraEditors.SpinEdit spinEdit4;
+        private DevExpress.XtraEditors.LabelControl labelControl16;
+        private DevExpress.XtraEditors.LabelControl labelControl15;
+        private DevExpress.XtraEditors.LabelControl labelControl14;
+        private DevExpress.XtraEditors.LabelControl labelControl13;
+        private DevExpress.XtraEditors.PanelControl panelControl3;
+
     }
 }

@@ -114,6 +114,7 @@
             this.txtexp.Properties.ReadOnly = true;
             this.txtexp.Size = new System.Drawing.Size(741, 20);
             this.txtexp.TabIndex = 0;
+            this.txtexp.DoubleClick += new System.EventHandler(this.txtexp_DoubleClick);
             // 
             // txturl
             // 
