@@ -32,5 +32,11 @@
     <Setting Name="theme" Type="System.String" Scope="User">
       <Value Profile="(Default)">DevExpress Style</Value>
     </Setting>
+    <Setting Name="isautostart" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="appname" Type="System.String" Scope="User">
+      <Value Profile="(Default)">RIMS数据下载程序</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -29,7 +29,8 @@ namespace Winning.DownLoad.UI
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-
+            this.notifyIcon1.Visible = false;
+            this.Text = Settings.Default.appname;
         }
         private void Init()
         {
@@ -110,8 +111,8 @@ namespace Winning.DownLoad.UI
             if (e.CloseReason == CloseReason.UserClosing)
             {
                 e.Cancel = true;    //取消"关闭窗口"事件
-                this.WindowState = FormWindowState.Minimized;    //使关闭时窗口向右下角缩小的效果
                 this.notifyIcon1.Visible = true;
+                this.WindowState = FormWindowState.Minimized;    //使关闭时窗口向右下角缩小的效果               
                 this.Hide();
                 return;
             }
@@ -479,7 +480,8 @@ namespace Winning.DownLoad.UI
         private void FrmMain_Shown(object sender, EventArgs e)
         {
             defaultLookAndFeel.LookAndFeel.SkinName = Settings.Default.theme;
-            this.Init();
+            this.notifyIcon1.Visible = false;
+            this.Init();           
         }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)

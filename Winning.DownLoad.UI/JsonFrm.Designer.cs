@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JsonFrm));
-            this.pbc = new DevExpress.XtraEditors.MarqueeProgressBarControl();
             this.textBox1 = new System.Windows.Forms.RichTextBox();
             this.popupMenu1 = new DevExpress.XtraBars.PopupMenu();
             this.btnexportjson = new DevExpress.XtraBars.BarButtonItem();
@@ -38,21 +37,10 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            ((System.ComponentModel.ISupportInitialize)(this.pbc.Properties)).BeginInit();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pbc
-            // 
-            this.pbc.EditValue = 0;
-            this.pbc.Location = new System.Drawing.Point(29, 204);
-            this.pbc.Name = "pbc";
-            this.pbc.Properties.MarqueeAnimationSpeed = 50;
-            this.pbc.Properties.ProgressViewStyle = DevExpress.XtraEditors.Controls.ProgressViewStyle.Solid;
-            this.pbc.Properties.ShowTitle = true;
-            this.pbc.Size = new System.Drawing.Size(492, 18);
-            this.pbc.TabIndex = 2;
             // 
             // textBox1
             // 
@@ -120,12 +108,18 @@
             this.barDockControlRight.Location = new System.Drawing.Point(561, 0);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 434);
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.WorkerReportsProgress = true;
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            // 
             // JsonFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(561, 434);
-            this.Controls.Add(this.pbc);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -139,7 +133,6 @@
             this.Text = "原始文本";
             this.Load += new System.EventHandler(this.JsonFrm_Load);
             this.Shown += new System.EventHandler(this.JsonFrm_Shown);
-            ((System.ComponentModel.ISupportInitialize)(this.pbc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             this.ResumeLayout(false);
@@ -149,7 +142,6 @@
         #endregion
 
         private System.Windows.Forms.RichTextBox textBox1;
-        private DevExpress.XtraEditors.MarqueeProgressBarControl pbc;
         private DevExpress.XtraBars.PopupMenu popupMenu1;
         private DevExpress.XtraBars.BarButtonItem btnexportjson;
         private DevExpress.XtraBars.BarManager barManager1;
@@ -157,6 +149,7 @@
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
 
     }
 }

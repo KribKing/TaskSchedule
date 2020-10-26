@@ -146,5 +146,29 @@ namespace Winning.DownLoad.UI.Properties {
                 this["theme"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool isautostart {
+            get {
+                return ((bool)(this["isautostart"]));
+            }
+            set {
+                this["isautostart"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("RIMS数据下载程序")]
+        public string appname {
+            get {
+                return ((string)(this["appname"]));
+            }
+            set {
+                this["appname"] = value;
+            }
+        }
     }
 }

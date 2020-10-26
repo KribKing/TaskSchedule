@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using Winning.DownLoad.Core;
 
@@ -21,68 +22,107 @@ namespace Winning.DownLoad.UI
         }
         public JsonFrm(string xh)
         {
-           
+
             InitializeComponent();
             this.cur_xh = xh;
         }
         private void JsonFrm_Load(object sender, EventArgs e)
         {
-            
-
+            this.backgroundWorker1.RunWorkerAsync();
+            ProcessBarFrm.Instance.ShowDialog();
         }
 
         private void JsonFrm_Shown(object sender, EventArgs e)
         {
-            try
-            {                            
-                //this.pbc.Text = "数据库加载开始，请稍等...";
-                //System.Windows.Forms.Application.DoEvents();
-                //string strsql = "select rawtext from RIMS_JOBHISTORY (nolock) where xh=" + this.cur_xh;
-                //DataTable dt = TSqlHelper.ExecuteDataTableByRims(strsql);
-                //string rawtxt = "";
-                //this.pbc.Text = "字符串解密开始，请稍等...";
-                //System.Windows.Forms.Application.DoEvents();
-                //if (dt != null && dt.Rows.Count > 0)
-                //{
-                //    rawtxt = EncodeHelper.DecodeBase64(dt.Rows[0][0].ToString());
-                //    //this.pbc.Text = "数据库加载结束，请稍等...";
-                //}
-                //this.pbc.Text = "字符串格式化开始，请稍等...";
-                //System.Windows.Forms.Application.DoEvents();
-                //rawtxt = Tools.ConvertJsonString(rawtxt);
-                //this.pbc.Text = "字符串加载开始，请稍等...";
-                //System.Windows.Forms.Application.DoEvents();
-                //this.textBox1.Text = rawtxt;
-                //this.pbc.Visible = false;
-                ////this.progressPanel1.Visible = false;
-                ////System.Windows.Forms.Application.DoEvents();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-        }    
-        private void ShowProgress(string txt)
-        {
-          
+
         }
+
         private void textBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button==MouseButtons.Right)
-            {
-                Point pt = new Point(Cursor.Position.X, Cursor.Position.Y);
-                this.popupMenu1.ShowPopup(pt);
+            if (e.Button == MouseButtons.Right)
+            {           
+                this.popupMenu1.ShowPopup(Cursor.Position);
             }
         }
 
         private void btnexportjson_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter="Json文件(*.json)|*.json";
-            if(sfd.ShowDialog()==DialogResult.OK)
+            sfd.Filter = "Json文件(*.json)|*.json";
+            if (sfd.ShowDialog() == DialogResult.OK)
             {
                 File.WriteAllText(sfd.FileName, this.textBox1.Text);
             }
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            try
+            {
+                BackgroundWorker bgWorker = sender as BackgroundWorker;
+                bgWorker.ReportProgress(0, "1");
+               
+                
+                string strsql = "select rawtext from RIMS_JOBHISTORY (nolock) where xh=" + this.cur_xh;
+                DataTable dt = TSqlHelper.ExecuteDataTableByRims(strsql);
+                string rawtxt = "";
+                bgWorker.ReportProgress(10, "2");
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    rawtxt = EncodeHelper.DecodeBase64(dt.Rows[0][0].ToString());                
+                }
+                bgWorker.ReportProgress(30, "3");
+                rawtxt = Tools.ConvertJsonString(rawtxt);
+                bgWorker.ReportProgress(60, "4");
+                Thread.Sleep(100);
+                this.textBox1.Invoke(new Action<string>(a =>
+                {
+                    this.textBox1.Text = a;
+                }), rawtxt);
+                bgWorker.ReportProgress(99, "5");
+                Thread.Sleep(200);
+                bgWorker.ReportProgress(100, "6");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            if (e.ProgressPercentage >= 0 && e.ProgressPercentage <= 100)
+            {
+                ProcessBarFrm.Instance.ProcessCommand(Winning.DownLoad.Core.ProcessBarFrm.SplashScreenCommand.processvalue, e.ProgressPercentage.ToString());
+                string showtxt = "";
+                if (e.UserState.ToString() == "1")
+                {
+                    showtxt = "数据库加载开始，请稍等...";
+                }
+                else if (e.UserState.ToString() == "2")
+                {
+                    showtxt = "原始数据解密开始，请稍等...";
+                }
+                else if (e.UserState.ToString() == "3")
+                {
+                    showtxt = "解密串格式化开始，请稍等...";
+                }
+                else if (e.UserState.ToString() == "4")
+                {
+                    showtxt = "Json串加载开始，请稍等...";
+                }
+                else if (e.UserState.ToString() == "5")
+                {
+                    showtxt = "加载完毕";
+                }
+                ProcessBarFrm.Instance.ProcessCommand(Winning.DownLoad.Core.ProcessBarFrm.SplashScreenCommand.notify, showtxt);
+                Console.WriteLine(e.ProgressPercentage.ToString()+":"+showtxt);
+            }
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            ProcessBarFrm.Instance.Dispose();
         }
     }
 }

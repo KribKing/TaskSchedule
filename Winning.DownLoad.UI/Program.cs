@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
+using Winning.DownLoad.Core;
+using Winning.DownLoad.UI.Properties;
 
 namespace Winning.DownLoad.UI
 {
@@ -20,8 +22,9 @@ namespace Winning.DownLoad.UI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new MainFrm());
+            Tools.AutoStart(Settings.Default.isautostart, Settings.Default.appname, true);
             bool flag;
-            Mutex mutex = new Mutex(true, "RIMS数据下载程序", out flag);
+            Mutex mutex = new Mutex(true, Settings.Default.appname, out flag);
             if (flag)
             {
                 Application.Run(new FrmMain());

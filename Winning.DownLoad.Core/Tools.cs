@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Win32;
+using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography;
 using System.Text;
+using System.Windows.Forms;
 using System.Xml;
 
 namespace Winning.DownLoad.Core
@@ -583,6 +585,39 @@ namespace Winning.DownLoad.Core
                 formatter.Serialize(objectStream, List);
                 objectStream.Seek(0, SeekOrigin.Begin);
                 return formatter.Deserialize(objectStream) as List<T>;
+            }
+        }
+        /// <summary>  
+        /// 修改程序在注册表中的键值  
+        /// </summary>  
+        /// <param name="isAuto">true:开机启动,false:不开机自启</param> 
+        public static void AutoStart(bool isAuto = true, string appname="定时处理程序",bool showinfo = true)
+        {
+            try
+            {
+                if (isAuto == true)
+                {
+                    //RegistryKey R_local = Registry.CurrentUser;//注册当前用户;
+                    RegistryKey R_local = Registry.LocalMachine;//注册到机器
+                    RegistryKey R_run = R_local.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run");
+                    R_run.SetValue(appname, Application.ExecutablePath);
+                    R_run.Close();
+                    R_local.Close();
+                }
+                else
+                {
+                    //RegistryKey R_local = Registry.CurrentUser;//注册当前用户;
+                    RegistryKey R_local = Registry.LocalMachine;//注册到机器
+                    RegistryKey R_run = R_local.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run");
+                    R_run.DeleteValue(appname, false);
+                    R_run.Close();
+                    R_local.Close();
+                }
+            }
+            catch (Exception)
+            {
+                if (showinfo)
+                    MessageBox.Show("您需要管理员权限修改", "提示");
             }
         }
     }
