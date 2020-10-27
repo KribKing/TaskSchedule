@@ -123,8 +123,7 @@ namespace Winning.DownLoad.Business.WnDataModel
         /// <summary>
         /// 
         /// </summary>
-        public string ts { get; set; }
-        
+        public string ts { get; set; }       
         /// <summary>
         /// 
         /// </summary>
