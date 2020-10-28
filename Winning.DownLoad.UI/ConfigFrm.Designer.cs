@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigFrm));
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -111,7 +112,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtexp.Location = new System.Drawing.Point(82, 35);
             this.txtexp.Name = "txtexp";
-            this.txtexp.Properties.ReadOnly = true;
             this.txtexp.Size = new System.Drawing.Size(741, 20);
             this.txtexp.TabIndex = 0;
             this.txtexp.DoubleClick += new System.EventHandler(this.txtexp_DoubleClick);
@@ -221,6 +221,7 @@
             this.Controls.Add(this.splitContainerControl2);
             this.Controls.Add(this.panelControl3);
             this.Controls.Add(this.panelControl2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ConfigFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "属性";

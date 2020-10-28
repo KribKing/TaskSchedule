@@ -27,7 +27,7 @@ namespace Winning.DownLoad.UI
             this.cur_xh = xh;
         }
         private void JsonFrm_Load(object sender, EventArgs e)
-        {
+        {         
             this.backgroundWorker1.RunWorkerAsync();
             ProcessBarFrm.Instance.ShowDialog();
         }

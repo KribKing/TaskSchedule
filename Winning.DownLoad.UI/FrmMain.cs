@@ -1,7 +1,5 @@
 ﻿using DevExpress.XtraTreeList;
 using DevExpress.XtraTreeList.Nodes;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,9 +26,8 @@ namespace Winning.DownLoad.UI
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
-        {
-            this.notifyIcon1.Visible = false;
-            this.Text = Settings.Default.appname;
+        {          
+                          
         }
         private void Init()
         {
@@ -146,25 +143,22 @@ namespace Winning.DownLoad.UI
                 {
                     try
                     {
-                        JObject jobj = (JObject)JsonConvert.DeserializeObject(text);
-                        if (jobj != null)
+
+                        string strresult = Tools.GetJsonNodeValue(text, "Response|Head|AckCode", "100").ToString();
+                        string strjobid = Tools.GetJsonNodeValue(text, "Response|Head|TranCode", "00").ToString();
+                        string strjobsys = Tools.GetJsonNodeValue(text, "Response|Head|System", "00").ToString();
+                        if (strresult.Contains("100"))
                         {
-                            string strresult = (jobj["Response"]["Head"]["AckCode"] ?? "100").ToString();
-                            string strjobid = (jobj["Response"]["Head"]["TranCode"] ?? "00").ToString();
-                            string strjobsys = (jobj["Response"]["Head"]["System"] ?? "00").ToString();
-                            if (strresult.Contains("100"))
-                            {                              
-                                this.InsertJobHistory(0, strjobid, strjobsys, text);
-                                this.txtmsg.SelectionColor = Color.Yellow;
-                                text = "接口【" + GlobalInstanceManager<JobInfoManager>.Intance.JobInfoDic[strjobid.ToLower()].name + "】执行成功";
-                            }
-                            else
-                            {                                                     
-                                this.InsertJobHistory(1, strjobid, strjobsys, text);
-                                string strmsg = (jobj["Response"]["Head"]["AckMessage"] ?? "异常错误").ToString();
-                                this.txtmsg.SelectionColor = Color.Red;
-                                text = "接口【" + GlobalInstanceManager<JobInfoManager>.Intance.JobInfoDic[strjobid.ToLower()].name + "】执行异常：" + strmsg;
-                            }
+                            this.InsertJobHistory(0, strjobid, strjobsys, text);
+                            this.txtmsg.SelectionColor = Color.Yellow;
+                            text = "接口【" + GlobalInstanceManager<JobInfoManager>.Intance.JobInfoDic[strjobid.ToLower()].name + "】执行成功";
+                        }
+                        else
+                        {
+                            this.InsertJobHistory(1, strjobid, strjobsys, text);
+                            string strmsg = Tools.GetJsonNodeValue(text, "Response|Head|AckMessage","异常错误").ToString();
+                            this.txtmsg.SelectionColor = Color.Red;
+                            text = "接口【" + GlobalInstanceManager<JobInfoManager>.Intance.JobInfoDic[strjobid.ToLower()].name + "】执行异常：" + strmsg;
                         }
                     }
                     catch (Exception ex)
@@ -176,13 +170,11 @@ namespace Winning.DownLoad.UI
                 {
                     try
                     {
-                        JObject jobj = (JObject)JsonConvert.DeserializeObject(text);
-                        if (jobj != null)
-                        {
-                            string strjobid = (jobj["Request"]["Head"]["TranCode"] ?? "00").ToString();                         
-                            this.txtmsg.SelectionColor = Color.Yellow;                           
+                       
+                            string strjobid = Tools.GetJsonNodeValue(text,"Request|Head|TranCode","00").ToString();
+                            this.txtmsg.SelectionColor = Color.Yellow;
                             text = "接口【" + GlobalInstanceManager<JobInfoManager>.Intance.JobInfoDic[strjobid.ToLower()].name + "】执行开始";
-                        }
+                       
                     }
                     catch (Exception ex)
                     {
@@ -199,7 +191,7 @@ namespace Winning.DownLoad.UI
             int retnum = TSqlHelper.ExecuteNonQueryByRims(strsql);
             if (retnum > 0)
             {
-                this.AddLogText("作业【"+GlobalInstanceManager<JobInfoManager>.Intance.JobInfoDic[strjobid.ToLower()].name+"】执行记录插入数据库成功");
+                this.AddLogText("作业【" + GlobalInstanceManager<JobInfoManager>.Intance.JobInfoDic[strjobid.ToLower()].name + "】执行记录插入数据库成功");
             }
             else
             {
@@ -264,11 +256,7 @@ namespace Winning.DownLoad.UI
 
         private void FrmMain_Resize(object sender, EventArgs e)
         {
-            if (this.WindowState == FormWindowState.Minimized)    //最小化到系统托盘
-            {
-                this.notifyIcon1.Visible = true;    //显示托盘图标
-                this.Hide();    //隐藏窗口
-            }
+
         }
 
         private void 退出程序ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -481,7 +469,8 @@ namespace Winning.DownLoad.UI
         {
             defaultLookAndFeel.LookAndFeel.SkinName = Settings.Default.theme;
             this.notifyIcon1.Visible = false;
-            this.Init();           
+            this.Text = Settings.Default.appname;
+            this.Init();
         }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
@@ -501,8 +490,6 @@ namespace Winning.DownLoad.UI
             DataRow dr = this.gridView1.GetDataRow(e.RowHandle);
             if (dr != null)
                 e.Appearance.ForeColor = dr["zxzt"].ToString() == "1" ? Color.Red : Color.Black;
-        }
-
-
+        }   
     }
 }

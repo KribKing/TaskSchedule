@@ -25,22 +25,25 @@ namespace Winning.DownLoad.Business.WnDataJk
                 retInfo = base.PostResponse();
                 if (retInfo.ackflg)
                 {
-                    WnDataHospitalInfoList info = JsonConvert.DeserializeObject<WnDataHospitalInfoList>(retInfo.ackmsg);
-                    if (info != null)
-                    {
-                        if (info.head.result == "success")
-                        {
-                            DataTable dt = Tools.ToDataTable<WnDataHospitalInfo>(info.body);
-                            base.ExcuteDataBase(dt, ref retInfo);
-                        }
-                    }
+
+                    //WnDataHospitalInfoList info = JsonConvert.DeserializeObject<WnDataHospitalInfoList>(retInfo.ackmsg);
+                    //if (info != null)
+                    //{
+                    //    if (info.head.result == "success")
+                    //    {
+                    //DataTable dt = Tools.ToDataTable<WnDataHospitalInfo>(info.body);
+                    string body = Tools.GetJsonNodeValue(retInfo.body, "body", "[]").ToString();
+                    DataTable dt = Tools.JsonToDataTable(body);
+                    //base.ExcuteDataBase(dt, ref retInfo);
+                    //}
+                    //}
                 }
             }
             catch (Exception ex)
-            {             
+            {
                 retInfo.ackcode = "300.1";
                 retInfo.ackmsg = ex.Message;
-                retInfo.ackflg = false;            
+                retInfo.ackflg = false;
             }
             return retInfo;
         }

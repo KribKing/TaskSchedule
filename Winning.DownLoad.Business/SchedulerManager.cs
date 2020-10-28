@@ -23,7 +23,7 @@ namespace Winning.DownLoad.Business
         public void CreatJob(JobInfo info)
         {
             if (info.jlzt == "1")
-                return;       
+                return;
             IJobDetail job = JobBuilder.Create<ParamJob>()
                                       .WithIdentity(info.id, info.system)
                                       .Build();
@@ -38,7 +38,7 @@ namespace Winning.DownLoad.Business
                 ITrigger tr = this.scheduler.GetTrigger(tri);
                 if (tr == null)
                 {
-                    this.scheduler.ScheduleJob(job, trigger);
+                    this.scheduler.ScheduleJob(job, new List<ITrigger>() { trigger }, true);
                 }
 
             }
@@ -62,15 +62,21 @@ namespace Winning.DownLoad.Business
         {
             if (jobInfo == null)
                 return;
-            TriggerKey tri = new TriggerKey(jobInfo.id, jobInfo.system);
-            ITrigger tr = this.scheduler.GetTrigger(tri);
-            if (tr == null)
+            TriggerKey tri = new TriggerKey(jobInfo.id, jobInfo.system);                     
+            if (tri == null)
             {
                 this.CreatJob(jobInfo);
-                tr = this.scheduler.GetTrigger(tri);
             }
-            tr.GetTriggerBuilder().WithCronSchedule(jobInfo.expression);
-            this.scheduler.ResumeTrigger(tri);
+            else
+            {
+                if (true)
+                {
+                    
+                }
+                this.scheduler.ResumeTrigger(tri);
+            }
+          
+           
         }
 
         public void ShutDown()
@@ -93,6 +99,7 @@ namespace Winning.DownLoad.Business
             if (jobInfo.jlzt == "1")
             {
                 this.scheduler.PauseTrigger(tri);
+                //this.scheduler.re
             }
             else
             {
@@ -105,7 +112,6 @@ namespace Winning.DownLoad.Business
     /// </summary>
     public class ParamJob : IJob
     {
-
         public void Execute(IJobExecutionContext context)
         {
             JobKey key = context.JobDetail.Key;

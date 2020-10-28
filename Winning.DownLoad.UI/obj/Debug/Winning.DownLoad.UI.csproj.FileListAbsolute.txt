@@ -96,3 +96,4 @@ D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.RunFrm.r
 D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.UrlFm.resources
 D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.csproj.GenerateResource.Cache
 D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.exe.licenses
+D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.FrmBase.resources

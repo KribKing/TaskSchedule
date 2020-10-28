@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RunFrm));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btncancle = new DevExpress.XtraEditors.SimpleButton();
             this.btnok = new DevExpress.XtraEditors.SimpleButton();
@@ -85,6 +86,7 @@
             this.Controls.Add(this.txtmsg);
             this.Controls.Add(this.panelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RunFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "执行条件";

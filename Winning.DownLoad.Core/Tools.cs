@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -449,7 +450,7 @@ namespace Winning.DownLoad.Core
             Type type = typeof(T);
             foreach (PropertyInfo property in type.GetProperties(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance))
             {
-                row[property.Name] = property.GetValue(entity,null) ?? DBNull.Value;
+                row[property.Name] = property.GetValue(entity, null) ?? DBNull.Value;
             }
             return row;
         }
@@ -591,7 +592,7 @@ namespace Winning.DownLoad.Core
         /// 修改程序在注册表中的键值  
         /// </summary>  
         /// <param name="isAuto">true:开机启动,false:不开机自启</param> 
-        public static void AutoStart(bool isAuto = true, string appname="定时处理程序",bool showinfo = true)
+        public static void AutoStart(bool isAuto = true, string appname = "定时处理程序", bool showinfo = true)
         {
             try
             {
@@ -619,6 +620,85 @@ namespace Winning.DownLoad.Core
                 if (showinfo)
                     MessageBox.Show("您需要管理员权限修改", "提示");
             }
+        }
+        /// <summary>
+        /// 获取Json节点数值
+        /// </summary>
+        /// <param name="json"></param>
+        /// <param name="key"></param>
+        /// <param name="defaultvalue"></param>
+        /// <returns></returns>
+        public static object GetJsonNodeValue(string json, string key, string defaultvalue = "")
+        {
+            string value = "";
+            try
+            {
+                if (key.Contains("|"))
+                {
+                    string[] keys = key.Split('|');
+                    JObject jsonObject = (JObject)JsonConvert.DeserializeObject(json);
+                   
+                    for (int i = 0; i < keys.Length; i++)
+                    {
+                        if (i == keys.Length - 1)
+                        {
+                            value = (jsonObject[keys[i]] ?? defaultvalue).ToString();
+                        }
+                        else
+                        {
+                            jsonObject = (JObject)jsonObject[keys[i]];
+                        }
+                    }
+
+                }
+                else
+                {
+                    JObject jsonObject = (JObject)JsonConvert.DeserializeObject(json);
+                    value = (jsonObject[key]?? defaultvalue).ToString();
+                }
+
+            }
+            catch
+            {
+                throw;
+            }
+
+            return value;
+        }
+
+        public static DataTable JsonToDataTable(string json)
+        {
+            DataTable table = new DataTable();
+            //JsonStr为Json字符串
+            JArray array = JsonConvert.DeserializeObject(json) as JArray;//反序列化为数组
+            if (array.Count > 0)
+            {
+                StringBuilder columns = new StringBuilder();
+
+                JObject objColumns = array[0] as JObject;
+                //构造表头
+                foreach (JToken jkon in objColumns.AsEnumerable<JToken>())
+                {
+                    string name = ((JProperty)(jkon)).Name;
+                    columns.Append(name + ",");
+                    table.Columns.Add(name);
+                }
+                //向表中添加数据
+                for (int i = 0; i < array.Count; i++)
+                {
+                    DataRow row = table.NewRow();
+                    JObject obj = array[i] as JObject;
+                    foreach (JToken jkon in obj.AsEnumerable<JToken>())
+                    {
+
+                        string name = ((JProperty)(jkon)).Name;
+                        string value = ((JProperty)(jkon)).Value.ToString();
+                        row[name] = value;
+                    }
+                    table.Rows.Add(row);
+                }
+            }
+            return table;
         }
     }
 }
