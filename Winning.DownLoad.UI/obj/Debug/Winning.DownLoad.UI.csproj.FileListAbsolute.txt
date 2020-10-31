@@ -85,7 +85,6 @@ D:\康复数据下载程序\Winning.DownLoad.UI.pdb
 E:\Mr.King.Prj\山西大同\Winning.DownLoad.UI\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.JsonFrm.resources
 D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.exe
 D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.pdb
-D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.csprojResolveAssemblyReference.cache
 D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.ConfigFrm.resources
 D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.ExecJob.resources
 D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.FrmMain.resources
@@ -97,3 +96,4 @@ D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.UrlFm.re
 D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.csproj.GenerateResource.Cache
 D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.exe.licenses
 D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.FrmBase.resources
+D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.csprojResolveAssemblyReference.cache

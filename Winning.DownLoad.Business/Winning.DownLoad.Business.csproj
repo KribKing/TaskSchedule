@@ -30,13 +30,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Common.Logging, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\康复数据下载程序\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\康复数据下载程序\Common.Logging.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>D:\THIS5.0_RIMS\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Quartz, Version=2.6.2.0, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Winning.DownLoad.UI\bin\Debug\Quartz.dll</HintPath>
+      <HintPath>..\..\..\康复数据下载程序\Quartz.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -50,42 +58,10 @@
   <ItemGroup>
     <Compile Include="JkInterface.cs" />
     <Compile Include="JobInfoManager.cs" />
-    <Compile Include="RequestMessage.cs" />
-    <Compile Include="ResponseMessage.cs" />
     <Compile Include="RimsInterface.cs" />
     <Compile Include="JkFactoryManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RimsJk\RimsClearHistoryOperator.cs" />
     <Compile Include="SchedulerManager.cs" />
-    <Compile Include="WnDataJk\WnDataBqbmkOperator.cs" />
-    <Compile Include="WnDataJk\WnDataBrlistOperator.cs" />
-    <Compile Include="WnDataJk\WnDataBrzdqkOperator.cs" />
-    <Compile Include="WnDataJk\WnDataHospitalOperator.cs" />
-    <Compile Include="WnDataJk\WnDataKsbqdyOperator.cs" />
-    <Compile Include="WnDataJk\WnDataKsOperator.cs" />
-    <Compile Include="WnDataJk\WnDataLcxmdyOperator.cs" />
-    <Compile Include="WnDataJk\WnDataLcxmOperator.cs" />
-    <Compile Include="WnDataJk\WnDataPatOperator.cs" />
-    <Compile Include="WnDataJk\WnDataSfxmOperator.cs" />
-    <Compile Include="WnDataJk\WnDataXmlistOperator.cs" />
-    <Compile Include="WnDataJk\WnDataZddmkOperator.cs" />
-    <Compile Include="WnDataJk\WnDataZgksbqdyOperator.cs" />
-    <Compile Include="WnDataJk\WnDataZgOperator.cs" />
-    <Compile Include="WnDataModel\WnDataBqInfo.cs" />
-    <Compile Include="WnDataModel\WnDataBrlistInfo.cs" />
-    <Compile Include="WnDataModel\WnDataBrzdqkInfo.cs" />
-    <Compile Include="WnDataModel\WnDataHeader.cs" />
-    <Compile Include="WnDataModel\WnDataHospitalInfo.cs" />
-    <Compile Include="WnDataModel\WnDataKsbqdyInfo.cs" />
-    <Compile Include="WnDataModel\WnDataLcxmdyInfo.cs" />
-    <Compile Include="WnDataModel\WnDataLcxmInfo.cs" />
-    <Compile Include="WnDataModel\WnDataKsInfo.cs" />
-    <Compile Include="WnDataModel\WnDataPatInfo.cs" />
-    <Compile Include="WnDataModel\WnDataSfxmInfo.cs" />
-    <Compile Include="WnDataModel\WnDataXmlistInfo.cs" />
-    <Compile Include="WnDataModel\WnDataZdInfo.cs" />
-    <Compile Include="WnDataModel\WnDataZgInfo.cs" />
-    <Compile Include="WnDataModel\WnDataZgksbqInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Winning.DownLoad.Core\Winning.DownLoad.Core.csproj">
@@ -93,7 +69,6 @@
       <Name>Winning.DownLoad.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -28,20 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.treeList1 = new DevExpress.XtraTreeList.TreeList();
             this.tPatKey = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.imageList1 = new System.Windows.Forms.ImageList();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.btnreset = new DevExpress.XtraEditors.SimpleButton();
+            this.btnaddjob = new DevExpress.XtraEditors.SimpleButton();
             this.btnPause = new DevExpress.XtraEditors.SimpleButton();
             this.btnStart = new DevExpress.XtraEditors.SimpleButton();
             this.btnrefresh = new DevExpress.XtraEditors.SimpleButton();
             this.btnremove = new DevExpress.XtraEditors.SimpleButton();
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -66,9 +67,9 @@
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
-            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu();
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip();
+            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.退出程序ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -177,7 +178,7 @@
             // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.btnreset);
+            this.panelControl1.Controls.Add(this.btnaddjob);
             this.panelControl1.Controls.Add(this.btnPause);
             this.panelControl1.Controls.Add(this.btnStart);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -186,18 +187,18 @@
             this.panelControl1.Size = new System.Drawing.Size(265, 29);
             this.panelControl1.TabIndex = 0;
             // 
-            // btnreset
+            // btnaddjob
             // 
-            this.btnreset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnreset.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.btnreset.Image = ((System.Drawing.Image)(resources.GetObject("btnreset.Image")));
-            this.btnreset.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnreset.Location = new System.Drawing.Point(233, 3);
-            this.btnreset.Name = "btnreset";
-            this.btnreset.Size = new System.Drawing.Size(27, 23);
-            this.btnreset.TabIndex = 0;
-            this.btnreset.ToolTip = "初始化";
-            this.btnreset.Click += new System.EventHandler(this.btnreset_Click);
+            this.btnaddjob.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnaddjob.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.btnaddjob.Image = ((System.Drawing.Image)(resources.GetObject("btnaddjob.Image")));
+            this.btnaddjob.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnaddjob.Location = new System.Drawing.Point(233, 3);
+            this.btnaddjob.Name = "btnaddjob";
+            this.btnaddjob.Size = new System.Drawing.Size(27, 23);
+            this.btnaddjob.TabIndex = 0;
+            this.btnaddjob.ToolTip = "新增作业";
+            this.btnaddjob.Click += new System.EventHandler(this.btnreset_Click);
             // 
             // btnPause
             // 
@@ -593,7 +594,7 @@
         private DevExpress.XtraEditors.SimpleButton btnPause;
         private DevExpress.XtraEditors.SimpleButton btnStart;
         private DevExpress.XtraEditors.SimpleButton btnremove;
-        private DevExpress.XtraEditors.SimpleButton btnreset;
+        private DevExpress.XtraEditors.SimpleButton btnaddjob;
         private DevExpress.XtraEditors.SimpleButton btnrefresh;
         private DevExpress.XtraBars.BarButtonItem btnqyjob;
         private System.Windows.Forms.RichTextBox txtmsg;

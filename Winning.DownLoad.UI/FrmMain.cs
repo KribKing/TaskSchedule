@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Winning.DownLoad.Business;
 using Winning.DownLoad.Core;
@@ -17,8 +18,7 @@ namespace Winning.DownLoad.UI
 {
     public partial class FrmMain : FrmBase
     {
-        private JobInfo Cur_Job;
-        private string cur_excutereq;
+        private JobInfo Cur_Job;       
         public FrmMain()
         {
             InitializeComponent();
@@ -26,8 +26,8 @@ namespace Winning.DownLoad.UI
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
-        {          
-                          
+        {
+
         }
         private void Init()
         {
@@ -64,6 +64,7 @@ namespace Winning.DownLoad.UI
                 }
             }
             this.treeList1.ExpandAll();
+            this.treeList1.Refresh();           
         }
 
         private void LoadTreeCtrl(TreeListNode pnode, string parentkey)
@@ -151,14 +152,14 @@ namespace Winning.DownLoad.UI
                         {
                             this.InsertJobHistory(0, strjobid, strjobsys, text);
                             this.txtmsg.SelectionColor = Color.Yellow;
-                            text = "接口【" + GlobalInstanceManager<JobInfoManager>.Intance.JobInfoDic[strjobid.ToLower()].name + "】执行成功";
+                            text = "接口【" + GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfo(strjobid, strjobsys).name + "】执行成功";
                         }
                         else
                         {
                             this.InsertJobHistory(1, strjobid, strjobsys, text);
-                            string strmsg = Tools.GetJsonNodeValue(text, "Response|Head|AckMessage","异常错误").ToString();
+                            string strmsg = Tools.GetJsonNodeValue(text, "Response|Head|AckMessage", "异常错误").ToString();
                             this.txtmsg.SelectionColor = Color.Red;
-                            text = "接口【" + GlobalInstanceManager<JobInfoManager>.Intance.JobInfoDic[strjobid.ToLower()].name + "】执行异常：" + strmsg;
+                            text = "接口【" + GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfo(strjobid, strjobsys).name + "】执行异常：" + strmsg;
                         }
                     }
                     catch (Exception ex)
@@ -170,11 +171,12 @@ namespace Winning.DownLoad.UI
                 {
                     try
                     {
-                       
-                            string strjobid = Tools.GetJsonNodeValue(text,"Request|Head|TranCode","00").ToString();
-                            this.txtmsg.SelectionColor = Color.Yellow;
-                            text = "接口【" + GlobalInstanceManager<JobInfoManager>.Intance.JobInfoDic[strjobid.ToLower()].name + "】执行开始";
-                       
+
+                        string strjobid = Tools.GetJsonNodeValue(text, "Request|Head|TranCode", "00").ToString();
+                        string strjobsys = Tools.GetJsonNodeValue(text, "Request|Head|System", "00").ToString();
+                        this.txtmsg.SelectionColor = Color.Yellow;
+                        text = "接口【" + GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfo(strjobid, strjobsys).name + "】执行开始";
+
                     }
                     catch (Exception ex)
                     {
@@ -191,11 +193,11 @@ namespace Winning.DownLoad.UI
             int retnum = TSqlHelper.ExecuteNonQueryByRims(strsql);
             if (retnum > 0)
             {
-                this.AddLogText("作业【" + GlobalInstanceManager<JobInfoManager>.Intance.JobInfoDic[strjobid.ToLower()].name + "】执行记录插入数据库成功");
+                this.AddLogText("作业【" + GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfo(strjobid, strjobsys).name + "】执行记录插入数据库成功");
             }
             else
             {
-                this.AddLogText("作业【" + GlobalInstanceManager<JobInfoManager>.Intance.JobInfoDic[strjobid.ToLower()].name + "】执行记录插入数据库失败");
+                this.AddLogText("作业【" + GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfo(strjobid, strjobsys).name + "】执行记录插入数据库失败");
             }
         }
 
@@ -254,11 +256,6 @@ namespace Winning.DownLoad.UI
             this.Focus();
         }
 
-        private void FrmMain_Resize(object sender, EventArgs e)
-        {
-
-        }
-
         private void 退出程序ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("确认退出本程序吗？", "操作提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) != DialogResult.OK)
@@ -291,12 +288,13 @@ namespace Winning.DownLoad.UI
                 JobInfo info = node.Tag as JobInfo;
                 if (info != null)
                 {
-                    using (ConfigFrm frm = new ConfigFrm(info))
+                    using (ConfigFrm frm = new ConfigFrm(info, node))
                     {
                         frm.ShowDialog();
                     }
                 }
             }
+            this.LoadJobInfo();
         }
 
         private void btnrunjob_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -307,7 +305,7 @@ namespace Winning.DownLoad.UI
             JobInfo info = node.Tag as JobInfo;
             if (info == null)
                 return;
-            this.cur_excutereq = "";
+            string cur_excutereq = "";
             using (RunFrm frm = new RunFrm())
             {
                 if (frm.ShowDialog() != DialogResult.OK)
@@ -316,19 +314,12 @@ namespace Winning.DownLoad.UI
                 }
                 else
                 {
-                    this.cur_excutereq = frm.StrConditon;
+                   cur_excutereq = frm.StrConditon;
                 }
             }
-            Thread t = new Thread(new ThreadStart(ExcuteJob));
-            t.Start();
+            this.QuickExcute(info,cur_excutereq);
         }
-        public void ExcuteJob()
-        {
-            string strreq = GetStrJsonHelper.GetReqJson(this.Cur_Job.id, "", this.cur_excutereq);
-            string strret = GlobalInstanceManager<RimsInterface>.Intance.Run(strreq);
-            this.AddLogText(strret);
-        }
-
+      
         private void btnstopjob_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
@@ -376,7 +367,11 @@ namespace Winning.DownLoad.UI
 
         private void btnreset_Click(object sender, EventArgs e)
         {
-            this.Init();
+            using (ConfigFrm  config=new ConfigFrm())
+            {
+                config.ShowDialog();
+            }
+            this.LoadJobInfo();
         }
 
         private void btnrefresh_Click(object sender, EventArgs e)
@@ -439,11 +434,10 @@ namespace Winning.DownLoad.UI
                 JobInfo info = node.Tag as JobInfo;
                 if (info != null)
                 {
-                    ConfigFrm frm = new ConfigFrm(info);
+                    ConfigFrm frm = new ConfigFrm(info,node);
                     frm.Show();
-                    //frm.Dispose();
                 }
-            }
+            }        
         }
 
         private void btnFast_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -454,16 +448,19 @@ namespace Winning.DownLoad.UI
             JobInfo info = node.Tag as JobInfo;
             if (info == null)
                 return;
-            Thread t = new Thread(new ThreadStart(QuickExcute));
-            t.Start();
-
+            string strrequest = GlobalInstanceManager<JobInfoManager>.Intance.GetExcuteCondition(info);
+            this.QuickExcute(info,strrequest);
         }
-        private void QuickExcute()
+
+        private void QuickExcute(JobInfo jobInfo,string request)
         {
-            string strreq = "{\"dbeginDate\":\"" + DateTime.Now.ToString("yyyy-MM-dd") + "\",\"dendDate\":\"" + DateTime.Now.AddDays(+1).ToString("yyyy-MM-dd") + "\"}";
-            strreq = GetStrJsonHelper.GetReqJson(this.Cur_Job.id, "", strreq);
-            string strret = GlobalInstanceManager<RimsInterface>.Intance.Run(strreq);
-            this.AddLogText(strret);
+            Task task = new Task(() =>
+            {
+                request = GetStrJsonHelper.GetReqJson(jobInfo.id, jobInfo.system, "请求访问", request);
+                string strret = GlobalInstanceManager<RimsInterface>.Intance.Run(request);
+                this.AddLogText(strret);
+            });
+            task.Start();
         }
         private void FrmMain_Shown(object sender, EventArgs e)
         {
@@ -490,6 +487,6 @@ namespace Winning.DownLoad.UI
             DataRow dr = this.gridView1.GetDataRow(e.RowHandle);
             if (dr != null)
                 e.Appearance.ForeColor = dr["zxzt"].ToString() == "1" ? Color.Red : Color.Black;
-        }   
+        }
     }
 }

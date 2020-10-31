@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using CronExpressionDescriptor;
 using Quartz;
 namespace Mr.King.CronExGeneration
 {
@@ -129,10 +130,21 @@ namespace Mr.King.CronExGeneration
         }
 
 
-        //public static DateTime GetNextDateTime(string cronExp)
-        //{
-        //    //CronExpression.ValidateExpression
-        //}
+        public static string GetExpressionDescriptor(string cronExp)
+        {
+            try
+            {
+                Options op = new Options() { Verbose = true };
 
+                return ExpressionDescriptor.GetDescription(cronExp, op);
+
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+           
+        }
+       
     }
 }

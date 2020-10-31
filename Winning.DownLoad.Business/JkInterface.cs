@@ -7,24 +7,23 @@ using System.Text;
 using Winning.DownLoad.Core;
 using System.Configuration;
 using System.Data;
+using Quartz;
 
 namespace Winning.DownLoad.Business
 {
     public abstract class JkInterface
     {
         public static DTToken TokenInfo = new DTToken();
-        protected string jkcode;
-        protected string url;
+        protected JobInfo cur_JobInfo;        
         protected string method;
         protected string body;
         public JkInterface()
         {
 
         }
-        public JkInterface(string cur_jkcode, string cur_url, string cur_method, string cur_body)
+        public JkInterface(JobInfo cur_jkkey, string cur_method, string cur_body)
         {
-            jkcode = cur_jkcode;
-            url = cur_url;
+            cur_JobInfo = cur_jkkey;          
             method = cur_method;
             body = cur_body;
         }
@@ -33,7 +32,7 @@ namespace Winning.DownLoad.Business
             ResultInfo info = new ResultInfo();
             try
             {
-                info.ackmsg = GlobalWebRequestHelper.HttpGetRequest(url + method, body, token: TokenInfo.access_token);
+                info.ackmsg = GlobalWebRequestHelper.HttpGetRequest(cur_JobInfo.weburl + method, body, token: TokenInfo.access_token);
                 info.ackflg = true;
             }
             catch (Exception ex)
@@ -47,8 +46,8 @@ namespace Winning.DownLoad.Business
         {
             ResultInfo info = new ResultInfo();
             try
-            {           
-                info.ackmsg =  GlobalWebRequestHelper.HttpPostRequest(url + method, body, token: TokenInfo.access_token);
+            {
+                info.ackmsg = GlobalWebRequestHelper.HttpPostRequest(cur_JobInfo.weburl + method, body, token: TokenInfo.access_token);
                 info.body = info.ackmsg;
                 info.ackflg = true;
             }
@@ -75,7 +74,7 @@ namespace Winning.DownLoad.Business
                 JkInterface.TokenInfo = new DTToken() { success = false };
             }
         }
-        public virtual ResultInfo Run(string jkcode, JObject jobj)
+        public virtual ResultInfo Run(JObject jobj)
         {
             return new ResultInfo() { ackflg = false, ackcode = "100.3", ackmsg = "接口尚未实现" };
         }
@@ -84,21 +83,121 @@ namespace Winning.DownLoad.Business
         {
             throw new NotImplementedException();
         }
-        public virtual void ExcuteDataBase(DataTable dt,ref ResultInfo retInfo)
+        public virtual void ExcuteDataBase(DataTable dt, ref ResultInfo retInfo)
         {
             if (dt != null && dt.Rows.Count > 0)
             {
-                string createtmp = GlobalInstanceManager<JobInfoManager>.Intance.JobInfoDic[jkcode.ToLower()].createtmp;
-                string tmpname = GlobalInstanceManager<JobInfoManager>.Intance.JobInfoDic[jkcode.ToLower()].tmpname;
-                string strsql = GlobalInstanceManager<JobInfoManager>.Intance.JobInfoDic[jkcode.ToLower()].sql;
-                //dt = Tools.DeleteSameRow(dt, "ID");              
-                TSqlHelper.SqlBulkCopyByRims(createtmp, tmpname, dt, strsql,ref retInfo);              
+                string createtmp = this.cur_JobInfo.createtmp;
+                string tmpname = this.cur_JobInfo.tmpname;
+                string strsql = this.cur_JobInfo.sql;
+                TSqlHelper.SqlBulkCopyByRims(createtmp, tmpname, dt, strsql, ref retInfo);
             }
             else
             {
                 retInfo.ackmsg = "接口无返回数据";
                 retInfo.ackflg = true;
             }
+        }
+    }
+    /// <summary>
+    /// Web服务Json接口
+    /// </summary>
+    public class JsonWsJkInterface : JkInterface
+    {
+        public JsonWsJkInterface(JobInfo jkinfo)
+            : base(jkinfo, "", "")
+        {
+
+        }
+        public override ResultInfo Run(JObject jobj)
+        {
+            ResultInfo retInfo = new ResultInfo();
+            try
+            {
+                base.body = jobj.ToString();
+                retInfo = base.PostResponse();
+                if (retInfo.ackflg)
+                {
+                    DataTable dt = Tools.JsonToDataTable(Tools.GetJsonNodeValue(retInfo.body, this.cur_JobInfo.node, "[]").ToString());
+                    base.ExcuteDataBase(dt, ref retInfo);
+                }
+            }
+            catch (Exception ex)
+            {
+                retInfo.ackcode = "300.1";
+                retInfo.ackmsg = ex.Message;
+                retInfo.ackflg = false;
+            }
+            return retInfo;
+        }
+    }
+    /// <summary>
+    /// Web服务Xml接口
+    /// </summary>
+    public class XmlWsJkInterface : JkInterface
+    {
+        public XmlWsJkInterface(JobInfo jkinfo)
+            : base(jkinfo, "", "")
+        {
+
+        }
+        public override ResultInfo Run(JObject jobj)
+        {
+            ResultInfo retInfo = new ResultInfo();
+            try
+            {
+                base.body = jobj.ToString();
+                retInfo = base.PostResponse();
+                if (retInfo.ackflg)
+                {
+                    DataTable dt = Tools.JsonToDataTable(Tools.GetJsonNodeValue(retInfo.body, this.cur_JobInfo.node, "[]").ToString());
+                    base.ExcuteDataBase(dt, ref retInfo);
+                }
+            }
+            catch (Exception ex)
+            {
+                retInfo.ackcode = "300.1";
+                retInfo.ackmsg = ex.Message;
+                retInfo.ackflg = false;
+            }
+            return retInfo;
+        }
+    }
+    /// <summary>
+    /// 数据库操作接口
+    /// </summary>
+    public class DbJkInterface : JkInterface
+    {
+        public DbJkInterface(JobInfo jkinfo)
+            : base(jkinfo, "", "")
+        {
+
+        }
+        public override ResultInfo Run(JObject jobj)
+        {
+            ResultInfo retInfo = new ResultInfo();
+            try
+            {
+                string strsql = this.cur_JobInfo.sql;
+                DataTable dt = TSqlHelper.ExecuteDataTableByRims(strsql);
+                if (dt == null || dt.Rows.Count <= 0)
+                {
+                    retInfo.ackmsg = "无返回数据";
+                    retInfo.ackflg = false;
+                }
+                else
+                {
+                    retInfo.ackflg = dt.Rows[0][0].ToString() == "T";
+                    retInfo.ackmsg = dt.Rows[0][1].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                retInfo.ackcode = "300.1";
+                retInfo.ackmsg = ex.Message;
+                retInfo.ackflg = false;
+            }
+            return retInfo;
         }
     }
 }

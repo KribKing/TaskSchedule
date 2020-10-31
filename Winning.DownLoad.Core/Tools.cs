@@ -344,8 +344,10 @@ namespace Winning.DownLoad.Core
         {
             try
             {
-                ///if (islog == false) return;
-                string path = logpath + DateTime.Now.ToString("yyyyMMdd") + '_' + "HSJK_LOG.txt";
+                if (!Tools.islog)
+                    return;
+                    ///if (islog == false) return;
+                    string path = logpath + DateTime.Now.ToString("yyyyMMdd") + '_' + "HSJK_LOG.txt";
                 if (!(File.Exists(path)))
                 {
                     StreamWriter sw;

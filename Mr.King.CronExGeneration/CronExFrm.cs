@@ -73,7 +73,8 @@ namespace Mr.King.CronExGeneration
 
         private void txtce_EditValueChanged(object sender, EventArgs e)
         {
-            this.txtsummary.Text = GlobalCronExpressionHelper.TranslateToChinese(this.txtce.Text.Trim());
+            //this.txtsummary.Text = GlobalCronExpressionHelper.TranslateToChinese(this.txtce.Text.Trim());
+            this.txtsummary.Text = GlobalCronExpressionHelper.GetExpressionDescriptor(this.txtce.Text.Trim());
         }
 
         private void rgcxsj_SelectedIndexChanged(object sender, EventArgs e)
