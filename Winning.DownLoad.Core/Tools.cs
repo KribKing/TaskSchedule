@@ -654,11 +654,17 @@ namespace Winning.DownLoad.Core
 
                 }
                 else
-                {
+                {                 
                     JObject jsonObject = (JObject)JsonConvert.DeserializeObject(json);
-                    value = (jsonObject[key]?? defaultvalue).ToString();
+                    if (string.IsNullOrEmpty(key))
+                    {
+                        value = jsonObject.ToString();
+                    }
+                    else
+                    {
+                        value = (jsonObject[key] ?? defaultvalue).ToString();
+                    }                  
                 }
-
             }
             catch
             {
@@ -692,7 +698,6 @@ namespace Winning.DownLoad.Core
                     JObject obj = array[i] as JObject;
                     foreach (JToken jkon in obj.AsEnumerable<JToken>())
                     {
-
                         string name = ((JProperty)(jkon)).Name;
                         string value = ((JProperty)(jkon)).Value.ToString();
                         row[name] = value;

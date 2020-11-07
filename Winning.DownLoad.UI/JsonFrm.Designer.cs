@@ -28,35 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JsonFrm));
-            this.textBox1 = new System.Windows.Forms.RichTextBox();
-            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu();
+            this.txtjson = new System.Windows.Forms.RichTextBox();
+            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
             this.btnexportjson = new DevExpress.XtraBars.BarButtonItem();
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.btnexportxml = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtjson
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(0, 0);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(561, 434);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "";
-            this.textBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textBox1_MouseDown);
+            this.txtjson.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtjson.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtjson.Location = new System.Drawing.Point(0, 0);
+            this.txtjson.Name = "txtjson";
+            this.txtjson.Size = new System.Drawing.Size(561, 434);
+            this.txtjson.TabIndex = 1;
+            this.txtjson.Text = "";
+            this.txtjson.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textBox1_MouseDown);
             // 
             // popupMenu1
             // 
             this.popupMenu1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnexportjson)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnexportjson),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnexportxml)});
             this.popupMenu1.Manager = this.barManager1;
             this.popupMenu1.Name = "popupMenu1";
             // 
@@ -77,8 +80,9 @@
             this.barManager1.DockControls.Add(this.barDockControlRight);
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.btnexportjson});
-            this.barManager1.MaxItemId = 1;
+            this.btnexportjson,
+            this.btnexportxml});
+            this.barManager1.MaxItemId = 2;
             // 
             // barDockControlTop
             // 
@@ -115,12 +119,21 @@
             this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
             this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
             // 
+            // btnexportxml
+            // 
+            this.btnexportxml.Caption = "导出xml表结构";
+            this.btnexportxml.Glyph = ((System.Drawing.Image)(resources.GetObject("btnexportxml.Glyph")));
+            this.btnexportxml.Id = 1;
+            this.btnexportxml.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnexportxml.LargeGlyph")));
+            this.btnexportxml.Name = "btnexportxml";
+            this.btnexportxml.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnexportxml_ItemClick);
+            // 
             // JsonFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(561, 434);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtjson);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
@@ -142,7 +155,7 @@
 
         #endregion
 
-        private System.Windows.Forms.RichTextBox textBox1;
+        private System.Windows.Forms.RichTextBox txtjson;
         private DevExpress.XtraBars.PopupMenu popupMenu1;
         private DevExpress.XtraBars.BarButtonItem btnexportjson;
         private DevExpress.XtraBars.BarManager barManager1;
@@ -151,6 +164,7 @@
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private DevExpress.XtraBars.BarButtonItem btnexportxml;
 
     }
 }

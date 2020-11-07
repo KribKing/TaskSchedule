@@ -147,7 +147,7 @@ namespace Winning.DownLoad.UI
 
                         string strresult = Tools.GetJsonNodeValue(text, "Response|Head|AckCode", "100").ToString();
                         string strjobid = Tools.GetJsonNodeValue(text, "Response|Head|TranCode", "00").ToString();
-                        string strjobsys = Tools.GetJsonNodeValue(text, "Response|Head|System", "00").ToString();
+                        string strjobsys = Tools.GetJsonNodeValue(text, "Response|Head|TranSys", "00").ToString();
                         if (strresult.Contains("100"))
                         {
                             this.InsertJobHistory(0, strjobid, strjobsys, text);
@@ -173,7 +173,7 @@ namespace Winning.DownLoad.UI
                     {
 
                         string strjobid = Tools.GetJsonNodeValue(text, "Request|Head|TranCode", "00").ToString();
-                        string strjobsys = Tools.GetJsonNodeValue(text, "Request|Head|System", "00").ToString();
+                        string strjobsys = Tools.GetJsonNodeValue(text, "Request|Head|TranSys", "00").ToString();
                         this.txtmsg.SelectionColor = Color.Yellow;
                         text = "接口【" + GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfo(strjobid, strjobsys).name + "】执行开始";
 
@@ -475,7 +475,8 @@ namespace Winning.DownLoad.UI
             DataRow dr = this.gridView1.GetFocusedDataRow();
             if (dr != null)
             {
-                using (JsonFrm frm = new JsonFrm(dr["xh"].ToString()))
+                JobInfo cur_Job = this.treeList1.FocusedNode.Tag as JobInfo;
+                using (JsonFrm frm = new JsonFrm(cur_Job,dr["xh"].ToString()))
                 {
                     frm.ShowDialog();
                 }

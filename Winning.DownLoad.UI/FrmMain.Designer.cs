@@ -434,7 +434,7 @@
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(826, 376);
             this.groupControl1.TabIndex = 12;
-            this.groupControl1.Text = "作业记录";
+            this.groupControl1.Text = "作业监测";
             // 
             // panelControl2
             // 

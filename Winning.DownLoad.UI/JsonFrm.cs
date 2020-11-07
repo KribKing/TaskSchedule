@@ -9,25 +9,28 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using System.Xml;
+using Winning.DownLoad.Business;
 using Winning.DownLoad.Core;
 
 namespace Winning.DownLoad.UI
 {
     public partial class JsonFrm : FrmBase
     {
+        private JobInfo cur_jobinfo;
         private string cur_xh = "";
         public JsonFrm()
         {
             InitializeComponent();
         }
-        public JsonFrm(string xh)
+        public JsonFrm(JobInfo jobInfo,string xh)
         {
-
             InitializeComponent();
             this.cur_xh = xh;
+            this.cur_jobinfo = jobInfo;
         }
         private void JsonFrm_Load(object sender, EventArgs e)
-        {         
+        {
             this.backgroundWorker1.RunWorkerAsync();
             ProcessBarFrm.Instance.ShowDialog();
         }
@@ -40,7 +43,7 @@ namespace Winning.DownLoad.UI
         private void textBox1_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
-            {           
+            {
                 this.popupMenu1.ShowPopup(Cursor.Position);
             }
         }
@@ -51,7 +54,7 @@ namespace Winning.DownLoad.UI
             sfd.Filter = "Json文件(*.json)|*.json";
             if (sfd.ShowDialog() == DialogResult.OK)
             {
-                File.WriteAllText(sfd.FileName, this.textBox1.Text);
+                File.WriteAllText(sfd.FileName, this.txtjson.Text);
             }
         }
 
@@ -61,23 +64,23 @@ namespace Winning.DownLoad.UI
             {
                 BackgroundWorker bgWorker = sender as BackgroundWorker;
                 bgWorker.ReportProgress(0, "1");
-               
-                
+
+
                 string strsql = "select rawtext from RIMS_JOBHISTORY (nolock) where xh=" + this.cur_xh;
                 DataTable dt = TSqlHelper.ExecuteDataTableByRims(strsql);
                 string rawtxt = "";
                 bgWorker.ReportProgress(10, "2");
                 if (dt != null && dt.Rows.Count > 0)
                 {
-                    rawtxt = EncodeHelper.DecodeBase64(dt.Rows[0][0].ToString());                
+                    rawtxt = EncodeHelper.DecodeBase64(dt.Rows[0][0].ToString());
                 }
                 bgWorker.ReportProgress(30, "3");
                 rawtxt = Tools.ConvertJsonString(rawtxt);
                 bgWorker.ReportProgress(60, "4");
                 Thread.Sleep(100);
-                this.textBox1.Invoke(new Action<string>(a =>
+                this.txtjson.Invoke(new Action<string>(a =>
                 {
-                    this.textBox1.Text = a;
+                    this.txtjson.Text = a;
                 }), rawtxt);
                 bgWorker.ReportProgress(99, "5");
                 Thread.Sleep(200);
@@ -116,13 +119,30 @@ namespace Winning.DownLoad.UI
                     showtxt = "加载完毕";
                 }
                 ProcessBarFrm.Instance.ProcessCommand(Winning.DownLoad.Core.ProcessBarFrm.SplashScreenCommand.notify, showtxt);
-                Console.WriteLine(e.ProgressPercentage.ToString()+":"+showtxt);
+                Console.WriteLine(e.ProgressPercentage.ToString() + ":" + showtxt);
             }
         }
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             ProcessBarFrm.Instance.Dispose();
+        }
+
+        private void btnexportxml_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                DataTable dt = Tools.JsonToDataTable(Tools.GetJsonNodeValue(this.txtjson.Text.Trim(), this.cur_jobinfo.node, "[]").ToString());
+                DataSet ds = new DataSet();
+                ds.Tables.Add(dt);
+                //ds.WriteXmlSchema(,);
+             
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("导出发生异常：" + ex.Message);
+            }
+
         }
     }
 }
