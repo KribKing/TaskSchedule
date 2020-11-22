@@ -25,70 +25,8 @@ namespace Winning.DownLoad.UI.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:8086/api/rims")]
-        public string weburl {
-            get {
-                return ((string)(this["weburl"]));
-            }
-            set {
-                this["weburl"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("fKti04vHK0LqBv2mqFCEnj+LbEBG2haG0+Kfe/xTdTTl2xM2IBQWg9z1p+q2UGYCFOz8LDdMTaS0x/tBU" +
-            "/Fo62TNX6vWnl+q2NuCWO5pwryifsyWvJDEEmC6rqshDE07BbvxjX+23mZDcfvbX5QjUw==")]
-        public string getPatEx {
-            get {
-                return ((string)(this["getPatEx"]));
-            }
-            set {
-                this["getPatEx"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("fKti04vHK0LqBv2mqFCEnj+LbEBG2haG0+Kfe/xTdTTl2xM2IBQWg9z1p+q2UGYCFOz8LDdMTaS0x/tBU" +
-            "/Fo68JTcKkGuFBsnisn7i20sKr8Na2vXpRs3GohL6E3TeVfLQ0uW9WToOke5jA8a1uAUtf8Pw2iUgl4")]
-        public string getJzPatEx {
-            get {
-                return ((string)(this["getJzPatEx"]));
-            }
-            set {
-                this["getJzPatEx"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0/30 * * * * ? *")]
-        public string getJzXmEx {
-            get {
-                return ((string)(this["getJzXmEx"]));
-            }
-            set {
-                this["getJzXmEx"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0/30 * * * * ? *")]
-        public string getJzZdEx {
-            get {
-                return ((string)(this["getJzZdEx"]));
-            }
-            set {
-                this["getJzZdEx"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("fKti04vHK0LqBv2mqFCEnof3GLVr7Gciwne2+UINEPx7EVJAs4Gfbl8gsOroAHlcQqMKcxhIlcqT3O3+G" +
-            "9yiNcj7TMdAjz43HZfSGixx3jGr9G+5n9M0itwaNit1Ah0kJh6RdWhBULGUk0rM/brJXQ==")]
+        [global::System.Configuration.DefaultSettingValueAttribute("fKti04vHK0LqBv2mqFCEnrsRvxJV1KvBDftb+RXaVfXs1Wkxucgyenh04GTEj9BJdi09jseWyAfySsvMP" +
+            "gFemrmIewuiikjTRwzA6+r5vg7GaZettCFCOtyXnzcVPf6zMyCUgv0WkYoz1O+EDiz+IA==")]
         public string contr_rims {
             get {
                 return ((string)(this["contr_rims"]));
@@ -100,8 +38,8 @@ namespace Winning.DownLoad.UI.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("fKti04vHK0LqBv2mqFCEnof3GLVr7Gciwne2+UINEPx7EVJAs4Gfbl8gsOroAHlcQqMKcxhIlcqT3O3+G" +
-            "9yiNcj7TMdAjz43HZfSGixx3jGr9G+5n9M0itwaNit1Ah0kJh6RdWhBULGUk0rM/brJXQ==")]
+        [global::System.Configuration.DefaultSettingValueAttribute("fKti04vHK0LqBv2mqFCEnrsRvxJV1KvBDftb+RXaVfXs1Wkxucgyenh04GTEj9BJdi09jseWyAfySsvMP" +
+            "gFemrmIewuiikjTRwzA6+r5vg7GaZettCFCOtyXnzcVPf6zMyCUgv0WkYoz1O+EDiz+IA==")]
         public string contr_common {
             get {
                 return ((string)(this["contr_common"]));
@@ -168,6 +106,18 @@ namespace Winning.DownLoad.UI.Properties {
             }
             set {
                 this["appname"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("sqlserver")]
+        public string dbstyle {
+            get {
+                return ((string)(this["dbstyle"]));
+            }
+            set {
+                this["dbstyle"] = value;
             }
         }
     }

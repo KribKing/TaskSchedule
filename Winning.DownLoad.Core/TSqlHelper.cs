@@ -119,16 +119,16 @@ namespace Winning.DownLoad.Core
 
             return new { Sql = sql, Fields = fieldNames };
         }
-        public static ResultInfo SqlBulkCopyByRims(string createtmp, string tmpname, DataTable table, string strSql,ref ResultInfo retInfo)
+        public static ResultInfo SqlBulkCopyByRims(string createtmp, string tmpname, DataTable table, string strSql, ref ResultInfo retInfo)
         {
             return SqlBulkCopy(contr_rims, createtmp, tmpname, strSql, table, ref retInfo);
         }
         public static ResultInfo SqlBulkCopyByComm(string createtmp, string tmpname, DataTable table, string strSql, ref ResultInfo retInfo)
         {
-            return SqlBulkCopy(contr_common, createtmp, tmpname, strSql, table,ref retInfo);
+            return SqlBulkCopy(contr_common, createtmp, tmpname, strSql, table, ref retInfo);
         }
         public static ResultInfo SqlBulkCopy(string connectionString, string creatTmp, string tmpname, string strSql, DataTable table, ref ResultInfo retInfo)
-        {       
+        {
             bool isSucc = false;
             //var tmpTableName = "tmp_" + tableName;
             try
@@ -145,7 +145,7 @@ namespace Winning.DownLoad.Core
                 {
                     strtmpsql = "truncate table " + tmpname;
                 }
-                ExecuteNonQuery(connectionString, strtmpsql);
+                //ExecuteNonQuery(connectionString, strtmpsql);
                 #endregion
                 //LogHandler("新建临时表"+ tmpTableName+ "成功....");
 
@@ -155,9 +155,11 @@ namespace Winning.DownLoad.Core
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlTransaction tran = conn.BeginTransaction();//开启事务
+                    SqlCommand cmd = conn.CreateCommand();
+                    cmd.CommandText = strtmpsql;
+                    cmd.ExecuteNonQuery();
                     //在插入数据的同时检查约束，如果发生错误调用sqlbulkTransaction事务
-                    SqlBulkCopy bulkCopy = new SqlBulkCopy(conn, SqlBulkCopyOptions.CheckConstraints, tran);
+                    SqlBulkCopy bulkCopy = new SqlBulkCopy(conn);
                     bulkCopy.DestinationTableName = tmpname;//代表要插入数据的表名
                     foreach (DataColumn dc in table.Columns)  //传入上述table
                     {
@@ -165,66 +167,46 @@ namespace Winning.DownLoad.Core
                     }
                     try
                     {
-                        bulkCopy.WriteToServer(table);
-                        tran.Commit();
-                        isSucc = true;
+                        bulkCopy.WriteToServer(table);                     
                     }
                     catch (Exception ex)
                     {
-
-                        tran.Rollback();
                         retInfo.ackcode = "300.2";
                         retInfo.ackflg = false;
-                        retInfo.ackmsg = "histoTmp" + ex.Message;
+                        retInfo.ackmsg = "批量导入临时表发生异常：" + ex.Message;
                         return retInfo;
                     }
                     finally
                     {
                         bulkCopy.Close();
-                        conn.Close();
-                    }
-                    if (!isSucc)
+                    }                 
+                    SqlTransaction tran = conn.BeginTransaction();//开启事务                
+                    try
                     {
+                        cmd.Transaction = tran;
+                        cmd.CommandText = strSql;                
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception ee)
+                    {
+                        tran.Rollback();
                         retInfo.ackcode = "300.2";
                         retInfo.ackflg = false;
-                        retInfo.ackmsg = "Tmp失败{" + tmpname + "}";
+                        retInfo.ackmsg = "批量导入发生异常：" + ee.Message;
                         return retInfo;
                     }
-
-                    //LogHandler("histoTmp" + tmpTableName + "成功....");
-
-                }
-                #endregion
-
-                #region 3.将临时表数据，批量插入到正式表
-
-                // var fieldStr = string.Join(",", filedObj.Fields);
-                var sqlList = new List<string>();
-             
-                sqlList.Add(strSql);
-                string strmsg = "";
-                isSucc = ExecuteSqlTran(connectionString, sqlList,out strmsg) > 0;
-                if (!isSucc)
-                {
-                    retInfo.ackcode = "300.2";
-                    retInfo.ackflg = false;
-                    retInfo.ackmsg = "TmpToMiddle失败{" + tmpname + "}--{"+strmsg+"}";
-                    //throw new Exception("TmpToMiddle失败{" + tableName + "}");
-                }
-                else
-                {
                     retInfo.ackcode = "100.1";
                     retInfo.ackflg = true;
                     retInfo.ackmsg = "数据库操作成功";
+                    tran.Commit();                  
                 }
-                #endregion
+                #endregion         
             }
             catch (Exception e)
             {
                 retInfo.ackcode = "300.2";
                 retInfo.ackflg = false;
-                retInfo.ackmsg = e.Message;
-                //LogHandler(e.Message);
+                retInfo.ackmsg = e.Message;           
             }
             finally
             {
@@ -245,7 +227,8 @@ namespace Winning.DownLoad.Core
         //    return dt;
 
         //}
-        public static int ExecuteSqlTran(string connectionStr, List<SqlExeInfo> SQLStringList,out string msg)
+
+        public static int ExecuteSqlTran(string connectionStr, List<SqlExeInfo> SQLStringList, out string msg)
         {
             using (SqlConnection conn = new SqlConnection(connectionStr))
             {
@@ -296,14 +279,14 @@ namespace Winning.DownLoad.Core
         }
 
 
-        public static int ExecuteSqlTran(string connectionStr, List<string> SQLStringList,out string msg)
+        public static int ExecuteSqlTran(string connectionStr, List<string> SQLStringList, out string msg)
         {
             var infos = new List<SqlExeInfo>();
             for (var i = 0; i < SQLStringList.Count; i++)
             {
                 infos.Add(new SqlExeInfo() { ExeSql = SQLStringList[i] });
             }
-            return ExecuteSqlTran(connectionStr, infos,out msg);
+            return ExecuteSqlTran(connectionStr, infos, out msg);
         }
 
         #endregion

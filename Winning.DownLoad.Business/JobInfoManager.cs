@@ -18,7 +18,7 @@ namespace Winning.DownLoad.Business
         public void ReInit()
         {
             JobInfoDic.Clear();
-            string strsql = "select * from RIMS_COM_SQL ";
+            string strsql = "select * from CronJob ";
             DataTable dt = TSqlHelper.ExecuteDataTableByRims(strsql);
             List<JobInfo> JobInfoList = Tools.ToDataList<JobInfo>(dt);
 
@@ -27,27 +27,29 @@ namespace Winning.DownLoad.Business
                 if (!string.IsNullOrEmpty(item.id) && !string.IsNullOrEmpty(item.system))
                 {
 
-                  if(!IsExists(item.id,item.system)){
+                    if (!IsExists(item.id, item.system))
+                    {
                         JobKey key = new JobKey(item.id, item.system);
                         item.createtmp = EncodeHelper.DecodeBase64(item.createtmp);
                         item.sql = EncodeHelper.DecodeBase64(item.sql);
+                        item.xmlschema = EncodeHelper.DecodeBase64(item.xmlschema);
                         item.CreatJob();
                         this.JobInfoDic.Add(key, item);
-                }
+                    }
                 }
             }
         }
-        public bool IsExists(string id,string system)
+        public bool IsExists(string id, string system)
         {
-              var lkey = JobInfoDic.Keys.Where(a => { return a.Name == id && a.Group == system; });
-              if (lkey.Count() > 0)
-              {
-                  return true;
-              }
-              else
-              {
-                  return false;
-              }
+            var lkey = JobInfoDic.Keys.Where(a => { return a.Name == id && a.Group == system; });
+            if (lkey.Count() > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         public bool AddJobInfo(JobInfo jobInfo)
         {
@@ -64,7 +66,7 @@ namespace Winning.DownLoad.Business
             {
                 return false;
             }
-           
+
         }
         public void SaveJobInfo()
         {
@@ -73,38 +75,16 @@ namespace Winning.DownLoad.Business
             {
                 item.createtmp = EncodeHelper.EncodeBase64(item.createtmp);
                 item.sql = EncodeHelper.EncodeBase64(item.sql);
+                item.xmlschema = EncodeHelper.EncodeBase64(item.xmlschema);
             }
-            DataTable dt = Tools.ToDataTable<JobInfo>(list);
-            string strsql = "update a set a.expression=b.expression,a.tmpname=b.tmpname,a.createtmp=b.createtmp,a.sql=b.sql,a.weburl=b.weburl,a.jlzt=b.jlzt "
-                         + " from RIMS_COM_SQL a(nolock) "
-                         + " inner join RIMS_COM_SQLCOPY b(nolock) on a.id=b.id and a.system=b.system  drop table RIMS_COM_SQLCOPY";
-
+            DataTable dt = Tools.ToDataTable<JobInfo>(list);         
             ResultInfo retInfo = new ResultInfo();
-            TSqlHelper.SqlBulkCopyByRims(@"IF NOT EXISTS(SELECT 1 FROM sysobjects WHERE name='RIMS_COM_SQLCOPY')
-                                                                BEGIN
-	                                                                CREATE TABLE RIMS_COM_SQLCOPY
-	                                                                (
-	                                                                    id VARCHAR(32) PRIMARY KEY NOT NULL ,
-	                                                                    name VARCHAR(1024), 
-	                                                                    system VARCHAR(32), 
-	                                                                    sysname VARCHAR(1024),
-	                                                                    memo VARCHAR(1024), 
-	                                                                    oper_date DATETIME,
-	                                                                    sql VARCHAR(max),
-	                                                                    weburl VARCHAR(1024),
-	                                                                    createtmp VARCHAR(max),
-	                                                                    tmpname VARCHAR(256),
-	                                                                    expression VARCHAR(max),
-	                                                                    jlzt SMALLINT 
-	                                                                )
-                                                                END 
-                                                                ELSE 
-                                                                BEGIN 
-                                                                    TRUNCATE TABLE RIMS_COM_SQLCOPY
-                                                                END ", "RIMS_COM_SQLCOPY", dt, strsql, ref retInfo);
+            JobInfo adminjob=GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfo("Admin00","Admin");
+            TSqlHelper.SqlBulkCopyByRims(adminjob.createtmp, adminjob.tmpname, dt, adminjob.sql, ref retInfo);
             if (!retInfo.ackcode.Contains("100"))
             {
                 //MessageBox.Show(retInfo.ackmsg);
+                GlobalInstanceManager<SchedulerManager>.Intance.cur_job_OnScheduleLog(string.Format("作业保存发生异常，原因：" + retInfo.ackmsg));
             }
         }
         public JobInfo GetJobInfo(string id, string system)
@@ -124,37 +104,18 @@ namespace Winning.DownLoad.Business
         {
             return this.GetJobInfo(key.Name, key.Group);
         }
-       
+
         public string GetExcuteCondition(JobKey jobKey)
         {
-            string strsql = "exec usp_rims_jk_getjobzxtj @id='" + jobKey.Name + "',@system='"+jobKey.Group+"'";
-            DataTable dt = TSqlHelper.ExecuteDataTableByRims(strsql);
-            if (dt==null||dt.Rows.Count<=0)
-            {
-                return "";
-            }
-            else
-            {
-                return dt.Rows[0][0].ToString();
-            }
-            
+            return this.GetExcuteCondition(jobKey.Name, jobKey.Group);
         }
         public string GetExcuteCondition(JobInfo jobInfo)
         {
-            string strsql = "exec usp_rims_jk_getjobzxtj @id='" + jobInfo.id + "',@system='" + jobInfo.system + "'";
-            DataTable dt = TSqlHelper.ExecuteDataTableByRims(strsql);
-            if (dt == null || dt.Rows.Count <= 0)
-            {
-                return "";
-            }
-            else
-            {
-                return dt.Rows[0][0].ToString();
-            }
+            return this.GetExcuteCondition(jobInfo.id, jobInfo.system);
         }
-        public string GetExcuteCondition(string id,string system)
+        public string GetExcuteCondition(string id, string system)
         {
-            string strsql = "exec usp_rims_jk_getjobzxtj @id='" + id + "',@system='" + system + "'";
+            string strsql = "exec usp_jk_getjobzxtj @id='" + id + "',@system='" + system + "'";
             DataTable dt = TSqlHelper.ExecuteDataTableByRims(strsql);
             if (dt == null || dt.Rows.Count <= 0)
             {
@@ -295,5 +256,7 @@ namespace Winning.DownLoad.Business
         {
             GlobalInstanceManager<SchedulerManager>.Intance.RefreshJlzt(this);
         }
+
+        public string xmlschema { get; set; }
     }
 }

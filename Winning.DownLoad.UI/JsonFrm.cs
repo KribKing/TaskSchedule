@@ -132,9 +132,23 @@ namespace Winning.DownLoad.UI
         {
             try
             {
-                DataTable dt = Tools.JsonToDataTable(Tools.GetJsonNodeValue(this.txtjson.Text.Trim(), this.cur_jobinfo.node, "[]").ToString());
-                DataSet ds = new DataSet();
-                ds.Tables.Add(dt);
+                if (this.cur_jobinfo.nodelx==0)
+                {
+                    string json = Tools.GetJsonNodeValue(this.txtjson.Text.Trim(), "Response|Body" + "|" + this.cur_jobinfo.node, "[]").ToString();
+                    DataTable dt = Tools.JsonToDataTable(json);            
+                    dt.TableName = this.cur_jobinfo.tmpname;
+                    StringWriter sw=new StringWriter();
+                    dt.WriteXmlSchema(sw, true);
+                    using (XFrm frm = new XFrm(this.cur_jobinfo, sw.ToString()))
+                    {
+                        frm.ShowDialog();
+                    }
+                }
+                else if (this.cur_jobinfo.nodelx==1)
+                {
+                    
+                }
+              
                 //ds.WriteXmlSchema(,);
              
             }

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,7 @@ namespace Winning.DownLoad.UI
 {
     public partial class FrmMain : FrmBase
     {
-        private JobInfo Cur_Job;       
+        private JobInfo Cur_Job;
         public FrmMain()
         {
             InitializeComponent();
@@ -64,7 +65,7 @@ namespace Winning.DownLoad.UI
                 }
             }
             this.treeList1.ExpandAll();
-            this.treeList1.Refresh();           
+            this.treeList1.Refresh();
         }
 
         private void LoadTreeCtrl(TreeListNode pnode, string parentkey)
@@ -314,12 +315,14 @@ namespace Winning.DownLoad.UI
                 }
                 else
                 {
-                   cur_excutereq = frm.StrConditon;
+                    cur_excutereq = frm.StrConditon;
                 }
             }
-            this.QuickExcute(info,cur_excutereq);
+
+            this.QuickExcute(info, cur_excutereq);
+
         }
-      
+
         private void btnstopjob_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
@@ -367,7 +370,7 @@ namespace Winning.DownLoad.UI
 
         private void btnreset_Click(object sender, EventArgs e)
         {
-            using (ConfigFrm  config=new ConfigFrm())
+            using (ConfigFrm config = new ConfigFrm())
             {
                 config.ShowDialog();
             }
@@ -434,10 +437,10 @@ namespace Winning.DownLoad.UI
                 JobInfo info = node.Tag as JobInfo;
                 if (info != null)
                 {
-                    ConfigFrm frm = new ConfigFrm(info,node);
+                    ConfigFrm frm = new ConfigFrm(info, node);
                     frm.Show();
                 }
-            }        
+            }
         }
 
         private void btnFast_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -449,16 +452,21 @@ namespace Winning.DownLoad.UI
             if (info == null)
                 return;
             string strrequest = GlobalInstanceManager<JobInfoManager>.Intance.GetExcuteCondition(info);
-            this.QuickExcute(info,strrequest);
+            Stopwatch s = new Stopwatch();
+            s.Start();
+            this.QuickExcute(info, strrequest);
+            s.Stop();
+            Console.WriteLine("快速断点：" + s.ElapsedMilliseconds);
         }
 
-        private void QuickExcute(JobInfo jobInfo,string request)
+        private void QuickExcute(JobInfo jobInfo, string request)
         {
             Task task = new Task(() =>
             {
                 request = GetStrJsonHelper.GetReqJson(jobInfo.id, jobInfo.system, "请求访问", request);
                 string strret = GlobalInstanceManager<RimsInterface>.Intance.Run(request);
-                this.AddLogText(strret);
+                Tools.FlushMemory();
+                this.AddLogText(strret);               
             });
             task.Start();
         }
@@ -476,10 +484,8 @@ namespace Winning.DownLoad.UI
             if (dr != null)
             {
                 JobInfo cur_Job = this.treeList1.FocusedNode.Tag as JobInfo;
-                using (JsonFrm frm = new JsonFrm(cur_Job,dr["xh"].ToString()))
-                {
-                    frm.ShowDialog();
-                }
+                JsonFrm frm = new JsonFrm(cur_Job, dr["xh"].ToString());
+                frm.Show();
             }
         }
 

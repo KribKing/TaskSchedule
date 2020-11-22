@@ -19,13 +19,12 @@ namespace Winning.DownLoad.Business
         {
             scheduler = StdSchedulerFactory.GetDefaultScheduler();
             scheduler.Start();
-
         }
         public void CreatJob(JobInfo info)
         {
             try
             {
-                if (info.jlzt == "1")
+                if (info.jlzt == "1" || string.IsNullOrEmpty(info.expression))
                     return;
                 IJobDetail job = JobBuilder.Create<ParamJob>()
                                           .WithIdentity(info.id, info.system)
@@ -46,7 +45,7 @@ namespace Winning.DownLoad.Business
             }
             catch (Exception ex)
             {
-                GlobalInstanceManager<SchedulerManager>.Intance.cur_job_OnScheduleLog(string.Format("作业创建发生异常，原因："+ex.Message));
+                GlobalInstanceManager<SchedulerManager>.Intance.cur_job_OnScheduleLog(string.Format("作业创建发生异常，原因：" + ex.Message));
             }
         }
 
@@ -75,7 +74,7 @@ namespace Winning.DownLoad.Business
             }
             else
             {
-                if (jobInfo.jlzt == "0")
+                if (jobInfo.jlzt == "0" && !string.IsNullOrEmpty(jobInfo.expression))
                 {
                     IJobDetail job = this.scheduler.GetJobDetail(new JobKey(jobInfo.id, jobInfo.system));
                     ITrigger trigger = TriggerBuilder.Create()
@@ -108,7 +107,6 @@ namespace Winning.DownLoad.Business
             if (jobInfo.jlzt == "1")
             {
                 this.scheduler.PauseTrigger(tri);
-                //this.scheduler.re
             }
             else
             {
@@ -127,14 +125,15 @@ namespace Winning.DownLoad.Business
             try
             {
                 string strrequest = GlobalInstanceManager<JobInfoManager>.Intance.GetExcuteCondition(key);
-                string requeststr = GetStrJsonHelper.GetReqJson(key.Name,key.Group, "", strrequest);
+                string requeststr = GetStrJsonHelper.GetReqJson(key.Name, key.Group, "", strrequest);
                 GlobalInstanceManager<SchedulerManager>.Intance.cur_job_OnScheduleLog(GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfo(key), requeststr);
                 string strret = GlobalInstanceManager<RimsInterface>.Intance.Run(requeststr);
+                Tools.FlushMemory();
                 GlobalInstanceManager<SchedulerManager>.Intance.cur_job_OnScheduleLog(GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfo(key), strret);
             }
             catch (Exception ex)
             {
-                string strret = GetStrJsonHelper.GetRetJson(key.Name,key.Group, "300.1", ex.Message);
+                string strret = GetStrJsonHelper.GetRetJson(key.Name, key.Group, "300.1", ex.Message);
                 GlobalInstanceManager<SchedulerManager>.Intance.cur_job_OnScheduleLog(GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfo(key), strret);
             }
         }

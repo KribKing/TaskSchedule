@@ -8,6 +8,7 @@ using Winning.DownLoad.Core;
 using System.Configuration;
 using System.Data;
 using Quartz;
+using System.Diagnostics;
 
 namespace Winning.DownLoad.Business
 {
@@ -114,12 +115,22 @@ namespace Winning.DownLoad.Business
             ResultInfo retInfo = new ResultInfo();
             try
             {
+                Stopwatch watch = new Stopwatch();
+                watch.Start();
                 base.body = jobj.ToString();
                 retInfo = base.PostResponse();
+                watch.Stop();
+                Console.WriteLine("第一个断点："+watch.ElapsedMilliseconds);
                 if (retInfo.ackflg)
                 {
+                    watch.Start();
                     DataTable dt = Tools.JsonToDataTable(Tools.GetJsonNodeValue(retInfo.body, this.cur_JobInfo.node, "[]").ToString());
+                    watch.Stop();
+                    Console.WriteLine("第二个断点：" + watch.ElapsedMilliseconds);
+                    watch.Start();
                     base.ExcuteDataBase(dt, ref retInfo);
+                    watch.Stop();
+                    Console.WriteLine("第三个断点：" + watch.ElapsedMilliseconds);
                 }
             }
             catch (Exception ex)

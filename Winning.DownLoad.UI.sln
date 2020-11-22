@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSTest", "WSTest\WSTest.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mr.King.CronExGeneration", "Mr.King.CronExGeneration\Mr.King.CronExGeneration.csproj", "{23558227-3120-41AB-AF29-3EAF7F3459C4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mr.King.DB", "Mr.King.DB\Mr.King.DB.csproj", "{2B693BD1-CD6C-46B0-8894-49640E52CB34}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -121,6 +123,16 @@ Global
 		{23558227-3120-41AB-AF29-3EAF7F3459C4}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{23558227-3120-41AB-AF29-3EAF7F3459C4}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{23558227-3120-41AB-AF29-3EAF7F3459C4}.Release|x86.ActiveCfg = Release|Any CPU
+		{2B693BD1-CD6C-46B0-8894-49640E52CB34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B693BD1-CD6C-46B0-8894-49640E52CB34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B693BD1-CD6C-46B0-8894-49640E52CB34}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{2B693BD1-CD6C-46B0-8894-49640E52CB34}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{2B693BD1-CD6C-46B0-8894-49640E52CB34}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2B693BD1-CD6C-46B0-8894-49640E52CB34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B693BD1-CD6C-46B0-8894-49640E52CB34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B693BD1-CD6C-46B0-8894-49640E52CB34}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{2B693BD1-CD6C-46B0-8894-49640E52CB34}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{2B693BD1-CD6C-46B0-8894-49640E52CB34}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

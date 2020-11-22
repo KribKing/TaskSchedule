@@ -142,11 +142,11 @@
     <Compile Include="RunFrm.Designer.cs">
       <DependentUpon>RunFrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UrlFm.cs">
+    <Compile Include="XFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UrlFm.Designer.cs">
-      <DependentUpon>UrlFm.cs</DependentUpon>
+    <Compile Include="XFrm.Designer.cs">
+      <DependentUpon>XFrm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="ConfigFrm.resx">
       <DependentUpon>ConfigFrm.cs</DependentUpon>
@@ -179,8 +179,8 @@
     <EmbeddedResource Include="RunFrm.resx">
       <DependentUpon>RunFrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UrlFm.resx">
-      <DependentUpon>UrlFm.cs</DependentUpon>
+    <EmbeddedResource Include="XFrm.resx">
+      <DependentUpon>XFrm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\app.manifest" />

@@ -33,13 +33,13 @@
             this.txtjson = new System.Windows.Forms.RichTextBox();
             this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
             this.btnexportjson = new DevExpress.XtraBars.BarButtonItem();
+            this.btnexportxml = new DevExpress.XtraBars.BarButtonItem();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.btnexportxml = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.SuspendLayout();
@@ -71,6 +71,15 @@
             this.btnexportjson.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnexportjson.LargeGlyph")));
             this.btnexportjson.Name = "btnexportjson";
             this.btnexportjson.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnexportjson_ItemClick);
+            // 
+            // btnexportxml
+            // 
+            this.btnexportxml.Caption = "导出xml表结构";
+            this.btnexportxml.Glyph = ((System.Drawing.Image)(resources.GetObject("btnexportxml.Glyph")));
+            this.btnexportxml.Id = 1;
+            this.btnexportxml.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnexportxml.LargeGlyph")));
+            this.btnexportxml.Name = "btnexportxml";
+            this.btnexportxml.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnexportxml_ItemClick);
             // 
             // barManager1
             // 
@@ -118,15 +127,6 @@
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
             this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
-            // 
-            // btnexportxml
-            // 
-            this.btnexportxml.Caption = "导出xml表结构";
-            this.btnexportxml.Glyph = ((System.Drawing.Image)(resources.GetObject("btnexportxml.Glyph")));
-            this.btnexportxml.Id = 1;
-            this.btnexportxml.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnexportxml.LargeGlyph")));
-            this.btnexportxml.Name = "btnexportxml";
-            this.btnexportxml.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnexportxml_ItemClick);
             // 
             // JsonFrm
             // 

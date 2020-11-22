@@ -85,11 +85,11 @@ namespace Winning.DownLoad.UI
                     MessageBox.Show("大类名称不能为空，请检查", "卫宁操作提示", MessageBoxButtons.OK);
                     return;
                 }
-                if (string.IsNullOrEmpty(this.txtexp.Text.Trim()))
-                {
-                    MessageBox.Show("作业表达式不能为空，请检查", "卫宁操作提示", MessageBoxButtons.OK);
-                    return;
-                }
+                //if (string.IsNullOrEmpty(this.txtexp.Text.Trim()))
+                //{
+                //    MessageBox.Show("作业表达式不能为空，请检查", "卫宁操作提示", MessageBoxButtons.OK);
+                //    return;
+                //}
                 if (this.Cur_JobInfo==null)
                 {                    
                     this.Cur_JobInfo = new JobInfo();

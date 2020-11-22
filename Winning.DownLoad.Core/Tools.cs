@@ -6,9 +6,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography;
@@ -673,7 +675,11 @@ namespace Winning.DownLoad.Core
 
             return value;
         }
-
+        /// <summary>
+        /// Json转Dt
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
         public static DataTable JsonToDataTable(string json)
         {
             DataTable table = new DataTable();
@@ -706,6 +712,21 @@ namespace Winning.DownLoad.Core
                 }
             }
             return table;
+        }
+
+        [DllImport("kernel32.dll")]
+        private static extern bool SetProcessWorkingSetSize(IntPtr process, int minSize, int maxSize);
+        /// <summary>
+        /// 刷新存储器
+        /// </summary>
+        public static void FlushMemory()
+        {
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            if (Environment.OSVersion.Platform == PlatformID.Win32NT)
+            {
+                SetProcessWorkingSetSize(Process.GetCurrentProcess().Handle, -1, -1);
+            }
         }
     }
 }

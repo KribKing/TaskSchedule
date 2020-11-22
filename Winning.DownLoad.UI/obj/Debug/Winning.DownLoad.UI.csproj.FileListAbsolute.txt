@@ -92,8 +92,8 @@ D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.JsonFrm.
 D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.LoadFrm.resources
 D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.Properties.Resources.resources
 D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.RunFrm.resources
-D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.UrlFm.resources
 D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.csproj.GenerateResource.Cache
 D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.exe.licenses
 D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.FrmBase.resources
 D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.csprojResolveAssemblyReference.cache
+D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\Winning.DownLoad.UI.XFrm.resources
