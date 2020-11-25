@@ -27,49 +27,12 @@ namespace Winning.DownLoad.UI.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("fKti04vHK0LqBv2mqFCEnrsRvxJV1KvBDftb+RXaVfXs1Wkxucgyenh04GTEj9BJdi09jseWyAfySsvMP" +
             "gFemrmIewuiikjTRwzA6+r5vg7GaZettCFCOtyXnzcVPf6zMyCUgv0WkYoz1O+EDiz+IA==")]
-        public string contr_rims {
+        public string connstring {
             get {
-                return ((string)(this["contr_rims"]));
+                return ((string)(this["connstring"]));
             }
             set {
-                this["contr_rims"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("fKti04vHK0LqBv2mqFCEnrsRvxJV1KvBDftb+RXaVfXs1Wkxucgyenh04GTEj9BJdi09jseWyAfySsvMP" +
-            "gFemrmIewuiikjTRwzA6+r5vg7GaZettCFCOtyXnzcVPf6zMyCUgv0WkYoz1O+EDiz+IA==")]
-        public string contr_common {
-            get {
-                return ((string)(this["contr_common"]));
-            }
-            set {
-                this["contr_common"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2d4b181d-f4a2-4c85-bf05-0812c437fb6e")]
-        public string uid {
-            get {
-                return ((string)(this["uid"]));
-            }
-            set {
-                this["uid"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("8f26f8e2-f95d-4f92-a9d9-37383c779fe5")]
-        public string appSecret {
-            get {
-                return ((string)(this["appSecret"]));
-            }
-            set {
-                this["appSecret"] = value;
+                this["connstring"] = value;
             }
         }
         
@@ -111,13 +74,13 @@ namespace Winning.DownLoad.UI.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("sqlserver")]
-        public string dbstyle {
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int dbtype {
             get {
-                return ((string)(this["dbstyle"]));
+                return ((int)(this["dbtype"]));
             }
             set {
-                this["dbstyle"] = value;
+                this["dbtype"] = value;
             }
         }
     }

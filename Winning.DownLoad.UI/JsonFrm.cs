@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using System.Xml;
 using Winning.DownLoad.Business;
 using Winning.DownLoad.Core;
+using Winning.DownLoad.UI.Properties;
 
 namespace Winning.DownLoad.UI
 {
@@ -66,8 +67,8 @@ namespace Winning.DownLoad.UI
                 bgWorker.ReportProgress(0, "1");
 
 
-                string strsql = "select rawtext from RIMS_JOBHISTORY (nolock) where xh=" + this.cur_xh;
-                DataTable dt = TSqlHelper.ExecuteDataTableByRims(strsql);
+                string strsql = "select rawtext from CronJob_JOBHISTORY (nolock) where xh=" + this.cur_xh;
+                DataTable dt = GlobalInstanceManager<GlobalSqlManager>.Intance.GetDataTable(Settings.Default.dbtype, EncodeAndDecode.Decode(Settings.Default.connstring), strsql);
                 string rawtxt = "";
                 bgWorker.ReportProgress(10, "2");
                 if (dt != null && dt.Rows.Count > 0)

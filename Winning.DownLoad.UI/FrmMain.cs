@@ -34,8 +34,7 @@ namespace Winning.DownLoad.UI
         {
             try
             {
-                TSqlHelper.Init(Settings.Default.contr_rims, Settings.Default.contr_common);
-                GlobalInstanceManager<JobInfoManager>.Intance = new JobInfoManager();
+                GlobalInstanceManager<JobInfoManager>.Intance = new JobInfoManager(Settings.Default.dbtype,EncodeAndDecode.Decode(Settings.Default.connstring));
                 GlobalInstanceManager<SchedulerManager>.Intance = new SchedulerManager();
                 GlobalInstanceManager<SchedulerManager>.Intance.OnScheduleLog += Intance_OnScheduleLog;
                 GlobalInstanceManager<SchedulerManager>.Intance.OnScheduleLogWithJob += Intance_OnScheduleLogWithJob;
@@ -190,8 +189,8 @@ namespace Winning.DownLoad.UI
 
         private void InsertJobHistory(int zxzt, string strjobid, string strjobsys, string text)
         {
-            string strsql = "insert into RIMS_JOBHISTORY(id,system,zxzt,rawtext,oper_date) values('" + strjobid + "','" + strjobsys + "'," + zxzt + ",'" + EncodeHelper.EncodeBase64(text) + "','" + DateTime.Now.ToString("yyyyMMdd HH:mm:ss") + "')";
-            int retnum = TSqlHelper.ExecuteNonQueryByRims(strsql);
+            string strsql = "insert into CronJob_JOBHISTORY(id,system,zxzt,rawtext,oper_date) values('" + strjobid + "','" + strjobsys + "'," + zxzt + ",'" + EncodeHelper.EncodeBase64(text) + "','" + DateTime.Now.ToString("yyyyMMdd HH:mm:ss") + "')";
+            int retnum = GlobalInstanceManager<GlobalSqlManager>.Intance.ExecuteNoneQuery(Settings.Default.dbtype, EncodeAndDecode.Decode(Settings.Default.connstring), strsql);
             if (retnum > 0)
             {
                 this.AddLogText("作业【" + GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfo(strjobid, strjobsys).name + "】执行记录插入数据库成功");
@@ -289,7 +288,7 @@ namespace Winning.DownLoad.UI
                 JobInfo info = node.Tag as JobInfo;
                 if (info != null)
                 {
-                    using (ConfigFrm frm = new ConfigFrm(info, node))
+                    using (ConfigFrm frm = new ConfigFrm(info, node,this))
                     {
                         frm.ShowDialog();
                     }
@@ -370,7 +369,7 @@ namespace Winning.DownLoad.UI
 
         private void btnreset_Click(object sender, EventArgs e)
         {
-            using (ConfigFrm config = new ConfigFrm())
+            using (ConfigFrm config = new ConfigFrm(null,null,this))
             {
                 config.ShowDialog();
             }
@@ -397,8 +396,8 @@ namespace Winning.DownLoad.UI
                     JobInfo info = node.Tag as JobInfo;
                     if (info != null)
                     {
-                        string strsql = "exec usp_rims_jk_getjobhistory @id='" + info.id + "',@sys='" + info.system + "'";
-                        DataTable dt = TSqlHelper.ExecuteDataTableByRims(strsql);
+                        string strsql = "exec usp_jk_getjobhistory @id='" + info.id + "',@sys='" + info.system + "'";
+                        DataTable dt = GlobalInstanceManager<GlobalSqlManager>.Intance.GetDataTable(Settings.Default.dbtype, EncodeAndDecode.Decode(Settings.Default.connstring), strsql);
                         this.gridControl1.DataSource = dt;
                     }
                 }
@@ -437,7 +436,7 @@ namespace Winning.DownLoad.UI
                 JobInfo info = node.Tag as JobInfo;
                 if (info != null)
                 {
-                    ConfigFrm frm = new ConfigFrm(info, node);
+                    ConfigFrm frm = new ConfigFrm(info, node,this);
                     frm.Show();
                 }
             }
@@ -459,7 +458,7 @@ namespace Winning.DownLoad.UI
             Console.WriteLine("快速断点：" + s.ElapsedMilliseconds);
         }
 
-        private void QuickExcute(JobInfo jobInfo, string request)
+        public void QuickExcute(JobInfo jobInfo, string request)
         {
             Task task = new Task(() =>
             {

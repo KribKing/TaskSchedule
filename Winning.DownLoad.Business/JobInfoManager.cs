@@ -2,8 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 using Winning.DownLoad.Core;
 
 namespace Winning.DownLoad.Business
@@ -11,15 +13,28 @@ namespace Winning.DownLoad.Business
     public class JobInfoManager
     {
         public Dictionary<JobKey, JobInfo> JobInfoDic = new Dictionary<JobKey, JobInfo>();
+        private readonly string configPath = Application.StartupPath + "//SetConfig.xml";
+        private int cur_dbtype = 0;
+        private string cur_dbconstring = "";
         public JobInfoManager()
         {
             this.ReInit();
         }
+        public JobInfoManager(int dbtype,string connstring)
+        {
+            this.ReInit();
+            this.cur_dbtype = dbtype;
+            this.cur_dbconstring=connstring;
+        }
         public void ReInit()
         {
             JobInfoDic.Clear();
-            string strsql = "select * from CronJob ";
-            DataTable dt = TSqlHelper.ExecuteDataTableByRims(strsql);
+            //string strsql = "select * from CronJob ";
+            //DataTable dt = TSqlHelper.ExecuteDataTableByRims(strsql);
+            if (!File.Exists(configPath))
+                return;
+            DataTable dt = new DataTable();
+            dt.ReadXml(configPath);
             List<JobInfo> JobInfoList = Tools.ToDataList<JobInfo>(dt);
 
             foreach (JobInfo item in JobInfoList)
@@ -31,7 +46,7 @@ namespace Winning.DownLoad.Business
                     {
                         JobKey key = new JobKey(item.id, item.system);
                         item.createtmp = EncodeHelper.DecodeBase64(item.createtmp);
-                        item.sql = EncodeHelper.DecodeBase64(item.sql);
+                        item.TargetSql = EncodeHelper.DecodeBase64(item.TargetSql);
                         item.xmlschema = EncodeHelper.DecodeBase64(item.xmlschema);
                         item.CreatJob();
                         this.JobInfoDic.Add(key, item);
@@ -70,21 +85,24 @@ namespace Winning.DownLoad.Business
         }
         public void SaveJobInfo()
         {
-            List<JobInfo> list = Tools.Clone<JobInfo>(GlobalInstanceManager<JobInfoManager>.Intance.JobInfoDic.Values.ToList());
-            foreach (JobInfo item in list)
+            try
             {
-                item.createtmp = EncodeHelper.EncodeBase64(item.createtmp);
-                item.sql = EncodeHelper.EncodeBase64(item.sql);
-                item.xmlschema = EncodeHelper.EncodeBase64(item.xmlschema);
+                List<JobInfo> list = Tools.Clone<JobInfo>(GlobalInstanceManager<JobInfoManager>.Intance.JobInfoDic.Values.ToList());
+                foreach (JobInfo item in list)
+                {
+                    item.createtmp = EncodeHelper.EncodeBase64(item.createtmp);
+                    item.TargetSql = EncodeHelper.EncodeBase64(item.TargetSql);
+                    item.xmlschema = EncodeHelper.EncodeBase64(item.xmlschema);
+                }
+                DataTable dt = Tools.ToDataTable<JobInfo>(list);
+                dt.TableName = "CronJob";
+              
+                dt.WriteXml(configPath,XmlWriteMode.WriteSchema, true);
+                //JobInfo adminjob = GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfo("Admin00", "Admin");
             }
-            DataTable dt = Tools.ToDataTable<JobInfo>(list);         
-            ResultInfo retInfo = new ResultInfo();
-            JobInfo adminjob=GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfo("Admin00","Admin");
-            TSqlHelper.SqlBulkCopyByRims(adminjob.createtmp, adminjob.tmpname, dt, adminjob.sql, ref retInfo);
-            if (!retInfo.ackcode.Contains("100"))
+            catch (Exception ex)
             {
-                //MessageBox.Show(retInfo.ackmsg);
-                GlobalInstanceManager<SchedulerManager>.Intance.cur_job_OnScheduleLog(string.Format("作业保存发生异常，原因：" + retInfo.ackmsg));
+                GlobalInstanceManager<SchedulerManager>.Intance.cur_job_OnScheduleLog(string.Format("作业保存发生异常，原因：" + ex.Message));
             }
         }
         public JobInfo GetJobInfo(string id, string system)
@@ -115,15 +133,22 @@ namespace Winning.DownLoad.Business
         }
         public string GetExcuteCondition(string id, string system)
         {
-            string strsql = "exec usp_jk_getjobzxtj @id='" + id + "',@system='" + system + "'";
-            DataTable dt = TSqlHelper.ExecuteDataTableByRims(strsql);
-            if (dt == null || dt.Rows.Count <= 0)
+            try
+            {
+                string strsql = "exec usp_jk_getjobzxtj @id='" + id + "',@system='" + system + "'";
+                DataTable dt = GlobalInstanceManager<GlobalSqlManager>.Intance.GetDataTable(this.cur_dbtype, this.cur_dbconstring, strsql);
+                if (dt == null || dt.Rows.Count <= 0)
+                {
+                    return "";
+                }
+                else
+                {
+                    return dt.Rows[0][0].ToString();
+                }
+            }
+            catch (Exception)
             {
                 return "";
-            }
-            else
-            {
-                return dt.Rows[0][0].ToString();
             }
         }
     }
@@ -200,7 +225,7 @@ namespace Winning.DownLoad.Business
         /// <summary>
         /// 同步脚本
         /// </summary>
-        public string sql { get; set; }
+        public string TargetSql { get; set; }
         /// <summary>
         /// 解析数据类型 0：json 1：xml
         /// </summary>
@@ -209,10 +234,7 @@ namespace Winning.DownLoad.Business
         /// 解析节点
         /// </summary>
         public string node { get; set; }
-        /// <summary>
-        /// 作业类型 0：远程服务批量插入数据 1：数据库作业
-        /// </summary>
-        public int zylx { get; set; }
+
 
         private string _jlzt = "0";
         /// <summary>
@@ -258,5 +280,31 @@ namespace Winning.DownLoad.Business
         }
 
         public string xmlschema { get; set; }
+        /// <summary>
+        /// 数据源类型 0:服务 1:数据库
+        /// </summary>
+        public int SourceType { get; set; }
+        /// <summary>
+        /// 源数据库类型
+        /// </summary>
+        public int SourceDbType { get; set; }
+        /// <summary>
+        /// 源数据库是否加密
+        /// </summary>
+        public bool IsSourceDbEncode { get; set; }
+        public string SourceDbString { get; set; }
+        public string SourceSql { get; set; }
+        public int TargetDbType { get; set; }
+        public bool IsTargetDbEncode { get; set; }
+        public string TargetDbString { get; set; }
+        /// <summary>
+        /// 是否批量操作
+        /// </summary>
+        public bool IsBulkOp { get; set; }
+        /// <summary>
+        /// 服务类型 0:http 1:ws
+        /// </summary>
+        public int ServerType { get; set; }
     }
+    
 }

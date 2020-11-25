@@ -12,3 +12,4 @@ D:\GitHub\DownLoadExe\Winning.DownLoad.Core\obj\Debug\Winning.DownLoad.Core.pdb
 D:\GitHub\DownLoadExe\Winning.DownLoad.Core\obj\Debug\Winning.DownLoad.Core.ProcessBarFrm.resources
 D:\GitHub\DownLoadExe\Winning.DownLoad.Core\obj\Debug\Winning.DownLoad.Core.csproj.GenerateResource.Cache
 D:\GitHub\DownLoadExe\Winning.DownLoad.Core\obj\Debug\Winning.DownLoad.Core.dll.licenses
+D:\GitHub\DownLoadExe\Winning.DownLoad.Core\obj\Debug\Winning.DownLoad.Core.csprojResolveAssemblyReference.cache

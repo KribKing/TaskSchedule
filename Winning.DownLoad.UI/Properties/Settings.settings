@@ -2,17 +2,8 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Winning.DownLoad.UI.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="contr_rims" Type="System.String" Scope="User">
+    <Setting Name="connstring" Type="System.String" Scope="User">
       <Value Profile="(Default)">fKti04vHK0LqBv2mqFCEnrsRvxJV1KvBDftb+RXaVfXs1Wkxucgyenh04GTEj9BJdi09jseWyAfySsvMPgFemrmIewuiikjTRwzA6+r5vg7GaZettCFCOtyXnzcVPf6zMyCUgv0WkYoz1O+EDiz+IA==</Value>
-    </Setting>
-    <Setting Name="contr_common" Type="System.String" Scope="User">
-      <Value Profile="(Default)">fKti04vHK0LqBv2mqFCEnrsRvxJV1KvBDftb+RXaVfXs1Wkxucgyenh04GTEj9BJdi09jseWyAfySsvMPgFemrmIewuiikjTRwzA6+r5vg7GaZettCFCOtyXnzcVPf6zMyCUgv0WkYoz1O+EDiz+IA==</Value>
-    </Setting>
-    <Setting Name="uid" Type="System.String" Scope="User">
-      <Value Profile="(Default)">2d4b181d-f4a2-4c85-bf05-0812c437fb6e</Value>
-    </Setting>
-    <Setting Name="appSecret" Type="System.String" Scope="User">
-      <Value Profile="(Default)">8f26f8e2-f95d-4f92-a9d9-37383c779fe5</Value>
     </Setting>
     <Setting Name="theme" Type="System.String" Scope="User">
       <Value Profile="(Default)">DevExpress Style</Value>
@@ -23,8 +14,8 @@
     <Setting Name="appname" Type="System.String" Scope="User">
       <Value Profile="(Default)">RIMS数据下载程序</Value>
     </Setting>
-    <Setting Name="dbstyle" Type="System.String" Scope="User">
-      <Value Profile="(Default)">sqlserver</Value>
+    <Setting Name="dbtype" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
   </Settings>
 </SettingsFile>

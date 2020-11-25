@@ -15,7 +15,7 @@ namespace Winning.DownLoad.Business
     public abstract class JkInterface
     {
         public static DTToken TokenInfo = new DTToken();
-        protected JobInfo cur_JobInfo;        
+        protected JobInfo cur_JobInfo;
         protected string method;
         protected string body;
         public JkInterface()
@@ -24,7 +24,7 @@ namespace Winning.DownLoad.Business
         }
         public JkInterface(JobInfo cur_jkkey, string cur_method, string cur_body)
         {
-            cur_JobInfo = cur_jkkey;          
+            cur_JobInfo = cur_jkkey;
             method = cur_method;
             body = cur_body;
         }
@@ -84,14 +84,16 @@ namespace Winning.DownLoad.Business
         {
             throw new NotImplementedException();
         }
-        public virtual void ExcuteDataBase(DataTable dt, ref ResultInfo retInfo)
+        public virtual void ExcuteDataBaseBulk(DataTable dt, ref ResultInfo retInfo)
         {
             if (dt != null && dt.Rows.Count > 0)
             {
+                int dbtype = this.cur_JobInfo.TargetDbType;
+                string connstring = this.cur_JobInfo.IsTargetDbEncode ? EncodeAndDecode.Decode(this.cur_JobInfo.TargetDbString) : this.cur_JobInfo.TargetDbString;
                 string createtmp = this.cur_JobInfo.createtmp;
                 string tmpname = this.cur_JobInfo.tmpname;
-                string strsql = this.cur_JobInfo.sql;
-                TSqlHelper.SqlBulkCopyByRims(createtmp, tmpname, dt, strsql, ref retInfo);
+                string strsql = this.cur_JobInfo.TargetSql;
+                GlobalInstanceManager<GlobalSqlManager>.Intance.BulkDb(dbtype, connstring, createtmp, tmpname, strsql, dt, ref retInfo);
             }
             else
             {
@@ -100,115 +102,7 @@ namespace Winning.DownLoad.Business
             }
         }
     }
-    /// <summary>
-    /// Web服务Json接口
-    /// </summary>
-    public class JsonWsJkInterface : JkInterface
-    {
-        public JsonWsJkInterface(JobInfo jkinfo)
-            : base(jkinfo, "", "")
-        {
-
-        }
-        public override ResultInfo Run(JObject jobj)
-        {
-            ResultInfo retInfo = new ResultInfo();
-            try
-            {
-                Stopwatch watch = new Stopwatch();
-                watch.Start();
-                base.body = jobj.ToString();
-                retInfo = base.PostResponse();
-                watch.Stop();
-                Console.WriteLine("第一个断点："+watch.ElapsedMilliseconds);
-                if (retInfo.ackflg)
-                {
-                    watch.Start();
-                    DataTable dt = Tools.JsonToDataTable(Tools.GetJsonNodeValue(retInfo.body, this.cur_JobInfo.node, "[]").ToString());
-                    watch.Stop();
-                    Console.WriteLine("第二个断点：" + watch.ElapsedMilliseconds);
-                    watch.Start();
-                    base.ExcuteDataBase(dt, ref retInfo);
-                    watch.Stop();
-                    Console.WriteLine("第三个断点：" + watch.ElapsedMilliseconds);
-                }
-            }
-            catch (Exception ex)
-            {
-                retInfo.ackcode = "300.1";
-                retInfo.ackmsg = ex.Message;
-                retInfo.ackflg = false;
-            }
-            return retInfo;
-        }
-    }
-    /// <summary>
-    /// Web服务Xml接口
-    /// </summary>
-    public class XmlWsJkInterface : JkInterface
-    {
-        public XmlWsJkInterface(JobInfo jkinfo)
-            : base(jkinfo, "", "")
-        {
-
-        }
-        public override ResultInfo Run(JObject jobj)
-        {
-            ResultInfo retInfo = new ResultInfo();
-            try
-            {
-                base.body = jobj.ToString();
-                retInfo = base.PostResponse();
-                if (retInfo.ackflg)
-                {
-                    DataTable dt = Tools.JsonToDataTable(Tools.GetJsonNodeValue(retInfo.body, this.cur_JobInfo.node, "[]").ToString());
-                    base.ExcuteDataBase(dt, ref retInfo);
-                }
-            }
-            catch (Exception ex)
-            {
-                retInfo.ackcode = "300.1";
-                retInfo.ackmsg = ex.Message;
-                retInfo.ackflg = false;
-            }
-            return retInfo;
-        }
-    }
-    /// <summary>
-    /// 数据库操作接口
-    /// </summary>
-    public class DbJkInterface : JkInterface
-    {
-        public DbJkInterface(JobInfo jkinfo)
-            : base(jkinfo, "", "")
-        {
-
-        }
-        public override ResultInfo Run(JObject jobj)
-        {
-            ResultInfo retInfo = new ResultInfo();
-            try
-            {
-                string strsql = this.cur_JobInfo.sql;
-                DataTable dt = TSqlHelper.ExecuteDataTableByRims(strsql);
-                if (dt == null || dt.Rows.Count <= 0)
-                {
-                    retInfo.ackmsg = "无返回数据";
-                    retInfo.ackflg = false;
-                }
-                else
-                {
-                    retInfo.ackflg = dt.Rows[0][0].ToString() == "T";
-                    retInfo.ackmsg = dt.Rows[0][1].ToString();
-                }
-            }
-            catch (Exception ex)
-            {
-                retInfo.ackcode = "300.1";
-                retInfo.ackmsg = ex.Message;
-                retInfo.ackflg = false;
-            }
-            return retInfo;
-        }
-    }
+   
+    
+    
 }

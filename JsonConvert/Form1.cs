@@ -36,5 +36,17 @@ namespace JsonConvertFrm
                 this.rbnew.Text = ex.Message;
             }
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            InitLog4Net();
+        }
+        public static void InitLog4Net()
+        {
+            //配置文件
+            var logCfg = new FileInfo(AppDomain.CurrentDomain.BaseDirectory + "/Config/log4net.config");
+            //加载配置
+            XmlConfigurator.ConfigureAndWatch(logCfg);
+        }
     }
 }
