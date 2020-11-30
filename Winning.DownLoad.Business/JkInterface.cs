@@ -34,7 +34,9 @@ namespace Winning.DownLoad.Business
             try
             {
                 info.ackmsg = GlobalWebRequestHelper.HttpGetRequest(cur_JobInfo.weburl + method, body, token: TokenInfo.access_token);
+                info.body = info.ackmsg;
                 info.ackflg = true;
+                Tools.log(info.body);
             }
             catch (Exception ex)
             {
@@ -75,7 +77,7 @@ namespace Winning.DownLoad.Business
                 JkInterface.TokenInfo = new DTToken() { success = false };
             }
         }
-        public virtual ResultInfo Run(JObject jobj)
+        public virtual ResultInfo Run(string jobj)
         {
             return new ResultInfo() { ackflg = false, ackcode = "100.3", ackmsg = "接口尚未实现" };
         }
@@ -88,12 +90,17 @@ namespace Winning.DownLoad.Business
         {
             if (dt != null && dt.Rows.Count > 0)
             {
-                int dbtype = this.cur_JobInfo.TargetDbType;
-                string connstring = this.cur_JobInfo.IsTargetDbEncode ? EncodeAndDecode.Decode(this.cur_JobInfo.TargetDbString) : this.cur_JobInfo.TargetDbString;
+                int dbtype = this.cur_JobInfo.targetdbtype;
+                string connstring = this.cur_JobInfo.targetdbstring;
                 string createtmp = this.cur_JobInfo.createtmp;
                 string tmpname = this.cur_JobInfo.tmpname;
-                string strsql = this.cur_JobInfo.TargetSql;
+                string strsql = this.cur_JobInfo.targetsql;
+                Console.WriteLine("数据条数:"+dt.Rows.Count.ToString());
+                Stopwatch watch = new Stopwatch();
+                watch.Start();
                 GlobalInstanceManager<GlobalSqlManager>.Intance.BulkDb(dbtype, connstring, createtmp, tmpname, strsql, dt, ref retInfo);
+                watch.Stop();
+                Console.WriteLine("批量插入时间："+watch.ElapsedMilliseconds.ToString());
             }
             else
             {

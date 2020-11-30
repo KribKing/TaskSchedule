@@ -32,6 +32,7 @@
             this.btnclose = new DevExpress.XtraEditors.SimpleButton();
             this.btnreset = new DevExpress.XtraEditors.SimpleButton();
             this.txtDt = new System.Windows.Forms.RichTextBox();
+            this.btnresettemp = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.SuspendLayout();
@@ -39,6 +40,7 @@
             // panelControl1
             // 
             this.panelControl1.Controls.Add(this.btnclose);
+            this.panelControl1.Controls.Add(this.btnresettemp);
             this.panelControl1.Controls.Add(this.btnreset);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
@@ -57,11 +59,11 @@
             // 
             // btnreset
             // 
-            this.btnreset.Location = new System.Drawing.Point(383, 10);
+            this.btnreset.Location = new System.Drawing.Point(368, 10);
             this.btnreset.Name = "btnreset";
-            this.btnreset.Size = new System.Drawing.Size(75, 23);
+            this.btnreset.Size = new System.Drawing.Size(90, 23);
             this.btnreset.TabIndex = 0;
-            this.btnreset.Text = "重置";
+            this.btnreset.Text = "重置xml结构";
             this.btnreset.Click += new System.EventHandler(this.btnreset_Click);
             // 
             // txtDt
@@ -73,6 +75,15 @@
             this.txtDt.Size = new System.Drawing.Size(555, 394);
             this.txtDt.TabIndex = 1;
             this.txtDt.Text = "";
+            // 
+            // btnresettemp
+            // 
+            this.btnresettemp.Location = new System.Drawing.Point(252, 10);
+            this.btnresettemp.Name = "btnresettemp";
+            this.btnresettemp.Size = new System.Drawing.Size(110, 23);
+            this.btnresettemp.TabIndex = 0;
+            this.btnresettemp.Text = "重置临时表结构";
+            this.btnresettemp.Click += new System.EventHandler(this.btnresettemp_Click);
             // 
             // XFrm
             // 
@@ -98,5 +109,6 @@
         private DevExpress.XtraEditors.SimpleButton btnclose;
         private DevExpress.XtraEditors.SimpleButton btnreset;
         private System.Windows.Forms.RichTextBox txtDt;
+        private DevExpress.XtraEditors.SimpleButton btnresettemp;
     }
 }

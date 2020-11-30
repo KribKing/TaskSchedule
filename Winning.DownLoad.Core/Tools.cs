@@ -348,8 +348,8 @@ namespace Winning.DownLoad.Core
             {
                 if (!Tools.islog)
                     return;
-                    ///if (islog == false) return;
-                    string path = logpath + DateTime.Now.ToString("yyyyMMdd") + '_' + "HSJK_LOG.txt";
+                ///if (islog == false) return;
+                string path = logpath + DateTime.Now.ToString("yyyyMMdd") + '_' + "log.txt";
                 if (!(File.Exists(path)))
                 {
                     StreamWriter sw;
@@ -637,11 +637,17 @@ namespace Winning.DownLoad.Core
             string value = "";
             try
             {
-                if (key.Contains("|"))
+                Tools.log("测试节点");
+                Tools.log("解析节点：" + key);
+                if (key=="[]")
+                {
+                    value = json;
+                }
+                else if (key.Contains("|"))
                 {
                     string[] keys = key.Split('|');
                     JObject jsonObject = (JObject)JsonConvert.DeserializeObject(json);
-                   
+
                     for (int i = 0; i < keys.Length; i++)
                     {
                         if (i == keys.Length - 1)
@@ -656,7 +662,7 @@ namespace Winning.DownLoad.Core
 
                 }
                 else
-                {                 
+                {
                     JObject jsonObject = (JObject)JsonConvert.DeserializeObject(json);
                     if (string.IsNullOrEmpty(key))
                     {
@@ -665,7 +671,7 @@ namespace Winning.DownLoad.Core
                     else
                     {
                         value = (jsonObject[key] ?? defaultvalue).ToString();
-                    }                  
+                    }
                 }
             }
             catch

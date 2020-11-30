@@ -40,7 +40,7 @@ namespace Winning.DownLoad.UI
                 this.tesysname.Text = this.Cur_JobInfo.sysname;
                 this.txtexp.Text = this.Cur_JobInfo.expression;
                 this.cejlzt.SelectedIndex = int.Parse(this.Cur_JobInfo.jlzt);
-                this.cbtop.SelectedIndex = this.Cur_JobInfo.IsBulkOp ? 0 : 1;
+                this.cbtop.SelectedIndex = this.Cur_JobInfo.isbulkop ? 0 : 1;
                 if (this.cbtop.SelectedIndex == 0)
                 {
                     this.gsource.Enabled = true;
@@ -49,27 +49,43 @@ namespace Winning.DownLoad.UI
                 {
                     this.gsource.Enabled = false;
                 }
-                this.cbetdbtype.SelectedIndex = this.Cur_JobInfo.TargetDbType;
-                this.txttstr.Text = this.Cur_JobInfo.TargetDbString;
-                this.cetjm.Checked = this.Cur_JobInfo.IsTargetDbEncode;
+                this.cbetdbtype.SelectedIndex = this.Cur_JobInfo.targetdbtype;
+               
+                this.cetjm.Checked = this.Cur_JobInfo.istargetdbencode;
+                if (this.cetjm.Checked)
+                {
+                    this.txttstr.Text = EncodeAndDecode.Encode(this.Cur_JobInfo.targetdbstring);
+                }
+                else
+                {
+                    this.txttstr.Text = this.Cur_JobInfo.targetdbstring;
+                }
+                
                 this.txttmpname.Text = this.Cur_JobInfo.tmpname;
                 this.txttmp.Text = this.Cur_JobInfo.createtmp;
-                this.rttscript.Text = this.Cur_JobInfo.TargetSql;
-
-                this.rbsweb.Checked = this.Cur_JobInfo.SourceType == 0 ? true : false;
-                this.cbstype.SelectedIndex = this.Cur_JobInfo.ServerType;
+                this.rttscript.Text = this.Cur_JobInfo.targetsql;
+                this.rbsweb.Checked = this.Cur_JobInfo.sourcetype == 0 ? true : false;
+                this.cbstype.SelectedIndex = this.Cur_JobInfo.servertype;
+                this.txtMethod.Text = this.Cur_JobInfo.servermethod;
                 this.txturl.Text = this.Cur_JobInfo.weburl;
                 this.cbejxlx.SelectedIndex = this.Cur_JobInfo.nodelx;
                 this.tenode.Text = this.Cur_JobInfo.node;
 
 
-                this.rbsdb.Checked = this.Cur_JobInfo.SourceType == 1 ? true : false;
-                this.cbesdbtype.SelectedIndex = this.Cur_JobInfo.SourceDbType;
-                this.txtsstr.Text = this.Cur_JobInfo.SourceDbString;
-                this.cesjm.Checked = this.Cur_JobInfo.IsSourceDbEncode;
-                this.rtsscript.Text = this.Cur_JobInfo.SourceSql;
-
-
+                this.rbsdb.Checked = this.Cur_JobInfo.sourcetype == 1 ? true : false;
+                this.cbesdbtype.SelectedIndex = this.Cur_JobInfo.sourcedbtype;
+               
+                this.cesjm.Checked = this.Cur_JobInfo.issourcedbencode;
+                if (this.cesjm.Checked)
+                {
+                    this.txtsstr.Text = EncodeAndDecode.Encode(this.Cur_JobInfo.sourcedbstring);
+                }
+                else
+                {
+                    this.txtsstr.Text = this.Cur_JobInfo.sourcedbstring;
+                }
+          
+                this.rtsscript.Text = this.Cur_JobInfo.sourcesql;
                 this.teid.Enabled = false;
                 this.tesystem.Enabled = false;
                 this.tesysname.Enabled = false;
@@ -117,28 +133,39 @@ namespace Winning.DownLoad.UI
                 this.Cur_JobInfo.sysname = this.tesysname.Text.Trim();
                 this.Cur_JobInfo.expression = this.txtexp.Text.Trim();
                 this.Cur_JobInfo.jlzt = this.cejlzt.SelectedIndex.ToString();
-
-                this.Cur_JobInfo.TargetDbType = this.cbetdbtype.SelectedIndex;
-                this.Cur_JobInfo.IsBulkOp = this.cbtop.SelectedIndex == 0 ? true : false;
-                this.Cur_JobInfo.TargetDbString = this.txttstr.Text.Trim();
-                this.Cur_JobInfo.IsTargetDbEncode = this.cetjm.Checked;
+                this.Cur_JobInfo.targetdbtype = this.cbetdbtype.SelectedIndex;
+                this.Cur_JobInfo.isbulkop = this.cbtop.SelectedIndex == 0 ? true : false;
+                this.Cur_JobInfo.istargetdbencode = this.cetjm.Checked;
+                if (this.cetjm.Checked)
+                {
+                    this.Cur_JobInfo.targetdbstring = EncodeAndDecode.Decode(this.txttstr.Text.Trim());
+                }
+                else
+                {
+                    this.Cur_JobInfo.targetdbstring = this.txttstr.Text.Trim();
+                }            
                 this.Cur_JobInfo.tmpname = this.txttmpname.Text.Trim();
                 this.Cur_JobInfo.createtmp = this.txttmp.Text.Trim();
-                this.Cur_JobInfo.TargetSql = this.rttscript.Text.Trim();
+                this.Cur_JobInfo.targetsql = this.rttscript.Text.Trim();
+                this.Cur_JobInfo.sourcetype = this.rbsweb.Checked ? 0 : 1;
 
-
-                this.Cur_JobInfo.SourceType = this.rbsweb.Checked ? 0 : 1;
-
-                this.Cur_JobInfo.ServerType = this.cbstype.SelectedIndex;
+                this.Cur_JobInfo.servertype = this.cbstype.SelectedIndex;
+                this.Cur_JobInfo.servermethod = this.txtMethod.Text.Trim();
                 this.Cur_JobInfo.weburl = this.txturl.Text.Trim();
                 this.Cur_JobInfo.nodelx = this.cbejxlx.SelectedIndex;
                 this.Cur_JobInfo.node = this.tenode.Text.Trim();
 
-                this.Cur_JobInfo.SourceDbType = this.cbesdbtype.SelectedIndex;
-                this.Cur_JobInfo.SourceDbString = this.txtsstr.Text.Trim();
-                this.Cur_JobInfo.IsSourceDbEncode = this.cesjm.Checked;
-                this.Cur_JobInfo.SourceSql = this.rtsscript.Text.Trim();
-
+                this.Cur_JobInfo.sourcedbtype = this.cbesdbtype.SelectedIndex;
+                this.Cur_JobInfo.issourcedbencode = this.cesjm.Checked;
+                if (this.cesjm.Checked)
+                {
+                    this.Cur_JobInfo.sourcedbstring = EncodeAndDecode.Decode(this.txtsstr.Text.Trim());
+                }
+                else
+                {
+                    this.Cur_JobInfo.sourcedbstring = this.txtsstr.Text.Trim();
+                }             
+                this.Cur_JobInfo.sourcesql = this.rtsscript.Text.Trim();
 
                 GlobalInstanceManager<JobInfoManager>.Intance.AddJobInfo(Cur_JobInfo);
                 GlobalInstanceManager<JobInfoManager>.Intance.SaveJobInfo();
@@ -190,6 +217,7 @@ namespace Winning.DownLoad.UI
             this.rttscript.Text = "";
             this.rtsscript.Text = "";
             this.tenode.Text = "";
+            this.txtMethod.Text = "";
         }
 
         private void rbsweb_CheckedChanged(object sender, EventArgs e)
@@ -225,6 +253,69 @@ namespace Winning.DownLoad.UI
                 string strrequest = GlobalInstanceManager<JobInfoManager>.Intance.GetExcuteCondition(this.Cur_JobInfo);
                 this.ParentFrm.QuickExcute(this.Cur_JobInfo, strrequest);
             }
+        }
+
+        private void txttmp_DoubleClick(object sender, EventArgs e)
+        {
+            if (this.txttmp.Dock==DockStyle.None)
+            {
+                this.txttmp.Dock = DockStyle.Fill;
+                this.txttmp.BringToFront();
+            }
+            else
+            {
+                this.txttmp.Dock = DockStyle.None;
+            }
+        }
+
+        private void rttscript_DoubleClick(object sender, EventArgs e)
+        {
+            if (this.rttscript.Dock == DockStyle.None)
+            {
+                this.rttscript.Dock = DockStyle.Fill;
+                this.rttscript.BringToFront();
+            }
+            else
+            {
+                this.rttscript.Dock = DockStyle.None;
+            }
+        }
+
+        private void rtsscript_DoubleClick(object sender, EventArgs e)
+        {
+            if (this.rtsscript.Dock == DockStyle.None)
+            {
+                this.rtsscript.Dock = DockStyle.Fill;
+                this.rtsscript.BringToFront();
+            }
+            else
+            {
+                this.rtsscript.Dock = DockStyle.None;
+            }
+        }
+
+        private void cetjm_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.cetjm.Checked)
+            {
+                this.txttstr.Text = EncodeAndDecode.Encode(this.txttstr.Text.Trim());
+            }
+            else
+            {
+                this.txttstr.Text = EncodeAndDecode.Decode(this.txttstr.Text.Trim());
+            }    
+        }
+
+        private void cesjm_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.cesjm.Checked)
+            {
+                this.txtsstr.Text = EncodeAndDecode.Encode(this.txtsstr.Text.Trim());
+            }
+            else
+            {
+                this.txtsstr.Text = EncodeAndDecode.Decode(this.txtsstr.Text.Trim());
+            }    
         }
     }
 }

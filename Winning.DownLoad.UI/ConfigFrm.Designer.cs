@@ -48,6 +48,7 @@
             this.txturl = new DevExpress.XtraEditors.TextEdit();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.btnclose = new DevExpress.XtraEditors.SimpleButton();
+            this.btnquick = new DevExpress.XtraEditors.SimpleButton();
             this.btnnew = new DevExpress.XtraEditors.SimpleButton();
             this.btnsave = new DevExpress.XtraEditors.SimpleButton();
             this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
@@ -82,7 +83,8 @@
             this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
             this.txttstr = new DevExpress.XtraEditors.TextEdit();
-            this.btnquick = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
+            this.txtMethod = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cejlzt.Properties)).BeginInit();
@@ -292,6 +294,16 @@
             this.btnclose.Text = "关闭";
             this.btnclose.Click += new System.EventHandler(this.btnclose_Click);
             // 
+            // btnquick
+            // 
+            this.btnquick.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnquick.Location = new System.Drawing.Point(560, 12);
+            this.btnquick.Name = "btnquick";
+            this.btnquick.Size = new System.Drawing.Size(75, 23);
+            this.btnquick.TabIndex = 0;
+            this.btnquick.Text = "快速执行";
+            this.btnquick.Click += new System.EventHandler(this.btnquick_Click);
+            // 
             // btnnew
             // 
             this.btnnew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -373,6 +385,7 @@
             this.cesjm.Properties.Caption = "加密";
             this.cesjm.Size = new System.Drawing.Size(42, 15);
             this.cesjm.TabIndex = 7;
+            this.cesjm.CheckedChanged += new System.EventHandler(this.cesjm_CheckedChanged);
             // 
             // rtsscript
             // 
@@ -382,6 +395,7 @@
             this.rtsscript.Size = new System.Drawing.Size(301, 133);
             this.rtsscript.TabIndex = 6;
             this.rtsscript.Text = "";
+            this.rtsscript.DoubleClick += new System.EventHandler(this.rtsscript_DoubleClick);
             // 
             // cbesdbtype
             // 
@@ -434,7 +448,9 @@
             // 
             // pswb
             // 
+            this.pswb.Controls.Add(this.txtMethod);
             this.pswb.Controls.Add(this.cbstype);
+            this.pswb.Controls.Add(this.labelControl20);
             this.pswb.Controls.Add(this.labelControl12);
             this.pswb.Controls.Add(this.labelControl1);
             this.pswb.Controls.Add(this.cbejxlx);
@@ -560,6 +576,7 @@
             this.cetjm.Properties.Caption = "加密";
             this.cetjm.Size = new System.Drawing.Size(42, 15);
             this.cetjm.TabIndex = 7;
+            this.cetjm.CheckedChanged += new System.EventHandler(this.cetjm_CheckedChanged);
             // 
             // cbtop
             // 
@@ -603,6 +620,7 @@
             this.txttmp.Size = new System.Drawing.Size(339, 75);
             this.txttmp.TabIndex = 1;
             this.txttmp.Text = "";
+            this.txttmp.DoubleClick += new System.EventHandler(this.txttmp_DoubleClick);
             // 
             // labelControl13
             // 
@@ -621,6 +639,7 @@
             this.rttscript.Size = new System.Drawing.Size(408, 193);
             this.rttscript.TabIndex = 1;
             this.rttscript.Text = "";
+            this.rttscript.DoubleClick += new System.EventHandler(this.rttscript_DoubleClick);
             // 
             // labelControl17
             // 
@@ -661,15 +680,20 @@
             this.txttstr.Size = new System.Drawing.Size(291, 20);
             this.txttstr.TabIndex = 0;
             // 
-            // btnquick
+            // labelControl20
             // 
-            this.btnquick.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnquick.Location = new System.Drawing.Point(560, 12);
-            this.btnquick.Name = "btnquick";
-            this.btnquick.Size = new System.Drawing.Size(75, 23);
-            this.btnquick.TabIndex = 0;
-            this.btnquick.Text = "快速执行";
-            this.btnquick.Click += new System.EventHandler(this.btnquick_Click);
+            this.labelControl20.Location = new System.Drawing.Point(174, 14);
+            this.labelControl20.Name = "labelControl20";
+            this.labelControl20.Size = new System.Drawing.Size(48, 14);
+            this.labelControl20.TabIndex = 1;
+            this.labelControl20.Text = "服务方法";
+            // 
+            // txtMethod
+            // 
+            this.txtMethod.Location = new System.Drawing.Point(229, 11);
+            this.txtMethod.Name = "txtMethod";
+            this.txtMethod.Size = new System.Drawing.Size(137, 22);
+            this.txtMethod.TabIndex = 4;
             // 
             // ConfigFrm
             // 
@@ -784,5 +808,7 @@
         private DevExpress.XtraEditors.TextEdit txttstr;
         private DevExpress.XtraEditors.ComboBoxEdit cbesdbtype;
         private DevExpress.XtraEditors.SimpleButton btnquick;
+        private System.Windows.Forms.TextBox txtMethod;
+        private DevExpress.XtraEditors.LabelControl labelControl20;
     }
 }

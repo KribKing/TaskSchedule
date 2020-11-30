@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraTreeList;
 using DevExpress.XtraTreeList.Nodes;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,6 +35,8 @@ namespace Winning.DownLoad.UI
         {
             try
             {
+                Tools.islog = Settings.Default.islog;
+                Tools.logpath = Settings.Default.logpath;
                 GlobalInstanceManager<JobInfoManager>.Intance = new JobInfoManager(Settings.Default.dbtype,EncodeAndDecode.Decode(Settings.Default.connstring));
                 GlobalInstanceManager<SchedulerManager>.Intance = new SchedulerManager();
                 GlobalInstanceManager<SchedulerManager>.Intance.OnScheduleLog += Intance_OnScheduleLog;
@@ -144,10 +147,11 @@ namespace Winning.DownLoad.UI
                 {
                     try
                     {
-
-                        string strresult = Tools.GetJsonNodeValue(text, "Response|Head|AckCode", "100").ToString();
-                        string strjobid = Tools.GetJsonNodeValue(text, "Response|Head|TranCode", "00").ToString();
-                        string strjobsys = Tools.GetJsonNodeValue(text, "Response|Head|TranSys", "00").ToString();
+                        ResponseMessage Response = JsonConvert.DeserializeObject<ResponseMessage>(text);
+                       // string strresult = Tools.GetJsonNodeValue(text, "Response|Head|AckCode", "100").ToString();
+                        string strresult = Response.Response.Head.AckCode.ToString();
+                        string strjobid = Response.Response.Head.TranCode.ToString();
+                        string strjobsys = Response.Response.Head.TranSys.ToString();
                         if (strresult.Contains("100"))
                         {
                             this.InsertJobHistory(0, strjobid, strjobsys, text);
@@ -171,9 +175,10 @@ namespace Winning.DownLoad.UI
                 {
                     try
                     {
-
-                        string strjobid = Tools.GetJsonNodeValue(text, "Request|Head|TranCode", "00").ToString();
-                        string strjobsys = Tools.GetJsonNodeValue(text, "Request|Head|TranSys", "00").ToString();
+                        RequestMessage Request = JsonConvert.DeserializeObject<RequestMessage>(text);
+                        // string strresult = Tools.GetJsonNodeValue(text, "Response|Head|AckCode", "100").ToString();               
+                        string strjobid = Request.Request.Head.TranCode.ToString();
+                        string strjobsys = Request.Request.Head.TranSys.ToString();                  
                         this.txtmsg.SelectionColor = Color.Yellow;
                         text = "接口【" + GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfo(strjobid, strjobsys).name + "】执行开始";
 
@@ -184,6 +189,7 @@ namespace Winning.DownLoad.UI
                     }
                 }
                 this.txtmsg.AppendText(DateTime.Now.ToString() + "==》" + text + Environment.NewLine);
+                Tools.FlushMemory();
             }
         }
 
@@ -450,19 +456,17 @@ namespace Winning.DownLoad.UI
             JobInfo info = node.Tag as JobInfo;
             if (info == null)
                 return;
-            string strrequest = GlobalInstanceManager<JobInfoManager>.Intance.GetExcuteCondition(info);
-            Stopwatch s = new Stopwatch();
-            s.Start();
-            this.QuickExcute(info, strrequest);
-            s.Stop();
-            Console.WriteLine("快速断点：" + s.ElapsedMilliseconds);
+            string strrequest = GlobalInstanceManager<JobInfoManager>.Intance.GetExcuteCondition(info);       
+            this.QuickExcute(info, strrequest);          
         }
 
         public void QuickExcute(JobInfo jobInfo, string request)
         {
             Task task = new Task(() =>
             {
-                request = GetStrJsonHelper.GetReqJson(jobInfo.id, jobInfo.system, "请求访问", request);
+                //request = GetStrJsonHelper.GetReqJson(jobInfo.id, jobInfo.system, "请求访问", request);
+                request = new RequestMessage() { Request = new Request() { Head = new Head() { TranCode = jobInfo.id, TranSys = jobInfo.system, AckMessage = "请求访问" }, Body = request } }.ToString();
+                GlobalInstanceManager<SchedulerManager>.Intance.cur_job_OnScheduleLog(jobInfo, request);
                 string strret = GlobalInstanceManager<RimsInterface>.Intance.Run(request);
                 Tools.FlushMemory();
                 this.AddLogText(strret);               

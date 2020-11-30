@@ -11,23 +11,33 @@ namespace Winning.DownLoad.Business
     /// <summary>
     /// Web服务Json接口
     /// </summary>
-    public class HttpJkInterface : JkInterface
+    public class JkInterfaceByHttp : JkInterface
     {
-        public HttpJkInterface(JobInfo jkinfo)
+        public JkInterfaceByHttp(JobInfo jkinfo)
             : base(jkinfo, "", "")
         {
 
         }
-        public override ResultInfo Run(JObject jobj)
+        public override ResultInfo Run(string jobj)
         {
             ResultInfo retInfo = new ResultInfo();
             try
             {
-                base.body = jobj.ToString();
-                retInfo = base.PostResponse();
+                base.body = jobj;
+                if (this.cur_JobInfo.servermethod.ToLower()=="get")
+                {
+                    retInfo = base.GetResponse();
+                }
+                else
+                {
+                    retInfo = base.PostResponse();
+                }            
                 if (retInfo.ackflg)
                 {
-                    DataTable dt = Tools.JsonToDataTable(Tools.GetJsonNodeValue(retInfo.body, this.cur_JobInfo.node, "[]").ToString());
+                    Tools.log("原始json串："+retInfo.body);
+                    string jarray = Tools.GetJsonNodeValue(retInfo.body, this.cur_JobInfo.node, "[]").ToString();
+                    Tools.log("返回json串：" + jarray);
+                    DataTable dt = Tools.JsonToDataTable(jarray);
                     base.ExcuteDataBaseBulk(dt, ref retInfo);
                 }
             }

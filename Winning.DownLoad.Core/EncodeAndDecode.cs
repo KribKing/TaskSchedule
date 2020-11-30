@@ -14,6 +14,8 @@ namespace Winning.DownLoad.Core
 
         public static string Encode(string data)
         {
+            if (string.IsNullOrEmpty(data))
+                return "";
             byte[] byKey = System.Text.ASCIIEncoding.ASCII.GetBytes(KEY_64);
             byte[] byIV = System.Text.ASCIIEncoding.ASCII.GetBytes(IV_64);
 
@@ -32,6 +34,8 @@ namespace Winning.DownLoad.Core
 
         public static string Decode(string data)
         {
+            if (string.IsNullOrEmpty(data))
+                return "";
             byte[] byKey = System.Text.ASCIIEncoding.ASCII.GetBytes(KEY_64);
             byte[] byIV = System.Text.ASCIIEncoding.ASCII.GetBytes(IV_64);
 

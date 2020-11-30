@@ -83,5 +83,29 @@ namespace Winning.DownLoad.UI.Properties {
                 this["dbtype"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool islog {
+            get {
+                return ((bool)(this["islog"]));
+            }
+            set {
+                this["islog"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("D://Logs//")]
+        public string logpath {
+            get {
+                return ((string)(this["logpath"]));
+            }
+            set {
+                this["logpath"] = value;
+            }
+        }
     }
 }

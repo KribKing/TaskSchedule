@@ -9,6 +9,7 @@ using System.Net;
 using System.Reflection;
 using System.Text;
 using System.Web.Services.Description;
+using System.Windows.Forms;
 
 namespace Winning.DownLoad.Core
 {
@@ -24,6 +25,7 @@ namespace Winning.DownLoad.Core
                 //ServicePointManager.ServerCertificateValidationCallback = new RemoteCertificateValidationCallback(CheckValidationResult);
                 Encoding encoding = Encoding.UTF8;
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url+body);
+                Tools.log("get服务测试："+url + body);
                 request.Method = "GET";
                 request.Accept = "application/" + accept;
                 request.ContentType = "application/" + contentttype + "; charset=utf-8";

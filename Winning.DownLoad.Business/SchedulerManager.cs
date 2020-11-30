@@ -68,15 +68,15 @@ namespace Winning.DownLoad.Business
             if (jobInfo == null)
                 return;
             TriggerKey tri = new TriggerKey(jobInfo.id, jobInfo.system);
-            if (tri == null)
+            IJobDetail job = this.scheduler.GetJobDetail(new JobKey(jobInfo.id, jobInfo.system));
+            if (job == null)
             {
                 this.CreatJob(jobInfo);
             }
             else
             {
                 if (jobInfo.jlzt == "0" && !string.IsNullOrEmpty(jobInfo.expression))
-                {
-                    IJobDetail job = this.scheduler.GetJobDetail(new JobKey(jobInfo.id, jobInfo.system));
+                {                  
                     ITrigger trigger = TriggerBuilder.Create()
                            .WithIdentity(jobInfo.id, jobInfo.system)
                            .StartNow()
@@ -125,7 +125,9 @@ namespace Winning.DownLoad.Business
             try
             {
                 string strrequest = GlobalInstanceManager<JobInfoManager>.Intance.GetExcuteCondition(key);
-                string requeststr = GetStrJsonHelper.GetReqJson(key.Name, key.Group, "", strrequest);
+             
+                //string requeststr = GetStrJsonHelper.GetReqJson(key.Name, key.Group, "", strrequest);
+                string requeststr = new RequestMessage() { Request = new Request() { Head = new Head() { TranCode = key.Name, TranSys = key.Group }, Body = strrequest } }.ToString();
                 GlobalInstanceManager<SchedulerManager>.Intance.cur_job_OnScheduleLog(GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfo(key), requeststr);
                 string strret = GlobalInstanceManager<RimsInterface>.Intance.Run(requeststr);
                 Tools.FlushMemory();
@@ -133,7 +135,7 @@ namespace Winning.DownLoad.Business
             }
             catch (Exception ex)
             {
-                string strret = GetStrJsonHelper.GetRetJson(key.Name, key.Group, "300.1", ex.Message);
+                string strret = new ResponseMessage() { Response = new Response() { Head = new Head() { TranCode = key.Name, TranSys = key.Group, AckCode = "300.1", AckMessage = ex.Message } } }.ToString();
                 GlobalInstanceManager<SchedulerManager>.Intance.cur_job_OnScheduleLog(GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfo(key), strret);
             }
         }

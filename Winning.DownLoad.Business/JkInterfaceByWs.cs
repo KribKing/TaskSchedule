@@ -9,24 +9,27 @@ using Winning.DownLoad.Core;
 namespace Winning.DownLoad.Business
 {
     /// <summary>
-    /// 数据库操作接口
+    /// Web服务Xml接口
     /// </summary>
-    public class SourceDbJkInterface : JkInterface
+    public class JkInterfaceByWs : JkInterface
     {
-        public SourceDbJkInterface(JobInfo jkinfo)
+        public JkInterfaceByWs(JobInfo jkinfo)
             : base(jkinfo, "", "")
         {
 
         }
-        public override ResultInfo Run(JObject jobj)
+        public override ResultInfo Run(string jobj)
         {
             ResultInfo retInfo = new ResultInfo();
             try
             {
-                string strsql = this.cur_JobInfo.TargetSql;
-                string connstring = this.cur_JobInfo.IsSourceDbEncode ? EncodeAndDecode.Decode(this.cur_JobInfo.SourceDbString) : this.cur_JobInfo.SourceDbString;
-                DataTable dt = GlobalInstanceManager<GlobalSqlManager>.Intance.GetDataTable(this.cur_JobInfo.SourceDbType, connstring, this.cur_JobInfo.SourceSql);
-                base.ExcuteDataBaseBulk(dt, ref retInfo);
+                base.body = jobj.ToString();
+                retInfo = base.PostResponse();
+                if (retInfo.ackflg)
+                {
+                    DataTable dt = Tools.JsonToDataTable(Tools.GetJsonNodeValue(retInfo.body, this.cur_JobInfo.node, "[]").ToString());
+                    base.ExcuteDataBaseBulk(dt, ref retInfo);
+                }
             }
             catch (Exception ex)
             {

@@ -31,8 +31,7 @@ namespace Winning.DownLoad.Core
                 return dt;
             }
             catch 
-            {
-                
+            {             
                 throw;
             }
         }
@@ -51,8 +50,7 @@ namespace Winning.DownLoad.Core
                 return db.FromSql(commandsql).ToDataSet();
             }
             catch 
-            {
-                
+            {               
                 throw;
             }
            

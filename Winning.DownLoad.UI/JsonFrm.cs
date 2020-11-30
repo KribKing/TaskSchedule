@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -135,7 +136,9 @@ namespace Winning.DownLoad.UI
             {
                 if (this.cur_jobinfo.nodelx==0)
                 {
-                    string json = Tools.GetJsonNodeValue(this.txtjson.Text.Trim(), "Response|Body" + "|" + this.cur_jobinfo.node, "[]").ToString();
+                    //string json = Tools.GetJsonNodeValue(this.txtjson.Text.Trim(), "Response|Body" + "|" + this.cur_jobinfo.node, "[]").ToString();
+                    ResponseMessage Response = JsonConvert.DeserializeObject<ResponseMessage>(this.txtjson.Text.Trim());
+                    string json = Tools.GetJsonNodeValue(Response.Response.Body, this.cur_jobinfo.node, "[]").ToString();
                     DataTable dt = Tools.JsonToDataTable(json);            
                     dt.TableName = this.cur_jobinfo.tmpname;
                     StringWriter sw=new StringWriter();
@@ -149,9 +152,6 @@ namespace Winning.DownLoad.UI
                 {
                     
                 }
-              
-                //ds.WriteXmlSchema(,);
-             
             }
             catch (Exception ex)
             {

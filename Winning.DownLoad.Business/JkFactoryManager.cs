@@ -13,26 +13,26 @@ namespace Winning.DownLoad.Business
         {
             JkInterface iface = null;
             JobInfo jobInfo = GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfo(key);
-            if (!jobInfo.IsBulkOp)
+            if (!jobInfo.isbulkop)
             {
-                 iface = new TargetDbJkInterface(jobInfo);
+                 iface = new JkInterfaceByTargetDb(jobInfo);
             }
             else
             {
-                if (jobInfo.SourceType == 0)//web服务批量操作作业
+                if (jobInfo.sourcetype == 0)//web服务批量操作作业
                 {
-                    if (jobInfo.ServerType == 0)
+                    if (jobInfo.servertype == 0)
                     {
-                        iface = new HttpJkInterface(jobInfo);
+                        iface = new JkInterfaceByHttp(jobInfo);
                     }
-                    else if (jobInfo.ServerType == 1)
+                    else if (jobInfo.servertype == 1)
                     {
-                        iface = new WsJkInterface(jobInfo);
+                        iface = new JkInterfaceByWs(jobInfo);
                     }
                 }
-                else if (jobInfo.SourceType ==1)//数据库操作
+                else if (jobInfo.sourcetype ==1)//数据库操作
                 {
-                    iface = new SourceDbJkInterface(jobInfo);
+                    iface = new JkInterfaceBySourceDb(jobInfo);
                 }
             }
            

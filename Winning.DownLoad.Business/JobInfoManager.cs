@@ -22,9 +22,10 @@ namespace Winning.DownLoad.Business
         }
         public JobInfoManager(int dbtype,string connstring)
         {
-            this.ReInit();
             this.cur_dbtype = dbtype;
-            this.cur_dbconstring=connstring;
+            this.cur_dbconstring = connstring;
+            this.ReInit();
+          
         }
         public void ReInit()
         {
@@ -41,13 +42,15 @@ namespace Winning.DownLoad.Business
             {
                 if (!string.IsNullOrEmpty(item.id) && !string.IsNullOrEmpty(item.system))
                 {
-
                     if (!IsExists(item.id, item.system))
                     {
                         JobKey key = new JobKey(item.id, item.system);
                         item.createtmp = EncodeHelper.DecodeBase64(item.createtmp);
-                        item.TargetSql = EncodeHelper.DecodeBase64(item.TargetSql);
+                        item.targetsql = EncodeHelper.DecodeBase64(item.targetsql);
+                        item.sourcesql = EncodeHelper.DecodeBase64(item.sourcesql);
                         item.xmlschema = EncodeHelper.DecodeBase64(item.xmlschema);
+                        item.sourcedbstring = EncodeAndDecode.Decode(item.sourcedbstring);
+                        item.targetdbstring = EncodeAndDecode.Decode(item.targetdbstring);
                         item.CreatJob();
                         this.JobInfoDic.Add(key, item);
                     }
@@ -91,8 +94,11 @@ namespace Winning.DownLoad.Business
                 foreach (JobInfo item in list)
                 {
                     item.createtmp = EncodeHelper.EncodeBase64(item.createtmp);
-                    item.TargetSql = EncodeHelper.EncodeBase64(item.TargetSql);
+                    item.targetsql = EncodeHelper.EncodeBase64(item.targetsql);
+                    item.sourcesql = EncodeHelper.EncodeBase64(item.sourcesql);
                     item.xmlschema = EncodeHelper.EncodeBase64(item.xmlschema);
+                    item.sourcedbstring = EncodeAndDecode.Encode(item.sourcedbstring);
+                    item.targetdbstring = EncodeAndDecode.Encode(item.targetdbstring);
                 }
                 DataTable dt = Tools.ToDataTable<JobInfo>(list);
                 dt.TableName = "CronJob";
@@ -225,7 +231,7 @@ namespace Winning.DownLoad.Business
         /// <summary>
         /// 同步脚本
         /// </summary>
-        public string TargetSql { get; set; }
+        public string targetsql { get; set; }
         /// <summary>
         /// 解析数据类型 0：json 1：xml
         /// </summary>
@@ -283,28 +289,36 @@ namespace Winning.DownLoad.Business
         /// <summary>
         /// 数据源类型 0:服务 1:数据库
         /// </summary>
-        public int SourceType { get; set; }
+        public int sourcetype { get; set; }
         /// <summary>
         /// 源数据库类型
         /// </summary>
-        public int SourceDbType { get; set; }
+        public int sourcedbtype { get; set; }
         /// <summary>
         /// 源数据库是否加密
         /// </summary>
-        public bool IsSourceDbEncode { get; set; }
-        public string SourceDbString { get; set; }
-        public string SourceSql { get; set; }
-        public int TargetDbType { get; set; }
-        public bool IsTargetDbEncode { get; set; }
-        public string TargetDbString { get; set; }
+        public bool issourcedbencode { get; set; }
+        public string sourcedbstring { get; set; }
+        public string sourcesql { get; set; }
+        public int targetdbtype { get; set; }
+        public bool istargetdbencode { get; set; }
+        public string targetdbstring { get; set; }
         /// <summary>
         /// 是否批量操作
         /// </summary>
-        public bool IsBulkOp { get; set; }
+        public bool isbulkop { get; set; }
         /// <summary>
         /// 服务类型 0:http 1:ws
         /// </summary>
-        public int ServerType { get; set; }
+        public int servertype { get; set; }
+        private string _serverMethod="POST";
+
+        public string servermethod
+        {
+            get { return _serverMethod; }
+            set { _serverMethod = value; }
+        }
+        
     }
     
 }

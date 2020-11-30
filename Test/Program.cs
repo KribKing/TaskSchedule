@@ -15,7 +15,7 @@ namespace Test
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new VideoFrm());
+            Application.Run(new Form1());
         }
     }
 }

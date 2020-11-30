@@ -8,21 +8,21 @@ using Winning.DownLoad.Core;
 
 namespace Winning.DownLoad.Business
 {
-    public class TargetDbJkInterface : JkInterface
+    public class JkInterfaceByTargetDb : JkInterface
     {
-        public TargetDbJkInterface(JobInfo jkinfo)
+        public JkInterfaceByTargetDb(JobInfo jkinfo)
             : base(jkinfo, "", "")
         {
 
         }
-        public override ResultInfo Run(JObject jobj)
+        public override ResultInfo Run(string jobj)
         {
             ResultInfo retInfo = new ResultInfo();
             try
             {
-                string strsql = this.cur_JobInfo.TargetSql;
-                string connstring = this.cur_JobInfo.IsTargetDbEncode ? EncodeAndDecode.Decode(this.cur_JobInfo.TargetDbString) : this.cur_JobInfo.TargetDbString;
-                int renum= GlobalInstanceManager<GlobalSqlManager>.Intance.ExecuteNoneQuery(this.cur_JobInfo.TargetDbType, connstring, this.cur_JobInfo.TargetSql);
+                string strsql = this.cur_JobInfo.targetsql;
+                string connstring =this.cur_JobInfo.targetdbstring;
+                int renum= GlobalInstanceManager<GlobalSqlManager>.Intance.ExecuteNoneQuery(this.cur_JobInfo.targetdbtype, connstring, this.cur_JobInfo.targetsql);
                 if (renum<0)
                 {
                     retInfo.ackcode = "100.1";
