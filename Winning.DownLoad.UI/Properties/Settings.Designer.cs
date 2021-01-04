@@ -25,8 +25,8 @@ namespace Winning.DownLoad.UI.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("fKti04vHK0LqBv2mqFCEnrsRvxJV1KvBDftb+RXaVfXs1Wkxucgyenh04GTEj9BJdi09jseWyAfySsvMP" +
-            "gFemrmIewuiikjTRwzA6+r5vg7GaZettCFCOtyXnzcVPf6zMyCUgv0WkYoz1O+EDiz+IA==")]
+        [global::System.Configuration.DefaultSettingValueAttribute("fKti04vHK0KHYTZgQBYx+Uk5jT8TBCXTRDdVR2y1ai60l5I4ylCRvglF5ych/ZeCDh+mY7i5f+TehYhp1" +
+            "QDBWbk/6tvJsB89XhX+LMcsqZbdvv9ngEo0hsRPk73Syqa9dWb16jjSzyE=")]
         public string connstring {
             get {
                 return ((string)(this["connstring"]));
@@ -74,7 +74,7 @@ namespace Winning.DownLoad.UI.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
         public int dbtype {
             get {
                 return ((int)(this["dbtype"]));

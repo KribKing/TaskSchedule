@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mr.King.CronExGeneration", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mr.King.DB", "Mr.King.DB\Mr.King.DB.csproj", "{2B693BD1-CD6C-46B0-8894-49640E52CB34}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mr.King.DllConfig", "Mr.King.DllConfig\Mr.King.DllConfig.csproj", "{CDB17675-ECE7-4671-86BC-BD4AD72E767D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -133,6 +135,16 @@ Global
 		{2B693BD1-CD6C-46B0-8894-49640E52CB34}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{2B693BD1-CD6C-46B0-8894-49640E52CB34}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{2B693BD1-CD6C-46B0-8894-49640E52CB34}.Release|x86.ActiveCfg = Release|Any CPU
+		{CDB17675-ECE7-4671-86BC-BD4AD72E767D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDB17675-ECE7-4671-86BC-BD4AD72E767D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDB17675-ECE7-4671-86BC-BD4AD72E767D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{CDB17675-ECE7-4671-86BC-BD4AD72E767D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{CDB17675-ECE7-4671-86BC-BD4AD72E767D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CDB17675-ECE7-4671-86BC-BD4AD72E767D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDB17675-ECE7-4671-86BC-BD4AD72E767D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDB17675-ECE7-4671-86BC-BD4AD72E767D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{CDB17675-ECE7-4671-86BC-BD4AD72E767D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{CDB17675-ECE7-4671-86BC-BD4AD72E767D}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

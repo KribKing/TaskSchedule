@@ -639,7 +639,7 @@ namespace Winning.DownLoad.Core
             {
                 Tools.log("测试节点");
                 Tools.log("解析节点：" + key);
-                if (key=="[]")
+                if (key == "[]")
                 {
                     value = json;
                 }
@@ -732,6 +732,31 @@ namespace Winning.DownLoad.Core
             if (Environment.OSVersion.Platform == PlatformID.Win32NT)
             {
                 SetProcessWorkingSetSize(Process.GetCurrentProcess().Handle, -1, -1);
+            }
+        }
+
+
+        public static string DataTableToJson(DataTable dt)
+        {
+            if (dt == null || dt.Rows.Count <= 0)
+            {
+                return "[]";
+            }
+            else
+            {
+                System.Collections.ArrayList dic = new System.Collections.ArrayList();
+                foreach (DataRow dr in dt.Rows)
+                {
+                    System.Collections.Generic.Dictionary<string, object> drow = new System.Collections.Generic.Dictionary<string, object>();
+                    foreach (DataColumn dc in dt.Columns)
+                    {
+                        drow.Add(dc.ColumnName, dr[dc.ColumnName]);
+                    }
+                    dic.Add(drow);
+
+                }
+                //序列化  
+                return JsonConvert.SerializeObject(dic);
             }
         }
     }

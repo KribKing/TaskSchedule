@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="connstring" Type="System.String" Scope="User">
-      <Value Profile="(Default)">fKti04vHK0LqBv2mqFCEnrsRvxJV1KvBDftb+RXaVfXs1Wkxucgyenh04GTEj9BJdi09jseWyAfySsvMPgFemrmIewuiikjTRwzA6+r5vg7GaZettCFCOtyXnzcVPf6zMyCUgv0WkYoz1O+EDiz+IA==</Value>
+      <Value Profile="(Default)">fKti04vHK0KHYTZgQBYx+Uk5jT8TBCXTRDdVR2y1ai60l5I4ylCRvglF5ych/ZeCDh+mY7i5f+TehYhp1QDBWbk/6tvJsB89XhX+LMcsqZbdvv9ngEo0hsRPk73Syqa9dWb16jjSzyE=</Value>
     </Setting>
     <Setting Name="theme" Type="System.String" Scope="User">
       <Value Profile="(Default)">DevExpress Style</Value>
@@ -15,7 +15,7 @@
       <Value Profile="(Default)">RIMS数据下载程序</Value>
     </Setting>
     <Setting Name="dbtype" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">5</Value>
     </Setting>
     <Setting Name="islog" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>

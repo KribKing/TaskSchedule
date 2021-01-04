@@ -1,0 +1,5 @@
+D:\GitHub\DownLoadExe\Mr.King.DllConfig\bin\Debug\Mr.King.DllConfig.dll.config
+D:\GitHub\DownLoadExe\Mr.King.DllConfig\bin\Debug\Mr.King.DllConfig.dll
+D:\GitHub\DownLoadExe\Mr.King.DllConfig\bin\Debug\Mr.King.DllConfig.pdb
+D:\GitHub\DownLoadExe\Mr.King.DllConfig\obj\Debug\Mr.King.DllConfig.dll
+D:\GitHub\DownLoadExe\Mr.King.DllConfig\obj\Debug\Mr.King.DllConfig.pdb

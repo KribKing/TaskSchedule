@@ -1,4 +1,5 @@
 ﻿using Dos.ORM;
+using Oracle.DataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -90,69 +91,26 @@ namespace Winning.DownLoad.Core
         {
             try
             {
-                #region 1.创建临时表
-                string strtmpsql = "";
-                if (!string.IsNullOrEmpty(creatTmp))
+                switch (GetDbTyle(dbtype))
                 {
-                    strtmpsql = creatTmp;
+                    case DatabaseType.MsAccess:
+                        break;
+                    case DatabaseType.MySql:
+                        break;
+                    case DatabaseType.Oracle:
+                        this.BulkDbByOracle(connectionString, creatTmp, tmpname, strSql, table, ref retInfo);
+                        break;
+                    case DatabaseType.SqlServer:
+                        this.BulkDbBySqlServer(connectionString,creatTmp,tmpname,strSql,table,ref retInfo);
+                        break;
+                    case DatabaseType.SqlServer9:
+                        break;
+                    case DatabaseType.Sqlite3:
+                        break;
+                    default:
+                        break;
                 }
-                else
-                {
-                    strtmpsql = "truncate table " + tmpname;
-                }
-                #endregion
-                #region 2.将数据使用sqlbulk导入到临时表
-                //开始数据保存逻辑
-
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    conn.Open();
-                    SqlCommand cmd = conn.CreateCommand();
-                    cmd.CommandText = strtmpsql;
-                    cmd.ExecuteNonQuery();
-                    //在插入数据的同时检查约束，如果发生错误调用sqlbulkTransaction事务
-                    SqlBulkCopy bulkCopy = new SqlBulkCopy(conn);
-                    bulkCopy.DestinationTableName = tmpname;//代表要插入数据的表名
-                    foreach (DataColumn dc in table.Columns)  //传入上述table
-                    {
-                        bulkCopy.ColumnMappings.Add(dc.ColumnName, dc.ColumnName);//将table中的列与数据库表这的列一一对应
-                    }
-                    try
-                    {
-                        bulkCopy.WriteToServer(table);
-                    }
-                    catch (Exception ex)
-                    {
-                        retInfo.ackcode = "300.2";
-                        retInfo.ackflg = false;
-                        retInfo.ackmsg = "批量导入临时表发生异常：" + ex.Message;
-                        return retInfo;
-                    }
-                    finally
-                    {
-                        bulkCopy.Close();
-                    }
-                    SqlTransaction tran = conn.BeginTransaction();//开启事务                
-                    try
-                    {
-                        cmd.Transaction = tran;
-                        cmd.CommandText = strSql;
-                        cmd.ExecuteNonQuery();
-                    }
-                    catch (Exception ee)
-                    {
-                        tran.Rollback();
-                        retInfo.ackcode = "300.2";
-                        retInfo.ackflg = false;
-                        retInfo.ackmsg = "批量导入发生异常：" + ee.Message;
-                        return retInfo;
-                    }
-                    retInfo.ackcode = "100.1";
-                    retInfo.ackflg = true;
-                    retInfo.ackmsg = "数据库操作成功";
-                    tran.Commit();
-                }
-                #endregion
+               
             }
             catch (Exception e)
             {
@@ -165,6 +123,140 @@ namespace Winning.DownLoad.Core
                 //GC.Collect();
             }
             return retInfo;
+        }
+        public ResultInfo BulkDbBySqlServer(string connectionString, string creatTmp, string tmpname, string strSql, DataTable table, ref ResultInfo retInfo)
+        {
+            #region 1.创建临时表
+            string strtmpsql = "";
+            if (!string.IsNullOrEmpty(creatTmp))
+            {
+                strtmpsql = creatTmp;
+            }
+            else
+            {
+                strtmpsql = "truncate table " + tmpname;
+            }
+            #endregion
+            #region 2.将数据使用sqlbulk导入到临时表
+            //开始数据保存逻辑
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = strtmpsql;
+                cmd.ExecuteNonQuery();
+                //在插入数据的同时检查约束，如果发生错误调用sqlbulkTransaction事务
+                SqlBulkCopy bulkCopy = new SqlBulkCopy(conn);
+                bulkCopy.DestinationTableName = tmpname;//代表要插入数据的表名
+                foreach (DataColumn dc in table.Columns)  //传入上述table
+                {
+                    bulkCopy.ColumnMappings.Add(dc.ColumnName, dc.ColumnName);//将table中的列与数据库表这的列一一对应
+                }
+                try
+                {
+                    bulkCopy.WriteToServer(table);
+                }
+                catch (Exception ex)
+                {
+                    retInfo.ackcode = "300.2";
+                    retInfo.ackflg = false;
+                    retInfo.ackmsg = "批量导入临时表发生异常：" + ex.Message;
+                    return retInfo;
+                }
+                finally
+                {
+                    bulkCopy.Close();
+                }
+                SqlTransaction tran = conn.BeginTransaction();//开启事务                
+                try
+                {
+                    cmd.Transaction = tran;
+                    cmd.CommandText = strSql;
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ee)
+                {
+                    tran.Rollback();
+                    retInfo.ackcode = "300.2";
+                    retInfo.ackflg = false;
+                    retInfo.ackmsg = "批量导入发生异常：" + ee.Message;
+                    return retInfo;
+                }
+                retInfo.ackcode = "100.1";
+                retInfo.ackflg = true;
+                retInfo.ackmsg = "数据库操作成功";
+                tran.Commit();
+            }
+            return retInfo;
+            #endregion
+        }
+        public ResultInfo BulkDbByOracle(string connectionString, string creatTmp, string tmpname, string strSql, DataTable table, ref ResultInfo retInfo)
+        {
+            #region 1.创建临时表
+            string strtmpsql = "";
+            if (!string.IsNullOrEmpty(creatTmp))
+            {
+                strtmpsql = creatTmp;
+            }
+            else
+            {
+                strtmpsql = "truncate table " + tmpname;
+            }
+            #endregion
+            #region 2.将数据使用sqlbulk导入到临时表
+            //开始数据保存逻辑
+
+            using (OracleConnection conn = new OracleConnection(connectionString))
+            {
+                conn.Open();
+                OracleCommand cmd = conn.CreateCommand();
+                cmd.CommandText = strtmpsql;
+                cmd.ExecuteNonQuery();
+                //在插入数据的同时检查约束，如果发生错误调用sqlbulkTransaction事务
+                OracleBulkCopy bulkCopy = new OracleBulkCopy(conn);
+                bulkCopy.DestinationTableName = tmpname;//代表要插入数据的表名
+                foreach (DataColumn dc in table.Columns)  //传入上述table
+                {
+                    bulkCopy.ColumnMappings.Add(dc.ColumnName, dc.ColumnName);//将table中的列与数据库表这的列一一对应
+                }
+                try
+                {
+                    bulkCopy.WriteToServer(table);
+                }
+                catch (Exception ex)
+                {
+                    retInfo.ackcode = "300.2";
+                    retInfo.ackflg = false;
+                    retInfo.ackmsg = "批量导入临时表发生异常：" + ex.Message;
+                    return retInfo;
+                }
+                finally
+                {
+                    bulkCopy.Close();
+                }
+                OracleTransaction tran = conn.BeginTransaction();//开启事务                
+                try
+                {
+                    cmd.Transaction = tran;
+                    cmd.CommandText = strSql;
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ee)
+                {
+                    tran.Rollback();
+                    retInfo.ackcode = "300.2";
+                    retInfo.ackflg = false;
+                    retInfo.ackmsg = "批量导入发生异常：" + ee.Message;
+                    return retInfo;
+                }
+                retInfo.ackcode = "100.1";
+                retInfo.ackflg = true;
+                retInfo.ackmsg = "数据库操作成功";
+                tran.Commit();
+            }
+            return retInfo;
+            #endregion
         }
     }
 }

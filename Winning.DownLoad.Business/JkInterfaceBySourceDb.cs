@@ -24,8 +24,9 @@ namespace Winning.DownLoad.Business
             try
             {
                 string strsql = this.cur_JobInfo.targetsql;
-                string connstring = this.cur_JobInfo.issourcedbencode ? EncodeAndDecode.Decode(this.cur_JobInfo.sourcedbstring) : this.cur_JobInfo.sourcedbstring;
+                string connstring =this.cur_JobInfo.sourcedbstring;
                 DataTable dt = GlobalInstanceManager<GlobalSqlManager>.Intance.GetDataTable(this.cur_JobInfo.sourcedbtype, connstring, this.cur_JobInfo.sourcesql);
+                retInfo.body = Tools.DataTableToJson(dt);
                 base.ExcuteDataBaseBulk(dt, ref retInfo);
             }
             catch (Exception ex)
