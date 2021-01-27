@@ -24,14 +24,13 @@ namespace Winning.DownLoad.Core
             {
                 //ServicePointManager.ServerCertificateValidationCallback = new RemoteCertificateValidationCallback(CheckValidationResult);
                 Encoding encoding = Encoding.UTF8;
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url+body);
-                Tools.log("get服务测试："+url + body);
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url + body);
                 request.Method = "GET";
                 request.Accept = "application/" + accept;
                 request.ContentType = "application/" + contentttype + "; charset=utf-8";
                 request.UserAgent = "Apache-HttpClient/4.1.1 (java 1.5)";
                 request.AllowAutoRedirect = false;
-                request.Headers.Add("access_token", token);            
+                request.Headers.Add("access_token", token);
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                 using (StreamReader reader = new StreamReader(response.GetResponseStream(), encoding))
                 {
@@ -44,14 +43,14 @@ namespace Winning.DownLoad.Core
             }
         }
         public static string HttpPostRequest(string url, string body, string token = "", string accept = "json", string contentttype = "json")
-        {                     
+        {
             try
-            {          
+            {
                 Encoding encoding = Encoding.UTF8;
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                 request.Method = "POST";
                 request.Accept = "application/" + accept;
-                request.ContentType = "application/" + contentttype + "; charset=utf-8";         
+                request.ContentType = "application/" + contentttype + "; charset=utf-8";
                 //request.UserAgent = "Apache-HttpClient/4.1.1 (java 1.5)";
                 request.AllowAutoRedirect = false;
                 request.Headers.Add("access_token", token);
@@ -61,19 +60,19 @@ namespace Winning.DownLoad.Core
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                 using (StreamReader reader = new StreamReader(response.GetResponseStream(), encoding))
                 {
-                    return reader.ReadToEnd();      
+                    return reader.ReadToEnd();
                 }
                 //response.Close();
                 //request.Abort();
-                
+
             }
             catch
             {
                 throw;
             }
-           
+
         }
-        public static string SoapRequest(string url, object[] args, string method)
+        public static string SoapRequest(string url, string method, object[] args)
         {
             //这里的namespace是需引用的webservices的命名空间，在这里是写死的，大家可以加一个参数从外面传进来。
             string @namespace = "client";

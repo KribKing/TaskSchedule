@@ -39,6 +39,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\康复数据下载程序\Dos.ORM.dll</HintPath>
     </Reference>
+    <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\康复数据下载程序\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>D:\THIS5.0_RIMS\Newtonsoft.Json.dll</HintPath>
@@ -67,6 +71,7 @@
     <Compile Include="GetStrJsonHelper.cs" />
     <Compile Include="GlobalInstanceManager.cs" />
     <Compile Include="GlobalWebRequestHelper.cs" />
+    <Compile Include="Log4netUtil.cs" />
     <Compile Include="ProcessBarFrm.cs">
       <SubType>Form</SubType>
     </Compile>

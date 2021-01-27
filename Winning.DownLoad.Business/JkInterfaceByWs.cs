@@ -23,11 +23,12 @@ namespace Winning.DownLoad.Business
             ResultInfo retInfo = new ResultInfo();
             try
             {
-                base.body = jobj.ToString();
-                retInfo = base.PostResponse();
+                base.body = jobj;
+                retInfo = base.WebInvoke();
                 if (retInfo.ackflg)
                 {
-                    DataTable dt = Tools.JsonToDataTable(Tools.GetJsonNodeValue(retInfo.body, this.cur_JobInfo.node, "[]").ToString());
+                    string jarray = Tools.GetJsonNodeValue(retInfo.body, this.cur_JobInfo.node, "[]").ToString();
+                    DataTable dt = Tools.JsonToDataTable(jarray);
                     base.ExcuteDataBaseBulk(dt, ref retInfo);
                 }
             }

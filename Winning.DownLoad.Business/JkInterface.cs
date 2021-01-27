@@ -45,6 +45,33 @@ namespace Winning.DownLoad.Business
             }
             return info;
         }
+        public virtual ResultInfo WebInvoke()
+        {
+            ResultInfo info = new ResultInfo();
+            try
+            {
+                WebServiceArgs list=JsonConvert.DeserializeObject<WebServiceArgs>(body);
+                object[] args = null;
+                if (list!=null&&list.ArgsList!=null&& list.ArgsList.Count>0)
+                {
+                    args=new object[list.ArgsList.Count];
+                    foreach (WebServiceArgsInfo item in list.ArgsList)
+                    {
+                        args.SetValue(item.Value,item.KeyIndex);
+                    }
+                }
+                info.ackmsg = GlobalWebRequestHelper.SoapRequest(cur_JobInfo.weburl, cur_JobInfo.servermethod, args);
+                info.body = info.ackmsg;
+                info.ackflg = true;
+                Tools.log(info.body);
+            }
+            catch (Exception ex)
+            {
+                info.ackmsg = ex.Message;
+                info.ackflg = false;
+            }
+            return info;
+        }
         public virtual ResultInfo PostResponse()
         {
             ResultInfo info = new ResultInfo();
@@ -95,12 +122,7 @@ namespace Winning.DownLoad.Business
                 string createtmp = this.cur_JobInfo.createtmp;
                 string tmpname = this.cur_JobInfo.tmpname;
                 string strsql = this.cur_JobInfo.targetsql;
-                Console.WriteLine("数据条数:"+dt.Rows.Count.ToString());
-                Stopwatch watch = new Stopwatch();
-                watch.Start();
                 GlobalInstanceManager<GlobalSqlManager>.Intance.BulkDb(dbtype, connstring, createtmp, tmpname, strsql, dt, ref retInfo);
-                watch.Stop();
-                Console.WriteLine("批量插入时间："+watch.ElapsedMilliseconds.ToString());
             }
             else
             {
@@ -109,7 +131,16 @@ namespace Winning.DownLoad.Business
             }
         }
     }
-   
-    
-    
+
+
+    public class WebServiceArgs
+    {
+        public List<WebServiceArgsInfo> ArgsList { get; set; }
+    }
+    public class WebServiceArgsInfo
+    {
+        public int KeyIndex { get; set; }
+        public string Value { get; set; }
+
+    }
 }

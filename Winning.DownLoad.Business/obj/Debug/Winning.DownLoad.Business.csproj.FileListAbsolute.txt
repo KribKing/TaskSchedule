@@ -13,4 +13,6 @@ D:\康复数据下载程序\Winning.DownLoad.Business.dll
 D:\康复数据下载程序\Winning.DownLoad.Business.pdb
 D:\GitHub\DownLoadExe\Winning.DownLoad.Business\obj\Debug\Winning.DownLoad.Business.dll
 D:\GitHub\DownLoadExe\Winning.DownLoad.Business\obj\Debug\Winning.DownLoad.Business.pdb
-D:\GitHub\DownLoadExe\Winning.DownLoad.Business\obj\Debug\Winning.DownLoad.Business.csprojResolveAssemblyReference.cache
+D:\GitHub\DownLoadExe\Winning.DownLoad.Business\obj\Debug\Winning.DownLoad.Business.csprojAssemblyReference.cache
+D:\GitHub\DownLoadExe\Winning.DownLoad.Business\obj\Debug\Winning.DownLoad.Business.csproj.CoreCompileInputs.cache
+D:\GitHub\DownLoadExe\Winning.DownLoad.Business\obj\Debug\Winning.DownLoad.Business.csproj.CopyComplete
