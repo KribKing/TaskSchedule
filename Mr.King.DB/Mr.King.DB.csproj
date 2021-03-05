@@ -47,12 +47,6 @@
     <Compile Include="GlobalSqlManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Winning.DownLoad.Core\Winning.DownLoad.Core.csproj">
-      <Project>{5dd55889-557c-480b-9ab4-39936a384ecb}</Project>
-      <Name>Winning.DownLoad.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,0 +1,13 @@
+D:\康复数据下载程序\DownLoad.Core.dll
+D:\康复数据下载程序\DownLoad.Core.pdb
+D:\GitHub\DownLoadExe\Winning.DownLoad.Core\obj\Debug\Winning.DownLoad.Core.ProcessBarFrm.resources
+D:\GitHub\DownLoadExe\Winning.DownLoad.Core\obj\Debug\DownLoad.Core.csproj.GenerateResource.Cache
+D:\GitHub\DownLoadExe\Winning.DownLoad.Core\obj\Debug\DownLoad.Core.dll.licenses
+D:\GitHub\DownLoadExe\Winning.DownLoad.Core\obj\Debug\DownLoad.Core.dll
+D:\GitHub\DownLoadExe\Winning.DownLoad.Core\obj\Debug\DownLoad.Core.pdb
+D:\GitHub\DownLoadExe\Winning.DownLoad.Core\obj\Debug\DownLoad.Core.csprojResolveAssemblyReference.cache
+D:\GitHub\DownLoadExe\DownLoad.Core\obj\Debug\DownLoad.Core.ProcessBarFrm.resources
+D:\GitHub\DownLoadExe\DownLoad.Core\obj\Debug\DownLoad.Core.csproj.GenerateResource.Cache
+D:\GitHub\DownLoadExe\DownLoad.Core\obj\Debug\DownLoad.Core.dll.licenses
+D:\GitHub\DownLoadExe\DownLoad.Core\obj\Debug\DownLoad.Core.dll
+D:\GitHub\DownLoadExe\DownLoad.Core\obj\Debug\DownLoad.Core.pdb
