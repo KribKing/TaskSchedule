@@ -14,7 +14,6 @@ D:\康复数据下载程序\DownLoad.UI.exe
 D:\康复数据下载程序\DownLoad.UI.pdb
 D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\DownLoad.UI.exe
 D:\GitHub\DownLoadExe\Winning.DownLoad.UI\obj\Debug\DownLoad.UI.pdb
-D:\GitHub\DownLoadExe\DownLoad.UI\obj\Debug\DownLoad.UI.csprojResolveAssemblyReference.cache
 D:\GitHub\DownLoadExe\DownLoad.UI\obj\Debug\DownLoad.UI.ConfigFrm.resources
 D:\GitHub\DownLoadExe\DownLoad.UI\obj\Debug\DownLoad.UI.ExecJob.resources
 D:\GitHub\DownLoadExe\DownLoad.UI\obj\Debug\DownLoad.UI.FrmBase.resources
@@ -28,3 +27,7 @@ D:\GitHub\DownLoadExe\DownLoad.UI\obj\Debug\DownLoad.UI.csproj.GenerateResource.
 D:\GitHub\DownLoadExe\DownLoad.UI\obj\Debug\DownLoad.UI.exe
 D:\GitHub\DownLoadExe\DownLoad.UI\obj\Debug\DownLoad.UI.pdb
 D:\康复数据下载程序\DownLoad.UI.exe.config
+D:\GitHub\DownLoadExe\DownLoad.UI\obj\Debug\DownLoad.UI.exe.licenses
+D:\GitHub\DownLoadExe\DownLoad.UI\obj\Debug\DownLoad.UI.csprojAssemblyReference.cache
+D:\GitHub\DownLoadExe\DownLoad.UI\obj\Debug\DownLoad.UI.csproj.CoreCompileInputs.cache
+D:\GitHub\DownLoadExe\DownLoad.UI\obj\Debug\DownLoad.UI.csproj.CopyComplete

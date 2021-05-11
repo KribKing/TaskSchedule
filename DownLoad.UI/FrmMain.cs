@@ -35,8 +35,7 @@ namespace DownLoad.UI
         {
             try
             {
-                Tools.islog = Settings.Default.islog;
-                Tools.logpath = Settings.Default.logpath;
+                Log4netUtil.IsLog = Settings.Default.islog;
                 GlobalInstanceManager<JobInfoManager>.Intance = new JobInfoManager(Settings.Default.dbtype, EncodeAndDecode.Decode(Settings.Default.connstring));
                 GlobalInstanceManager<SchedulerManager>.Intance = new SchedulerManager();
                 GlobalInstanceManager<SchedulerManager>.Intance.OnScheduleLog += Intance_OnScheduleLog;
@@ -195,15 +194,18 @@ namespace DownLoad.UI
 
         private void InsertJobHistory(int zxzt, string strjobid, string strjobsys, string text)
         {
-            string strsql = "insert into CronJob_JOBHISTORY(id,system,zxzt,rawtext,oper_date) values('" + strjobid + "','" + strjobsys + "'," + zxzt + ",'" + EncodeHelper.EncodeBase64(text) + "','" + DateTime.Now.ToString("yyyyMMdd HH:mm:ss") + "')";
-            int retnum = GlobalInstanceManager<GlobalSqlManager>.Intance.ExecuteNoneQuery(Settings.Default.dbtype, EncodeAndDecode.Decode(Settings.Default.connstring), strsql);
-            if (retnum > 0)
+            if (Settings.Default.dblog)
             {
-                this.AddLogText("作业【" + GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfo(strjobid, strjobsys).name + "】执行记录插入数据库成功");
-            }
-            else
-            {
-                this.AddLogText("作业【" + GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfo(strjobid, strjobsys).name + "】执行记录插入数据库失败");
+                string strsql = "insert into CronJob_JOBHISTORY(id,system,zxzt,rawtext,oper_date) values('" + strjobid + "','" + strjobsys + "'," + zxzt + ",'" + EncodeHelper.EncodeBase64(text) + "','" + DateTime.Now.ToString("yyyyMMdd HH:mm:ss") + "')";
+                int retnum = GlobalInstanceManager<GlobalSqlManager>.Intance.ExecuteNoneQuery(Settings.Default.dbtype, EncodeAndDecode.Decode(Settings.Default.connstring), strsql);
+                if (retnum > 0)
+                {
+                    this.AddLogText("作业【" + GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfo(strjobid, strjobsys).name + "】执行记录插入数据库成功");
+                }
+                else
+                {
+                    this.AddLogText("作业【" + GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfo(strjobid, strjobsys).name + "】执行记录插入数据库失败");
+                }
             }
         }
 
@@ -258,7 +260,8 @@ namespace DownLoad.UI
                 this.btnqyjob.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
                 this.btnjzjob.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
                 this.btnpro.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
-
+                this.btncopyjob.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                this.btndeletejob.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
                 if (Cur_Job.jlzt == "1")
                 {
                     this.btnjzjob.Enabled = false;
@@ -280,6 +283,8 @@ namespace DownLoad.UI
                 this.btnqyjob.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
                 this.btnjzjob.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
                 this.btnpro.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+                this.btncopyjob.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+                this.btndeletejob.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
                 List<JobInfo> list = GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfoListBySystemName(systemname);
                 if (list == null || list.Count <= 0)
                 {
@@ -426,17 +431,18 @@ namespace DownLoad.UI
         private void btnremove_Click(object sender, EventArgs e)
         {
             this.txtmsg.Clear();
+            Tools.FlushMemory();
         }
 
         private void btnreset_Click(object sender, EventArgs e)
         {
-            this.AddJob();
+            this.AddJob(new JobInfo());
 
         }
 
-        private void AddJob()
+        private void AddJob(JobInfo addinfo)
         {
-            using (ConfigFrm config = new ConfigFrm(null, null, this))
+            using (ConfigFrm config = new ConfigFrm(addinfo, null, this))
             {
                 config.ShowDialog();
             }
@@ -562,7 +568,12 @@ namespace DownLoad.UI
 
         private void btnnewjob_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            this.AddJob();
+            TreeListNode node = this.treeList1.FocusedNode;
+            if (node == null && node.Tag == null)
+                return;
+            string systemname = node.Tag as string;
+            JobInfo firstjob = GlobalInstanceManager<JobInfoManager>.Intance.GetFirstJobBySystemName(systemname);
+            this.AddJob(new JobInfo() { system = firstjob.system,sysname=firstjob.sysname});
         }
 
         private void btnallqyjob_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -587,8 +598,8 @@ namespace DownLoad.UI
                                 cnode.StateImageIndex = 1;
                             }
                         }
-                        
-                    }                
+
+                    }
                 }
             }
             GlobalInstanceManager<JobInfoManager>.Intance.SaveJobInfo();
@@ -634,7 +645,7 @@ namespace DownLoad.UI
                     if (info != null)
                     {
                         string strsql = "exec usp_jk_deletejobhistory @id='" + info.id + "',@sys='" + info.system + "'";
-                        strsql+= "exec usp_jk_getjobhistory @id='" + info.id + "',@sys='" + info.system + "'";
+                        strsql += "exec usp_jk_getjobhistory @id='" + info.id + "',@sys='" + info.system + "'";
                         DataTable dt = GlobalInstanceManager<GlobalSqlManager>.Intance.GetDataTable(Settings.Default.dbtype, EncodeAndDecode.Decode(Settings.Default.connstring), strsql);
                         this.gridControl1.DataSource = dt;
                     }
@@ -649,6 +660,40 @@ namespace DownLoad.UI
             {
                 this.gridControl1.DataSource = null;
             }
+        }
+
+        private void btncopyjob_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (this.treeList1.FocusedNode != null)
+            {
+                this.Cur_Job = this.treeList1.FocusedNode.Tag as JobInfo;
+                if (this.Cur_Job != null)
+                {
+                    JobInfo newjob = this.Cur_Job.Copy();
+                    using (ConfigFrm frm = new ConfigFrm(newjob, null, this))
+                    {
+                        frm.ShowDialog();
+                    }
+                }
+            }
+            this.LoadJobInfo();
+        }
+
+        private void btndeletejob_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (this.treeList1.FocusedNode != null)
+            {
+                JobInfo removejob = this.treeList1.FocusedNode.Tag as JobInfo;
+                if (MessageBox.Show("确认删除作业吗？", "操作提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                {
+                    if (removejob != null)
+                    {
+                        GlobalInstanceManager<JobInfoManager>.Intance.RemoveJobInfo(removejob);
+                    }
+                }
+
+            }
+            this.LoadJobInfo();
         }
     }
 }

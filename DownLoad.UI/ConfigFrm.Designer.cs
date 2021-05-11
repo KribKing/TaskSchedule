@@ -48,6 +48,7 @@
             this.txturl = new DevExpress.XtraEditors.TextEdit();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.btnclose = new DevExpress.XtraEditors.SimpleButton();
+            this.btnnew = new DevExpress.XtraEditors.SimpleButton();
             this.btnquick = new DevExpress.XtraEditors.SimpleButton();
             this.btnsave = new DevExpress.XtraEditors.SimpleButton();
             this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
@@ -63,8 +64,10 @@
             this.txtsstr = new DevExpress.XtraEditors.TextEdit();
             this.webpanel = new DevExpress.XtraEditors.PanelControl();
             this.txtMethod = new System.Windows.Forms.TextBox();
+            this.btnxml = new DevExpress.XtraEditors.SimpleButton();
             this.cbstype = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
+            this.rtbxml = new System.Windows.Forms.RichTextBox();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.cbejxlx = new DevExpress.XtraEditors.ComboBoxEdit();
             this.tenode = new DevExpress.XtraEditors.TextEdit();
@@ -75,6 +78,7 @@
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.cetjm = new DevExpress.XtraEditors.CheckEdit();
             this.cbtop = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.btnCreateTemp = new DevExpress.XtraEditors.SimpleButton();
             this.cbetdbtype = new DevExpress.XtraEditors.ComboBoxEdit();
             this.txttmp = new System.Windows.Forms.RichTextBox();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
@@ -84,9 +88,6 @@
             this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
             this.txttstr = new DevExpress.XtraEditors.TextEdit();
-            this.btnnew = new DevExpress.XtraEditors.SimpleButton();
-            this.btnxml = new DevExpress.XtraEditors.SimpleButton();
-            this.rtbxml = new System.Windows.Forms.RichTextBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
@@ -263,6 +264,8 @@
             // 
             // txttmpname
             // 
+            this.txttmpname.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txttmpname.Location = new System.Drawing.Point(80, 89);
             this.txttmpname.Name = "txttmpname";
             this.txttmpname.Size = new System.Drawing.Size(339, 20);
@@ -270,6 +273,8 @@
             // 
             // txturl
             // 
+            this.txturl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txturl.Location = new System.Drawing.Point(65, 38);
             this.txturl.Name = "txturl";
             this.txturl.Size = new System.Drawing.Size(301, 20);
@@ -290,6 +295,7 @@
             // btnclose
             // 
             this.btnclose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnclose.Image = ((System.Drawing.Image)(resources.GetObject("btnclose.Image")));
             this.btnclose.Location = new System.Drawing.Point(737, 12);
             this.btnclose.Name = "btnclose";
             this.btnclose.Size = new System.Drawing.Size(75, 23);
@@ -297,12 +303,24 @@
             this.btnclose.Text = "关闭";
             this.btnclose.Click += new System.EventHandler(this.btnclose_Click);
             // 
+            // btnnew
+            // 
+            this.btnnew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnnew.Image = ((System.Drawing.Image)(resources.GetObject("btnnew.Image")));
+            this.btnnew.Location = new System.Drawing.Point(454, 12);
+            this.btnnew.Name = "btnnew";
+            this.btnnew.Size = new System.Drawing.Size(75, 23);
+            this.btnnew.TabIndex = 0;
+            this.btnnew.Text = "新增";
+            this.btnnew.Click += new System.EventHandler(this.btnnew_Click);
+            // 
             // btnquick
             // 
             this.btnquick.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnquick.Location = new System.Drawing.Point(560, 12);
+            this.btnquick.Image = ((System.Drawing.Image)(resources.GetObject("btnquick.Image")));
+            this.btnquick.Location = new System.Drawing.Point(542, 12);
             this.btnquick.Name = "btnquick";
-            this.btnquick.Size = new System.Drawing.Size(75, 23);
+            this.btnquick.Size = new System.Drawing.Size(87, 23);
             this.btnquick.TabIndex = 0;
             this.btnquick.Text = "快速执行";
             this.btnquick.Click += new System.EventHandler(this.btnquick_Click);
@@ -310,6 +328,7 @@
             // btnsave
             // 
             this.btnsave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnsave.Image = ((System.Drawing.Image)(resources.GetObject("btnsave.Image")));
             this.btnsave.Location = new System.Drawing.Point(644, 12);
             this.btnsave.Name = "btnsave";
             this.btnsave.Size = new System.Drawing.Size(75, 23);
@@ -319,6 +338,7 @@
             // 
             // splitContainerControl2
             // 
+            this.splitContainerControl2.CollapsePanel = DevExpress.XtraEditors.SplitCollapsePanel.Panel1;
             this.splitContainerControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl2.Location = new System.Drawing.Point(0, 65);
             this.splitContainerControl2.Name = "splitContainerControl2";
@@ -355,6 +375,9 @@
             // 
             // psdb
             // 
+            this.psdb.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.psdb.Controls.Add(this.cesjm);
             this.psdb.Controls.Add(this.rtsscript);
             this.psdb.Controls.Add(this.cbesdbtype);
@@ -363,13 +386,14 @@
             this.psdb.Controls.Add(this.labelControl14);
             this.psdb.Controls.Add(this.txtsstr);
             this.psdb.Enabled = false;
-            this.psdb.Location = new System.Drawing.Point(10, 165);
+            this.psdb.Location = new System.Drawing.Point(10, 161);
             this.psdb.Name = "psdb";
-            this.psdb.Size = new System.Drawing.Size(374, 226);
+            this.psdb.Size = new System.Drawing.Size(374, 230);
             this.psdb.TabIndex = 2;
             // 
             // cesjm
             // 
+            this.cesjm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cesjm.AutoSizeInLayoutControl = true;
             this.cesjm.EditValue = true;
             this.cesjm.Location = new System.Drawing.Point(322, 33);
@@ -382,10 +406,14 @@
             // 
             // rtsscript
             // 
+            this.rtsscript.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rtsscript.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtsscript.Location = new System.Drawing.Point(65, 55);
             this.rtsscript.Name = "rtsscript";
-            this.rtsscript.Size = new System.Drawing.Size(301, 157);
+            this.rtsscript.ShowSelectionMargin = true;
+            this.rtsscript.Size = new System.Drawing.Size(301, 161);
             this.rtsscript.TabIndex = 6;
             this.rtsscript.Text = "";
             this.rtsscript.DoubleClick += new System.EventHandler(this.rtsscript_DoubleClick);
@@ -434,6 +462,8 @@
             // 
             // txtsstr
             // 
+            this.txtsstr.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtsstr.Location = new System.Drawing.Point(65, 30);
             this.txtsstr.Name = "txtsstr";
             this.txtsstr.Size = new System.Drawing.Size(250, 20);
@@ -441,6 +471,8 @@
             // 
             // webpanel
             // 
+            this.webpanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.webpanel.Controls.Add(this.txtMethod);
             this.webpanel.Controls.Add(this.btnxml);
             this.webpanel.Controls.Add(this.cbstype);
@@ -460,10 +492,21 @@
             // 
             // txtMethod
             // 
+            this.txtMethod.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMethod.Location = new System.Drawing.Point(229, 11);
             this.txtMethod.Name = "txtMethod";
             this.txtMethod.Size = new System.Drawing.Size(137, 22);
             this.txtMethod.TabIndex = 4;
+            // 
+            // btnxml
+            // 
+            this.btnxml.Location = new System.Drawing.Point(12, 115);
+            this.btnxml.Name = "btnxml";
+            this.btnxml.Size = new System.Drawing.Size(75, 23);
+            this.btnxml.TabIndex = 0;
+            this.btnxml.Text = "导入xml映射";
+            this.btnxml.Click += new System.EventHandler(this.btnxml_Click);
             // 
             // cbstype
             // 
@@ -485,6 +528,20 @@
             this.labelControl20.Size = new System.Drawing.Size(48, 14);
             this.labelControl20.TabIndex = 1;
             this.labelControl20.Text = "服务方法";
+            // 
+            // rtbxml
+            // 
+            this.rtbxml.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbxml.AutoWordSelection = true;
+            this.rtbxml.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbxml.Location = new System.Drawing.Point(11, 144);
+            this.rtbxml.Name = "rtbxml";
+            this.rtbxml.Size = new System.Drawing.Size(352, 0);
+            this.rtbxml.TabIndex = 1;
+            this.rtbxml.Text = "";
+            this.rtbxml.DoubleClick += new System.EventHandler(this.rtbxml_DoubleClick);
             // 
             // labelControl12
             // 
@@ -510,6 +567,8 @@
             // 
             // tenode
             // 
+            this.tenode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tenode.Location = new System.Drawing.Point(197, 65);
             this.tenode.Name = "tenode";
             this.tenode.Size = new System.Drawing.Size(167, 20);
@@ -559,6 +618,7 @@
             // 
             this.groupControl2.Controls.Add(this.cetjm);
             this.groupControl2.Controls.Add(this.cbtop);
+            this.groupControl2.Controls.Add(this.btnCreateTemp);
             this.groupControl2.Controls.Add(this.cbetdbtype);
             this.groupControl2.Controls.Add(this.txttmp);
             this.groupControl2.Controls.Add(this.labelControl13);
@@ -579,6 +639,7 @@
             // 
             // cetjm
             // 
+            this.cetjm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cetjm.AutoSizeInLayoutControl = true;
             this.cetjm.EditValue = true;
             this.cetjm.Location = new System.Drawing.Point(377, 62);
@@ -603,6 +664,16 @@
             this.cbtop.TabIndex = 3;
             this.cbtop.SelectedIndexChanged += new System.EventHandler(this.cbtop_SelectedIndexChanged);
             // 
+            // btnCreateTemp
+            // 
+            this.btnCreateTemp.Image = ((System.Drawing.Image)(resources.GetObject("btnCreateTemp.Image")));
+            this.btnCreateTemp.Location = new System.Drawing.Point(46, 142);
+            this.btnCreateTemp.Name = "btnCreateTemp";
+            this.btnCreateTemp.Size = new System.Drawing.Size(25, 23);
+            this.btnCreateTemp.TabIndex = 0;
+            this.btnCreateTemp.ToolTip = "快速构建临时表";
+            this.btnCreateTemp.Click += new System.EventHandler(this.btnCreateTemp_Click);
+            // 
             // cbetdbtype
             // 
             this.cbetdbtype.EditValue = "SqlServer";
@@ -623,11 +694,13 @@
             // 
             // txttmp
             // 
+            this.txttmp.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txttmp.AutoWordSelection = true;
             this.txttmp.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txttmp.Location = new System.Drawing.Point(80, 115);
             this.txttmp.Name = "txttmp";
-            this.txttmp.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.txttmp.ShowSelectionMargin = true;
             this.txttmp.Size = new System.Drawing.Size(339, 75);
             this.txttmp.TabIndex = 1;
             this.txttmp.Text = "";
@@ -643,10 +716,14 @@
             // 
             // rttscript
             // 
+            this.rttscript.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rttscript.AutoWordSelection = true;
             this.rttscript.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rttscript.Location = new System.Drawing.Point(11, 207);
             this.rttscript.Name = "rttscript";
+            this.rttscript.ShowSelectionMargin = true;
             this.rttscript.Size = new System.Drawing.Size(408, 193);
             this.rttscript.TabIndex = 1;
             this.rttscript.Text = "";
@@ -686,47 +763,18 @@
             // 
             // txttstr
             // 
+            this.txttstr.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txttstr.Location = new System.Drawing.Point(80, 60);
             this.txttstr.Name = "txttstr";
             this.txttstr.Size = new System.Drawing.Size(291, 20);
             this.txttstr.TabIndex = 0;
-            // 
-            // btnnew
-            // 
-            this.btnnew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnnew.Location = new System.Drawing.Point(461, 12);
-            this.btnnew.Name = "btnnew";
-            this.btnnew.Size = new System.Drawing.Size(75, 23);
-            this.btnnew.TabIndex = 0;
-            this.btnnew.Text = "新增";
-            this.btnnew.Click += new System.EventHandler(this.btnnew_Click);
-            // 
-            // btnxml
-            // 
-            this.btnxml.Location = new System.Drawing.Point(12, 115);
-            this.btnxml.Name = "btnxml";
-            this.btnxml.Size = new System.Drawing.Size(75, 23);
-            this.btnxml.TabIndex = 0;
-            this.btnxml.Text = "导入xml映射";
-            this.btnxml.Click += new System.EventHandler(this.btnxml_Click);
-            // 
-            // rtbxml
-            // 
-            this.rtbxml.AutoWordSelection = true;
-            this.rtbxml.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtbxml.Location = new System.Drawing.Point(11, 144);
-            this.rtbxml.Name = "rtbxml";
-            this.rtbxml.Size = new System.Drawing.Size(352, 199);
-            this.rtbxml.TabIndex = 1;
-            this.rtbxml.Text = "";
-            this.rtbxml.DoubleClick += new System.EventHandler(this.rtbxml_DoubleClick);
             // 
             // ConfigFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(833, 532);
-            this.ControlBox = false;
             this.Controls.Add(this.splitContainerControl2);
             this.Controls.Add(this.panelControl3);
             this.Controls.Add(this.panelControl2);
@@ -839,5 +887,6 @@
         private DevExpress.XtraEditors.SimpleButton btnxml;
         private System.Windows.Forms.RichTextBox rtbxml;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private DevExpress.XtraEditors.SimpleButton btnCreateTemp;
     }
 }

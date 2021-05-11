@@ -8,6 +8,7 @@ namespace DownLoad.Core
 {
     public class Log4netUtil
     {
+        public static bool IsLog { get; set; }
         private static ILog _log;
         public static ILog Log
         {
@@ -23,6 +24,8 @@ namespace DownLoad.Core
 
         public static void Error(string message, Exception ex = null)
         {
+            if (IsLog)
+                return;
             if (ex == null)
             {
                 Log.Error(message);
@@ -35,6 +38,8 @@ namespace DownLoad.Core
 
         public static void Info(string message, Exception ex = null)
         {
+            if (IsLog)
+                return;
             if (ex == null)
             {
                 Log.Info(message);
@@ -47,6 +52,8 @@ namespace DownLoad.Core
 
         public static void Debug(string message, Exception ex = null)
         {
+            if (IsLog)
+                return;
             if (ex == null)
             {
                 Log.Debug(message);
@@ -59,6 +66,8 @@ namespace DownLoad.Core
 
         public static void Warn(string message, Exception ex = null)
         {
+            if (IsLog)
+                return;
             if (ex == null)
             {
                 Log.Warn(message);
@@ -71,6 +80,8 @@ namespace DownLoad.Core
 
         public static void Fatal(string message, Exception ex = null)
         {
+            if (IsLog)
+                return;
             if (ex == null)
             {
                 Log.Fatal(message);

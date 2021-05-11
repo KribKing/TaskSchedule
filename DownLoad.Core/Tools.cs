@@ -592,6 +592,16 @@ namespace DownLoad.Core
                 return formatter.Deserialize(objectStream) as List<T>;
             }
         }
+        public static T CloneSingle<T>(object single)
+        {
+            using (Stream objectStream = new MemoryStream())
+            {
+                IFormatter formatter = new BinaryFormatter();
+                formatter.Serialize(objectStream, single);
+                objectStream.Seek(0, SeekOrigin.Begin);
+                return (T)formatter.Deserialize(objectStream);
+            }
+        }
         /// <summary>  
         /// 修改程序在注册表中的键值  
         /// </summary>  
@@ -637,8 +647,8 @@ namespace DownLoad.Core
             string value = "";
             try
             {
-                Tools.log("测试节点");
-                Tools.log("解析节点：" + key);
+                Log4netUtil.Info("测试节点");
+                Log4netUtil.Info("解析节点：" + key);
                 if (key == "[]")
                 {
                     value = json;

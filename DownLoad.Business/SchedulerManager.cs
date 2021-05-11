@@ -40,15 +40,26 @@ namespace DownLoad.Business
                     if (!this.scheduler.CheckExists(tri))
                     {
                         this.scheduler.ScheduleJob(job, trigger);
+                       
                     }
                 }
             }
             catch (Exception ex)
             {
-                GlobalInstanceManager<SchedulerManager>.Intance.cur_job_OnScheduleLog(string.Format("作业创建发生异常，原因：" + ex.Message));
+                GlobalInstanceManager<SchedulerManager>.Intance.cur_job_OnScheduleLog(string.Format("作业【"+ info.name+ "】创建发生异常，原因：" + ex.Message));
             }
         }
-
+        public void DeleteJob(JobInfo info)
+        {
+            try
+            {
+                this.scheduler.DeleteJob(new JobKey(info.id, info.system));                      
+            }
+            catch (Exception ex)
+            {
+                GlobalInstanceManager<SchedulerManager>.Intance.cur_job_OnScheduleLog(string.Format("作业【"+info.name+"】删除发生异常，原因：" + ex.Message));
+            }
+        }
         public void cur_job_OnScheduleLog(string msg)
         {
             if (OnScheduleLog != null)

@@ -11,3 +11,6 @@ D:\GitHub\DownLoadExe\DownLoad.Core\obj\Debug\DownLoad.Core.csproj.GenerateResou
 D:\GitHub\DownLoadExe\DownLoad.Core\obj\Debug\DownLoad.Core.dll.licenses
 D:\GitHub\DownLoadExe\DownLoad.Core\obj\Debug\DownLoad.Core.dll
 D:\GitHub\DownLoadExe\DownLoad.Core\obj\Debug\DownLoad.Core.pdb
+D:\GitHub\DownLoadExe\DownLoad.Core\obj\Debug\DownLoad.Core.csprojAssemblyReference.cache
+D:\GitHub\DownLoadExe\DownLoad.Core\obj\Debug\DownLoad.Core.csproj.CoreCompileInputs.cache
+D:\GitHub\DownLoadExe\DownLoad.Core\obj\Debug\DownLoad.Core.csproj.CopyComplete

@@ -141,7 +141,7 @@ namespace DownLoad.UI
                 if (this.cur_jobinfo.nodelx == 0)
                 {
                     //string json = Tools.GetJsonNodeValue(this.txtjson.Text.Trim(), "Response|Body" + "|" + this.cur_jobinfo.node, "[]").ToString();                  
-                    string json = Tools.GetJsonNodeValue(Response.Response.Body, this.cur_jobinfo.node, "[]").ToString();
+                    string json = Tools.GetJsonNodeValue(Response.Response.Body, this.cur_jobinfo.sourcetype ==1?"[]":this.cur_jobinfo.node, "[]").ToString();
                     dt = Tools.JsonToDataTable(json);
                 }
                 else if (this.cur_jobinfo.nodelx == 1)

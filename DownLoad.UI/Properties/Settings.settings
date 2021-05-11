@@ -23,5 +23,8 @@
     <Setting Name="logpath" Type="System.String" Scope="User">
       <Value Profile="(Default)">D://Logs//</Value>
     </Setting>
+    <Setting Name="dblog" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

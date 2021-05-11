@@ -79,6 +79,7 @@ namespace DownLoad.Business
                 JobKey key = new JobKey(jobInfo.id, jobInfo.system);
                 jobInfo.CreatJob();
                 this.JobInfoDic.Add(key, jobInfo);
+                GlobalInstanceManager<JobInfoManager>.Intance.SaveJobInfo();
                 return true;
             }
             catch (Exception)
@@ -100,7 +101,7 @@ namespace DownLoad.Business
                     item.xmlschema = EncodeHelper.EncodeBase64(item.xmlschema);
                     item.sourcedbstring = EncodeAndDecode.Encode(item.sourcedbstring);
                     item.targetdbstring = EncodeAndDecode.Encode(item.targetdbstring);
-                    item.xmlconfig= EncodeAndDecode.Encode(item.xmlconfig);
+                    item.xmlconfig = EncodeAndDecode.Encode(item.xmlconfig);
                 }
                 DataTable dt = Tools.ToDataTable<JobInfo>(list);
                 dt.TableName = "CronJob";
@@ -111,6 +112,23 @@ namespace DownLoad.Business
             catch (Exception ex)
             {
                 GlobalInstanceManager<SchedulerManager>.Intance.cur_job_OnScheduleLog(string.Format("作业保存发生异常，原因：" + ex.Message));
+            }
+        }
+        public bool RemoveJobInfo(JobInfo jobInfo)
+        {
+            if (!IsExists(jobInfo.id, jobInfo.system))
+                return true;
+            try
+            {
+                JobKey key = new JobKey(jobInfo.id, jobInfo.system);
+                this.JobInfoDic.Remove(key);
+                GlobalInstanceManager<SchedulerManager>.Intance.DeleteJob(jobInfo);
+                this.SaveJobInfo();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
         public JobInfo GetJobInfo(string id, string system)
@@ -133,16 +151,15 @@ namespace DownLoad.Business
         public List<JobInfo> GetJobInfoListBySystemName(string systemname)
         {
             if (this.JobInfoDic == null)
-                return null;
-            List<JobInfo> list = new List<JobInfo>();
-            foreach (JobInfo item in this.JobInfoDic.Values)
-            {
-                if (item.sysname == systemname)
-                {
-                    list.Add(item);
-                }
-            }
+                return null;          
+            List<JobInfo> list = this.JobInfoDic.Values.Where(a => a.sysname.Trim() == systemname.Trim()).ToList();
             return list;
+        }
+        public JobInfo GetFirstJobBySystemName(string systemname)
+        {
+            if (this.JobInfoDic == null)
+                return null;
+            return this.JobInfoDic.Values.First(a => a.sysname == systemname);
         }
 
         public string GetExcuteCondition(JobKey jobKey)
@@ -227,7 +244,7 @@ namespace DownLoad.Business
                     if (oldexp != value && !string.IsNullOrWhiteSpace(value))
                     {
                         _expression = value;
-                        if (jlzt == "0")
+                        if (jlzt == "0" && !string.IsNullOrWhiteSpace(this.id))
                         {
                             this.RefreshTrigger();
                         }
@@ -285,7 +302,10 @@ namespace DownLoad.Business
                     if (old != value && !string.IsNullOrWhiteSpace(value))
                     {
                         _jlzt = value;
-                        this.RefreshJlzt();
+                        if (!string.IsNullOrWhiteSpace(this.id))
+                        {
+                            this.RefreshJlzt();
+                        }
                     }
                 }
 
@@ -339,7 +359,13 @@ namespace DownLoad.Business
             get { return _serverMethod; }
             set { _serverMethod = value; }
         }
-
+        public JobInfo Copy()
+        {
+            JobInfo newinfo = Tools.CloneSingle<JobInfo>(this);
+            newinfo.id = "";
+            newinfo.jlzt = "1";
+            return newinfo;
+        }
     }
 
 }

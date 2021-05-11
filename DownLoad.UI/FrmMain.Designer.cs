@@ -56,6 +56,9 @@
             this.btnnewjob = new DevExpress.XtraBars.BarButtonItem();
             this.btnallqyjob = new DevExpress.XtraBars.BarButtonItem();
             this.btnalljzjob = new DevExpress.XtraBars.BarButtonItem();
+            this.btncopyjob = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.btndeletejob = new DevExpress.XtraBars.BarButtonItem();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -70,11 +73,11 @@
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.btnclearhos = new DevExpress.XtraEditors.SimpleButton();
             this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.退出程序ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnclearhos = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
@@ -268,8 +271,11 @@
             this.btnFast,
             this.btnnewjob,
             this.btnallqyjob,
-            this.btnalljzjob});
-            this.barManager1.MaxItemId = 9;
+            this.btnalljzjob,
+            this.btncopyjob,
+            this.barButtonItem1,
+            this.btndeletejob});
+            this.barManager1.MaxItemId = 12;
             // 
             // barDockControlTop
             // 
@@ -378,13 +384,37 @@
             this.btnalljzjob.Name = "btnalljzjob";
             this.btnalljzjob.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnalljzjob_ItemClick);
             // 
+            // btncopyjob
+            // 
+            this.btncopyjob.Caption = "复制作业";
+            this.btncopyjob.Glyph = ((System.Drawing.Image)(resources.GetObject("btncopyjob.Glyph")));
+            this.btncopyjob.Id = 9;
+            this.btncopyjob.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btncopyjob.LargeGlyph")));
+            this.btncopyjob.Name = "btncopyjob";
+            this.btncopyjob.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btncopyjob_ItemClick);
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "删除作业";
+            this.barButtonItem1.Id = 10;
+            this.barButtonItem1.Name = "barButtonItem1";
+            // 
+            // btndeletejob
+            // 
+            this.btndeletejob.Caption = "删除作业";
+            this.btndeletejob.Glyph = ((System.Drawing.Image)(resources.GetObject("btndeletejob.Glyph")));
+            this.btndeletejob.Id = 11;
+            this.btndeletejob.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btndeletejob.LargeGlyph")));
+            this.btndeletejob.Name = "btndeletejob";
+            this.btndeletejob.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btndeletejob_ItemClick);
+            // 
             // gridControl1
             // 
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(2, 2);
+            this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(822, 161);
+            this.gridControl1.Size = new System.Drawing.Size(0, 0);
             this.gridControl1.TabIndex = 9;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -454,6 +484,7 @@
             // 
             // splitContainerControl1
             // 
+            this.splitContainerControl1.Collapsed = true;
             this.splitContainerControl1.CollapsePanel = DevExpress.XtraEditors.SplitCollapsePanel.Panel2;
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl1.Horizontal = false;
@@ -476,7 +507,7 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(826, 376);
+            this.groupControl1.Size = new System.Drawing.Size(826, 571);
             this.groupControl1.TabIndex = 12;
             this.groupControl1.Text = "作业监测";
             // 
@@ -486,7 +517,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(2, 52);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(822, 322);
+            this.panelControl2.Size = new System.Drawing.Size(822, 517);
             this.panelControl2.TabIndex = 10;
             // 
             // txtmsg
@@ -498,7 +529,7 @@
             this.txtmsg.Name = "txtmsg";
             this.txtmsg.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.txtmsg.ShowSelectionMargin = true;
-            this.txtmsg.Size = new System.Drawing.Size(818, 318);
+            this.txtmsg.Size = new System.Drawing.Size(818, 513);
             this.txtmsg.TabIndex = 0;
             this.txtmsg.Text = "";
             // 
@@ -517,7 +548,7 @@
             this.panelControl5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl5.Location = new System.Drawing.Point(0, 30);
             this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(826, 165);
+            this.panelControl5.Size = new System.Drawing.Size(0, 0);
             this.panelControl5.TabIndex = 11;
             // 
             // panelControl4
@@ -527,20 +558,34 @@
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl4.Location = new System.Drawing.Point(0, 0);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(826, 30);
+            this.panelControl4.Size = new System.Drawing.Size(0, 30);
             this.panelControl4.TabIndex = 10;
+            // 
+            // btnclearhos
+            // 
+            this.btnclearhos.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.btnclearhos.Image = ((System.Drawing.Image)(resources.GetObject("btnclearhos.Image")));
+            this.btnclearhos.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnclearhos.Location = new System.Drawing.Point(40, 5);
+            this.btnclearhos.Name = "btnclearhos";
+            this.btnclearhos.Size = new System.Drawing.Size(27, 23);
+            this.btnclearhos.TabIndex = 0;
+            this.btnclearhos.ToolTip = "清空消息框";
+            this.btnclearhos.Click += new System.EventHandler(this.btnclearhos_Click);
             // 
             // popupMenu1
             // 
             this.popupMenu1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnrunjob, DevExpress.XtraBars.BarItemPaintStyle.Standard),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnFast),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnnewjob),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btncopyjob),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btndeletejob),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnallqyjob),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnalljzjob),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnqyjob),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnjzjob),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnpro),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnnewjob),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnallqyjob),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnalljzjob)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnpro)});
             this.popupMenu1.Manager = this.barManager1;
             this.popupMenu1.Name = "popupMenu1";
             // 
@@ -564,18 +609,6 @@
             this.退出程序ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.退出程序ToolStripMenuItem.Text = "退出程序";
             this.退出程序ToolStripMenuItem.Click += new System.EventHandler(this.退出程序ToolStripMenuItem_Click);
-            // 
-            // btnclearhos
-            // 
-            this.btnclearhos.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.btnclearhos.Image = ((System.Drawing.Image)(resources.GetObject("btnclearhos.Image")));
-            this.btnclearhos.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnclearhos.Location = new System.Drawing.Point(40, 5);
-            this.btnclearhos.Name = "btnclearhos";
-            this.btnclearhos.Size = new System.Drawing.Size(27, 23);
-            this.btnclearhos.TabIndex = 0;
-            this.btnclearhos.ToolTip = "清空消息框";
-            this.btnclearhos.Click += new System.EventHandler(this.btnclearhos_Click);
             // 
             // FrmMain
             // 
@@ -670,5 +703,8 @@
         private DevExpress.XtraBars.BarButtonItem btnallqyjob;
         private DevExpress.XtraBars.BarButtonItem btnalljzjob;
         private DevExpress.XtraEditors.SimpleButton btnclearhos;
+        private DevExpress.XtraBars.BarButtonItem btncopyjob;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem btndeletejob;
     }
 }

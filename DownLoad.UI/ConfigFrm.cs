@@ -12,6 +12,8 @@ using System.Windows.Forms;
 using DownLoad.Business;
 using DownLoad.Core;
 using DownLoad.Core.Schema;
+using DownLoad.UI.Properties;
+using System.Xml;
 
 namespace DownLoad.UI
 {
@@ -33,7 +35,6 @@ namespace DownLoad.UI
         }
         private void ConfigFrm_Load(object sender, EventArgs e)
         {
-
             if (this.Cur_JobInfo != null)
             {
                 this.Text = string.Format("作业【{0}】的属性", this.Cur_JobInfo.name);
@@ -89,10 +90,14 @@ namespace DownLoad.UI
                 }
 
                 this.rtsscript.Text = this.Cur_JobInfo.sourcesql;
-                this.teid.Enabled = false;
-                this.tesystem.Enabled = false;
-                this.tesysname.Enabled = false;
-                this.btnnew.Visible = false;
+                this.teid.Enabled = this.Cur_JobNode==null?true:false;
+                this.tesystem.Enabled = this.Cur_JobNode == null ? true : false;
+                this.tesysname.Enabled = this.Cur_JobNode == null ? true : false;
+                this.btnnew.Visible = this.Cur_JobNode == null ? true : false;
+            }
+            if (this.Cur_JobNode==null)
+            {
+                this.teid.Focus();
             }
         }
 
@@ -171,7 +176,7 @@ namespace DownLoad.UI
                 this.Cur_JobInfo.sourcesql = this.rtsscript.Text.Trim();
 
                 GlobalInstanceManager<JobInfoManager>.Intance.AddJobInfo(Cur_JobInfo);
-                GlobalInstanceManager<JobInfoManager>.Intance.SaveJobInfo();
+               
                 MessageBox.Show("保存成功", "卫宁操作提示", MessageBoxButtons.OK);
                 this.teid.Enabled = false;
                 this.tesystem.Enabled = false;
@@ -362,6 +367,51 @@ namespace DownLoad.UI
             {
                 string fName = openFileDialog.FileName;
                 this.rtbxml.Text = File.ReadAllText(fName);                         
+            }
+        }
+
+        private void btnCreateTemp_Click(object sender, EventArgs e)
+        {
+            if (this.Cur_JobInfo == null || string.IsNullOrEmpty(this.Cur_JobInfo.id))
+                return;
+       
+            string strsql = "select rawtext from CronJob_JOBHISTORY (nolock) where id='" + this.Cur_JobInfo.id.Trim()+"' and system='"+ this.Cur_JobInfo.system.Trim() + "' order by xh desc";
+            DataTable dt = GlobalInstanceManager<GlobalSqlManager>.Intance.GetDataTable(Settings.Default.dbtype, EncodeAndDecode.Decode(Settings.Default.connstring), strsql);
+            if (dt == null || dt.Rows.Count <= 0)
+            {
+                MessageBox.Show("无执行记录，请检查", "操作提示", MessageBoxButtons.OK);
+                return;
+            }
+            try
+            {
+                string rawtxt = EncodeHelper.DecodeBase64(dt.Rows[0][0].ToString());
+                ResponseMessage Response = JsonConvert.DeserializeObject<ResponseMessage>(rawtxt);
+                StringWriter sw = new StringWriter();          
+                if (this.Cur_JobInfo.nodelx == 0)
+                {
+                    //string json = Tools.GetJsonNodeValue(this.txtjson.Text.Trim(), "Response|Body" + "|" + this.cur_jobinfo.node, "[]").ToString();                  
+                    string json = Tools.GetJsonNodeValue(Response.Response.Body, this.Cur_JobInfo.sourcetype == 1 ? "[]" : this.Cur_JobInfo.node, "[]").ToString();
+                    dt = Tools.JsonToDataTable(json);
+                }
+                else if (this.Cur_JobInfo.nodelx == 1)
+                {
+                    XmlDocument xml = new XmlDocument();
+                    xml.LoadXml(Response.Response.Body);
+                    XmlNode node = XmlHelper.GetNode(this.Cur_JobInfo.node, xml);
+                    dt = XmlHelper.XmlToDataTable(this.Cur_JobInfo.xmlconfig, node);
+                }
+                string strtmp = "create table " + this.Cur_JobInfo.tmpname + Environment.NewLine + "(" + Environment.NewLine;
+                foreach (DataColumn dc in dt.Columns)
+                {
+                    strtmp += "   " + dc.ColumnName + "   varchar(32) null," + Environment.NewLine;
+                }
+                strtmp = strtmp.Remove(strtmp.LastIndexOf(','), 1);
+                strtmp += ")";
+                this.txttmp.Text= strtmp;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("导出发生异常：" + ex.Message);
             }
         }
     }
