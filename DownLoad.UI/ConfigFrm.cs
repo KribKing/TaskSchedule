@@ -273,6 +273,8 @@ namespace DownLoad.UI
             else
             {
                 this.txttmp.Dock = DockStyle.None;
+            //    this.txttmp.Anchor= ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            //| System.Windows.Forms.AnchorStyles.Right)));
             }
         }
 
@@ -286,6 +288,9 @@ namespace DownLoad.UI
             else
             {
                 this.rttscript.Dock = DockStyle.None;
+            //    this.rttscript.Anchor= ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            //| System.Windows.Forms.AnchorStyles.Left)
+            //| System.Windows.Forms.AnchorStyles.Right)));
             }
         }
 
@@ -301,6 +306,12 @@ namespace DownLoad.UI
             {
                 this.psdb.Dock = DockStyle.None;
                 this.rtsscript.Dock = DockStyle.None;
+            //    this.psdb.Anchor= ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            //| System.Windows.Forms.AnchorStyles.Left)
+            //| System.Windows.Forms.AnchorStyles.Right)));
+            //    this.rtsscript.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            //| System.Windows.Forms.AnchorStyles.Left)
+            //| System.Windows.Forms.AnchorStyles.Right)));
             }
         }
 
@@ -412,6 +423,42 @@ namespace DownLoad.UI
             catch (Exception ex)
             {
                 MessageBox.Show("导出发生异常：" + ex.Message);
+            }
+        }
+
+        private void txtsstr_DoubleClick(object sender, EventArgs e)
+        {
+            using (DataConfigFrm frm=new DataConfigFrm())
+            {
+                if (frm.ShowDialog()==DialogResult.OK)
+                {
+                    if (!this.cesjm.Checked)
+                    {
+                        this.txtsstr.Text = EncodeAndDecode.Decode(frm.ConnectString);
+                    }
+                    else
+                    {
+                        this.txtsstr.Text = frm.ConnectString;
+                    }
+                }
+            }
+        }
+
+        private void txttstr_DoubleClick(object sender, EventArgs e)
+        {
+            using (DataConfigFrm frm = new DataConfigFrm())
+            {
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    if (!this.cetjm.Checked)
+                    {
+                        this.txttstr.Text = EncodeAndDecode.Decode(frm.ConnectString);
+                    }
+                    else
+                    {
+                        this.txttstr.Text = frm.ConnectString;
+                    }
+                }
             }
         }
     }

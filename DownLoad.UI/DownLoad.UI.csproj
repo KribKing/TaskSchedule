@@ -108,6 +108,12 @@
     <Compile Include="ConfigFrm.Designer.cs">
       <DependentUpon>ConfigFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataConfigFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataConfigFrm.Designer.cs">
+      <DependentUpon>DataConfigFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ExecJob.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +152,12 @@
     <Compile Include="RunFrm.Designer.cs">
       <DependentUpon>RunFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SettingsFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingsFrm.Designer.cs">
+      <DependentUpon>SettingsFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="XFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +166,9 @@
     </Compile>
     <EmbeddedResource Include="ConfigFrm.resx">
       <DependentUpon>ConfigFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataConfigFrm.resx">
+      <DependentUpon>DataConfigFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ExecJob.resx">
       <DependentUpon>ExecJob.cs</DependentUpon>
@@ -183,6 +198,9 @@
     </Compile>
     <EmbeddedResource Include="RunFrm.resx">
       <DependentUpon>RunFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsFrm.resx">
+      <DependentUpon>SettingsFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XFrm.resx">
       <DependentUpon>XFrm.cs</DependentUpon>

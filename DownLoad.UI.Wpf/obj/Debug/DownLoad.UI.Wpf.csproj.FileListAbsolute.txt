@@ -1,0 +1,12 @@
+D:\GitHub\DownLoadExe\DownLoad.UI.Wpf\bin\Debug\DownLoad.UI.Wpf.exe
+D:\GitHub\DownLoadExe\DownLoad.UI.Wpf\bin\Debug\DownLoad.UI.Wpf.pdb
+D:\GitHub\DownLoadExe\DownLoad.UI.Wpf\obj\Debug\DownLoad.UI.Wpf.csprojResolveAssemblyReference.cache
+D:\GitHub\DownLoadExe\DownLoad.UI.Wpf\obj\Debug\MainWindow.baml
+D:\GitHub\DownLoadExe\DownLoad.UI.Wpf\obj\Debug\MainWindow.g.cs
+D:\GitHub\DownLoadExe\DownLoad.UI.Wpf\obj\Debug\App.g.cs
+D:\GitHub\DownLoadExe\DownLoad.UI.Wpf\obj\Debug\DownLoad.UI.Wpf_MarkupCompile.cache
+D:\GitHub\DownLoadExe\DownLoad.UI.Wpf\obj\Debug\DownLoad.UI.Wpf.g.resources
+D:\GitHub\DownLoadExe\DownLoad.UI.Wpf\obj\Debug\DownLoad.UI.Wpf.Properties.Resources.resources
+D:\GitHub\DownLoadExe\DownLoad.UI.Wpf\obj\Debug\DownLoad.UI.Wpf.csproj.GenerateResource.Cache
+D:\GitHub\DownLoadExe\DownLoad.UI.Wpf\obj\Debug\DownLoad.UI.Wpf.exe
+D:\GitHub\DownLoadExe\DownLoad.UI.Wpf\obj\Debug\DownLoad.UI.Wpf.pdb

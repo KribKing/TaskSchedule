@@ -468,6 +468,7 @@
             this.txtsstr.Name = "txtsstr";
             this.txtsstr.Size = new System.Drawing.Size(250, 20);
             this.txtsstr.TabIndex = 0;
+            this.txtsstr.DoubleClick += new System.EventHandler(this.txtsstr_DoubleClick);
             // 
             // webpanel
             // 
@@ -769,12 +770,14 @@
             this.txttstr.Name = "txttstr";
             this.txttstr.Size = new System.Drawing.Size(291, 20);
             this.txttstr.TabIndex = 0;
+            this.txttstr.DoubleClick += new System.EventHandler(this.txttstr_DoubleClick);
             // 
             // ConfigFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(833, 532);
+            this.ControlBox = false;
             this.Controls.Add(this.splitContainerControl2);
             this.Controls.Add(this.panelControl3);
             this.Controls.Add(this.panelControl2);

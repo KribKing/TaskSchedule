@@ -24,7 +24,7 @@ namespace DownLoad.Core
 
         public static void Error(string message, Exception ex = null)
         {
-            if (IsLog)
+            if (!IsLog)
                 return;
             if (ex == null)
             {
@@ -38,7 +38,7 @@ namespace DownLoad.Core
 
         public static void Info(string message, Exception ex = null)
         {
-            if (IsLog)
+            if (!IsLog)
                 return;
             if (ex == null)
             {
@@ -52,7 +52,7 @@ namespace DownLoad.Core
 
         public static void Debug(string message, Exception ex = null)
         {
-            if (IsLog)
+            if (!IsLog)
                 return;
             if (ex == null)
             {
@@ -66,7 +66,7 @@ namespace DownLoad.Core
 
         public static void Warn(string message, Exception ex = null)
         {
-            if (IsLog)
+            if (!IsLog)
                 return;
             if (ex == null)
             {
@@ -80,7 +80,7 @@ namespace DownLoad.Core
 
         public static void Fatal(string message, Exception ex = null)
         {
-            if (IsLog)
+            if (!IsLog)
                 return;
             if (ex == null)
             {

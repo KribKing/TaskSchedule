@@ -78,6 +78,7 @@
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.退出程序ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnconfig = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
@@ -185,6 +186,7 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.btnconfig);
             this.panelControl1.Controls.Add(this.btnaddjob);
             this.panelControl1.Controls.Add(this.btnPause);
             this.panelControl1.Controls.Add(this.btnStart);
@@ -212,7 +214,7 @@
             this.btnPause.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.btnPause.Image = ((System.Drawing.Image)(resources.GetObject("btnPause.Image")));
             this.btnPause.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnPause.Location = new System.Drawing.Point(39, 3);
+            this.btnPause.Location = new System.Drawing.Point(73, 2);
             this.btnPause.Name = "btnPause";
             this.btnPause.Size = new System.Drawing.Size(27, 23);
             this.btnPause.TabIndex = 0;
@@ -224,7 +226,7 @@
             this.btnStart.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.btnStart.Image = ((System.Drawing.Image)(resources.GetObject("btnStart.Image")));
             this.btnStart.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnStart.Location = new System.Drawing.Point(6, 3);
+            this.btnStart.Location = new System.Drawing.Point(40, 2);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(27, 23);
             this.btnStart.TabIndex = 0;
@@ -610,6 +612,19 @@
             this.退出程序ToolStripMenuItem.Text = "退出程序";
             this.退出程序ToolStripMenuItem.Click += new System.EventHandler(this.退出程序ToolStripMenuItem_Click);
             // 
+            // btnconfig
+            // 
+            this.btnconfig.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnconfig.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.btnconfig.Image = ((System.Drawing.Image)(resources.GetObject("btnconfig.Image")));
+            this.btnconfig.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnconfig.Location = new System.Drawing.Point(8, 2);
+            this.btnconfig.Name = "btnconfig";
+            this.btnconfig.Size = new System.Drawing.Size(27, 23);
+            this.btnconfig.TabIndex = 0;
+            this.btnconfig.ToolTip = "参数配置";
+            this.btnconfig.Click += new System.EventHandler(this.btnconfig_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -706,5 +721,6 @@
         private DevExpress.XtraBars.BarButtonItem btncopyjob;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonItem btndeletejob;
+        private DevExpress.XtraEditors.SimpleButton btnconfig;
     }
 }

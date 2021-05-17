@@ -65,7 +65,7 @@ namespace DownLoad.UI
                     LoadTreeCtrl(node, item.Key);
                 }
             }
-            this.treeList1.ExpandAll();
+            this.treeList1.CollapseAll();
             this.treeList1.Refresh();
         }
 
@@ -694,6 +694,11 @@ namespace DownLoad.UI
 
             }
             this.LoadJobInfo();
+        }
+
+        private void btnconfig_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
