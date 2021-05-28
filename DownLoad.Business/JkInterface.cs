@@ -42,6 +42,7 @@ namespace DownLoad.Business
                 info.ackcode = "300.0";
                 info.ackmsg = ex.Message;
                 info.ackflg = false;
+                Log4netUtil.Error("【" + cur_JobInfo.name + "】执行异常:" + ex.Message, ex);
             }
             return info;
         }
@@ -69,6 +70,7 @@ namespace DownLoad.Business
                 info.ackcode = "300.0";
                 info.ackmsg = ex.Message;
                 info.ackflg = false;
+                Log4netUtil.Error("【" + cur_JobInfo.name + "】执行异常:" + ex.Message, ex);
             }
             return info;
         }
@@ -86,6 +88,7 @@ namespace DownLoad.Business
                 info.ackcode = "300.0";
                 info.ackmsg = ex.Message;
                 info.ackflg = false;
+                Log4netUtil.Error("【" + cur_JobInfo.name + "】执行异常:" + ex.Message,ex);
             }
             return info;
         }
@@ -101,6 +104,7 @@ namespace DownLoad.Business
             }
             catch (Exception ex)
             {
+                //Log4netUtil.Error("【" + cur_JobInfo.name + "】执行异常:" + ex.Message, ex);
                 JkInterface.TokenInfo = new DTToken() { success = false };
             }
         }

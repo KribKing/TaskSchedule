@@ -647,8 +647,8 @@ namespace DownLoad.Core
             string value = "";
             try
             {
-                Log4netUtil.Info("测试节点");
-                Log4netUtil.Info("解析节点：" + key);
+                //Log4netUtil.Info("测试节点");
+                //Log4netUtil.Info("解析节点：" + key);
                 if (key == "[]")
                 {
                     value = json;

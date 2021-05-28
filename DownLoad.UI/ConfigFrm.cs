@@ -28,10 +28,10 @@ namespace DownLoad.UI
         }
         public ConfigFrm(JobInfo info, TreeListNode node, FrmMain Pat)
         {
+            InitializeComponent();
             this.Cur_JobInfo = info;
             this.Cur_JobNode = node;
             this.ParentFrm = Pat;
-            InitializeComponent();
         }
         private void ConfigFrm_Load(object sender, EventArgs e)
         {
@@ -45,26 +45,10 @@ namespace DownLoad.UI
                 this.txtexp.Text = this.Cur_JobInfo.expression;
                 this.cejlzt.SelectedIndex = int.Parse(this.Cur_JobInfo.jlzt);
                 this.cbtop.SelectedIndex = this.Cur_JobInfo.isbulkop ? 0 : 1;
-                if (this.cbtop.SelectedIndex == 0)
-                {
-                    this.gsource.Enabled = true;
-                }
-                else
-                {
-                    this.gsource.Enabled = false;
-                }
+                this.gsource.Enabled = this.cbtop.SelectedIndex == 0 ? true : false;
                 this.cbetdbtype.SelectedIndex = this.Cur_JobInfo.targetdbtype;
-
                 this.cetjm.Checked = this.Cur_JobInfo.istargetdbencode;
-                if (this.cetjm.Checked)
-                {
-                    this.txttstr.Text = EncodeAndDecode.Encode(this.Cur_JobInfo.targetdbstring);
-                }
-                else
-                {
-                    this.txttstr.Text = this.Cur_JobInfo.targetdbstring;
-                }
-
+                this.txttstr.Text = this.cetjm.Checked ? EncodeAndDecode.Encode(this.Cur_JobInfo.targetdbstring) : this.Cur_JobInfo.targetdbstring;
                 this.txttmpname.Text = this.Cur_JobInfo.tmpname;
                 this.txttmp.Text = this.Cur_JobInfo.createtmp;
                 this.rttscript.Text = this.Cur_JobInfo.targetsql;
@@ -75,27 +59,17 @@ namespace DownLoad.UI
                 this.cbejxlx.SelectedIndex = this.Cur_JobInfo.nodelx;
                 this.tenode.Text = this.Cur_JobInfo.node;
                 this.rtbxml.Text = this.Cur_JobInfo.xmlconfig;
-
                 this.rbsdb.Checked = this.Cur_JobInfo.sourcetype == 1 ? true : false;
                 this.cbesdbtype.SelectedIndex = this.Cur_JobInfo.sourcedbtype;
-
                 this.cesjm.Checked = this.Cur_JobInfo.issourcedbencode;
-                if (this.cesjm.Checked)
-                {
-                    this.txtsstr.Text = EncodeAndDecode.Encode(this.Cur_JobInfo.sourcedbstring);
-                }
-                else
-                {
-                    this.txtsstr.Text = this.Cur_JobInfo.sourcedbstring;
-                }
-
-                this.rtsscript.Text = this.Cur_JobInfo.sourcesql;
-                this.teid.Enabled = this.Cur_JobNode==null?true:false;
+                this.txtsstr.Text = this.cesjm.Checked ? EncodeAndDecode.Encode(this.Cur_JobInfo.sourcedbstring) : this.Cur_JobInfo.sourcedbstring;
+                this.rtsscript.Text = this.Cur_JobInfo.sourcesql;           
+                this.teid.Enabled = this.Cur_JobNode == null ? true : false;
                 this.tesystem.Enabled = this.Cur_JobNode == null ? true : false;
                 this.tesysname.Enabled = this.Cur_JobNode == null ? true : false;
                 this.btnnew.Visible = this.Cur_JobNode == null ? true : false;
             }
-            if (this.Cur_JobNode==null)
+            if (this.Cur_JobNode == null)
             {
                 this.teid.Focus();
             }
@@ -144,19 +118,11 @@ namespace DownLoad.UI
                 this.Cur_JobInfo.targetdbtype = this.cbetdbtype.SelectedIndex;
                 this.Cur_JobInfo.isbulkop = this.cbtop.SelectedIndex == 0 ? true : false;
                 this.Cur_JobInfo.istargetdbencode = this.cetjm.Checked;
-                if (this.cetjm.Checked)
-                {
-                    this.Cur_JobInfo.targetdbstring = EncodeAndDecode.Decode(this.txttstr.Text.Trim());
-                }
-                else
-                {
-                    this.Cur_JobInfo.targetdbstring = this.txttstr.Text.Trim();
-                }
+                this.Cur_JobInfo.targetdbstring = this.cetjm.Checked ? EncodeAndDecode.Decode(this.txttstr.Text.Trim()) : this.txttstr.Text.Trim();
                 this.Cur_JobInfo.tmpname = this.txttmpname.Text.Trim();
                 this.Cur_JobInfo.createtmp = this.txttmp.Text.Trim();
                 this.Cur_JobInfo.targetsql = this.rttscript.Text.Trim();
                 this.Cur_JobInfo.sourcetype = this.rbsweb.Checked ? 0 : 1;
-
                 this.Cur_JobInfo.servertype = this.cbstype.SelectedIndex;
                 this.Cur_JobInfo.servermethod = this.txtMethod.Text.Trim();
                 this.Cur_JobInfo.weburl = this.txturl.Text.Trim();
@@ -165,26 +131,18 @@ namespace DownLoad.UI
                 this.Cur_JobInfo.xmlconfig = this.rtbxml.Text.Trim();
                 this.Cur_JobInfo.sourcedbtype = this.cbesdbtype.SelectedIndex;
                 this.Cur_JobInfo.issourcedbencode = this.cesjm.Checked;
-                if (this.cesjm.Checked)
-                {
-                    this.Cur_JobInfo.sourcedbstring = EncodeAndDecode.Decode(this.txtsstr.Text.Trim());
-                }
-                else
-                {
-                    this.Cur_JobInfo.sourcedbstring = this.txtsstr.Text.Trim();
-                }
+                this.Cur_JobInfo.sourcedbstring = this.cesjm.Checked ? EncodeAndDecode.Decode(this.txtsstr.Text.Trim()) : this.txtsstr.Text.Trim();
                 this.Cur_JobInfo.sourcesql = this.rtsscript.Text.Trim();
-
-                GlobalInstanceManager<JobInfoManager>.Intance.AddJobInfo(Cur_JobInfo);
-               
-                MessageBox.Show("保存成功", "卫宁操作提示", MessageBoxButtons.OK);
                 this.teid.Enabled = false;
                 this.tesystem.Enabled = false;
                 this.tesysname.Enabled = false;
                 if (this.Cur_JobNode != null)
                 {
                     this.Cur_JobNode.SetValue(0, this.Cur_JobInfo.name);
+                    this.Cur_JobNode.StateImageIndex = this.Cur_JobInfo.jlzt == "0" ? 1 : 0;
                 }
+                GlobalInstanceManager<JobInfoManager>.Intance.AddJobInfo(Cur_JobInfo);
+                MessageBox.Show("保存成功", "卫宁操作提示", MessageBoxButtons.OK);
             }
             catch (Exception ex)
             {
@@ -209,49 +167,20 @@ namespace DownLoad.UI
         private void btnnew_Click(object sender, EventArgs e)
         {
             this.Cur_JobInfo = null;
-            this.teid.Enabled = true;
-            this.tesystem.Enabled = true;
-            this.tesysname.Enabled = true;
-            this.teid.Text = "";
-            this.tename.Text = "";
-            this.tesystem.Text = "";
-            this.tesysname.Text = "";
-            this.txtexp.Text = "";
+            this.teid.Enabled = this.tesystem.Enabled = this.tesysname.Enabled = this.rbsweb.Checked = true;
+            this.teid.Text = this.tename.Text = this.tesystem.Text = this.tesysname.Text = this.txtexp.Text = this.txturl.Text = this.txttmpname.Text = this.txttmp.Text = this.rttscript.Text = this.rtsscript.Text = this.tenode.Text = this.txtMethod.Text = "";
             this.cejlzt.SelectedIndex = 0;
-            this.rbsweb.Checked = true; ;
-            this.txturl.Text = "";
-            this.txttmpname.Text = "";
-            this.txttmp.Text = "";
-            this.rttscript.Text = "";
-            this.rtsscript.Text = "";
-            this.tenode.Text = "";
-            this.txtMethod.Text = "";
         }
 
         private void rbsweb_CheckedChanged(object sender, EventArgs e)
         {
-            if (this.rbsweb.Checked)
-            {
-                this.webpanel.Enabled = true;
-                this.psdb.Enabled = false;
-            }
-            else
-            {
-                this.webpanel.Enabled = false;
-                this.psdb.Enabled = true;
-            }
+            this.webpanel.Enabled = this.rbsweb.Checked;
+            this.psdb.Enabled = !this.rbsweb.Checked;
         }
 
         private void cbtop_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (this.cbtop.SelectedIndex == 0)
-            {
-                this.gsource.Enabled = true;
-            }
-            else
-            {
-                this.gsource.Enabled = false;
-            }
+            this.gsource.Enabled = this.cbtop.SelectedIndex == 0;
         }
 
         private void btnquick_Click(object sender, EventArgs e)
@@ -265,78 +194,31 @@ namespace DownLoad.UI
 
         private void txttmp_DoubleClick(object sender, EventArgs e)
         {
-            if (this.txttmp.Dock == DockStyle.None)
-            {
-                this.txttmp.Dock = DockStyle.Fill;
-                this.txttmp.BringToFront();
-            }
-            else
-            {
-                this.txttmp.Dock = DockStyle.None;
-            //    this.txttmp.Anchor= ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-            //| System.Windows.Forms.AnchorStyles.Right)));
-            }
+            this.txttmp.Dock = this.txttmp.Dock == DockStyle.None ? DockStyle.Fill : DockStyle.None;
+            this.txttmp.BringToFront();
         }
 
         private void rttscript_DoubleClick(object sender, EventArgs e)
         {
-            if (this.rttscript.Dock == DockStyle.None)
-            {
-                this.rttscript.Dock = DockStyle.Fill;
-                this.rttscript.BringToFront();
-            }
-            else
-            {
-                this.rttscript.Dock = DockStyle.None;
-            //    this.rttscript.Anchor= ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            //| System.Windows.Forms.AnchorStyles.Left)
-            //| System.Windows.Forms.AnchorStyles.Right)));
-            }
+            this.rttscript.Dock = this.rttscript.Dock == DockStyle.None ? DockStyle.Fill : DockStyle.None;
+            this.rttscript.BringToFront();
         }
 
         private void rtsscript_DoubleClick(object sender, EventArgs e)
         {
-            if (this.rtsscript.Dock == DockStyle.None)
-            {
-                this.psdb.Dock = DockStyle.Fill;
-                this.rtsscript.Dock = DockStyle.Fill;
-                this.rtsscript.BringToFront();
-            }
-            else
-            {
-                this.psdb.Dock = DockStyle.None;
-                this.rtsscript.Dock = DockStyle.None;
-            //    this.psdb.Anchor= ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            //| System.Windows.Forms.AnchorStyles.Left)
-            //| System.Windows.Forms.AnchorStyles.Right)));
-            //    this.rtsscript.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            //| System.Windows.Forms.AnchorStyles.Left)
-            //| System.Windows.Forms.AnchorStyles.Right)));
-            }
+            this.psdb.Dock = this.rtsscript.Dock == DockStyle.None ? DockStyle.Fill : DockStyle.None;
+            this.rtsscript.Dock = this.rtsscript.Dock == DockStyle.None ? DockStyle.Fill : DockStyle.None;
+            this.rtsscript.BringToFront();
         }
 
         private void cetjm_CheckedChanged(object sender, EventArgs e)
         {
-            if (this.cetjm.Checked)
-            {
-                this.txttstr.Text = EncodeAndDecode.Encode(this.txttstr.Text.Trim());
-            }
-            else
-            {
-                this.txttstr.Text = EncodeAndDecode.Decode(this.txttstr.Text.Trim());
-            }
+            this.txttstr.Text = this.cetjm.Checked ? EncodeAndDecode.Encode(this.txttstr.Text.Trim()) : EncodeAndDecode.Decode(this.txttstr.Text.Trim());
         }
 
         private void cesjm_CheckedChanged(object sender, EventArgs e)
         {
-            if (this.cesjm.Checked)
-            {
-                this.txtsstr.Text = EncodeAndDecode.Encode(this.txtsstr.Text.Trim());
-            }
-            else
-            {
-                this.txtsstr.Text = EncodeAndDecode.Decode(this.txtsstr.Text.Trim());
-            }
+            this.txtsstr.Text = this.cesjm.Checked ? EncodeAndDecode.Encode(this.txtsstr.Text.Trim()) : EncodeAndDecode.Decode(this.txtsstr.Text.Trim());
         }
 
         private void cbejxlx_SelectedIndexChanged(object sender, EventArgs e)
@@ -356,17 +238,9 @@ namespace DownLoad.UI
 
         private void rtbxml_DoubleClick(object sender, EventArgs e)
         {
-            if (this.rtbxml.Dock == DockStyle.None)
-            {
-                this.webpanel.Dock = DockStyle.Fill;
-                this.rtbxml.Dock = DockStyle.Fill;
-                this.rtbxml.BringToFront();
-            }
-            else
-            {
-                this.webpanel.Dock = DockStyle.None;
-                this.rtbxml.Dock = DockStyle.None;
-            }
+            this.webpanel.Dock = this.rtbxml.Dock == DockStyle.None ? DockStyle.Fill : DockStyle.None;
+            this.rtbxml.Dock = this.rtbxml.Dock == DockStyle.None ? DockStyle.Fill : DockStyle.None;
+            this.rtbxml.BringToFront();
         }
 
         private void btnxml_Click(object sender, EventArgs e)
@@ -377,7 +251,7 @@ namespace DownLoad.UI
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string fName = openFileDialog.FileName;
-                this.rtbxml.Text = File.ReadAllText(fName);                         
+                this.rtbxml.Text = File.ReadAllText(fName);
             }
         }
 
@@ -385,8 +259,8 @@ namespace DownLoad.UI
         {
             if (this.Cur_JobInfo == null || string.IsNullOrEmpty(this.Cur_JobInfo.id))
                 return;
-       
-            string strsql = "select rawtext from CronJob_JOBHISTORY (nolock) where id='" + this.Cur_JobInfo.id.Trim()+"' and system='"+ this.Cur_JobInfo.system.Trim() + "' order by xh desc";
+
+            string strsql = "select rawtext from CronJob_JOBHISTORY (nolock) where id='" + this.Cur_JobInfo.id.Trim() + "' and system='" + this.Cur_JobInfo.system.Trim() + "' order by xh desc";
             DataTable dt = GlobalInstanceManager<GlobalSqlManager>.Intance.GetDataTable(Settings.Default.dbtype, EncodeAndDecode.Decode(Settings.Default.connstring), strsql);
             if (dt == null || dt.Rows.Count <= 0)
             {
@@ -397,7 +271,7 @@ namespace DownLoad.UI
             {
                 string rawtxt = EncodeHelper.DecodeBase64(dt.Rows[0][0].ToString());
                 ResponseMessage Response = JsonConvert.DeserializeObject<ResponseMessage>(rawtxt);
-                StringWriter sw = new StringWriter();          
+                StringWriter sw = new StringWriter();
                 if (this.Cur_JobInfo.nodelx == 0)
                 {
                     //string json = Tools.GetJsonNodeValue(this.txtjson.Text.Trim(), "Response|Body" + "|" + this.cur_jobinfo.node, "[]").ToString();                  
@@ -418,7 +292,7 @@ namespace DownLoad.UI
                 }
                 strtmp = strtmp.Remove(strtmp.LastIndexOf(','), 1);
                 strtmp += ")";
-                this.txttmp.Text= strtmp;
+                this.txttmp.Text = strtmp;
             }
             catch (Exception ex)
             {
@@ -428,18 +302,11 @@ namespace DownLoad.UI
 
         private void txtsstr_DoubleClick(object sender, EventArgs e)
         {
-            using (DataConfigFrm frm=new DataConfigFrm())
+            using (DataConfigFrm frm = new DataConfigFrm())
             {
-                if (frm.ShowDialog()==DialogResult.OK)
+                if (frm.ShowDialog() == DialogResult.OK)
                 {
-                    if (!this.cesjm.Checked)
-                    {
-                        this.txtsstr.Text = EncodeAndDecode.Decode(frm.ConnectString);
-                    }
-                    else
-                    {
-                        this.txtsstr.Text = frm.ConnectString;
-                    }
+                    this.txtsstr.Text = !this.cesjm.Checked ? EncodeAndDecode.Decode(frm.ConnectString) : frm.ConnectString;
                 }
             }
         }
@@ -450,15 +317,16 @@ namespace DownLoad.UI
             {
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
-                    if (!this.cetjm.Checked)
-                    {
-                        this.txttstr.Text = EncodeAndDecode.Decode(frm.ConnectString);
-                    }
-                    else
-                    {
-                        this.txttstr.Text = frm.ConnectString;
-                    }
+                    this.txttstr.Text = !this.cetjm.Checked ? EncodeAndDecode.Decode(frm.ConnectString) : frm.ConnectString;
                 }
+            }
+        }
+
+        private void ConfigFrm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (this.Cur_JobNode != null)
+            {
+                GlobalInstanceManager<FollowMainWinHelper>.Intance.RemoveWinHandle(this.Cur_JobInfo.id);
             }
         }
     }

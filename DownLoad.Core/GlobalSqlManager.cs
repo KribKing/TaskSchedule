@@ -41,20 +41,49 @@ namespace DownLoad.Core
         {
             try
             {
-                Stopwatch watch = new Stopwatch();
-                watch.Start();
-                DataSet ds = GetDataSet(dbstyle, connectstring, commandsql);
-                watch.Stop();
-                Console.WriteLine("运行时间"+watch.ElapsedMilliseconds.ToString());
-                DataTable dt = null;
-                if (ds != null && ds.Tables.Count > 0)
-                {
-                    dt = ds.Tables[0];
-                }
-                return dt;
+                var db = new DbSession(GetDbTyle(dbstyle), connectstring);
+                return db.FromSql(commandsql).ToDataTable();
             }
             catch 
             {             
+                throw;
+            }
+        }
+        /// <summary>
+        /// 获取DataTable
+        /// </summary>
+        /// <param name="dbstyle">0:sqlsever 1:Access 2:sqlserver9 3:Oracle 4:sqllite 5:mysql</param>
+        /// <param name="connectstring">数据库链接字符串</param>
+        /// <param name="commandsql">执行sql脚本</param>
+        /// <returns></returns>
+        public DataTable GetDataTableFrmProc(int dbstyle, string connectstring, string commandsql, params System.Data.Common.DbParameter[] parameters)
+        {
+            try
+            {
+                var db = new DbSession(GetDbTyle(dbstyle), connectstring);
+                return db.FromProc(commandsql).AddParameter(parameters).ToDataTable();
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        /// <summary>
+        /// 获取DataTable
+        /// </summary>
+        /// <param name="dbstyle">0:sqlsever 1:Access 2:sqlserver9 3:Oracle 4:sqllite 5:mysql</param>
+        /// <param name="connectstring">数据库链接字符串</param>
+        /// <param name="commandsql">执行sql脚本</param>
+        /// <returns></returns>
+        public DataSet GetDataSetFromProc(int dbstyle, string connectstring, string commandsql,params System.Data.Common.DbParameter[] parameters)
+        {
+            try
+            {
+                var db = new DbSession(GetDbTyle(dbstyle), connectstring);
+                return db.FromProc(commandsql).AddParameter(parameters).ToDataSet();            
+            }
+            catch
+            {
                 throw;
             }
         }
@@ -280,5 +309,14 @@ namespace DownLoad.Core
             return retInfo;
             #endregion
         }
+
+
+        public class DbParas
+        {
+            public string Name { get; set; }
+            public string Value { get; set; }
+            public int MyProperty { get; set; }
+        }
+
     }
 }

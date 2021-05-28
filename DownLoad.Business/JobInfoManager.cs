@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using DownLoad.Core;
+using System.Data.SqlClient;
+using Dos.ORM;
+using Oracle.DataAccess.Client;
 
 namespace DownLoad.Business
 {
@@ -30,8 +33,6 @@ namespace DownLoad.Business
         public void ReInit()
         {
             JobInfoDic.Clear();
-            //string strsql = "select * from CronJob ";
-            //DataTable dt = TSqlHelper.ExecuteDataTableByRims(strsql);
             if (!File.Exists(configPath))
                 return;
             DataTable dt = new DataTable();
@@ -61,14 +62,7 @@ namespace DownLoad.Business
         public bool IsExists(string id, string system)
         {
             var lkey = JobInfoDic.Keys.Where(a => { return a.Name == id && a.Group == system; });
-            if (lkey.Count() > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return lkey.Count() > 0;
         }
         public bool AddJobInfo(JobInfo jobInfo)
         {
@@ -82,8 +76,9 @@ namespace DownLoad.Business
                 GlobalInstanceManager<JobInfoManager>.Intance.SaveJobInfo();
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Log4netUtil.Error("增加作业执行异常:" + ex.Message);
                 return false;
             }
 
@@ -105,13 +100,13 @@ namespace DownLoad.Business
                 }
                 DataTable dt = Tools.ToDataTable<JobInfo>(list);
                 dt.TableName = "CronJob";
-
                 dt.WriteXml(configPath, XmlWriteMode.WriteSchema, true);
                 //JobInfo adminjob = GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfo("Admin00", "Admin");
             }
             catch (Exception ex)
             {
-                GlobalInstanceManager<SchedulerManager>.Intance.cur_job_OnScheduleLog(string.Format("作业保存发生异常，原因：" + ex.Message));
+                Log4netUtil.Error("保存作业执行异常:" + ex.Message);
+                //GlobalInstanceManager<SchedulerManager>.Intance.cur_job_OnScheduleLog(string.Format("作业保存发生异常，原因：" + ex.Message));
             }
         }
         public bool RemoveJobInfo(JobInfo jobInfo)
@@ -126,8 +121,9 @@ namespace DownLoad.Business
                 this.SaveJobInfo();
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Log4netUtil.Error("移除作业执行异常:" + ex.Message);
                 return false;
             }
         }
@@ -135,14 +131,7 @@ namespace DownLoad.Business
         {
             if (this.JobInfoDic == null)
                 return new JobInfo();
-            foreach (var item in this.JobInfoDic)
-            {
-                if (item.Key.Name == id && item.Key.Group == system)
-                {
-                    return this.JobInfoDic[item.Key];
-                }
-            }
-            return new JobInfo();
+            return this.JobInfoDic.Values.First(a => a.id == id && a.system == system) != null ? this.JobInfoDic.Values.First(a => a.id == id && a.system == system) : new JobInfo();
         }
         public JobInfo GetJobInfo(JobKey key)
         {
@@ -151,7 +140,7 @@ namespace DownLoad.Business
         public List<JobInfo> GetJobInfoListBySystemName(string systemname)
         {
             if (this.JobInfoDic == null)
-                return null;          
+                return null;
             List<JobInfo> list = this.JobInfoDic.Values.Where(a => a.sysname.Trim() == systemname.Trim()).ToList();
             return list;
         }
@@ -172,23 +161,47 @@ namespace DownLoad.Business
         }
         public string GetExcuteCondition(string id, string system)
         {
+            string strexcute = "";
             try
             {
-                string strsql = "exec usp_jk_getjobzxtj @id='" + id + "',@system='" + system + "'";
-                DataTable dt = GlobalInstanceManager<GlobalSqlManager>.Intance.GetDataTable(this.cur_dbtype, this.cur_dbconstring, strsql);
-                if (dt == null || dt.Rows.Count <= 0)
+                // string strsql = "exec usp_jk_getzxtj @id='" + id + "',@system='" + system + "'";
+                List<System.Data.Common.DbParameter> parameters = new List<System.Data.Common.DbParameter>();
+                DatabaseType type=GlobalInstanceManager<GlobalSqlManager>.Intance.GetDbTyle(this.cur_dbtype);
+                switch (type)
                 {
-                    return "";
+                    case DatabaseType.SqlServer:
+                        parameters.Add(new SqlParameter("@id", id));
+                        parameters.Add(new SqlParameter("@system", system));
+                        break;                   
+                    case DatabaseType.MsAccess:
+                        break;
+                    case DatabaseType.SqlServer9:
+                        parameters.Add(new SqlParameter("@id", id));
+                        parameters.Add(new SqlParameter("@system", system));
+                        break;
+                    case DatabaseType.Oracle:
+                        parameters.Add(new OracleParameter("id", id));
+                        parameters.Add(new OracleParameter("system", system));
+                        break;
+                    case DatabaseType.Sqlite3:
+                        break;
+                    case DatabaseType.MySql:
+                        parameters.Add(new SqlParameter("@id", id));
+                        parameters.Add(new SqlParameter("@system", system));
+                        break;
+                    default:
+                        break;
                 }
-                else
-                {
-                    return dt.Rows[0][0].ToString();
-                }
+               
+                DataTable dt = GlobalInstanceManager<GlobalSqlManager>.Intance.GetDataTableFrmProc(this.cur_dbtype, this.cur_dbconstring, "usp_jk_getzxtj", parameters.ToArray());
+                strexcute = dt == null || dt.Rows.Count <= 0 ? "" : dt.Rows[0][0].ToString();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return "";
+                Log4netUtil.Error("获取作业执行条件异常:" + ex.Message);
+                strexcute = "";
             }
+            return strexcute;
         }
     }
     [Serializable]

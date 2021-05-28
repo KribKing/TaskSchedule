@@ -11,7 +11,7 @@ namespace DownLoad.UI
 {
     public partial class FrmBase : DevExpress.XtraEditors.XtraForm
     {
-        protected static DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel = new DevExpress.LookAndFeel.DefaultLookAndFeel();
+        public static DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel = new DevExpress.LookAndFeel.DefaultLookAndFeel();
         public FrmBase()
         {
             InitializeComponent();

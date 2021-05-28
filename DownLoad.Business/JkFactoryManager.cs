@@ -15,27 +15,20 @@ namespace DownLoad.Business
             JobInfo jobInfo = GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfo(key);
             if (!jobInfo.isbulkop)
             {
-                 iface = new JkInterfaceByTargetDb(jobInfo);
+                iface = new JkInterfaceByTargetDb(jobInfo);
             }
             else
             {
                 if (jobInfo.sourcetype == 0)//web服务批量操作作业
                 {
-                    if (jobInfo.servertype == 0)
-                    {
-                        iface = new JkInterfaceByHttp(jobInfo);
-                    }
-                    else if (jobInfo.servertype == 1)
-                    {
-                        iface = new JkInterfaceByWs(jobInfo);
-                    }
+                    iface = jobInfo.servertype == 0 ? (JkInterface)new JkInterfaceByHttp(jobInfo) : (JkInterface)new JkInterfaceByWs(jobInfo);
                 }
-                else if (jobInfo.sourcetype ==1)//数据库操作
+                else if (jobInfo.sourcetype == 1)//数据库操作
                 {
                     iface = new JkInterfaceBySourceDb(jobInfo);
                 }
             }
-           
+
             return iface;
         }
     }

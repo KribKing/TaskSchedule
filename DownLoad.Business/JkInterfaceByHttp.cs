@@ -25,14 +25,9 @@ namespace DownLoad.Business
             try
             {
                 base.body = jobj;
-                if (this.cur_JobInfo.servermethod.ToLower() == "get")
-                {
-                    retInfo = base.GetResponse();
-                }
-                else
-                {
-                    retInfo = base.PostResponse();
-                }
+
+                retInfo = this.cur_JobInfo.servermethod.ToLower() == "get" ? base.GetResponse() : base.PostResponse();
+
                 if (retInfo.ackflg)
                 {
                     DataTable dt = null;
@@ -57,6 +52,7 @@ namespace DownLoad.Business
                 retInfo.ackcode = "300.1";
                 retInfo.ackmsg = ex.Message;
                 retInfo.ackflg = false;
+                Log4netUtil.Error("【" + cur_JobInfo.name + "】JkInterfaceByHttp执行异常:" + ex.Message);
             }
             return retInfo;
         }

@@ -208,10 +208,12 @@
             // 
             // tesysname
             // 
+            this.tesysname.EditValue = "大类名称";
             this.tesysname.Location = new System.Drawing.Point(663, 5);
             this.tesysname.Name = "tesysname";
             this.tesysname.Size = new System.Drawing.Size(150, 20);
             this.tesysname.TabIndex = 0;
+            this.tesysname.ToolTip = "大类名称";
             this.tesysname.DoubleClick += new System.EventHandler(this.txtexp_DoubleClick);
             // 
             // tesystem
@@ -220,6 +222,8 @@
             this.tesystem.Name = "tesystem";
             this.tesystem.Size = new System.Drawing.Size(75, 20);
             this.tesystem.TabIndex = 0;
+            this.tesystem.Tag = "大类编码";
+            this.tesystem.ToolTip = "大类编码";
             this.tesystem.DoubleClick += new System.EventHandler(this.txtexp_DoubleClick);
             // 
             // tename
@@ -228,6 +232,8 @@
             this.tename.Name = "tename";
             this.tename.Size = new System.Drawing.Size(150, 20);
             this.tename.TabIndex = 0;
+            this.tename.Tag = "作业名称";
+            this.tename.ToolTip = "作业名称";
             this.tename.DoubleClick += new System.EventHandler(this.txtexp_DoubleClick);
             // 
             // teid
@@ -236,6 +242,8 @@
             this.teid.Name = "teid";
             this.teid.Size = new System.Drawing.Size(75, 20);
             this.teid.TabIndex = 0;
+            this.teid.Tag = "作业编码";
+            this.teid.ToolTip = "作业编码";
             this.teid.DoubleClick += new System.EventHandler(this.txtexp_DoubleClick);
             // 
             // txtexp
@@ -287,7 +295,7 @@
             this.panelControl3.Controls.Add(this.btnquick);
             this.panelControl3.Controls.Add(this.btnsave);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl3.Location = new System.Drawing.Point(0, 485);
+            this.panelControl3.Location = new System.Drawing.Point(0, 529);
             this.panelControl3.Name = "panelControl3";
             this.panelControl3.Size = new System.Drawing.Size(833, 47);
             this.panelControl3.TabIndex = 2;
@@ -346,7 +354,7 @@
             this.splitContainerControl2.Panel1.Text = "Panel1";
             this.splitContainerControl2.Panel2.Controls.Add(this.groupControl2);
             this.splitContainerControl2.Panel2.Text = "Panel2";
-            this.splitContainerControl2.Size = new System.Drawing.Size(833, 420);
+            this.splitContainerControl2.Size = new System.Drawing.Size(833, 464);
             this.splitContainerControl2.SplitterPosition = 394;
             this.splitContainerControl2.TabIndex = 3;
             this.splitContainerControl2.Text = "splitContainerControl2";
@@ -357,7 +365,7 @@
             this.gsource.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gsource.Location = new System.Drawing.Point(0, 0);
             this.gsource.Name = "gsource";
-            this.gsource.Size = new System.Drawing.Size(394, 420);
+            this.gsource.Size = new System.Drawing.Size(394, 464);
             this.gsource.TabIndex = 0;
             this.gsource.Text = "数据源";
             // 
@@ -370,7 +378,7 @@
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl4.Location = new System.Drawing.Point(2, 22);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(390, 396);
+            this.panelControl4.Size = new System.Drawing.Size(390, 440);
             this.panelControl4.TabIndex = 5;
             // 
             // psdb
@@ -388,7 +396,7 @@
             this.psdb.Enabled = false;
             this.psdb.Location = new System.Drawing.Point(10, 161);
             this.psdb.Name = "psdb";
-            this.psdb.Size = new System.Drawing.Size(374, 230);
+            this.psdb.Size = new System.Drawing.Size(374, 274);
             this.psdb.TabIndex = 2;
             // 
             // cesjm
@@ -413,7 +421,7 @@
             this.rtsscript.Location = new System.Drawing.Point(65, 55);
             this.rtsscript.Name = "rtsscript";
             this.rtsscript.ShowSelectionMargin = true;
-            this.rtsscript.Size = new System.Drawing.Size(301, 161);
+            this.rtsscript.Size = new System.Drawing.Size(301, 205);
             this.rtsscript.TabIndex = 6;
             this.rtsscript.Text = "";
             this.rtsscript.DoubleClick += new System.EventHandler(this.rtsscript_DoubleClick);
@@ -634,7 +642,7 @@
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl2.Location = new System.Drawing.Point(0, 0);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(434, 420);
+            this.groupControl2.Size = new System.Drawing.Size(434, 464);
             this.groupControl2.TabIndex = 0;
             this.groupControl2.Text = "目标库操作";
             // 
@@ -725,7 +733,7 @@
             this.rttscript.Location = new System.Drawing.Point(11, 207);
             this.rttscript.Name = "rttscript";
             this.rttscript.ShowSelectionMargin = true;
-            this.rttscript.Size = new System.Drawing.Size(408, 193);
+            this.rttscript.Size = new System.Drawing.Size(408, 237);
             this.rttscript.TabIndex = 1;
             this.rttscript.Text = "";
             this.rttscript.DoubleClick += new System.EventHandler(this.rttscript_DoubleClick);
@@ -776,15 +784,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(833, 532);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(833, 576);
             this.Controls.Add(this.splitContainerControl2);
             this.Controls.Add(this.panelControl3);
             this.Controls.Add(this.panelControl2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ConfigFrm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "属性";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ConfigFrm_FormClosing);
             this.Load += new System.EventHandler(this.ConfigFrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);

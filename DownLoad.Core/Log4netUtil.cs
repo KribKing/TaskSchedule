@@ -1,6 +1,7 @@
 ﻿using log4net;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 [assembly: log4net.Config.XmlConfigurator(ConfigFile = "Log4net.config", ConfigFileExtension = "config", Watch = true)]
@@ -26,6 +27,8 @@ namespace DownLoad.Core
         {
             if (!IsLog)
                 return;
+            GlobalInstanceManager<ConsoleLogHelper>.Intance.SetLog(new LogMessage() { Message = message, LogLevel = LogLevel.Error });
+
             if (ex == null)
             {
                 Log.Error(message);
@@ -40,6 +43,8 @@ namespace DownLoad.Core
         {
             if (!IsLog)
                 return;
+            GlobalInstanceManager<ConsoleLogHelper>.Intance.SetLog(new LogMessage() { Message = message, LogLevel = LogLevel.Info });
+
             if (ex == null)
             {
                 Log.Info(message);
@@ -54,6 +59,8 @@ namespace DownLoad.Core
         {
             if (!IsLog)
                 return;
+            GlobalInstanceManager<ConsoleLogHelper>.Intance.SetLog(new LogMessage() { Message = message, LogLevel = LogLevel.Debug });
+
             if (ex == null)
             {
                 Log.Debug(message);
@@ -68,6 +75,8 @@ namespace DownLoad.Core
         {
             if (!IsLog)
                 return;
+            GlobalInstanceManager<ConsoleLogHelper>.Intance.SetLog(new LogMessage() { Message = message, LogLevel = LogLevel.Warn });
+
             if (ex == null)
             {
                 Log.Warn(message);
@@ -82,6 +91,7 @@ namespace DownLoad.Core
         {
             if (!IsLog)
                 return;
+            GlobalInstanceManager<ConsoleLogHelper>.Intance.SetLog(new LogMessage() { Message = message, LogLevel = LogLevel.Fatal });
             if (ex == null)
             {
                 Log.Fatal(message);

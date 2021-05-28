@@ -2,9 +2,6 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="DownLoad.UI.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="connstring" Type="System.String" Scope="User">
-      <Value Profile="(Default)">fKti04vHK0LqBv2mqFCEnrsRvxJV1KvBDftb+RXaVfXs1Wkxucgyenh04GTEj9BJdi09jseWyAfySsvMPgFemrmIewuiikjTRwzA6+r5vg7GaZettCFCOtyXnzcVPf6zMyCUgv0WkYoz1O+EDiz+IA==</Value>
-    </Setting>
     <Setting Name="theme" Type="System.String" Scope="User">
       <Value Profile="(Default)">DevExpress Style</Value>
     </Setting>
@@ -14,17 +11,17 @@
     <Setting Name="appname" Type="System.String" Scope="User">
       <Value Profile="(Default)">RIMS数据下载程序</Value>
     </Setting>
-    <Setting Name="dbtype" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
-    </Setting>
     <Setting Name="islog" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="logpath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">D://Logs//</Value>
+    <Setting Name="ismovefollow" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="dblog" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+    <Setting Name="dbtype" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="connstring" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

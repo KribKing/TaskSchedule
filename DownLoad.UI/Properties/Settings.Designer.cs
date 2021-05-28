@@ -12,7 +12,7 @@ namespace DownLoad.UI.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "12.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.7.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -20,19 +20,6 @@ namespace DownLoad.UI.Properties {
         public static Settings Default {
             get {
                 return defaultInstance;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("fKti04vHK0LqBv2mqFCEnrsRvxJV1KvBDftb+RXaVfXs1Wkxucgyenh04GTEj9BJdi09jseWyAfySsvMP" +
-            "gFemrmIewuiikjTRwzA6+r5vg7GaZettCFCOtyXnzcVPf6zMyCUgv0WkYoz1O+EDiz+IA==")]
-        public string connstring {
-            get {
-                return ((string)(this["connstring"]));
-            }
-            set {
-                this["connstring"] = value;
             }
         }
         
@@ -74,18 +61,6 @@ namespace DownLoad.UI.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int dbtype {
-            get {
-                return ((int)(this["dbtype"]));
-            }
-            set {
-                this["dbtype"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool islog {
             get {
@@ -98,25 +73,37 @@ namespace DownLoad.UI.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("D://Logs//")]
-        public string logpath {
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ismovefollow {
             get {
-                return ((string)(this["logpath"]));
+                return ((bool)(this["ismovefollow"]));
             }
             set {
-                this["logpath"] = value;
+                this["ismovefollow"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool dblog {
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int dbtype {
             get {
-                return ((bool)(this["dblog"]));
+                return ((int)(this["dbtype"]));
             }
             set {
-                this["dblog"] = value;
+                this["dbtype"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string connstring {
+            get {
+                return ((string)(this["connstring"]));
+            }
+            set {
+                this["connstring"] = value;
             }
         }
     }

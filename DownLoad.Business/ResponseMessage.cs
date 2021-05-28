@@ -45,12 +45,26 @@ namespace DownLoad.Business
             get { return _TranCode; }
             set { _TranCode = value; }
         }
+        private string _TranName;
+
+        public string TranName
+        {
+            get { return _TranName; }
+            set { _TranName = value; }
+        }
         private string _TranSys;
 
         public string TranSys
         {
             get { return _TranSys; }
             set { _TranSys = value; }
+        }
+        private string _TranSysName;
+
+        public string TranSysName
+        {
+            get { return _TranSysName; }
+            set { _TranSysName = value; }
         }
         private string _AckCode;
 

@@ -17,6 +17,7 @@ namespace DownLoad.UI
         [STAThread]
         static void Main()
         {
+          
             DevExpress.UserSkins.BonusSkins.Register();
             //DevExpress.UserSkins.OfficeSkins.Register();
             DevExpress.Skins.SkinManager.EnableFormSkins();

@@ -15,37 +15,34 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DownLoad.Business;
 using DownLoad.Core;
+using System.Runtime.InteropServices;
 
 namespace DownLoad.UI
 {
     public partial class FrmMain : FrmBase
     {
         private JobInfo Cur_Job;
+        private Dictionary<string, IntPtr> WinHandle = new Dictionary<string, IntPtr>();
         public FrmMain()
         {
             InitializeComponent();
             Control.CheckForIllegalCrossThreadCalls = false;
         }
-
-        private void FrmMain_Load(object sender, EventArgs e)
-        {
-
-        }
         private void Init()
         {
             try
             {
+                GlobalInstanceManager<FollowMainWinHelper>.Intance = new FollowMainWinHelper(this);
+                this.LoadConsole();
                 Log4netUtil.IsLog = Settings.Default.islog;
                 GlobalInstanceManager<JobInfoManager>.Intance = new JobInfoManager(Settings.Default.dbtype, EncodeAndDecode.Decode(Settings.Default.connstring));
                 GlobalInstanceManager<SchedulerManager>.Intance = new SchedulerManager();
-                GlobalInstanceManager<SchedulerManager>.Intance.OnScheduleLog += Intance_OnScheduleLog;
-                GlobalInstanceManager<SchedulerManager>.Intance.OnScheduleLogWithJob += Intance_OnScheduleLogWithJob;
                 this.LoadJobInfo();
-                this.AddLogText("初始化加载完成");
+                Log4netUtil.Info("初始化加载完成");
             }
             catch (Exception ex)
             {
-                this.AddLogText("初始化发生异常：" + ex.Message);
+                Log4netUtil.Error("初始化发生异常：" + ex.Message);
             }
         }
         private void LoadJobInfo()
@@ -55,15 +52,14 @@ namespace DownLoad.UI
             string patkey = "";
             foreach (var item in list)
             {
-                if (patkey != item.Key)
-                {
-                    patkey = item.Key;
-                    TreeListNode node = this.treeList1.AppendNode(null, -1);
-                    node.SetValue(this.tPatKey, item.Key);
-                    node.Tag = patkey;
-                    node.StateImageIndex = 5;
-                    LoadTreeCtrl(node, item.Key);
-                }
+                if (patkey == item.Key)
+                    continue;
+                patkey = item.Key;
+                TreeListNode node = this.treeList1.AppendNode(null, -1);
+                node.SetValue(this.tPatKey, item.Key);
+                node.Tag = patkey;
+                node.StateImageIndex = 5;
+                LoadTreeCtrl(node, item.Key);
             }
             this.treeList1.CollapseAll();
             this.treeList1.Refresh();
@@ -79,34 +75,18 @@ namespace DownLoad.UI
                     TreeListNode node = pnode.TreeList.AppendNode(rv.sysname, pnode);
                     node.SetValue(0, rv.name);
                     node.Tag = rv;
-                    if (rv.jlzt == "0")
-                    {
-                        node.StateImageIndex = 1;
-                    }
-                    else
-                    {
-                        node.StateImageIndex = 0;
-                    }
-                    //LoadTreeCtrl(node, Command.Instance.Getstring(rv.table_key));
+                    node.StateImageIndex = rv.jlzt == "0" ? 1 : 0;
                 }
             }
             catch (Exception ex)
             {
-                this.AddLogText("作业列表加载失败：" + ex.Message);
+                Log4netUtil.Error("作业列表加载失败：" + ex.Message, ex);
             }
         }
 
-        private void Intance_OnScheduleLog(string msg)
-        {
-            this.AddLogText(msg);
-        }
-        private void Intance_OnScheduleLogWithJob(JobInfo info, string msg)
-        {
-            this.AddLogText(msg);
-        }
+
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-
             // 注意判断关闭事件reason来源于窗体按钮，否则用菜单退出时无法退出!
             if (e.CloseReason == CloseReason.UserClosing)
             {
@@ -129,86 +109,6 @@ namespace DownLoad.UI
                 }
             }
         }
-        public void AddLogText(string text)
-        {
-            if (this.InvokeRequired)
-            {
-                this.Invoke(new Action<string>(AddLogText), text);
-                return;
-            }
-            if (this.txtmsg.Lines.Length > 500)
-            {
-                this.txtmsg.Text = "";
-            }
-            if (!string.IsNullOrWhiteSpace(text))
-            {
-                if (text.Contains("Response"))
-                {
-                    try
-                    {
-                        ResponseMessage Response = JsonConvert.DeserializeObject<ResponseMessage>(text);
-                        // string strresult = Tools.GetJsonNodeValue(text, "Response|Head|AckCode", "100").ToString();
-                        string strresult = Response.Response.Head.AckCode.ToString();
-                        string strjobid = Response.Response.Head.TranCode.ToString();
-                        string strjobsys = Response.Response.Head.TranSys.ToString();
-                        if (strresult.Contains("100"))
-                        {
-                            this.InsertJobHistory(0, strjobid, strjobsys, text);
-                            this.txtmsg.SelectionColor = Color.Yellow;
-                            text = "接口【" + GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfo(strjobid, strjobsys).name + "】执行成功";
-                        }
-                        else
-                        {
-                            this.InsertJobHistory(1, strjobid, strjobsys, text);
-                            string strmsg = Tools.GetJsonNodeValue(text, "Response|Head|AckMessage", "异常错误").ToString();
-                            this.txtmsg.SelectionColor = Color.Red;
-                            text = "接口【" + GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfo(strjobid, strjobsys).name + "】执行异常：" + strmsg;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        this.txtmsg.AppendText(DateTime.Now.ToString() + "==》Reponse解析失败：" + ex.Message + text);
-                    }
-                }
-                else if (text.Contains("Request"))
-                {
-                    try
-                    {
-                        RequestMessage Request = JsonConvert.DeserializeObject<RequestMessage>(text);
-                        // string strresult = Tools.GetJsonNodeValue(text, "Response|Head|AckCode", "100").ToString();               
-                        string strjobid = Request.Request.Head.TranCode.ToString();
-                        string strjobsys = Request.Request.Head.TranSys.ToString();
-                        this.txtmsg.SelectionColor = Color.Yellow;
-                        text = "接口【" + GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfo(strjobid, strjobsys).name + "】执行开始";
-
-                    }
-                    catch (Exception ex)
-                    {
-                        this.txtmsg.AppendText(DateTime.Now.ToString() + "==》Request解析失败：" + ex.Message + text);
-                    }
-                }
-                this.txtmsg.AppendText(DateTime.Now.ToString() + "==》" + text + Environment.NewLine);
-                Tools.FlushMemory();
-            }
-        }
-
-        private void InsertJobHistory(int zxzt, string strjobid, string strjobsys, string text)
-        {
-            if (Settings.Default.dblog)
-            {
-                string strsql = "insert into CronJob_JOBHISTORY(id,system,zxzt,rawtext,oper_date) values('" + strjobid + "','" + strjobsys + "'," + zxzt + ",'" + EncodeHelper.EncodeBase64(text) + "','" + DateTime.Now.ToString("yyyyMMdd HH:mm:ss") + "')";
-                int retnum = GlobalInstanceManager<GlobalSqlManager>.Intance.ExecuteNoneQuery(Settings.Default.dbtype, EncodeAndDecode.Decode(Settings.Default.connstring), strsql);
-                if (retnum > 0)
-                {
-                    this.AddLogText("作业【" + GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfo(strjobid, strjobsys).name + "】执行记录插入数据库成功");
-                }
-                else
-                {
-                    this.AddLogText("作业【" + GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfo(strjobid, strjobsys).name + "】执行记录插入数据库失败");
-                }
-            }
-        }
-
 
         private void treeList1_MouseUp(object sender, MouseEventArgs e)
         {
@@ -221,97 +121,40 @@ namespace DownLoad.UI
                 {
                     tree.SetFocusedNode(hitInfo.Node);
                     TreeListNode node = hitInfo.Node;
-
                 }
                 else
                 {
                     tree.SetFocusedNode(null);
                 }
 
-                if (tree.FocusedNode != null)
+                if (tree.FocusedNode == null)
+                    return;
+                this.Cur_Job = tree.FocusedNode.Tag as JobInfo;
+                if (this.Cur_Job != null)
                 {
-                    this.Cur_Job = tree.FocusedNode.Tag as JobInfo;
-                    if (this.Cur_Job != null)
-                    {
-                        this.SetPop(this.Cur_Job);
-                        this.popupMenu1.ShowPopup(p);
-                    }
-                    else
-                    {
-                        string systemname = tree.FocusedNode.Tag as string;
-                        this.SetPop(null, systemname);
-                        this.popupMenu1.ShowPopup(p);
-                    }
-
+                    this.SetPop(this.Cur_Job);
+                    this.popupMenu1.ShowPopup(p);
                 }
-
+                else
+                {
+                    string systemname = tree.FocusedNode.Tag as string;
+                    this.SetPop(null, systemname);
+                    this.popupMenu1.ShowPopup(p);
+                }
             }
         }
 
         private void SetPop(JobInfo Cur_Job, string systemname = "")
         {
-            if (Cur_Job != null)
-            {
-                this.btnnewjob.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-                this.btnallqyjob.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-                this.btnalljzjob.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-                this.btnrunjob.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
-                this.btnFast.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
-                this.btnqyjob.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
-                this.btnjzjob.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
-                this.btnpro.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
-                this.btncopyjob.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
-                this.btndeletejob.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
-                if (Cur_Job.jlzt == "1")
-                {
-                    this.btnjzjob.Enabled = false;
-                    this.btnqyjob.Enabled = true;
-                }
-                else
-                {
-                    this.btnjzjob.Enabled = true;
-                    this.btnqyjob.Enabled = false;
-                }
-            }
-            else
-            {
-                this.btnnewjob.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
-                this.btnallqyjob.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
-                this.btnalljzjob.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
-                this.btnrunjob.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-                this.btnFast.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-                this.btnqyjob.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-                this.btnjzjob.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-                this.btnpro.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-                this.btncopyjob.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-                this.btndeletejob.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-                List<JobInfo> list = GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfoListBySystemName(systemname);
-                if (list == null || list.Count <= 0)
-                {
-                    this.btnallqyjob.Enabled = false;
-                    this.btnalljzjob.Enabled = false;
-                }
-                else
-                {
-                    bool isallqy = list.All(a => a.jlzt == "0");
-                    bool isalljz = list.All(a => a.jlzt == "1");
-                    if (isallqy && !isalljz)
-                    {
-                        this.btnallqyjob.Enabled = false;
-                        this.btnalljzjob.Enabled = true;
-                    }
-                    else if (!isallqy && isalljz)
-                    {
-                        this.btnallqyjob.Enabled = true;
-                        this.btnalljzjob.Enabled = false;
-                    }
-                    else
-                    {
-                        this.btnallqyjob.Enabled = true;
-                        this.btnalljzjob.Enabled = true;
-                    }
-                }
-            }
+
+            this.btnnewjob.Visibility = this.btnallqyjob.Visibility = this.btnalljzjob.Visibility = Cur_Job != null ? DevExpress.XtraBars.BarItemVisibility.Never : DevExpress.XtraBars.BarItemVisibility.Always;
+            this.btnrunjob.Visibility = this.btnFast.Visibility = this.btnqyjob.Visibility = this.btnjzjob.Visibility = this.btnpro.Visibility = this.btncopyjob.Visibility = this.btndeletejob.Visibility = Cur_Job != null ? DevExpress.XtraBars.BarItemVisibility.Always : DevExpress.XtraBars.BarItemVisibility.Never;
+            this.btnjzjob.Enabled = Cur_Job != null ? !(Cur_Job.jlzt == "1") : false;
+            this.btnqyjob.Enabled = Cur_Job != null ? Cur_Job.jlzt == "1" : false;
+            List<JobInfo> list = GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfoListBySystemName(systemname);
+            this.btnallqyjob.Enabled = list == null || list.Count <= 0 ? false : list.All(a => a.jlzt == "0") && !list.All(a => a.jlzt == "1") ? false : true;
+            this.btnalljzjob.Enabled = list == null || list.Count <= 0 ? false : list.All(a => a.jlzt == "1") && !list.All(a => a.jlzt == "0") ? false : true;
+
         }
 
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -334,33 +177,19 @@ namespace DownLoad.UI
         private void btnjzjob_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             TreeListNode node = this.treeList1.FocusedNode;
-            if (node != null && node.Tag != null)
-            {
-                JobInfo info = node.Tag as JobInfo;
-                if (info != null)
-                {
-                    info.jlzt = "1";
-                    node.StateImageIndex = 0;
-                }
-            }
+            if (node == null || node.Tag == null)
+                return;
+            JobInfo info = node.Tag as JobInfo;
+            if (info == null)
+                return;
+            info.jlzt = "1";
+            node.StateImageIndex = 0;
             GlobalInstanceManager<JobInfoManager>.Intance.SaveJobInfo();
         }
 
         private void btnpro_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            TreeListNode node = this.treeList1.FocusedNode;
-            if (node != null && node.Tag != null)
-            {
-                JobInfo info = node.Tag as JobInfo;
-                if (info != null)
-                {
-                    using (ConfigFrm frm = new ConfigFrm(info, node, this))
-                    {
-                        frm.ShowDialog();
-                    }
-                }
-            }
-            this.LoadJobInfo();
+            this.WatchConfigFrm();
         }
 
         private void btnrunjob_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -375,22 +204,11 @@ namespace DownLoad.UI
             using (RunFrm frm = new RunFrm())
             {
                 if (frm.ShowDialog() != DialogResult.OK)
-                {
                     return;
-                }
                 else
-                {
                     cur_excutereq = frm.StrConditon;
-                }
             }
-
             this.QuickExcute(info, cur_excutereq);
-
-        }
-
-        private void btnstopjob_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -398,7 +216,7 @@ namespace DownLoad.UI
             try
             {
                 GlobalInstanceManager<SchedulerManager>.Intance.ResumeAll();
-                this.AddLogText("重启调度器成功");
+                Log4netUtil.Debug("重启调度器成功");
                 foreach (TreeListNode item in this.treeList1.Nodes)
                 {
                     item.StateImageIndex = 5;
@@ -406,7 +224,7 @@ namespace DownLoad.UI
             }
             catch (Exception ex)
             {
-                this.AddLogText("重启调度器失败：" + ex.Message);
+                Log4netUtil.Debug("重启调度器失败" + ex.Message, ex);
             }
         }
 
@@ -415,7 +233,7 @@ namespace DownLoad.UI
             try
             {
                 GlobalInstanceManager<SchedulerManager>.Intance.PauseAll();
-                this.AddLogText("暂停调度器成功");
+                Log4netUtil.Debug("暂停调度器成功");
                 foreach (TreeListNode item in this.treeList1.Nodes)
                 {
                     item.StateImageIndex = 6;
@@ -423,95 +241,64 @@ namespace DownLoad.UI
             }
             catch (Exception ex)
             {
-                this.AddLogText("暂停调度器失败：" + ex.Message);
+                Log4netUtil.Debug("暂停调度器失败：" + ex.Message);
             }
 
-        }
-
-        private void btnremove_Click(object sender, EventArgs e)
-        {
-            this.txtmsg.Clear();
-            Tools.FlushMemory();
         }
 
         private void btnreset_Click(object sender, EventArgs e)
         {
             this.AddJob(new JobInfo());
-
         }
 
         private void AddJob(JobInfo addinfo)
         {
             using (ConfigFrm config = new ConfigFrm(addinfo, null, this))
             {
+                GlobalInstanceManager<FollowMainWinHelper>.Intance.AddWinHandle("AddJob", config.Handle);
+                GlobalInstanceManager<FollowMainWinHelper>.Intance.MoveWinByKey("AddJob");
                 config.ShowDialog();
             }
+            GlobalInstanceManager<FollowMainWinHelper>.Intance.RemoveWinHandle("AddJob");
             this.LoadJobInfo();
-        }
-
-        private void btnrefresh_Click(object sender, EventArgs e)
-        {
-            this.LoadHistory();
-        }
-
-        private void treeList1_FocusedNodeChanged(object sender, FocusedNodeChangedEventArgs e)
-        {
-            this.LoadHistory();
-        }
-
-        private void LoadHistory()
-        {
-            try
-            {
-                TreeListNode node = this.treeList1.FocusedNode;
-                if (node != null && node.Tag != null)
-                {
-                    JobInfo info = node.Tag as JobInfo;
-                    if (info != null)
-                    {
-                        string strsql = "exec usp_jk_getjobhistory @id='" + info.id + "',@sys='" + info.system + "'";
-                        DataTable dt = GlobalInstanceManager<GlobalSqlManager>.Intance.GetDataTable(Settings.Default.dbtype, EncodeAndDecode.Decode(Settings.Default.connstring), strsql);
-                        this.gridControl1.DataSource = dt;
-                    }
-                }
-                else
-                {
-                    this.gridControl1.DataSource = null;
-                }
-                this.gridControl1.RefreshDataSource();
-            }
-            catch
-            {
-                this.gridControl1.DataSource = null;
-            }
         }
 
         private void btnqyjob_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             TreeListNode node = this.treeList1.FocusedNode;
-            if (node != null && node.Tag != null)
-            {
-                JobInfo info = node.Tag as JobInfo;
-                if (info != null)
-                {
-                    info.jlzt = "0";
-                    node.StateImageIndex = 1;
-                }
-            }
+            if (node == null && node.Tag == null)
+                return;
+            JobInfo info = node.Tag as JobInfo;
+            if (info == null)
+                return;
+            info.jlzt = "0";
+            node.StateImageIndex = 1;
             GlobalInstanceManager<JobInfoManager>.Intance.SaveJobInfo();
         }
 
         private void treeList1_DoubleClick(object sender, EventArgs e)
         {
+            this.WatchConfigFrm();
+        }
+
+        private void WatchConfigFrm()
+        {
             TreeListNode node = this.treeList1.FocusedNode;
-            if (node != null && node.Tag != null)
+            if (node == null || node.Tag == null)
+                return;
+            JobInfo info = node.Tag as JobInfo;
+            if (info == null)
+                return;
+            if (GlobalInstanceManager<FollowMainWinHelper>.Intance.IsExistsKey(info.id))
             {
-                JobInfo info = node.Tag as JobInfo;
-                if (info != null)
-                {
-                    ConfigFrm frm = new ConfigFrm(info, node, this);
-                    frm.Show();
-                }
+                GlobalInstanceManager<FollowMainWinHelper>.Intance.SetTopMost(info.id);
+            }
+            else
+            {
+                ConfigFrm frm = new ConfigFrm(info, node, this);
+                GlobalInstanceManager<FollowMainWinHelper>.Intance.AddWinHandle(info.id, frm.Handle);
+                GlobalInstanceManager<FollowMainWinHelper>.Intance.MoveWinByKey(info.id);
+                frm.Show();
             }
         }
 
@@ -531,12 +318,9 @@ namespace DownLoad.UI
         {
             Task task = new Task(() =>
             {
-                //request = GetStrJsonHelper.GetReqJson(jobInfo.id, jobInfo.system, "请求访问", request);
-                request = new RequestMessage() { Request = new Request() { Head = new Head() { TranCode = jobInfo.id, TranSys = jobInfo.system, AckMessage = "请求访问" }, Body = request } }.ToString();
-                GlobalInstanceManager<SchedulerManager>.Intance.cur_job_OnScheduleLog(jobInfo, request);
+                request = new RequestMessage() { Request = new Request() { Head = new Head() { TranCode = jobInfo.id, TranName = jobInfo.name, TranSys = jobInfo.system, TranSysName = jobInfo.sysname, AckMessage = "请求访问" }, Body = request } }.ToString();
                 string strret = GlobalInstanceManager<RimsInterface>.Intance.Run(request);
                 Tools.FlushMemory();
-                this.AddLogText(strret);
             });
             task.Start();
         }
@@ -548,24 +332,6 @@ namespace DownLoad.UI
             this.Init();
         }
 
-        private void gridView1_DoubleClick(object sender, EventArgs e)
-        {
-            DataRow dr = this.gridView1.GetFocusedDataRow();
-            if (dr != null)
-            {
-                JobInfo cur_Job = this.treeList1.FocusedNode.Tag as JobInfo;
-                JsonFrm frm = new JsonFrm(cur_Job, dr["xh"].ToString());
-                frm.Show();
-            }
-        }
-
-        private void gridView1_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
-        {
-            DataRow dr = this.gridView1.GetDataRow(e.RowHandle);
-            if (dr != null)
-                e.Appearance.ForeColor = dr["zxzt"].ToString() == "1" ? Color.Red : Color.Black;
-        }
-
         private void btnnewjob_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             TreeListNode node = this.treeList1.FocusedNode;
@@ -573,7 +339,7 @@ namespace DownLoad.UI
                 return;
             string systemname = node.Tag as string;
             JobInfo firstjob = GlobalInstanceManager<JobInfoManager>.Intance.GetFirstJobBySystemName(systemname);
-            this.AddJob(new JobInfo() { system = firstjob.system,sysname=firstjob.sysname});
+            this.AddJob(new JobInfo() { system = firstjob.system, sysname = firstjob.sysname });
         }
 
         private void btnallqyjob_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -581,26 +347,15 @@ namespace DownLoad.UI
             TreeListNode node = this.treeList1.FocusedNode;
             if (node == null && node.Tag == null)
                 return;
-            string systemname = node.Tag as string;
-            List<JobInfo> list = GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfoListBySystemName(systemname);
-            foreach (JobInfo item in list)
+            if (!node.HasChildren)
+                return;
+            foreach (TreeListNode cnode in node.Nodes)
             {
-                if (item.jlzt == "1")
-                {
-                    item.jlzt = "0";
-                    if (node.HasChildren)
-                    {
-                        foreach (TreeListNode cnode in node.Nodes)
-                        {
-                            JobInfo job = cnode.Tag as JobInfo;
-                            if (job.Equals(item))
-                            {
-                                cnode.StateImageIndex = 1;
-                            }
-                        }
-
-                    }
-                }
+                JobInfo job = cnode.Tag as JobInfo;
+                if (job.jlzt == "0")
+                    continue;
+                job.jlzt = "0";
+                cnode.StateImageIndex = 1;
             }
             GlobalInstanceManager<JobInfoManager>.Intance.SaveJobInfo();
         }
@@ -610,95 +365,78 @@ namespace DownLoad.UI
             TreeListNode node = this.treeList1.FocusedNode;
             if (node == null && node.Tag == null)
                 return;
-            string systemname = node.Tag as string;
-            List<JobInfo> list = GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfoListBySystemName(systemname);
-            foreach (JobInfo item in list)
+            if (!node.HasChildren)
+                return;
+            foreach (TreeListNode cnode in node.Nodes)
             {
-                if (item.jlzt == "0")
-                {
-                    item.jlzt = "1";
-                    if (node.HasChildren)
-                    {
-                        foreach (TreeListNode cnode in node.Nodes)
-                        {
-                            JobInfo job = cnode.Tag as JobInfo;
-                            if (job.Equals(item))
-                            {
-                                cnode.StateImageIndex = 0;
-                            }
-                        }
-
-                    }
-                }
+                JobInfo job = cnode.Tag as JobInfo;
+                if (job.jlzt == "1")
+                    continue;
+                job.jlzt = "1";
+                cnode.StateImageIndex = 0;
             }
             GlobalInstanceManager<JobInfoManager>.Intance.SaveJobInfo();
         }
 
-        private void btnclearhos_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                TreeListNode node = this.treeList1.FocusedNode;
-                if (node != null && node.Tag != null)
-                {
-                    JobInfo info = node.Tag as JobInfo;
-                    if (info != null)
-                    {
-                        string strsql = "exec usp_jk_deletejobhistory @id='" + info.id + "',@sys='" + info.system + "'";
-                        strsql += "exec usp_jk_getjobhistory @id='" + info.id + "',@sys='" + info.system + "'";
-                        DataTable dt = GlobalInstanceManager<GlobalSqlManager>.Intance.GetDataTable(Settings.Default.dbtype, EncodeAndDecode.Decode(Settings.Default.connstring), strsql);
-                        this.gridControl1.DataSource = dt;
-                    }
-                }
-                else
-                {
-                    this.gridControl1.DataSource = null;
-                }
-                this.gridControl1.RefreshDataSource();
-            }
-            catch
-            {
-                this.gridControl1.DataSource = null;
-            }
-        }
+
 
         private void btncopyjob_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (this.treeList1.FocusedNode != null)
-            {
-                this.Cur_Job = this.treeList1.FocusedNode.Tag as JobInfo;
-                if (this.Cur_Job != null)
-                {
-                    JobInfo newjob = this.Cur_Job.Copy();
-                    using (ConfigFrm frm = new ConfigFrm(newjob, null, this))
-                    {
-                        frm.ShowDialog();
-                    }
-                }
-            }
-            this.LoadJobInfo();
+            this.Cur_Job = this.treeList1.FocusedNode != null ? this.treeList1.FocusedNode.Tag as JobInfo : null;
+            if (this.Cur_Job == null)
+                return;
+            JobInfo newjob = this.Cur_Job.Copy();
+            this.AddJob(newjob);
         }
 
         private void btndeletejob_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (this.treeList1.FocusedNode != null)
+            JobInfo removejob = this.treeList1.FocusedNode != null ? this.treeList1.FocusedNode.Tag as JobInfo : null;
+            if (removejob == null)
+                return;
+            if (MessageBox.Show("确认删除作业吗？", "操作提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
             {
-                JobInfo removejob = this.treeList1.FocusedNode.Tag as JobInfo;
-                if (MessageBox.Show("确认删除作业吗？", "操作提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
-                {
-                    if (removejob != null)
-                    {
-                        GlobalInstanceManager<JobInfoManager>.Intance.RemoveJobInfo(removejob);
-                    }
-                }
-
+                GlobalInstanceManager<JobInfoManager>.Intance.RemoveJobInfo(removejob);
             }
             this.LoadJobInfo();
         }
 
         private void btnconfig_Click(object sender, EventArgs e)
         {
-
+            using (SettingsFrm frm = new SettingsFrm())
+            {
+                frm.ShowDialog();
+            }
         }
+
+
+        private void btnlog_Click(object sender, EventArgs e)
+        {
+            this.LoadConsole();
+        }
+
+        private void LoadConsole()
+        {
+            if (GlobalInstanceManager<FollowMainWinHelper>.Intance.IsExistsKey("ConsoleFrm"))
+            {
+                GlobalInstanceManager<FollowMainWinHelper>.Intance.SetTopMost("ConsoleFrm");
+            }
+            else
+            {
+                ConsoleFrm frm = new ConsoleFrm();
+                GlobalInstanceManager<FollowMainWinHelper>.Intance.AddWinHandle("ConsoleFrm", frm.Handle);
+                GlobalInstanceManager<FollowMainWinHelper>.Intance.MoveWinByKey("ConsoleFrm");
+                frm.Show();
+            }
+        }
+
+        private void FrmMain_Move(object sender, EventArgs e)
+        {
+            if (Settings.Default.ismovefollow)
+            {
+                GlobalInstanceManager<FollowMainWinHelper>.Intance.MoveWin();
+            }           
+        }
+
     }
 }

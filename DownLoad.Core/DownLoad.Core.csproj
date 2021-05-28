@@ -65,12 +65,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsoleLogHelper.cs" />
     <Compile Include="DTToken.cs" />
     <Compile Include="EncodeAndDecode.cs" />
     <Compile Include="EncodeHelper.cs" />
+    <Compile Include="FollowMainWinHelper.cs" />
     <Compile Include="GetStrJsonHelper.cs" />
     <Compile Include="GlobalInstanceManager.cs" />
     <Compile Include="GlobalWebRequestHelper.cs" />
+    <Compile Include="LogMessage.cs" />
+    <Compile Include="WinApiHelper.cs" />
     <Compile Include="Log4netUtil.cs" />
     <Compile Include="ProcessBarFrm.cs">
       <SubType>Form</SubType>
