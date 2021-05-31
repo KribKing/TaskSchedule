@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using DownLoad.Core;
 using System.Data.SqlClient;
 using Dos.ORM;
-using Oracle.DataAccess.Client;
+//using Oracle.DataAccess.Client;
 
 namespace DownLoad.Business
 {
@@ -180,8 +180,8 @@ namespace DownLoad.Business
                         parameters.Add(new SqlParameter("@system", system));
                         break;
                     case DatabaseType.Oracle:
-                        parameters.Add(new OracleParameter("id", id));
-                        parameters.Add(new OracleParameter("system", system));
+                        //parameters.Add(new OracleParameter("id", id));
+                        //parameters.Add(new OracleParameter("system", system));
                         break;
                     case DatabaseType.Sqlite3:
                         break;
@@ -193,7 +193,7 @@ namespace DownLoad.Business
                         break;
                 }
                
-                DataTable dt = GlobalInstanceManager<GlobalSqlManager>.Intance.GetDataTableFrmProc(this.cur_dbtype, this.cur_dbconstring, "usp_jk_getzxtj", parameters.ToArray());
+                DataTable dt = GlobalInstanceManager<GlobalSqlManager>.Intance.GetDataTableFrmProc(this.cur_dbtype, this.cur_dbconstring, "usp_jk_getjobzxtj", parameters.ToArray());
                 strexcute = dt == null || dt.Rows.Count <= 0 ? "" : dt.Rows[0][0].ToString();
             }
             catch (Exception ex)

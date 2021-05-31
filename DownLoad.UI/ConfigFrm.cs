@@ -63,7 +63,7 @@ namespace DownLoad.UI
                 this.cbesdbtype.SelectedIndex = this.Cur_JobInfo.sourcedbtype;
                 this.cesjm.Checked = this.Cur_JobInfo.issourcedbencode;
                 this.txtsstr.Text = this.cesjm.Checked ? EncodeAndDecode.Encode(this.Cur_JobInfo.sourcedbstring) : this.Cur_JobInfo.sourcedbstring;
-                this.rtsscript.Text = this.Cur_JobInfo.sourcesql;           
+                this.rtsscript.Text = this.Cur_JobInfo.sourcesql;
                 this.teid.Enabled = this.Cur_JobNode == null ? true : false;
                 this.tesystem.Enabled = this.Cur_JobNode == null ? true : false;
                 this.tesysname.Enabled = this.Cur_JobNode == null ? true : false;
@@ -226,11 +226,15 @@ namespace DownLoad.UI
             if (this.cbejxlx.SelectedIndex == 0)
             {
                 this.webpanel.Size = new Size(375, 100);
+                this.webpanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+           | System.Windows.Forms.AnchorStyles.Right)));
                 this.webpanel.SendToBack();
             }
             else
             {
-                this.webpanel.Size = new Size(375, 360);
+                this.webpanel.Size = new Size(375, 405);
+                this.webpanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right | System.Windows.Forms.AnchorStyles.Bottom)));
                 this.webpanel.BringToFront();
             }
 
@@ -258,23 +262,26 @@ namespace DownLoad.UI
         private void btnCreateTemp_Click(object sender, EventArgs e)
         {
             if (this.Cur_JobInfo == null || string.IsNullOrEmpty(this.Cur_JobInfo.id))
+            {
+                MessageBox.Show("当前作业内容无效，请检查", "操作提示", MessageBoxButtons.OK);
                 return;
+            }
+            string request = GlobalInstanceManager<JobInfoManager>.Intance.GetExcuteCondition(this.Cur_JobInfo);
+            request = new RequestMessage() { Request = new Request() { Head = new Head() { TranCode = this.Cur_JobInfo.id, TranName = this.Cur_JobInfo.name, TranSys = this.Cur_JobInfo.system, TranSysName = this.Cur_JobInfo.sysname, AckMessage = "请求访问" }, Body = request } }.ToString();
+            string strret = GlobalInstanceManager<RimsInterface>.Intance.Run(request);
 
-            string strsql = "select rawtext from CronJob_JOBHISTORY (nolock) where id='" + this.Cur_JobInfo.id.Trim() + "' and system='" + this.Cur_JobInfo.system.Trim() + "' order by xh desc";
-            DataTable dt = GlobalInstanceManager<GlobalSqlManager>.Intance.GetDataTable(Settings.Default.dbtype, EncodeAndDecode.Decode(Settings.Default.connstring), strsql);
-            if (dt == null || dt.Rows.Count <= 0)
+            if (string.IsNullOrEmpty(strret))
             {
                 MessageBox.Show("无执行记录，请检查", "操作提示", MessageBoxButtons.OK);
                 return;
             }
             try
             {
-                string rawtxt = EncodeHelper.DecodeBase64(dt.Rows[0][0].ToString());
-                ResponseMessage Response = JsonConvert.DeserializeObject<ResponseMessage>(rawtxt);
+                DataTable dt = new DataTable();
+                ResponseMessage Response = JsonConvert.DeserializeObject<ResponseMessage>(strret);
                 StringWriter sw = new StringWriter();
                 if (this.Cur_JobInfo.nodelx == 0)
-                {
-                    //string json = Tools.GetJsonNodeValue(this.txtjson.Text.Trim(), "Response|Body" + "|" + this.cur_jobinfo.node, "[]").ToString();                  
+                {                                 
                     string json = Tools.GetJsonNodeValue(Response.Response.Body, this.Cur_JobInfo.sourcetype == 1 ? "[]" : this.Cur_JobInfo.node, "[]").ToString();
                     dt = Tools.JsonToDataTable(json);
                 }

@@ -28,7 +28,7 @@ namespace DownLoad.UI
             this.cbdbtype.SelectedIndex = Settings.Default.dbtype;
             this.cbisautostart.SelectedIndex = Settings.Default.isautostart ? 0 : 1;
             this.cbisdblog.SelectedIndex = Settings.Default.ismovefollow ? 0 : 1;
-            this.cbisfilelog.SelectedIndex = Settings.Default.islog ? 0 : 1;        
+            this.cbisfilelog.SelectedIndex = Settings.Default.islog ? 0 : 1;
             this.txtconnectstring.Text = Settings.Default.connstring;
             this.txtappname.Text = Settings.Default.appname;
             this.cbtheme.SelectedItem = Settings.Default.theme;
@@ -46,19 +46,20 @@ namespace DownLoad.UI
                 Settings.Default.connstring = this.txtconnectstring.Text.Trim();
                 Settings.Default.appname = this.txtappname.Text.Trim();
                 Settings.Default.isautostart = this.cbisautostart.SelectedIndex == 0 ? true : false;
-                Settings.Default.islog = this.cbisfilelog.SelectedIndex == 0 ? true : false;             
+                Settings.Default.islog = this.cbisfilelog.SelectedIndex == 0 ? true : false;
                 Settings.Default.ismovefollow = this.cbisdblog.SelectedIndex == 0 ? true : false;
-                Settings.Default.theme = this.cbtheme.SelectedItem.ToString();             
+                Settings.Default.theme = this.cbtheme.SelectedItem.ToString();
                 Settings.Default.Save();
                 Log4netUtil.IsLog = Settings.Default.islog;
                 FrmBase.defaultLookAndFeel.LookAndFeel.SkinName = Settings.Default.theme;
+                MessageBox.Show("保存成功", "操作提示", MessageBoxButtons.OK);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("保存异常，请检查", "操作提示", MessageBoxButtons.OK);
             }
 
-        }   
+        }
 
         private void txtconnectstring_DoubleClick(object sender, EventArgs e)
         {
@@ -66,14 +67,7 @@ namespace DownLoad.UI
             {
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
-                    if (!this.cesjm.Checked)
-                    {
-                        this.txtconnectstring.Text = EncodeAndDecode.Decode(frm.ConnectString);
-                    }
-                    else
-                    {
-                        this.txtconnectstring.Text = frm.ConnectString;
-                    }
+                    this.txtconnectstring.Text = !this.cesjm.Checked ? EncodeAndDecode.Decode(frm.ConnectString) : frm.ConnectString; ;
                 }
             }
         }

@@ -56,7 +56,6 @@
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.psdb = new DevExpress.XtraEditors.PanelControl();
             this.cesjm = new DevExpress.XtraEditors.CheckEdit();
-            this.rtsscript = new System.Windows.Forms.RichTextBox();
             this.cbesdbtype = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
@@ -89,6 +88,7 @@
             this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
             this.txttstr = new DevExpress.XtraEditors.TextEdit();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.rtsscript = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cejlzt.Properties)).BeginInit();
@@ -386,8 +386,8 @@
             this.psdb.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.psdb.Controls.Add(this.cesjm);
             this.psdb.Controls.Add(this.rtsscript);
+            this.psdb.Controls.Add(this.cesjm);
             this.psdb.Controls.Add(this.cbesdbtype);
             this.psdb.Controls.Add(this.labelControl16);
             this.psdb.Controls.Add(this.labelControl15);
@@ -411,20 +411,6 @@
             this.cesjm.Size = new System.Drawing.Size(42, 15);
             this.cesjm.TabIndex = 7;
             this.cesjm.CheckedChanged += new System.EventHandler(this.cesjm_CheckedChanged);
-            // 
-            // rtsscript
-            // 
-            this.rtsscript.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.rtsscript.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtsscript.Location = new System.Drawing.Point(65, 55);
-            this.rtsscript.Name = "rtsscript";
-            this.rtsscript.ShowSelectionMargin = true;
-            this.rtsscript.Size = new System.Drawing.Size(301, 205);
-            this.rtsscript.TabIndex = 6;
-            this.rtsscript.Text = "";
-            this.rtsscript.DoubleClick += new System.EventHandler(this.rtsscript_DoubleClick);
             // 
             // cbesdbtype
             // 
@@ -496,7 +482,7 @@
             this.webpanel.Controls.Add(this.labelControl8);
             this.webpanel.Location = new System.Drawing.Point(10, 30);
             this.webpanel.Name = "webpanel";
-            this.webpanel.Size = new System.Drawing.Size(375, 101);
+            this.webpanel.Size = new System.Drawing.Size(375, 100);
             this.webpanel.TabIndex = 3;
             // 
             // txtMethod
@@ -547,7 +533,7 @@
             this.rtbxml.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtbxml.Location = new System.Drawing.Point(11, 144);
             this.rtbxml.Name = "rtbxml";
-            this.rtbxml.Size = new System.Drawing.Size(352, 0);
+            this.rtbxml.Size = new System.Drawing.Size(352, 248);
             this.rtbxml.TabIndex = 1;
             this.rtbxml.Text = "";
             this.rtbxml.DoubleClick += new System.EventHandler(this.rtbxml_DoubleClick);
@@ -780,6 +766,21 @@
             this.txttstr.TabIndex = 0;
             this.txttstr.DoubleClick += new System.EventHandler(this.txttstr_DoubleClick);
             // 
+            // rtsscript
+            // 
+            this.rtsscript.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtsscript.AutoWordSelection = true;
+            this.rtsscript.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtsscript.Location = new System.Drawing.Point(65, 56);
+            this.rtsscript.Name = "rtsscript";
+            this.rtsscript.ShowSelectionMargin = true;
+            this.rtsscript.Size = new System.Drawing.Size(298, 205);
+            this.rtsscript.TabIndex = 8;
+            this.rtsscript.Text = "";
+            this.rtsscript.DoubleClick += new System.EventHandler(this.rtsscript_DoubleClick);
+            // 
             // ConfigFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -878,7 +879,6 @@
         private System.Windows.Forms.RichTextBox txttmp;
         private DevExpress.XtraEditors.PanelControl panelControl4;
         private DevExpress.XtraEditors.PanelControl psdb;
-        private System.Windows.Forms.RichTextBox rtsscript;
         private DevExpress.XtraEditors.LabelControl labelControl16;
         private DevExpress.XtraEditors.LabelControl labelControl15;
         private DevExpress.XtraEditors.LabelControl labelControl14;
@@ -901,5 +901,6 @@
         private System.Windows.Forms.RichTextBox rtbxml;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private DevExpress.XtraEditors.SimpleButton btnCreateTemp;
+        private System.Windows.Forms.RichTextBox rtsscript;
     }
 }

@@ -97,7 +97,8 @@ namespace DownLoad.UI.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("fKti04vHK0LqBv2mqFCEnrsRvxJV1KvBDftb+RXaVfXs1Wkxucgyenh04GTEj9BJdi09jseWyAfySsvMP" +
+            "gFemrmIewuiikjTRwzA6+r5vg7GaZettCFCOtyXnzcVPf6zMyCUgv0WkYoz1O+EDiz+IA==")]
         public string connstring {
             get {
                 return ((string)(this["connstring"]));
