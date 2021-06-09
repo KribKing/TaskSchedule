@@ -66,13 +66,15 @@ namespace DownLoad.Business
         }
         public bool AddJobInfo(JobInfo jobInfo)
         {
-            if (IsExists(jobInfo.id, jobInfo.system))
-                return true;
             try
             {
-                JobKey key = new JobKey(jobInfo.id, jobInfo.system);
-                jobInfo.CreatJob();
-                this.JobInfoDic.Add(key, jobInfo);
+                if (!IsExists(jobInfo.id, jobInfo.system))
+                {
+                    JobKey key = new JobKey(jobInfo.id, jobInfo.system);
+                    jobInfo.CreatJob();
+                    this.JobInfoDic.Add(key, jobInfo);
+                }           
+
                 GlobalInstanceManager<JobInfoManager>.Intance.SaveJobInfo();
                 return true;
             }
@@ -166,13 +168,13 @@ namespace DownLoad.Business
             {
                 // string strsql = "exec usp_jk_getzxtj @id='" + id + "',@system='" + system + "'";
                 List<System.Data.Common.DbParameter> parameters = new List<System.Data.Common.DbParameter>();
-                DatabaseType type=GlobalInstanceManager<GlobalSqlManager>.Intance.GetDbTyle(this.cur_dbtype);
+                DatabaseType type = GlobalInstanceManager<GlobalSqlManager>.Intance.GetDbTyle(this.cur_dbtype);
                 switch (type)
                 {
                     case DatabaseType.SqlServer:
                         parameters.Add(new SqlParameter("@id", id));
                         parameters.Add(new SqlParameter("@system", system));
-                        break;                   
+                        break;
                     case DatabaseType.MsAccess:
                         break;
                     case DatabaseType.SqlServer9:
@@ -192,7 +194,7 @@ namespace DownLoad.Business
                     default:
                         break;
                 }
-               
+
                 DataTable dt = GlobalInstanceManager<GlobalSqlManager>.Intance.GetDataTableFrmProc(this.cur_dbtype, this.cur_dbconstring, "usp_jk_getjobzxtj", parameters.ToArray());
                 strexcute = dt == null || dt.Rows.Count <= 0 ? "" : dt.Rows[0][0].ToString();
             }

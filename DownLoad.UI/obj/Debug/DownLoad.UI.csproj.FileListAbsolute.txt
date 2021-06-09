@@ -31,6 +31,8 @@ D:\GitHub\DownLoadExe\DownLoad.UI\obj\Debug\DownLoad.UI.pdb
 D:\康复数据下载程序\DownLoad.UI.pdb
 D:\GitHub\DownLoadExe\DownLoad.UI\obj\Debug\DownLoad.UI.SettingsFrm.resources
 D:\GitHub\DownLoadExe\DownLoad.UI\obj\Debug\DownLoad.UI.ConsoleFrm.resources
-D:\GitHub\DownLoadExe\DownLoad.UI\obj\Debug\DownLoad.UI.csprojAssemblyReference.cache
-D:\GitHub\DownLoadExe\DownLoad.UI\obj\Debug\DownLoad.UI.csproj.CoreCompileInputs.cache
-D:\GitHub\DownLoadExe\DownLoad.UI\obj\Debug\DownLoad.UI.csproj.CopyComplete
+D:\GitHub\DownLoadExe\DownLoad.UI\obj\Debug\DownLoad.UI.csprojResolveAssemblyReference.cache
+D:\GitHub\DownLoadExe\DownLoad.UI\obj\Debug\DownLoad.UI.MapXmlFrm.resources
+D:\GitHub\DownLoadExe\DownLoad.UI\obj\Debug\DownLoad.UI.ShowPathFrm.resources
+D:\GitHub\DownLoadExe\DownLoad.UI\obj\Debug\DownLoad.UI.TestFrm.resources
+D:\GitHub\DownLoadExe\DownLoad.UI\obj\Debug\DownLoad.UI.TableFrm.resources

@@ -9,10 +9,11 @@ using System.Configuration;
 using System.Data;
 using Quartz;
 using System.Diagnostics;
+using System.Xml;
 
 namespace DownLoad.Business
 {
-    public abstract class JkInterface
+    public  class JkInterface
     {
         public static DTToken TokenInfo = new DTToken();
         protected JobInfo cur_JobInfo;
@@ -133,6 +134,38 @@ namespace DownLoad.Business
                 retInfo.ackmsg = "接口无返回数据";
                 retInfo.ackflg = true;
             }
+        }
+
+        public virtual DataTable RunWithBody(string strresult,ref ResultInfo retInfo)
+        {
+            try
+            {
+                DataTable dt = null;
+                if (this.cur_JobInfo.nodelx == 0)
+                {
+                    string jarray = Tools.GetJsonNodeValue(strresult, this.cur_JobInfo.node, "[]").ToString();
+                    dt = Tools.JsonToDataTable(jarray);
+                }
+                else if (this.cur_JobInfo.nodelx == 1)
+                {
+                    XmlDocument xml = new XmlDocument();
+                    xml.LoadXml(strresult);
+                    if (string.IsNullOrEmpty(this.cur_JobInfo.node))
+                    {
+                         Log4netUtil.Error("请注意，解析节点设置为空，无法继续");
+                         return null;
+                    }
+                
+                    XmlNode node = XmlHelper.GetNode(this.cur_JobInfo.node, xml);
+                    dt = XmlHelper.XmlToDataTable(this.cur_JobInfo.xmlconfig, node);
+                }           
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                Log4netUtil.Error(ex.Message);
+                return null;
+            }         
         }
     }
 

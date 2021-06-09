@@ -73,6 +73,7 @@
     <Compile Include="GetStrJsonHelper.cs" />
     <Compile Include="GlobalInstanceManager.cs" />
     <Compile Include="GlobalWebRequestHelper.cs" />
+    <Compile Include="ISwtichDataInterface.cs" />
     <Compile Include="LogMessage.cs" />
     <Compile Include="WinApiHelper.cs" />
     <Compile Include="Log4netUtil.cs" />

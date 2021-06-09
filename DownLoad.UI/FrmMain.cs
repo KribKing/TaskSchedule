@@ -423,7 +423,7 @@ namespace DownLoad.UI
             }
             else
             {
-                ConsoleFrm frm = new ConsoleFrm();
+                ConsoleFrm frm = new ConsoleFrm(GlobalInstanceManager<FollowMainWinHelper>.Intance);
                 GlobalInstanceManager<FollowMainWinHelper>.Intance.AddWinHandle("ConsoleFrm", frm.Handle);
                 GlobalInstanceManager<FollowMainWinHelper>.Intance.MoveWinByKey("ConsoleFrm");
                 frm.Show();

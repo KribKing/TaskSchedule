@@ -30,21 +30,8 @@ namespace DownLoad.Business
 
                 if (retInfo.ackflg)
                 {
-                    DataTable dt = null;
-                    if (this.cur_JobInfo.nodelx == 0)
-                    {
-                        string jarray = Tools.GetJsonNodeValue(retInfo.body, this.cur_JobInfo.node, "[]").ToString();
-                        dt = Tools.JsonToDataTable(jarray);
-                    }
-                    else if (this.cur_JobInfo.nodelx == 1)
-                    {
-                        XmlDocument xml = new XmlDocument();
-                        xml.LoadXml(retInfo.body);
-                        XmlNode node = XmlHelper.GetNode(this.cur_JobInfo.node, xml);
-                        dt = XmlHelper.XmlToDataTable(this.cur_JobInfo.xmlconfig, node);
-                    }
-
-                    base.ExcuteDataBaseBulk(dt, ref retInfo);
+                    DataTable dt=base.RunWithBody(retInfo.body, ref retInfo);
+                    this.ExcuteDataBaseBulk(dt, ref retInfo);
                 }
             }
             catch (Exception ex)

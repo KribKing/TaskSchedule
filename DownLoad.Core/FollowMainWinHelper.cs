@@ -19,17 +19,17 @@ namespace DownLoad.Core
         {
             FollowMainWin = ctrl;
         }
-        private  Dictionary<string, IntPtr> WinHanles = new Dictionary<string, IntPtr>();
-        private  IntPtr _ConsoleHandle = IntPtr.Zero;
+        private Dictionary<string, IntPtr> WinHanles = new Dictionary<string, IntPtr>();
+        private IntPtr _ConsoleHandle = IntPtr.Zero;
 
-        public  IntPtr ConsoleHandle
+        public IntPtr ConsoleHandle
         {
             get { return _ConsoleHandle; }
             set { _ConsoleHandle = value; }
         }
 
 
-        public  void AddWinHandle(string key, IntPtr handle)
+        public void AddWinHandle(string key, IntPtr handle)
         {
             if (WinHanles.Keys.Contains(key))
             {
@@ -40,28 +40,38 @@ namespace DownLoad.Core
                 WinHanles.Add(key, handle);
             }
         }
-        public  bool IsExistsKey(string key)
+        public bool IsExistsKey(string key)
         {
             return WinHanles.Keys.Contains(key);
 
         }
-        public  void RemoveWinHandle(string key)
+        public void RemoveWinHandle(string key)
         {
             WinHanles.Remove(key);
         }
-        public  void MoveWin()
+        public void CloseWin(string key)
+        {
+            if (!WinHanles.ContainsKey(key))
+                return;
+            CloseWin(WinHanles[key]);
+        }
+        public void CloseWin(IntPtr handle)
+        {
+            WinApiHelper.SendMessage(handle, WinApiHelper.WM_SYSCOMMAND, WinApiHelper.SC_CLOSE, 0);
+        }
+        public void MoveWin()
         {
             foreach (var item in WinHanles.Keys)
             {
                 MoveWinByHandle(WinHanles[item]);
             }
         }
-        public  void MoveWinByKey(string key)
+        public void MoveWinByKey(string key)
         {
             MoveWinByHandle(WinHanles[key]);
         }
 
-        public  void MoveWinByHandle(IntPtr handle)
+        public void MoveWinByHandle(IntPtr handle)
         {
             if (FollowMainWin == null)
                 return;
@@ -69,24 +79,23 @@ namespace DownLoad.Core
             int y = FollowMainWin.Location.Y;
             if (FollowMainWin.Location.X > Screen.PrimaryScreen.Bounds.Width / 2 + 100)
             {
-                x = FollowMainWin.Location.X - 850;
+                x = FollowMainWin.Location.X - 900;
             }
             else
             {
                 x = FollowMainWin.Location.X + FollowMainWin.Size.Width;
             }
-            int nWidth = 850;
+            int nWidth = 900;
             int nHeight = FollowMainWin.Size.Height;
             WinApiHelper.MoveWindow(handle, x, y, nWidth, nHeight, true);
-
         }
 
-        public  void SetTopMost(string key)
+        public void SetTopMost(string key)
         {
             WinApiHelper.SetForegroundWindow(WinHanles[key]);
         }
 
-        public  void LoadConsole(object wrapper)
+        public void LoadConsole(object wrapper)
         {
 
             WinApiHelper.AllocConsole();
@@ -99,12 +108,12 @@ namespace DownLoad.Core
             IntPtr Style = WinApiHelper.GetWindowLongPtr(ConsoleHandle, WinApiHelper.GWL_STYLE);
             uint tempStyle = (uint)Style.ToInt32() & ~WinApiHelper.WS_CAPTION & ~WinApiHelper.WS_SYSMENU & ~WinApiHelper.WS_SIZEBOX;
             WinApiHelper.SetWindowLongPtr(ParentHandle, WinApiHelper.GWL_STYLE, new IntPtr(tempStyle));
-            
+
 
             WinApiHelper.SetParent(ConsoleHandle, ((Control)wrapper).Handle); //panel1.Handle为要显示外部程序的容器
-            WinApiHelper.ShowWindow(ConsoleHandle, 3);       
+            WinApiHelper.ShowWindow(ConsoleHandle, 3);
         }
-        public  void FreeConsole(object wrapper)
+        public void FreeConsole(object wrapper)
         {
 
             WinApiHelper.FreeConsole();
@@ -122,7 +131,7 @@ namespace DownLoad.Core
             //WinApiHelper.SetParent(windowHandle, this.pconsole.Handle); //panel1.Handle为要显示外部程序的容器
             //WinApiHelper.ShowWindow(windowHandle, 3);       
         }
-        public  void MoveConsole()
+        public void MoveConsole()
         {
             if (ConsoleHandle == IntPtr.Zero)
                 return;

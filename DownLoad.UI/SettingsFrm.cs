@@ -76,5 +76,10 @@ namespace DownLoad.UI
         {
             FrmBase.defaultLookAndFeel.LookAndFeel.SkinName = this.cbtheme.SelectedText;
         }
+
+        private void cesjm_CheckedChanged(object sender, EventArgs e)
+        {
+            this.txtconnectstring.Text = !this.cesjm.Checked ? EncodeAndDecode.Decode(this.txtconnectstring.Text.Trim()) : this.txtconnectstring.Text.Trim(); ;
+        }
     }
 }

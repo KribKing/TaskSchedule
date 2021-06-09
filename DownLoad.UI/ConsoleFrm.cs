@@ -13,15 +13,21 @@ namespace DownLoad.UI
     public partial class ConsoleFrm : FrmBase
     {
         private bool StopFlag = false;
+        public FollowMainWinHelper MainWin { get; set; }
 
         public ConsoleFrm()
         {
             InitializeComponent();
         }
-
+        public ConsoleFrm(FollowMainWinHelper mainWin)
+        {
+            InitializeComponent();
+            this.MainWin = mainWin;
+        }
         private void ConsoleFrm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            GlobalInstanceManager<FollowMainWinHelper>.Intance.RemoveWinHandle("ConsoleFrm");
+            if (MainWin != null)
+                MainWin.RemoveWinHandle("ConsoleFrm");
             GlobalInstanceManager<ConsoleLogHelper>.Intance.noticeConsoleLog -= Intance_noticeConsoleLog;
         }
 
@@ -59,12 +65,12 @@ namespace DownLoad.UI
         {
             this.rtblog.Clear();
             Tools.FlushMemory();
-        }
+        } 
 
-        private void btnstop_Click(object sender, EventArgs e)
+        private void toggleSwitch1_Toggled(object sender, EventArgs e)
         {
             this.StopFlag = !this.StopFlag;
-            this.btnstop.ToolTip = this.StopFlag ? "恢复输出" : "暂停输出";
+            this.toggleSwitch1.ToolTip = this.StopFlag ? "恢复日志输出" : "暂停日志输出";
         }
     }
 }

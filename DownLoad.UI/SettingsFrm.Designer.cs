@@ -130,6 +130,7 @@
             this.cesjm.Properties.Caption = "加密";
             this.cesjm.Size = new System.Drawing.Size(42, 15);
             this.cesjm.TabIndex = 8;
+            this.cesjm.CheckedChanged += new System.EventHandler(this.cesjm_CheckedChanged);
             // 
             // btnyy
             // 

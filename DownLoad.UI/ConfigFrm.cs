@@ -35,6 +35,7 @@ namespace DownLoad.UI
         }
         private void ConfigFrm_Load(object sender, EventArgs e)
         {
+            this.xtraTabControl1.ShowTabHeader = DevExpress.Utils.DefaultBoolean.False;
             if (this.Cur_JobInfo != null)
             {
                 this.Text = string.Format("作业【{0}】的属性", this.Cur_JobInfo.name);
@@ -170,17 +171,18 @@ namespace DownLoad.UI
             this.teid.Enabled = this.tesystem.Enabled = this.tesysname.Enabled = this.rbsweb.Checked = true;
             this.teid.Text = this.tename.Text = this.tesystem.Text = this.tesysname.Text = this.txtexp.Text = this.txturl.Text = this.txttmpname.Text = this.txttmp.Text = this.rttscript.Text = this.rtsscript.Text = this.tenode.Text = this.txtMethod.Text = "";
             this.cejlzt.SelectedIndex = 0;
+
         }
 
         private void rbsweb_CheckedChanged(object sender, EventArgs e)
         {
-            this.webpanel.Enabled = this.rbsweb.Checked;
-            this.psdb.Enabled = !this.rbsweb.Checked;
+            this.xtraTabControl1.SelectedTabPageIndex = this.rbsweb.Checked ? 0 : 1;
         }
 
         private void cbtop_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.gsource.Enabled = this.cbtop.SelectedIndex == 0;
+            this.xtraTabControl2.SelectedTabPageIndex = this.cbtop.SelectedIndex;
         }
 
         private void btnquick_Click(object sender, EventArgs e)
@@ -204,13 +206,6 @@ namespace DownLoad.UI
             this.rttscript.BringToFront();
         }
 
-        private void rtsscript_DoubleClick(object sender, EventArgs e)
-        {
-            this.psdb.Dock = this.rtsscript.Dock == DockStyle.None ? DockStyle.Fill : DockStyle.None;
-            this.rtsscript.Dock = this.rtsscript.Dock == DockStyle.None ? DockStyle.Fill : DockStyle.None;
-            this.rtsscript.BringToFront();
-        }
-
         private void cetjm_CheckedChanged(object sender, EventArgs e)
         {
             this.txttstr.Text = this.cetjm.Checked ? EncodeAndDecode.Encode(this.txttstr.Text.Trim()) : EncodeAndDecode.Decode(this.txttstr.Text.Trim());
@@ -223,21 +218,7 @@ namespace DownLoad.UI
 
         private void cbejxlx_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (this.cbejxlx.SelectedIndex == 0)
-            {
-                this.webpanel.Size = new Size(375, 100);
-                this.webpanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-           | System.Windows.Forms.AnchorStyles.Right)));
-                this.webpanel.SendToBack();
-            }
-            else
-            {
-                this.webpanel.Size = new Size(375, 405);
-                this.webpanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right | System.Windows.Forms.AnchorStyles.Bottom)));
-                this.webpanel.BringToFront();
-            }
-
+            this.pxml.Visible = this.cbejxlx.SelectedIndex == 0 ? false : true;
         }
 
         private void rtbxml_DoubleClick(object sender, EventArgs e)
@@ -281,7 +262,7 @@ namespace DownLoad.UI
                 ResponseMessage Response = JsonConvert.DeserializeObject<ResponseMessage>(strret);
                 StringWriter sw = new StringWriter();
                 if (this.Cur_JobInfo.nodelx == 0)
-                {                                 
+                {
                     string json = Tools.GetJsonNodeValue(Response.Response.Body, this.Cur_JobInfo.sourcetype == 1 ? "[]" : this.Cur_JobInfo.node, "[]").ToString();
                     dt = Tools.JsonToDataTable(json);
                 }
@@ -295,7 +276,7 @@ namespace DownLoad.UI
                 string strtmp = "create table " + this.Cur_JobInfo.tmpname + Environment.NewLine + "(" + Environment.NewLine;
                 foreach (DataColumn dc in dt.Columns)
                 {
-                    strtmp += "   " + dc.ColumnName + "   varchar(32) null," + Environment.NewLine;
+                    strtmp += "   " + dc.ColumnName + "   varchar(64) null," + Environment.NewLine;
                 }
                 strtmp = strtmp.Remove(strtmp.LastIndexOf(','), 1);
                 strtmp += ")";
@@ -309,7 +290,7 @@ namespace DownLoad.UI
 
         private void txtsstr_DoubleClick(object sender, EventArgs e)
         {
-            using (DataConfigFrm frm = new DataConfigFrm())
+            using (DataConfigFrm frm = new DataConfigFrm(this.cbesdbtype.SelectedIndex, this.txtsstr.Text.Trim(), this.cesjm.Checked))
             {
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
@@ -335,6 +316,23 @@ namespace DownLoad.UI
             {
                 GlobalInstanceManager<FollowMainWinHelper>.Intance.RemoveWinHandle(this.Cur_JobInfo.id);
             }
+        }
+
+        private void btngeneratexml_Click(object sender, EventArgs e)
+        {
+            using (MapXmlFrm frm = new MapXmlFrm(this.rtbxml.Text.Trim()))
+            {
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    this.rtbxml.Text = frm.MapJson;
+                }
+            }
+        }
+
+        private void btntest_Click(object sender, EventArgs e)
+        {
+            TestFrm frm = new TestFrm(this.Cur_JobInfo);
+            frm.Show();
         }
     }
 }

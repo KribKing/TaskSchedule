@@ -30,25 +30,37 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsoleFrm));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.toggleSwitch1 = new DevExpress.XtraEditors.ToggleSwitch();
             this.btnremove = new DevExpress.XtraEditors.SimpleButton();
             this.pconsole = new DevExpress.XtraEditors.PanelControl();
             this.rtblog = new System.Windows.Forms.RichTextBox();
-            this.btnstop = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pconsole)).BeginInit();
             this.pconsole.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.btnstop);
+            this.panelControl1.Controls.Add(this.toggleSwitch1);
             this.panelControl1.Controls.Add(this.btnremove);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(926, 33);
             this.panelControl1.TabIndex = 0;
+            // 
+            // toggleSwitch1
+            // 
+            this.toggleSwitch1.Location = new System.Drawing.Point(67, 6);
+            this.toggleSwitch1.Name = "toggleSwitch1";
+            this.toggleSwitch1.Properties.OffText = "Off";
+            this.toggleSwitch1.Properties.OnText = "On";
+            this.toggleSwitch1.Size = new System.Drawing.Size(97, 21);
+            this.toggleSwitch1.TabIndex = 2;
+            this.toggleSwitch1.ToolTip = "暂停日志输出";
+            this.toggleSwitch1.Toggled += new System.EventHandler(this.toggleSwitch1_Toggled);
             // 
             // btnremove
             // 
@@ -82,18 +94,6 @@
             this.rtblog.TabIndex = 0;
             this.rtblog.Text = "";
             // 
-            // btnstop
-            // 
-            this.btnstop.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.btnstop.Image = ((System.Drawing.Image)(resources.GetObject("btnstop.Image")));
-            this.btnstop.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnstop.Location = new System.Drawing.Point(66, 5);
-            this.btnstop.Name = "btnstop";
-            this.btnstop.Size = new System.Drawing.Size(38, 23);
-            this.btnstop.TabIndex = 1;
-            this.btnstop.ToolTip = "暂停输出";
-            this.btnstop.Click += new System.EventHandler(this.btnstop_Click);
-            // 
             // ConsoleFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -110,6 +110,7 @@
             this.Load += new System.EventHandler(this.ConsoleFrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pconsole)).EndInit();
             this.pconsole.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -122,6 +123,6 @@
         private DevExpress.XtraEditors.SimpleButton btnremove;
         private DevExpress.XtraEditors.PanelControl pconsole;
         private System.Windows.Forms.RichTextBox rtblog;
-        private DevExpress.XtraEditors.SimpleButton btnstop;
+        private DevExpress.XtraEditors.ToggleSwitch toggleSwitch1;
     }
 }

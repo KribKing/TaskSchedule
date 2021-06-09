@@ -13,16 +13,38 @@ namespace DownLoad.UI
     public partial class DataConfigFrm : FrmBase
     {
         public string ConnectString { get; set; }
+        private int _DbType = 0;
+
+        public int DbType
+        {
+            get { return _DbType; }
+            set { _DbType = value; }
+        }
+
+        private bool _IsDeCode = false;
+
+        public bool IsDeCode
+        {
+            get { return _IsDeCode; }
+            set { _IsDeCode = value; }
+        }
+
         public DataConfigFrm()
         {
             InitializeComponent();
         }
-
+        public DataConfigFrm(int dbtype, string connstr, bool isdecode)
+        {
+            InitializeComponent();
+            this.DbType = dbtype;
+            this.ConnectString = connstr;
+            this.IsDeCode = isdecode;
+        }
         private void btntest_Click(object sender, EventArgs e)
         {
-			if (this.tabControl1.SelectedIndex == 0)
-			{
-				this.ConnectString = string.Concat(new string[]
+            if (this.tabControl1.SelectedIndex == 0)
+            {
+                this.ConnectString = string.Concat(new string[]
 				{
 					"User ID=",
 					this.txtyh.Text,
@@ -33,10 +55,10 @@ namespace DownLoad.UI
 					";Data Source=",
 					this.txtfwq.Text
 				});
-			}
-			else
-			{
-				this.ConnectString = string.Concat(new string[]
+            }
+            else
+            {
+                this.ConnectString = string.Concat(new string[]
 				{
 					" Data Source=",
 					this.txtsjy.Text,
@@ -45,22 +67,22 @@ namespace DownLoad.UI
 					" ;Password=",
 					this.txtpwd.Text
 				});
-			}
-			try
-			{
-				GlobalInstanceManager<GlobalSqlManager>.Intance.GetDataTable(this.tabControl1.SelectedIndex == 1?3:0, this.ConnectString, "select 1");
-				MessageBox.Show("连接串成功，请将加密后的字符串拷贝到相应的配置文件中");
-			}
-			catch (Exception ex)
-			{
-				MessageBox.Show("连接数据库失败：" + ex.Message);
-				return;
-			}
-			this.txtresult.Text = EncodeAndDecode.Encode(this.ConnectString);
-			this.txtresult.Focus();
-			this.txtresult.SelectAll();
-			this.ConnectString = this.txtresult.Text;
-		}  
+            }
+            try
+            {
+                GlobalInstanceManager<GlobalSqlManager>.Intance.GetDataTable(this.tabControl1.SelectedIndex == 1 ? 3 : 0, this.ConnectString, "select 1");
+                MessageBox.Show("连接串成功，请将加密后的字符串拷贝到相应的配置文件中");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("连接数据库失败：" + ex.Message);
+                return;
+            }
+            this.txtresult.Text = EncodeAndDecode.Encode(this.ConnectString);
+            this.txtresult.Focus();
+            this.txtresult.SelectAll();
+            this.ConnectString = this.txtresult.Text;
+        }
         private void btncancle_Click(object sender, EventArgs e)
         {
             base.DialogResult = DialogResult.Cancel;
@@ -74,7 +96,13 @@ namespace DownLoad.UI
 
         private void DataConfigFrm_Load(object sender, EventArgs e)
         {
-
+            //if (!string.IsNullOrEmpty(this.ConnectString))
+            //{
+            //    if (true)
+            //    {
+                    
+            //    }
+            //}
         }
     }
 }

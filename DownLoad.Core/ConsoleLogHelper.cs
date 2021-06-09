@@ -19,7 +19,7 @@ namespace DownLoad.Core
         }
         public Color GetCtrlColor(Color color,LogLevel loglevel)
         {
-            Color ctrlColor = default;
+            Color ctrlColor = Color.Black;
             switch (loglevel)
             {
                 case LogLevel.Info:
