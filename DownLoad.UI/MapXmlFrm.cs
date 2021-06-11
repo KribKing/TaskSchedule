@@ -15,10 +15,11 @@ namespace DownLoad.UI
     public partial class MapXmlFrm : FrmBase
     {
         public string MapJson { get; set; }
-        public MapXmlFrm(string xml)
+        public MapXmlFrm(string xml,string caption)
         {
             InitializeComponent();
             this.LoadXml(xml);
+            this.Text = "【" + caption + "】Xml映射";
         }
 
         private void LoadXml(string xml)
@@ -27,7 +28,9 @@ namespace DownLoad.UI
                 return;
             SchemaInfo info = JsonConvert.DeserializeObject<SchemaInfo>(xml);
             if (info == null)
-                return;         
+                return;
+            this.txtns.Text = info.RemoveNs;
+            this.txtnode.Text = info.ExecuteNode;
             this.LoadGrid(info.TableSchema);
         }
         private void LoadGrid(List<TableSchema> list)
@@ -65,14 +68,13 @@ namespace DownLoad.UI
         }
 
         private void GenerateXml()
-        {          
-            this.txtjson.Text = JsonConvert.DeserializeObject(JsonConvert.SerializeObject(this.GenerateSchema())).ToString();
+        {
+            this.txtjson.Text = this.GenerateSchema().ToString();
         }
         private SchemaInfo GenerateSchema()
         {
             SchemaInfo info = new SchemaInfo();
-            info.TableSchema = new List<TableSchema>();
-            info.OperationSchema = new OperationSchema();
+            info.TableSchema = new List<TableSchema>();          
             foreach (DataGridViewRow item in this.dataGridView1.Rows)
             {
                 TableSchema ts = new TableSchema();
@@ -83,6 +85,8 @@ namespace DownLoad.UI
                 ts.relemap = item.Cells[4].Value != null ? item.Cells[4].Value.ToString() : "";
                 info.TableSchema.Add(ts);
             }
+            info.ExecuteNode = this.txtnode.Text.Trim();
+            info.RemoveNs = this.txtns.Text.Trim();
             info.TableSchema.RemoveAll(a => string.IsNullOrEmpty(a.column));
             return info;
         }
@@ -97,6 +101,11 @@ namespace DownLoad.UI
         }
 
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            this.GenerateXml();
+        }
+
+        private void txtnode_TextChanged(object sender, EventArgs e)
         {
             this.GenerateXml();
         }

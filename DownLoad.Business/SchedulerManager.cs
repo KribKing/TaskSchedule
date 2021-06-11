@@ -46,7 +46,7 @@ namespace DownLoad.Business
             }
             catch (Exception ex)
             {
-                Log4netUtil.Error("【" + info.name + "】创建发生异常:" + ex.Message);
+                Log4netUtil.Error("【" + info.name + "】创建发生异常:" + ex.Message,ex);
                 //GlobalInstanceManager<SchedulerManager>.Intance.cur_job_OnScheduleLog(string.Format("作业【"+ info.name+ "】创建发生异常，原因：" + ex.Message));
             }
         }
@@ -58,7 +58,7 @@ namespace DownLoad.Business
             }
             catch (Exception ex)
             {
-                Log4netUtil.Error("【" + info.name + "】删除发生异常:" + ex.Message);
+                Log4netUtil.Error("【" + info.name + "】删除发生异常:" + ex.Message,ex);
                 //GlobalInstanceManager<SchedulerManager>.Intance.cur_job_OnScheduleLog(string.Format("作业【"+info.name+"】删除发生异常，原因：" + ex.Message));
             }
         }
@@ -144,7 +144,7 @@ namespace DownLoad.Business
             catch (Exception ex)
             {
                 string strret = new ResponseMessage() { Response = new Response() { Head = new Head() { TranCode = key.Name, TranSys = key.Group, AckCode = "300.1", AckMessage = ex.Message } } }.ToString();
-                Log4netUtil.Error("【" + GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfo(key).name + "】定时执行异常:" + ex.Message);
+                Log4netUtil.Error("【" + GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfo(key).name + "】定时执行异常:" + ex.Message,ex);
                 //GlobalInstanceManager<SchedulerManager>.Intance.cur_job_OnScheduleLog(GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfo(key), strret);
             }
         }

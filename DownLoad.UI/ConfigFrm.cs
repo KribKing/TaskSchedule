@@ -247,36 +247,37 @@ namespace DownLoad.UI
                 MessageBox.Show("当前作业内容无效，请检查", "操作提示", MessageBoxButtons.OK);
                 return;
             }
-            string request = GlobalInstanceManager<JobInfoManager>.Intance.GetExcuteCondition(this.Cur_JobInfo);
-            request = new RequestMessage() { Request = new Request() { Head = new Head() { TranCode = this.Cur_JobInfo.id, TranName = this.Cur_JobInfo.name, TranSys = this.Cur_JobInfo.system, TranSysName = this.Cur_JobInfo.sysname, AckMessage = "请求访问" }, Body = request } }.ToString();
-            string strret = GlobalInstanceManager<RimsInterface>.Intance.Run(request);
-
-            if (string.IsNullOrEmpty(strret))
-            {
-                MessageBox.Show("无执行记录，请检查", "操作提示", MessageBoxButtons.OK);
-                return;
-            }
+           
             try
             {
                 DataTable dt = new DataTable();
-                ResponseMessage Response = JsonConvert.DeserializeObject<ResponseMessage>(strret);
+                
                 StringWriter sw = new StringWriter();
                 if (this.Cur_JobInfo.nodelx == 0)
                 {
+                    string request = GlobalInstanceManager<JobInfoManager>.Intance.GetExcuteCondition(this.Cur_JobInfo);
+                    request = new RequestMessage() { Request = new Request() { Head = new Head() { TranCode = this.Cur_JobInfo.id, TranName = this.Cur_JobInfo.name, TranSys = this.Cur_JobInfo.system, TranSysName = this.Cur_JobInfo.sysname, AckMessage = "请求访问" }, Body = request } }.ToString();                  
+                    string strret = GlobalInstanceManager<RimsInterface>.Intance.Run(request);
+                    ResponseMessage Response = JsonConvert.DeserializeObject<ResponseMessage>(strret);
+                    if (string.IsNullOrEmpty(strret))
+                    {
+                        MessageBox.Show("无执行记录，请检查", "操作提示", MessageBoxButtons.OK);
+                        return;
+                    }
                     string json = Tools.GetJsonNodeValue(Response.Response.Body, this.Cur_JobInfo.sourcetype == 1 ? "[]" : this.Cur_JobInfo.node, "[]").ToString();
                     dt = Tools.JsonToDataTable(json);
                 }
                 else if (this.Cur_JobInfo.nodelx == 1)
                 {
-                    XmlDocument xml = new XmlDocument();
-                    xml.LoadXml(Response.Response.Body);
-                    XmlNode node = XmlHelper.GetNode(this.Cur_JobInfo.node, xml);
-                    dt = XmlHelper.XmlToDataTable(this.Cur_JobInfo.xmlconfig, node);
+                    SchemaInfo info = JsonConvert.DeserializeObject<SchemaInfo>(this.Cur_JobInfo.xmlconfig);
+                    if (info == null)
+                        return;
+                    dt = info.ToDt();
                 }
                 string strtmp = "create table " + this.Cur_JobInfo.tmpname + Environment.NewLine + "(" + Environment.NewLine;
                 foreach (DataColumn dc in dt.Columns)
                 {
-                    strtmp += "   " + dc.ColumnName + "   varchar(64) null," + Environment.NewLine;
+                    strtmp += "   " + dc.ColumnName + "   varchar(256) null," + Environment.NewLine;
                 }
                 strtmp = strtmp.Remove(strtmp.LastIndexOf(','), 1);
                 strtmp += ")";
@@ -320,7 +321,7 @@ namespace DownLoad.UI
 
         private void btngeneratexml_Click(object sender, EventArgs e)
         {
-            using (MapXmlFrm frm = new MapXmlFrm(this.rtbxml.Text.Trim()))
+            using (MapXmlFrm frm = new MapXmlFrm(this.rtbxml.Text.Trim(), this.tename.Text.Trim()))
             {
                 if (frm.ShowDialog() == DialogResult.OK)
                 {

@@ -42,7 +42,7 @@ namespace DownLoad.UI
             }
             catch (Exception ex)
             {
-                Log4netUtil.Error("初始化发生异常：" + ex.Message);
+                Log4netUtil.Error("初始化发生异常：" + ex.Message,ex);
             }
         }
         private void LoadJobInfo()

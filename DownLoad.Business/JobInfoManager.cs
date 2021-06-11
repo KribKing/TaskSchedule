@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using DownLoad.Core;
-using System.Data.SqlClient;
 using Dos.ORM;
+using DownLoad.Core.Schema;
+using System.Data.Common;
 //using Oracle.DataAccess.Client;
 
 namespace DownLoad.Business
@@ -80,7 +81,7 @@ namespace DownLoad.Business
             }
             catch (Exception ex)
             {
-                Log4netUtil.Error("增加作业执行异常:" + ex.Message);
+                Log4netUtil.Error("增加作业执行异常:" + ex.Message,ex);
                 return false;
             }
 
@@ -107,7 +108,7 @@ namespace DownLoad.Business
             }
             catch (Exception ex)
             {
-                Log4netUtil.Error("保存作业执行异常:" + ex.Message);
+                Log4netUtil.Error("保存作业执行异常:" + ex.Message,ex);
                 //GlobalInstanceManager<SchedulerManager>.Intance.cur_job_OnScheduleLog(string.Format("作业保存发生异常，原因：" + ex.Message));
             }
         }
@@ -125,7 +126,7 @@ namespace DownLoad.Business
             }
             catch (Exception ex)
             {
-                Log4netUtil.Error("移除作业执行异常:" + ex.Message);
+                Log4netUtil.Error("移除作业执行异常:" + ex.Message,ex);
                 return false;
             }
         }
@@ -166,41 +167,16 @@ namespace DownLoad.Business
             string strexcute = "";
             try
             {
-                // string strsql = "exec usp_jk_getzxtj @id='" + id + "',@system='" + system + "'";
-                List<System.Data.Common.DbParameter> parameters = new List<System.Data.Common.DbParameter>();
                 DatabaseType type = GlobalInstanceManager<GlobalSqlManager>.Intance.GetDbTyle(this.cur_dbtype);
-                switch (type)
-                {
-                    case DatabaseType.SqlServer:
-                        parameters.Add(new SqlParameter("@id", id));
-                        parameters.Add(new SqlParameter("@system", system));
-                        break;
-                    case DatabaseType.MsAccess:
-                        break;
-                    case DatabaseType.SqlServer9:
-                        parameters.Add(new SqlParameter("@id", id));
-                        parameters.Add(new SqlParameter("@system", system));
-                        break;
-                    case DatabaseType.Oracle:
-                        //parameters.Add(new OracleParameter("id", id));
-                        //parameters.Add(new OracleParameter("system", system));
-                        break;
-                    case DatabaseType.Sqlite3:
-                        break;
-                    case DatabaseType.MySql:
-                        parameters.Add(new SqlParameter("@id", id));
-                        parameters.Add(new SqlParameter("@system", system));
-                        break;
-                    default:
-                        break;
-                }
-
-                DataTable dt = GlobalInstanceManager<GlobalSqlManager>.Intance.GetDataTableFrmProc(this.cur_dbtype, this.cur_dbconstring, "usp_jk_getjobzxtj", parameters.ToArray());
+                string paraid = type==(DatabaseType.Oracle|DatabaseType.MySql)?"id":"@id";
+                string parasystem = type==(DatabaseType.Oracle|DatabaseType.MySql)?"system":"@system";
+                var db = new DbSession(GlobalInstanceManager<GlobalSqlManager>.Intance.GetDbTyle(this.cur_dbtype), this.cur_dbconstring);
+                DataTable dt = db.FromProc("usp_jk_getjobzxtj").AddInParameter(paraid, DbType.String, id).AddInParameter(parasystem, DbType.String, id).ToDataTable();           
                 strexcute = dt == null || dt.Rows.Count <= 0 ? "" : dt.Rows[0][0].ToString();
             }
             catch (Exception ex)
             {
-                Log4netUtil.Error("获取作业执行条件异常:" + ex.Message);
+                Log4netUtil.Error("获取作业执行条件异常:" + ex.Message,ex);
                 strexcute = "";
             }
             return strexcute;

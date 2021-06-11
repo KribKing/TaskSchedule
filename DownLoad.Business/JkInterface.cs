@@ -10,10 +10,11 @@ using System.Data;
 using Quartz;
 using System.Diagnostics;
 using System.Xml;
+using DownLoad.Core.Schema;
 
 namespace DownLoad.Business
 {
-    public  class JkInterface
+    public class JkInterface
     {
         public static DTToken TokenInfo = new DTToken();
         protected JobInfo cur_JobInfo;
@@ -52,14 +53,14 @@ namespace DownLoad.Business
             ResultInfo info = new ResultInfo();
             try
             {
-                WebServiceArgs list=JsonConvert.DeserializeObject<WebServiceArgs>(body);
+                WebServiceArgs list = JsonConvert.DeserializeObject<WebServiceArgs>(body);
                 object[] args = null;
-                if (list!=null&&list.ArgsList!=null&& list.ArgsList.Count>0)
+                if (list != null && list.ArgsList != null && list.ArgsList.Count > 0)
                 {
-                    args=new object[list.ArgsList.Count];
+                    args = new object[list.ArgsList.Count];
                     foreach (WebServiceArgsInfo item in list.ArgsList)
                     {
-                        args.SetValue(item.Value,item.KeyIndex);
+                        args.SetValue(item.Value, item.KeyIndex);
                     }
                 }
                 info.ackmsg = GlobalWebRequestHelper.SoapRequest(cur_JobInfo.weburl, cur_JobInfo.servermethod, args);
@@ -89,7 +90,7 @@ namespace DownLoad.Business
                 info.ackcode = "300.0";
                 info.ackmsg = ex.Message;
                 info.ackflg = false;
-                Log4netUtil.Error("【" + cur_JobInfo.name + "】执行异常:" + ex.Message,ex);
+                Log4netUtil.Error("【" + cur_JobInfo.name + "】执行异常:" + ex.Message, ex);
             }
             return info;
         }
@@ -136,7 +137,7 @@ namespace DownLoad.Business
             }
         }
 
-        public virtual DataTable RunWithBody(string strresult,ref ResultInfo retInfo)
+        public virtual DataTable RunWithBody(string strresult, ref ResultInfo retInfo)
         {
             try
             {
@@ -148,24 +149,22 @@ namespace DownLoad.Business
                 }
                 else if (this.cur_JobInfo.nodelx == 1)
                 {
-                    XmlDocument xml = new XmlDocument();
-                    xml.LoadXml(strresult);
+                    SchemaInfo info = JsonConvert.DeserializeObject<SchemaInfo>(this.cur_JobInfo.xmlconfig);
+                    XmlDocument xml = XmlHelper.RemoveNameSpace(strresult, info.RemoveNs);
                     if (string.IsNullOrEmpty(this.cur_JobInfo.node))
                     {
-                         Log4netUtil.Error("请注意，解析节点设置为空，无法继续");
-                         return null;
+                        Log4netUtil.Error("RunWithBody发生异常：解析节点设置为空，无法继续");
+                        return null;
                     }
-                
-                    XmlNode node = XmlHelper.GetNode(this.cur_JobInfo.node, xml);
-                    dt = XmlHelper.XmlToDataTable(this.cur_JobInfo.xmlconfig, node);
-                }           
+                    dt = XmlHelper.XmlToDataTable(info.ExecuteNode, info, xml);
+                }
                 return dt;
             }
             catch (Exception ex)
             {
-                Log4netUtil.Error(ex.Message);
+                Log4netUtil.Error(ex.Message,ex);
                 return null;
-            }         
+            }
         }
     }
 

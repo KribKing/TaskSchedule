@@ -25,6 +25,7 @@ namespace DownLoad.UI
         {
             InitializeComponent();
             this.Cur_JobInfo = jobinfo;
+            this.Text = "【" + this.Cur_JobInfo.name + "】测试串验证";
         }
 
         private void TestFrm_Load(object sender, EventArgs e)

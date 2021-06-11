@@ -686,7 +686,7 @@ namespace DownLoad.Core
             }
             catch (Exception ex)
             {
-                Log4netUtil.Error(ex.Message);
+                Log4netUtil.Error(ex.Message,ex);
             }
 
             return value;
@@ -732,7 +732,7 @@ namespace DownLoad.Core
             }
             catch (Exception ex)
             {
-                Log4netUtil.Error(ex.Message);
+                Log4netUtil.Error(ex.Message,ex);
             }
             return table;
         }
@@ -774,6 +774,35 @@ namespace DownLoad.Core
                 }
                 //序列化  
                 return JsonConvert.SerializeObject(dic);
+            }
+        }
+        /// <summary>
+        /// 去除DataTable空行
+        /// </summary>
+        /// <param name="dt"></param>
+        public static void RemoveEmpty(DataTable dt)
+        {
+            List<DataRow> removelist = new List<DataRow>();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                bool rowdataisnull = true;
+                for (int j = 0; j < dt.Columns.Count; j++)
+                {
+                    if (!string.IsNullOrEmpty(dt.Rows[i][j].ToString().Trim()))
+                    {
+                        rowdataisnull = false;
+                    }
+
+                }
+                if (rowdataisnull)
+                {
+                    removelist.Add(dt.Rows[i]);
+                }
+
+            }
+            for (int i = 0; i < removelist.Count; i++)
+            {
+                dt.Rows.Remove(removelist[i]);
             }
         }
     }

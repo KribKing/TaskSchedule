@@ -55,7 +55,7 @@ namespace DownLoad.Business
                 strackcode = "300.1";
                 strackmsg = ex.Message;
                 strresult = new ResponseMessage() { Response = new Response() { Head = new Head() { TranCode = trancode, TranName = tranname, TranSys = transys, TranSysName = transysname, AckCode = strackcode, AckMessage = strackmsg } } }.ToString();
-                Log4netUtil.Error("返回数据:" + strresult);
+                Log4netUtil.Error("返回数据:" + strresult,ex);
                 return strresult;
             }
         }

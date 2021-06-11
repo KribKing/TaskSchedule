@@ -33,14 +33,13 @@
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btntablefrm = new DevExpress.XtraEditors.SimpleButton();
             this.btnlog = new DevExpress.XtraEditors.SimpleButton();
+            this.cbstop = new DevExpress.XtraEditors.CheckEdit();
             this.cblogfollow = new DevExpress.XtraEditors.CheckEdit();
             this.btntest = new DevExpress.XtraEditors.SimpleButton();
-            this.btnclose = new DevExpress.XtraEditors.SimpleButton();
-            this.cbstop = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cblogfollow.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbstop.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cblogfollow.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // txttest
@@ -62,7 +61,6 @@
             this.panelControl1.Controls.Add(this.cbstop);
             this.panelControl1.Controls.Add(this.cblogfollow);
             this.panelControl1.Controls.Add(this.btntest);
-            this.panelControl1.Controls.Add(this.btnclose);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelControl1.Location = new System.Drawing.Point(0, 514);
             this.panelControl1.Name = "panelControl1";
@@ -93,6 +91,16 @@
             this.btnlog.ToolTip = "查看控制台日志";
             this.btnlog.Click += new System.EventHandler(this.btnlog_Click);
             // 
+            // cbstop
+            // 
+            this.cbstop.EditValue = true;
+            this.cbstop.Location = new System.Drawing.Point(140, 37);
+            this.cbstop.Name = "cbstop";
+            this.cbstop.Properties.AutoWidth = true;
+            this.cbstop.Properties.Caption = "是否阻断目标库";
+            this.cbstop.Size = new System.Drawing.Size(102, 15);
+            this.cbstop.TabIndex = 1;
+            // 
             // cblogfollow
             // 
             this.cblogfollow.EditValue = true;
@@ -107,33 +115,12 @@
             // 
             this.btntest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btntest.Image = ((System.Drawing.Image)(resources.GetObject("btntest.Image")));
-            this.btntest.Location = new System.Drawing.Point(140, 10);
+            this.btntest.Location = new System.Drawing.Point(140, 8);
             this.btntest.Name = "btntest";
             this.btntest.Size = new System.Drawing.Size(62, 23);
             this.btntest.TabIndex = 0;
             this.btntest.Text = "测试";
             this.btntest.Click += new System.EventHandler(this.btntest_Click);
-            // 
-            // btnclose
-            // 
-            this.btnclose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnclose.Image = ((System.Drawing.Image)(resources.GetObject("btnclose.Image")));
-            this.btnclose.Location = new System.Drawing.Point(215, 10);
-            this.btnclose.Name = "btnclose";
-            this.btnclose.Size = new System.Drawing.Size(70, 23);
-            this.btnclose.TabIndex = 0;
-            this.btnclose.Text = "关闭";
-            this.btnclose.Click += new System.EventHandler(this.btnclose_Click);
-            // 
-            // cbstop
-            // 
-            this.cbstop.EditValue = true;
-            this.cbstop.Location = new System.Drawing.Point(140, 37);
-            this.cbstop.Name = "cbstop";
-            this.cbstop.Properties.AutoWidth = true;
-            this.cbstop.Properties.Caption = "是否阻断目标库";
-            this.cbstop.Size = new System.Drawing.Size(102, 15);
-            this.cbstop.TabIndex = 1;
             // 
             // TestFrm
             // 
@@ -150,8 +137,8 @@
             this.Move += new System.EventHandler(this.TestFrm_Move);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cblogfollow.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbstop.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cblogfollow.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -161,7 +148,6 @@
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private System.Windows.Forms.RichTextBox txttest;
         private DevExpress.XtraEditors.SimpleButton btntest;
-        private DevExpress.XtraEditors.SimpleButton btnclose;
         private DevExpress.XtraEditors.CheckEdit cblogfollow;
         private DevExpress.XtraEditors.SimpleButton btnlog;
         private DevExpress.XtraEditors.SimpleButton btntablefrm;

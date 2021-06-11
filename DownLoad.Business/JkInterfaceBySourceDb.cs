@@ -34,7 +34,7 @@ namespace DownLoad.Business
                 retInfo.ackcode = "300.1";
                 retInfo.ackmsg = ex.Message;
                 retInfo.ackflg = false;
-                Log4netUtil.Error("【" + cur_JobInfo.name + "】JkInterfaceBySourceDb执行异常:" + ex.Message);
+                Log4netUtil.Error("【" + cur_JobInfo.name + "】JkInterfaceBySourceDb执行异常:" + ex.Message,ex);
             }
             return retInfo;
         }
