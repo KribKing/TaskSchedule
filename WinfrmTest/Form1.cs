@@ -20,7 +20,12 @@ namespace WinfrmTest
         private void Form1_Move(object sender, EventArgs e)
         {
             IntPtr handle = WinApiHelper.FindWindow(null, this.textBox1.Text);
-            WinApiHelper.MoveWindow(handle, this.Location.X + this.Width, this.Location.Y, 100, this.Height,true);
+            WinApiHelper.MoveWindow(handle, this.Location.X + this.Width, this.Location.Y, 100, this.Height, true);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.textBox2.Text = string.Format(this.txt.Text.Trim(), DateTime.Now, DateTime.Now.AddDays(+1));
         }
     }
 }

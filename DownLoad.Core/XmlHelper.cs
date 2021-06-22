@@ -143,6 +143,11 @@ namespace DownLoad.Core
 
                 if (node == null || !node.HasChildNodes)
                     return null;
+                if (!string.IsNullOrEmpty(info.CData))
+                {
+                    string strresult = GetNodeTextValue(info.CData, node);
+                    node = XmlHelper.RemoveNameSpace(strresult, info.RemoveNs);
+                }
                 DataTable dt = info.ToDt();
                 string[] pnodes = parentnode.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
                 ForeachToTable(0, pnodes, node, dt, info);
@@ -217,22 +222,24 @@ namespace DownLoad.Core
         }
 
 
-        public static XmlDocument RemoveNameSpace(string xml, string ns = "xmlns|xsi")
+        public static XmlDocument RemoveNameSpace(string xml, string ns = "xmlns|ns&xsi:|a")
         {
             try
             {
                 //去掉注释 和命名空间
-                string[] strns = ns.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
+                string[] strns = ns.Split(new char[] { '&' }, StringSplitOptions.RemoveEmptyEntries);
                 if (strns.Length > 0)
                 {
                     foreach (var item in strns)
                     {
-                        string r = "(" + item + @":?[^=]*=[""][^""]*[""])";
-                        xml = System.Text.RegularExpressions.Regex.Replace(
-                          xml,
-                          r, "",
-                          System.Text.RegularExpressions.RegexOptions.IgnoreCase |
-                          System.Text.RegularExpressions.RegexOptions.Multiline);
+                        //string r = "(" + item + @":?[^=]*=[""][^""]*[""])";
+                        //xml = System.Text.RegularExpressions.Regex.Replace(
+                        //  xml,
+                        //  r, "",
+                        //  System.Text.RegularExpressions.RegexOptions.IgnoreCase |
+                        //  System.Text.RegularExpressions.RegexOptions.Multiline);
+                        string[] strs = ns.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
+                        xml = xml.Replace(strs[0],strs[1]);
                     }
 
                 }

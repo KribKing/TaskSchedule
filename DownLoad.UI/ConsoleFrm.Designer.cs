@@ -101,8 +101,6 @@
             this.ClientSize = new System.Drawing.Size(926, 574);
             this.Controls.Add(this.pconsole);
             this.Controls.Add(this.panelControl1);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "ConsoleFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "控制台输出";

@@ -48,6 +48,8 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.txtjson = new System.Windows.Forms.TextBox();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.txtCdata = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
@@ -63,6 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtnode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCdata.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -132,9 +135,9 @@
             // 
             this.panelControl3.Controls.Add(this.dataGridView1);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(2, 88);
+            this.panelControl3.Location = new System.Drawing.Point(2, 117);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(525, 331);
+            this.panelControl3.Size = new System.Drawing.Size(525, 302);
             this.panelControl3.TabIndex = 2;
             // 
             // dataGridView1
@@ -150,7 +153,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(521, 327);
+            this.dataGridView1.Size = new System.Drawing.Size(521, 298);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
@@ -197,21 +200,23 @@
             // 
             // panelControl2
             // 
+            this.panelControl2.Controls.Add(this.txtCdata);
             this.panelControl2.Controls.Add(this.txtns);
+            this.panelControl2.Controls.Add(this.labelControl3);
             this.panelControl2.Controls.Add(this.txtnode);
             this.panelControl2.Controls.Add(this.labelControl2);
             this.panelControl2.Controls.Add(this.labelControl1);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(2, 22);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(525, 66);
+            this.panelControl2.Size = new System.Drawing.Size(525, 95);
             this.panelControl2.TabIndex = 2;
             // 
             // txtns
             // 
             this.txtns.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtns.Location = new System.Drawing.Point(88, 40);
+            this.txtns.Location = new System.Drawing.Point(88, 36);
             this.txtns.Name = "txtns";
             this.txtns.Size = new System.Drawing.Size(421, 20);
             this.txtns.TabIndex = 1;
@@ -229,7 +234,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(22, 43);
+            this.labelControl2.Location = new System.Drawing.Point(22, 37);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(48, 14);
             this.labelControl2.TabIndex = 0;
@@ -263,6 +268,24 @@
             this.txtjson.Size = new System.Drawing.Size(360, 397);
             this.txtjson.TabIndex = 1;
             // 
+            // labelControl3
+            // 
+            this.labelControl3.Location = new System.Drawing.Point(22, 66);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(39, 14);
+            this.labelControl3.TabIndex = 0;
+            this.labelControl3.Text = "CDATA";
+            // 
+            // txtCdata
+            // 
+            this.txtCdata.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCdata.Location = new System.Drawing.Point(88, 65);
+            this.txtCdata.Name = "txtCdata";
+            this.txtCdata.Size = new System.Drawing.Size(421, 20);
+            this.txtCdata.TabIndex = 1;
+            this.txtCdata.TextChanged += new System.EventHandler(this.txtnode_TextChanged);
+            // 
             // MapXmlFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -289,6 +312,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             this.groupControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCdata.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -315,5 +339,7 @@
         private DevExpress.XtraEditors.TextEdit txtnode;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.TextEdit txtCdata;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
     }
 }

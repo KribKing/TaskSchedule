@@ -1,4 +1,5 @@
-﻿using DownLoad.Core;
+﻿using DownLoad.Business;
+using DownLoad.Core;
 using DownLoad.UI.Properties;
 using System;
 using System.Collections.Generic;
@@ -43,7 +44,8 @@ namespace DownLoad.UI
         {
             try
             {
-                Settings.Default.connstring = this.txtconnectstring.Text.Trim();
+                Settings.Default.dbtype = this.cbdbtype.SelectedIndex;
+                Settings.Default.connstring = this.cesjm.Checked ? this.txtconnectstring.Text.Trim() : EncodeAndDecode.Encode(this.txtconnectstring.Text.Trim());
                 Settings.Default.appname = this.txtappname.Text.Trim();
                 Settings.Default.isautostart = this.cbisautostart.SelectedIndex == 0 ? true : false;
                 Settings.Default.islog = this.cbisfilelog.SelectedIndex == 0 ? true : false;
@@ -52,6 +54,8 @@ namespace DownLoad.UI
                 Settings.Default.Save();
                 Log4netUtil.IsLog = Settings.Default.islog;
                 FrmBase.defaultLookAndFeel.LookAndFeel.SkinName = Settings.Default.theme;
+                GlobalInstanceManager<JobInfoManager>.Intance.Cur_dbtype = this.cbdbtype.SelectedIndex;
+                GlobalInstanceManager<JobInfoManager>.Intance.Cur_dbconstring = !this.cesjm.Checked ? this.txtconnectstring.Text.Trim() : EncodeAndDecode.Decode(this.txtconnectstring.Text.Trim());
                 MessageBox.Show("保存成功", "操作提示", MessageBoxButtons.OK);
             }
             catch (Exception ex)

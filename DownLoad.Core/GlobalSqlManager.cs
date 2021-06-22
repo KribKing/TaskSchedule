@@ -13,23 +13,6 @@ namespace DownLoad.Core
 {
     public class GlobalSqlManager
     {
-        //public DataTable GetDataTable(string connectstring, string commandsql)
-        //{
-        //    try
-        //    {
-        //        DataSet ds = GetDataSet(dbstyle, connectstring, commandsql);
-        //        DataTable dt = null;
-        //        if (ds != null && ds.Tables.Count > 0)
-        //        {
-        //            dt = ds.Tables[0];
-        //        }
-        //        return dt;
-        //    }
-        //    catch
-        //    {
-        //        throw;
-        //    }
-        //}
         /// <summary>
         /// 获取DataTable
         /// </summary>
@@ -213,6 +196,7 @@ namespace DownLoad.Core
                     retInfo.ackcode = "300.2";
                     retInfo.ackflg = false;
                     retInfo.ackmsg = "批量导入临时表发生异常：" + ex.Message;
+                    Log4netUtil.Error("BulkDbBySqlServer批量导入临时表发生异常:" + ex.Message, ex);
                     return retInfo;
                 }
                 finally
@@ -232,6 +216,7 @@ namespace DownLoad.Core
                     retInfo.ackcode = "300.2";
                     retInfo.ackflg = false;
                     retInfo.ackmsg = "批量导入发生异常：" + ee.Message;
+                    Log4netUtil.Error("BulkDbBySqlServer批量导入发生异常:" + ee.Message, ee);
                     return retInfo;
                 }
                 retInfo.ackcode = "100.1";
@@ -280,6 +265,7 @@ namespace DownLoad.Core
                     retInfo.ackcode = "300.2";
                     retInfo.ackflg = false;
                     retInfo.ackmsg = "批量导入临时表发生异常：" + ex.Message;
+                    Log4netUtil.Error("BulkDbByOracle批量导入临时表发生异常:" + ex.Message, ex);
                     return retInfo;
                 }
                 finally
@@ -299,6 +285,7 @@ namespace DownLoad.Core
                     retInfo.ackcode = "300.2";
                     retInfo.ackflg = false;
                     retInfo.ackmsg = "批量导入发生异常：" + ee.Message;
+                    Log4netUtil.Error("BulkDbByOracle批量导入发生异常:" + ee.Message, ee);
                     return retInfo;
                 }
                 retInfo.ackcode = "100.1";

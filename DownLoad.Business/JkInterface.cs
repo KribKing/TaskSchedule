@@ -29,71 +29,7 @@ namespace DownLoad.Business
             cur_JobInfo = cur_jkkey;
             method = cur_method;
             body = cur_body;
-        }
-        public virtual ResultInfo GetResponse()
-        {
-            ResultInfo info = new ResultInfo();
-            try
-            {
-                info.ackmsg = GlobalWebRequestHelper.HttpGetRequest(cur_JobInfo.weburl + method, body, token: TokenInfo.access_token);
-                info.body = info.ackmsg;
-                info.ackflg = true;
-            }
-            catch (Exception ex)
-            {
-                info.ackcode = "300.0";
-                info.ackmsg = ex.Message;
-                info.ackflg = false;
-                Log4netUtil.Error("【" + cur_JobInfo.name + "】执行异常:" + ex.Message, ex);
-            }
-            return info;
-        }
-        public virtual ResultInfo WebInvoke()
-        {
-            ResultInfo info = new ResultInfo();
-            try
-            {
-                WebServiceArgs list = JsonConvert.DeserializeObject<WebServiceArgs>(body);
-                object[] args = null;
-                if (list != null && list.ArgsList != null && list.ArgsList.Count > 0)
-                {
-                    args = new object[list.ArgsList.Count];
-                    foreach (WebServiceArgsInfo item in list.ArgsList)
-                    {
-                        args.SetValue(item.Value, item.KeyIndex);
-                    }
-                }
-                info.ackmsg = GlobalWebRequestHelper.SoapRequest(cur_JobInfo.weburl, cur_JobInfo.servermethod, args);
-                info.body = info.ackmsg;
-                info.ackflg = true;
-            }
-            catch (Exception ex)
-            {
-                info.ackcode = "300.0";
-                info.ackmsg = ex.Message;
-                info.ackflg = false;
-                Log4netUtil.Error("【" + cur_JobInfo.name + "】执行异常:" + ex.Message, ex);
-            }
-            return info;
-        }
-        public virtual ResultInfo PostResponse()
-        {
-            ResultInfo info = new ResultInfo();
-            try
-            {
-                info.ackmsg = GlobalWebRequestHelper.HttpPostRequest(cur_JobInfo.weburl + method, body, token: TokenInfo.access_token);
-                info.body = info.ackmsg;
-                info.ackflg = true;
-            }
-            catch (Exception ex)
-            {
-                info.ackcode = "300.0";
-                info.ackmsg = ex.Message;
-                info.ackflg = false;
-                Log4netUtil.Error("【" + cur_JobInfo.name + "】执行异常:" + ex.Message, ex);
-            }
-            return info;
-        }
+        }       
         public static void GetToken(string weburl)
         {
             try

@@ -65,9 +65,9 @@ namespace DownLoad.UI
                 this.cesjm.Checked = this.Cur_JobInfo.issourcedbencode;
                 this.txtsstr.Text = this.cesjm.Checked ? EncodeAndDecode.Encode(this.Cur_JobInfo.sourcedbstring) : this.Cur_JobInfo.sourcedbstring;
                 this.rtsscript.Text = this.Cur_JobInfo.sourcesql;
-                this.teid.Enabled = this.Cur_JobNode == null ? true : false;
-                this.tesystem.Enabled = this.Cur_JobNode == null ? true : false;
-                this.tesysname.Enabled = this.Cur_JobNode == null ? true : false;
+                this.teid.Properties.ReadOnly = this.Cur_JobNode == null ? false : true;
+                this.tesystem.Properties.ReadOnly = this.Cur_JobNode == null ? false : true;
+                this.tesysname.Properties.ReadOnly = this.Cur_JobNode == null ? false : true;
                 this.btnnew.Visible = this.Cur_JobNode == null ? true : false;
             }
             if (this.Cur_JobNode == null)
@@ -251,37 +251,47 @@ namespace DownLoad.UI
             try
             {
                 DataTable dt = new DataTable();
-                
-                StringWriter sw = new StringWriter();
-                if (this.Cur_JobInfo.nodelx == 0)
+                if (this.Cur_JobInfo.sourcetype == 0)
                 {
-                    string request = GlobalInstanceManager<JobInfoManager>.Intance.GetExcuteCondition(this.Cur_JobInfo);
-                    request = new RequestMessage() { Request = new Request() { Head = new Head() { TranCode = this.Cur_JobInfo.id, TranName = this.Cur_JobInfo.name, TranSys = this.Cur_JobInfo.system, TranSysName = this.Cur_JobInfo.sysname, AckMessage = "请求访问" }, Body = request } }.ToString();                  
-                    string strret = GlobalInstanceManager<RimsInterface>.Intance.Run(request);
-                    ResponseMessage Response = JsonConvert.DeserializeObject<ResponseMessage>(strret);
-                    if (string.IsNullOrEmpty(strret))
+
+                    if (this.Cur_JobInfo.nodelx == 0)
                     {
-                        MessageBox.Show("无执行记录，请检查", "操作提示", MessageBoxButtons.OK);
-                        return;
+                        string request = GlobalInstanceManager<JobInfoManager>.Intance.GetExcuteCondition(this.Cur_JobInfo);
+                        request = new RequestMessage() { Request = new Request() { Head = new Head() { TranCode = this.Cur_JobInfo.id, TranName = this.Cur_JobInfo.name, TranSys = this.Cur_JobInfo.system, TranSysName = this.Cur_JobInfo.sysname, AckMessage = "请求访问" }, Body = request } }.ToString();
+                        string strret = GlobalInstanceManager<RimsInterface>.Intance.Run(request);
+                        ResponseMessage Response = JsonConvert.DeserializeObject<ResponseMessage>(strret);
+                        if (string.IsNullOrEmpty(strret))
+                        {
+                            MessageBox.Show("无执行记录，请检查", "操作提示", MessageBoxButtons.OK);
+                            return;
+                        }
+                        string json = Tools.GetJsonNodeValue(Response.Response.Body, this.Cur_JobInfo.sourcetype == 1 ? "[]" : this.Cur_JobInfo.node, "[]").ToString();
+                        dt = Tools.JsonToDataTable(json);
                     }
-                    string json = Tools.GetJsonNodeValue(Response.Response.Body, this.Cur_JobInfo.sourcetype == 1 ? "[]" : this.Cur_JobInfo.node, "[]").ToString();
-                    dt = Tools.JsonToDataTable(json);
+                    else if (this.Cur_JobInfo.nodelx == 1)
+                    {
+                        SchemaInfo info = JsonConvert.DeserializeObject<SchemaInfo>(this.Cur_JobInfo.xmlconfig);
+                        if (info == null)
+                            return;
+                        dt = info.ToDt();
+                    }
                 }
-                else if (this.Cur_JobInfo.nodelx == 1)
+                else if (this.Cur_JobInfo.sourcetype == 1)
                 {
-                    SchemaInfo info = JsonConvert.DeserializeObject<SchemaInfo>(this.Cur_JobInfo.xmlconfig);
-                    if (info == null)
-                        return;
-                    dt = info.ToDt();
+                    dt = GlobalInstanceManager<GlobalSqlManager>.Intance.GetDataTable(this.Cur_JobInfo.sourcedbtype, this.Cur_JobInfo.sourcedbstring, this.Cur_JobInfo.sourcesql);
                 }
-                string strtmp = "create table " + this.Cur_JobInfo.tmpname + Environment.NewLine + "(" + Environment.NewLine;
-                foreach (DataColumn dc in dt.Columns)
+                if (dt!=null)
                 {
-                    strtmp += "   " + dc.ColumnName + "   varchar(256) null," + Environment.NewLine;
+                    string strtmp = "create table " + this.Cur_JobInfo.tmpname + Environment.NewLine + "(" + Environment.NewLine;
+                    foreach (DataColumn dc in dt.Columns)
+                    {
+                        strtmp += "   " + dc.ColumnName + "   varchar(256) null," + Environment.NewLine;
+                    }
+                    strtmp = strtmp.Remove(strtmp.LastIndexOf(','), 1);
+                    strtmp += ")";
+                    this.txttmp.Text = strtmp;
                 }
-                strtmp = strtmp.Remove(strtmp.LastIndexOf(','), 1);
-                strtmp += ")";
-                this.txttmp.Text = strtmp;
+               
             }
             catch (Exception ex)
             {

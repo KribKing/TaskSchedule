@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="JkInterface.cs" />
+    <Compile Include="JkInterfaceByRest.cs" />
     <Compile Include="JobInfoManager.cs" />
     <Compile Include="JkInterfaceByHttp.cs" />
     <Compile Include="RequestMessage.cs" />

@@ -1,4 +1,6 @@
 ﻿using Microsoft.CSharp;
+using RestSharp;
+using RestSharp.Serializers;
 using System;
 using System.CodeDom;
 using System.CodeDom.Compiler;
@@ -146,6 +148,43 @@ namespace DownLoad.Core
             catch (Exception ex)
             {
                 throw;
+            }
+        }
+
+        public static string RestRequest(string baseUrl, string resource, string reqBody, string soapaction = "http://goodwillcis.com/JHIPLIB.SOAP.BS.HL7V3Service.HIPMessageServer", string method = "Post", string contentType = "text/xml;charset=utf-8")
+        {
+            try
+            {
+
+                var client = new RestClient(baseUrl);
+                var req = new RestRequest(resource, method.ToUpper() == "POST" ? Method.POST : Method.GET)
+                {
+                    RequestFormat = DataFormat.Xml,
+                    XmlSerializer = new DotNetXmlSerializer()
+                };
+                req.RequestFormat = DataFormat.Xml;
+                req.AddHeader("Content-Type", contentType);
+                req.AddHeader("SOAPAction", soapaction);
+                var p = new Parameter();
+                p.Name = "text/xml;charset=utf-8";
+                p.Value = reqBody;
+                p.Type = ParameterType.RequestBody;
+                req.Parameters.Add(p);
+                var response = client.Execute(req);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    return response.Content;
+                }
+                else
+                {
+                    Log4netUtil.Error("RestRequest执行异常:" + response.Content);
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log4netUtil.Error("RestRequest发生异常:" + ex.Message, ex);
+                return null;
             }
         }
     }

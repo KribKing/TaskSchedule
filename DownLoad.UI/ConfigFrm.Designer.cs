@@ -62,6 +62,7 @@
             this.rtbxml = new System.Windows.Forms.RichTextBox();
             this.btnxml = new DevExpress.XtraEditors.SimpleButton();
             this.btngeneratexml = new DevExpress.XtraEditors.SimpleButton();
+            this.btntest = new DevExpress.XtraEditors.SimpleButton();
             this.cbstype = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
@@ -95,7 +96,6 @@
             this.rttscript = new System.Windows.Forms.RichTextBox();
             this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
             this.cetjm = new DevExpress.XtraEditors.CheckEdit();
-            this.btntest = new DevExpress.XtraEditors.SimpleButton();
             this.txttstr = new DevExpress.XtraEditors.TextEdit();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.cbtop = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -213,7 +213,7 @@
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(175, 8);
+            this.labelControl5.Location = new System.Drawing.Point(207, 8);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(48, 14);
             this.labelControl5.TabIndex = 1;
@@ -221,7 +221,7 @@
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(423, 8);
+            this.labelControl6.Location = new System.Drawing.Point(433, 8);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(48, 14);
             this.labelControl6.TabIndex = 1;
@@ -251,43 +251,39 @@
             this.tesysname.Size = new System.Drawing.Size(150, 20);
             this.tesysname.TabIndex = 0;
             this.tesysname.ToolTip = "大类名称";
-            this.tesysname.DoubleClick += new System.EventHandler(this.txtexp_DoubleClick);
             // 
             // tesystem
             // 
             this.tesystem.Location = new System.Drawing.Point(491, 5);
             this.tesystem.Name = "tesystem";
-            this.tesystem.Size = new System.Drawing.Size(75, 20);
+            this.tesystem.Size = new System.Drawing.Size(100, 20);
             this.tesystem.TabIndex = 0;
             this.tesystem.Tag = "大类编码";
             this.tesystem.ToolTip = "大类编码";
-            this.tesystem.DoubleClick += new System.EventHandler(this.txtexp_DoubleClick);
             // 
             // tename
             // 
-            this.tename.Location = new System.Drawing.Point(243, 5);
+            this.tename.Location = new System.Drawing.Point(263, 5);
             this.tename.Name = "tename";
             this.tename.Size = new System.Drawing.Size(150, 20);
             this.tename.TabIndex = 0;
             this.tename.Tag = "作业名称";
             this.tename.ToolTip = "作业名称";
-            this.tename.DoubleClick += new System.EventHandler(this.txtexp_DoubleClick);
             // 
             // teid
             // 
             this.teid.Location = new System.Drawing.Point(72, 5);
             this.teid.Name = "teid";
-            this.teid.Size = new System.Drawing.Size(75, 20);
+            this.teid.Size = new System.Drawing.Size(129, 20);
             this.teid.TabIndex = 0;
             this.teid.Tag = "作业编码";
             this.teid.ToolTip = "作业编码";
-            this.teid.DoubleClick += new System.EventHandler(this.txtexp_DoubleClick);
             // 
             // txtexp
             // 
             this.txtexp.Location = new System.Drawing.Point(72, 33);
             this.txtexp.Name = "txtexp";
-            this.txtexp.Size = new System.Drawing.Size(494, 20);
+            this.txtexp.Size = new System.Drawing.Size(519, 20);
             this.txtexp.TabIndex = 0;
             this.txtexp.DoubleClick += new System.EventHandler(this.txtexp_DoubleClick);
             // 
@@ -510,6 +506,16 @@
             this.btngeneratexml.Text = "生成xml映射";
             this.btngeneratexml.Click += new System.EventHandler(this.btngeneratexml_Click);
             // 
+            // btntest
+            // 
+            this.btntest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btntest.Location = new System.Drawing.Point(174, 65);
+            this.btntest.Name = "btntest";
+            this.btntest.Size = new System.Drawing.Size(53, 21);
+            this.btntest.TabIndex = 0;
+            this.btntest.Text = "测试串";
+            this.btntest.Click += new System.EventHandler(this.btntest_Click);
+            // 
             // cbstype
             // 
             this.cbstype.EditValue = "HTTP";
@@ -519,7 +525,8 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbstype.Properties.Items.AddRange(new object[] {
             "HTTP",
-            "WS"});
+            "WS",
+            "Rest"});
             this.cbstype.Size = new System.Drawing.Size(93, 20);
             this.cbstype.TabIndex = 3;
             // 
@@ -867,16 +874,6 @@
             this.cetjm.TabIndex = 7;
             this.cetjm.CheckedChanged += new System.EventHandler(this.cetjm_CheckedChanged);
             // 
-            // btntest
-            // 
-            this.btntest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btntest.Location = new System.Drawing.Point(174, 65);
-            this.btntest.Name = "btntest";
-            this.btntest.Size = new System.Drawing.Size(53, 21);
-            this.btntest.TabIndex = 0;
-            this.btntest.Text = "测试串";
-            this.btntest.Click += new System.EventHandler(this.btntest_Click);
-            // 
             // txttstr
             // 
             this.txttstr.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -953,8 +950,6 @@
             this.Controls.Add(this.panelControl3);
             this.Controls.Add(this.panelControl2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "ConfigFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "属性";

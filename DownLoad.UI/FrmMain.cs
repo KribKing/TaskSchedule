@@ -42,7 +42,7 @@ namespace DownLoad.UI
             }
             catch (Exception ex)
             {
-                Log4netUtil.Error("初始化发生异常：" + ex.Message,ex);
+                Log4netUtil.Error("初始化发生异常：" + ex.Message, ex);
             }
         }
         private void LoadJobInfo()
@@ -278,6 +278,7 @@ namespace DownLoad.UI
 
         private void treeList1_DoubleClick(object sender, EventArgs e)
         {
+            this.treeList1.Columns[0].OptionsColumn.AllowEdit = false;
             this.WatchConfigFrm();
         }
 
@@ -435,7 +436,40 @@ namespace DownLoad.UI
             if (Settings.Default.ismovefollow)
             {
                 GlobalInstanceManager<FollowMainWinHelper>.Intance.MoveWin();
-            }           
+            }
+        }
+
+        private void btnrename_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.treeList1.Columns[0].OptionsColumn.AllowEdit = true;
+            this.treeList1.ShowEditor();
+        }
+
+        private void treeList1_FocusedNodeChanged(object sender, FocusedNodeChangedEventArgs e)
+        {
+            this.treeList1.Columns[0].OptionsColumn.AllowEdit = false;
+        }
+
+        private void treeList1_CellValueChanged(object sender, CellValueChangedEventArgs e)
+        {
+            TreeListNode node = e.Node;
+            if (node == null && node.Tag == null)
+                return;
+            if (!node.HasChildren)
+            {
+                JobInfo info = node.Tag as JobInfo;
+                info.name = e.Value as string;
+            }
+            else
+            {
+                string systemname = node.Tag as string;
+                List<JobInfo> list = GlobalInstanceManager<JobInfoManager>.Intance.GetJobInfoListBySystemName(systemname);
+                foreach (var item in list)
+                {
+                    item.sysname = e.Value as string;
+                }
+            }
+            GlobalInstanceManager<JobInfoManager>.Intance.SaveJobInfo();
         }
 
     }

@@ -36,7 +36,7 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.btnrunjob = new DevExpress.XtraBars.BarButtonItem();       
+            this.btnrunjob = new DevExpress.XtraBars.BarButtonItem();
             this.btnjzjob = new DevExpress.XtraBars.BarButtonItem();
             this.btnpro = new DevExpress.XtraBars.BarButtonItem();
             this.btnqyjob = new DevExpress.XtraBars.BarButtonItem();
@@ -47,6 +47,7 @@
             this.btncopyjob = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.btndeletejob = new DevExpress.XtraBars.BarButtonItem();
+            this.btnrename = new DevExpress.XtraBars.BarButtonItem();
             this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -100,8 +101,9 @@
             this.btnalljzjob,
             this.btncopyjob,
             this.barButtonItem1,
-            this.btndeletejob});
-            this.barManager1.MaxItemId = 12;
+            this.btndeletejob,
+            this.btnrename});
+            this.barManager1.MaxItemId = 13;
             // 
             // barDockControlTop
             // 
@@ -227,6 +229,15 @@
             this.btndeletejob.Name = "btndeletejob";
             this.btndeletejob.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btndeletejob_ItemClick);
             // 
+            // btnrename
+            // 
+            this.btnrename.Caption = "重命名";
+            this.btnrename.Glyph = ((System.Drawing.Image)(resources.GetObject("btnrename.Glyph")));
+            this.btnrename.Id = 12;
+            this.btnrename.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnrename.LargeGlyph")));
+            this.btnrename.Name = "btnrename";
+            this.btnrename.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnrename_ItemClick);
+            // 
             // popupMenu1
             // 
             this.popupMenu1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
@@ -239,7 +250,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.btnalljzjob),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnqyjob),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnjzjob),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnpro)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnpro),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnrename)});
             this.popupMenu1.Manager = this.barManager1;
             this.popupMenu1.Name = "popupMenu1";
             // 
@@ -286,7 +298,6 @@
             this.treeList1.LookAndFeel.UseWindowsXPTheme = true;
             this.treeList1.Name = "treeList1";
             this.treeList1.OptionsBehavior.AllowCopyToClipboard = false;
-            this.treeList1.OptionsBehavior.Editable = false;
             this.treeList1.OptionsSelection.InvertSelection = true;
             this.treeList1.OptionsView.ShowColumns = false;
             this.treeList1.OptionsView.ShowHorzLines = false;
@@ -295,6 +306,8 @@
             this.treeList1.Size = new System.Drawing.Size(286, 523);
             this.treeList1.StateImageList = this.imageList1;
             this.treeList1.TabIndex = 2;
+            this.treeList1.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeList1_FocusedNodeChanged);
+            this.treeList1.CellValueChanged += new DevExpress.XtraTreeList.CellValueChangedEventHandler(this.treeList1_CellValueChanged);
             this.treeList1.DoubleClick += new System.EventHandler(this.treeList1_DoubleClick);
             this.treeList1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.treeList1_MouseUp);
             // 
@@ -442,5 +455,6 @@
         private DevExpress.XtraEditors.SimpleButton btnaddjob;
         private DevExpress.XtraEditors.SimpleButton btnPause;
         private DevExpress.XtraEditors.SimpleButton btnStart;
+        private DevExpress.XtraBars.BarButtonItem btnrename;
     }
 }

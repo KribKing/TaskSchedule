@@ -25,6 +25,7 @@ namespace DownLoad.Business
                     strackcode = "200.1";
                     strackmsg = "参数错误:参数为空";
                     strresult = new ResponseMessage() { Response = new Response() { Head = new Head() { TranCode = trancode, TranName = tranname, TranSys = transys, TranSysName = transysname, AckCode = strackcode, AckMessage = strackmsg } } }.ToString();
+                    Log4netUtil.Error("返回数据:" + strresult);
                 }
                 else
                 {
@@ -39,15 +40,24 @@ namespace DownLoad.Business
                         strackcode = "200.1";
                         strackmsg = "参数错误:接口代码错误";
                         strresult = new ResponseMessage() { Response = new Response() { Head = new Head() { TranCode = trancode, TranName = tranname, TranSys = transys, TranSysName = transysname, AckCode = strackcode, AckMessage = strackmsg } } }.ToString();
+                        Log4netUtil.Error("返回数据:" + strresult);
                     }
                     else
                     {
                         string jstr = JObj.Request.Body.ToString();
                         ResultInfo info = jk.Run(jstr);
                         strresult = new ResponseMessage() { Response = new Response() { Head = new Head() { TranCode = trancode, TranName = tranname, TranSys = transys, TranSysName = transysname, AckCode = info.ackcode, AckMessage = info.ackmsg }, Body = info.body } }.ToString();
+                        if (info.ackcode.Contains("100"))
+                        {
+                            Log4netUtil.Debug("返回数据:" + strresult);
+                        }
+                        else
+                        {
+                            Log4netUtil.Error("返回数据:" + strresult);
+                        }
                     }
                 }
-                Log4netUtil.Info("返回数据:" + strresult);
+
                 return strresult;
             }
             catch (Exception ex)
@@ -55,7 +65,7 @@ namespace DownLoad.Business
                 strackcode = "300.1";
                 strackmsg = ex.Message;
                 strresult = new ResponseMessage() { Response = new Response() { Head = new Head() { TranCode = trancode, TranName = tranname, TranSys = transys, TranSysName = transysname, AckCode = strackcode, AckMessage = strackmsg } } }.ToString();
-                Log4netUtil.Error("返回数据:" + strresult,ex);
+                Log4netUtil.Error("返回数据:" + strresult, ex);
                 return strresult;
             }
         }

@@ -37,6 +37,6 @@ namespace DownLoad.Business
                 Log4netUtil.Error("【" + cur_JobInfo.name + "】JkInterfaceBySourceDb执行异常:" + ex.Message,ex);
             }
             return retInfo;
-        }
+        }    
     }
 }

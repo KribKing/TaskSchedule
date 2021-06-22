@@ -18,8 +18,21 @@ namespace DownLoad.Business
     {
         public Dictionary<JobKey, JobInfo> JobInfoDic = new Dictionary<JobKey, JobInfo>();
         private readonly string configPath = Application.StartupPath + "//SetConfig.xml";
-        private int cur_dbtype = 0;
+        private int cur_dbtype = 0;      
+        public int Cur_dbtype
+        {
+            get { return cur_dbtype; }
+            set { cur_dbtype = value; }
+        }
+        
         private string cur_dbconstring = "";
+       
+        public string Cur_dbconstring
+        {
+            get { return cur_dbconstring; }
+            set { cur_dbconstring = value; }
+        }
+        
         public JobInfoManager()
         {
             this.ReInit();

@@ -18,6 +18,16 @@ namespace DownLoad.Core.Schema
         /// xml命名空间
         /// </summary>
         public string RemoveNs { get; set; }
+        private string _CData;
+        /// <summary>
+        /// 元数据文本
+        /// </summary>
+        public string CData
+        {
+            get { return _CData; }
+            set { _CData = value; }
+        }
+
         /// <summary>
         /// 表定义结构
         /// </summary>

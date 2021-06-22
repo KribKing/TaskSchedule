@@ -31,6 +31,7 @@ namespace DownLoad.UI
                 return;
             this.txtns.Text = info.RemoveNs;
             this.txtnode.Text = info.ExecuteNode;
+            this.txtCdata.Text = info.CData;
             this.LoadGrid(info.TableSchema);
         }
         private void LoadGrid(List<TableSchema> list)
@@ -87,6 +88,7 @@ namespace DownLoad.UI
             }
             info.ExecuteNode = this.txtnode.Text.Trim();
             info.RemoveNs = this.txtns.Text.Trim();
+            info.CData = this.txtCdata.Text.Trim();
             info.TableSchema.RemoveAll(a => string.IsNullOrEmpty(a.column));
             return info;
         }
