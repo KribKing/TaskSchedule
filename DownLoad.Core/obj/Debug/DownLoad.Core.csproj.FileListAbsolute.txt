@@ -11,4 +11,3 @@ D:\GitHub\DownLoadExe\DownLoad.Core\obj\Debug\DownLoad.Core.dll.licenses
 D:\GitHub\DownLoadExe\DownLoad.Core\obj\Debug\DownLoad.Core.dll
 D:\GitHub\DownLoadExe\DownLoad.Core\obj\Debug\DownLoad.Core.pdb
 D:\康复数据下载程序\DownLoad.Core.pdb
-D:\GitHub\DownLoadExe\DownLoad.Core\obj\Debug\DownLoad.Core.csprojResolveAssemblyReference.cache

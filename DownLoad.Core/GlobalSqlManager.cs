@@ -13,6 +13,22 @@ namespace DownLoad.Core
 {
     public class GlobalSqlManager
     {
+        public bool GetTest(string connect)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connect))
+                {
+                    con.Open();              
+                }
+            }
+            catch (Exception ex)
+            {              
+                Log4netUtil.Error(ex.Message);
+                return false;
+            }
+            return true;
+        }
         /// <summary>
         /// 获取DataTable
         /// </summary>

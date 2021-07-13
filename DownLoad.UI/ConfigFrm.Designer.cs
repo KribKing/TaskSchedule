@@ -483,6 +483,7 @@
             this.rtbxml.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtbxml.Location = new System.Drawing.Point(10, 40);
             this.rtbxml.Name = "rtbxml";
+            this.rtbxml.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedBoth;
             this.rtbxml.ShowSelectionMargin = true;
             this.rtbxml.Size = new System.Drawing.Size(372, 205);
             this.rtbxml.TabIndex = 5;
@@ -793,6 +794,7 @@
             this.txttmp.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txttmp.Location = new System.Drawing.Point(70, 41);
             this.txttmp.Name = "txttmp";
+            this.txttmp.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedBoth;
             this.txttmp.ShowSelectionMargin = true;
             this.txttmp.Size = new System.Drawing.Size(365, 296);
             this.txttmp.TabIndex = 1;
@@ -841,6 +843,7 @@
             this.rttscript.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rttscript.Location = new System.Drawing.Point(7, 14);
             this.rttscript.Name = "rttscript";
+            this.rttscript.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedBoth;
             this.rttscript.ShowSelectionMargin = true;
             this.rttscript.Size = new System.Drawing.Size(428, 323);
             this.rttscript.TabIndex = 1;

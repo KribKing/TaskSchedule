@@ -11,8 +11,10 @@ namespace DownLoad.Business
 {
     public class RimsInterface
     {
+        public bool IsRecordBody { get; set; }
         public string Run(string strjson)
         {
+            
             string strresult = "";
             string strackcode = "";
             string strackmsg = "";
@@ -31,7 +33,7 @@ namespace DownLoad.Business
                 {
                     RequestMessage JObj = JsonConvert.DeserializeObject<RequestMessage>(strjson);
                     trancode = JObj.Request.Head.TranCode.ToString().Trim();
-                    tranname = JObj.Request.Head.TranCode.ToString().Trim();
+                    tranname = JObj.Request.Head.TranName.ToString().Trim();
                     transys = JObj.Request.Head.TranSys.ToString().Trim();
                     transysname = JObj.Request.Head.TranSys.ToString().Trim();
                     JkInterface jk = JkFactoryManager.CreateInstance(new JobKey(trancode, transys));
@@ -46,7 +48,14 @@ namespace DownLoad.Business
                     {
                         string jstr = JObj.Request.Body.ToString();
                         ResultInfo info = jk.Run(jstr);
-                        strresult = new ResponseMessage() { Response = new Response() { Head = new Head() { TranCode = trancode, TranName = tranname, TranSys = transys, TranSysName = transysname, AckCode = info.ackcode, AckMessage = info.ackmsg }, Body = info.body } }.ToString();
+                        if (IsRecordBody)
+                        {
+                            strresult = new ResponseMessage() { Response = new Response() { Head = new Head() { TranCode = trancode, TranName = tranname, TranSys = transys, TranSysName = transysname, AckCode = info.ackcode, AckMessage = info.ackmsg }, Body = info.body } }.ToString();
+                        }
+                        else
+                        {
+                            strresult = new ResponseMessage() { Response = new Response() { Head = new Head() { TranCode = trancode, TranName = tranname, TranSys = transys, TranSysName = transysname, AckCode = info.ackcode, AckMessage = info.ackmsg }, Body = "" } }.ToString();
+                        }
                         if (info.ackcode.Contains("100"))
                         {
                             Log4netUtil.Debug("返回数据:" + strresult);

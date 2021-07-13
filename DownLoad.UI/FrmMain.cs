@@ -37,6 +37,7 @@ namespace DownLoad.UI
                 Log4netUtil.IsLog = Settings.Default.islog;
                 GlobalInstanceManager<JobInfoManager>.Intance = new JobInfoManager(Settings.Default.dbtype, EncodeAndDecode.Decode(Settings.Default.connstring));
                 GlobalInstanceManager<SchedulerManager>.Intance = new SchedulerManager();
+                GlobalInstanceManager<RimsInterface>.Intance.IsRecordBody = Settings.Default.isbodyrecord;
                 this.LoadJobInfo();
                 Log4netUtil.Info("初始化加载完成");
             }
@@ -238,12 +239,12 @@ namespace DownLoad.UI
                 {
                     item.StateImageIndex = 6;
                 }
+
             }
             catch (Exception ex)
             {
                 Log4netUtil.Debug("暂停调度器失败：" + ex.Message);
             }
-
         }
 
         private void btnreset_Click(object sender, EventArgs e)
@@ -311,8 +312,12 @@ namespace DownLoad.UI
             JobInfo info = node.Tag as JobInfo;
             if (info == null)
                 return;
-            string strrequest = GlobalInstanceManager<JobInfoManager>.Intance.GetExcuteCondition(info);
-            this.QuickExcute(info, strrequest);
+            Task task = new Task(() =>
+          {
+              string strrequest = GlobalInstanceManager<JobInfoManager>.Intance.GetExcuteCondition(info);
+              this.QuickExcute(info, strrequest);
+          });
+            task.Start();
         }
 
         public void QuickExcute(JobInfo jobInfo, string request)
@@ -470,6 +475,11 @@ namespace DownLoad.UI
                 }
             }
             GlobalInstanceManager<JobInfoManager>.Intance.SaveJobInfo();
+        }
+
+        private void FrmMain_VisibleChanged(object sender, EventArgs e)
+        {
+
         }
 
     }

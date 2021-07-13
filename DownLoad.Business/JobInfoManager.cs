@@ -181,15 +181,15 @@ namespace DownLoad.Business
             try
             {
                 DatabaseType type = GlobalInstanceManager<GlobalSqlManager>.Intance.GetDbTyle(this.cur_dbtype);
-                string paraid = type==(DatabaseType.Oracle|DatabaseType.MySql)?"id":"@id";
-                string parasystem = type==(DatabaseType.Oracle|DatabaseType.MySql)?"system":"@system";
+                string paraid = type == (DatabaseType.Oracle | DatabaseType.MySql) ? "id" : "@id";
+                string parasystem = type == (DatabaseType.Oracle | DatabaseType.MySql) ? "system" : "@system";
                 var db = new DbSession(GlobalInstanceManager<GlobalSqlManager>.Intance.GetDbTyle(this.cur_dbtype), this.cur_dbconstring);
-                DataTable dt = db.FromProc("usp_jk_getjobzxtj").AddInParameter(paraid, DbType.String, id).AddInParameter(parasystem, DbType.String, id).ToDataTable();           
+                DataTable dt = db.FromProc("usp_jk_getjobzxtj").AddInParameter(paraid, DbType.String, id).AddInParameter(parasystem, DbType.String, id).ToDataTable();
                 strexcute = dt == null || dt.Rows.Count <= 0 ? "" : dt.Rows[0][0].ToString();
             }
             catch (Exception ex)
             {
-                Log4netUtil.Error("获取作业执行条件异常:" + ex.Message,ex);
+                Log4netUtil.Error("获取作业执行条件异常["+id+"]:["+system+"]" + ex.Message,ex);
                 strexcute = "";
             }
             return strexcute;
