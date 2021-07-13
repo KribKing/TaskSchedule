@@ -49,6 +49,8 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.cbbody = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
@@ -61,6 +63,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbisdblog.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbisautostart.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbdbtype.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbbody.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -70,14 +73,14 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelControl1.Location = new System.Drawing.Point(0, 282);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(706, 50);
+            this.panelControl1.Size = new System.Drawing.Size(747, 50);
             this.panelControl1.TabIndex = 2;
             // 
             // btnsave
             // 
             this.btnsave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnsave.Image = ((System.Drawing.Image)(resources.GetObject("btnsave.Image")));
-            this.btnsave.Location = new System.Drawing.Point(519, 15);
+            this.btnsave.Location = new System.Drawing.Point(550, 15);
             this.btnsave.Name = "btnsave";
             this.btnsave.Size = new System.Drawing.Size(75, 23);
             this.btnsave.TabIndex = 0;
@@ -88,7 +91,7 @@
             // 
             this.btnclose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnclose.Image = ((System.Drawing.Image)(resources.GetObject("btnclose.Image")));
-            this.btnclose.Location = new System.Drawing.Point(626, 15);
+            this.btnclose.Location = new System.Drawing.Point(657, 15);
             this.btnclose.Name = "btnclose";
             this.btnclose.Size = new System.Drawing.Size(75, 23);
             this.btnclose.TabIndex = 0;
@@ -103,12 +106,14 @@
             this.panelControl2.Controls.Add(this.txtconnectstring);
             this.panelControl2.Controls.Add(this.cbisfilelog);
             this.panelControl2.Controls.Add(this.cbtheme);
+            this.panelControl2.Controls.Add(this.cbbody);
             this.panelControl2.Controls.Add(this.cbisdblog);
             this.panelControl2.Controls.Add(this.cbisautostart);
             this.panelControl2.Controls.Add(this.cbdbtype);
             this.panelControl2.Controls.Add(this.labelControl8);
             this.panelControl2.Controls.Add(this.labelControl4);
             this.panelControl2.Controls.Add(this.labelControl7);
+            this.panelControl2.Controls.Add(this.labelControl3);
             this.panelControl2.Controls.Add(this.labelControl6);
             this.panelControl2.Controls.Add(this.labelControl2);
             this.panelControl2.Controls.Add(this.labelControl5);
@@ -116,7 +121,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(706, 282);
+            this.panelControl2.Size = new System.Drawing.Size(747, 282);
             this.panelControl2.TabIndex = 3;
             // 
             // cesjm
@@ -124,7 +129,7 @@
             this.cesjm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cesjm.AutoSizeInLayoutControl = true;
             this.cesjm.EditValue = true;
-            this.cesjm.Location = new System.Drawing.Point(652, 105);
+            this.cesjm.Location = new System.Drawing.Point(683, 147);
             this.cesjm.Name = "cesjm";
             this.cesjm.Properties.AutoWidth = true;
             this.cesjm.Properties.Caption = "加密";
@@ -135,7 +140,7 @@
             // btnyy
             // 
             this.btnyy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnyy.Location = new System.Drawing.Point(652, 189);
+            this.btnyy.Location = new System.Drawing.Point(683, 231);
             this.btnyy.Name = "btnyy";
             this.btnyy.Size = new System.Drawing.Size(49, 23);
             this.btnyy.TabIndex = 0;
@@ -144,14 +149,14 @@
             // 
             // txtappname
             // 
-            this.txtappname.Location = new System.Drawing.Point(148, 145);
+            this.txtappname.Location = new System.Drawing.Point(148, 187);
             this.txtappname.Name = "txtappname";
             this.txtappname.Size = new System.Drawing.Size(446, 20);
             this.txtappname.TabIndex = 2;
             // 
             // txtconnectstring
             // 
-            this.txtconnectstring.Location = new System.Drawing.Point(148, 103);
+            this.txtconnectstring.Location = new System.Drawing.Point(148, 145);
             this.txtconnectstring.Name = "txtconnectstring";
             this.txtconnectstring.Size = new System.Drawing.Size(446, 20);
             this.txtconnectstring.TabIndex = 2;
@@ -171,7 +176,7 @@
             // 
             // cbtheme
             // 
-            this.cbtheme.Location = new System.Drawing.Point(148, 190);
+            this.cbtheme.Location = new System.Drawing.Point(148, 232);
             this.cbtheme.Name = "cbtheme";
             this.cbtheme.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -272,7 +277,7 @@
             // 
             // labelControl8
             // 
-            this.labelControl8.Location = new System.Drawing.Point(25, 194);
+            this.labelControl8.Location = new System.Drawing.Point(25, 236);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(48, 14);
             this.labelControl8.TabIndex = 0;
@@ -280,7 +285,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(25, 148);
+            this.labelControl4.Location = new System.Drawing.Point(25, 190);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(48, 14);
             this.labelControl4.TabIndex = 0;
@@ -288,7 +293,7 @@
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(25, 105);
+            this.labelControl7.Location = new System.Drawing.Point(25, 147);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(60, 14);
             this.labelControl7.TabIndex = 0;
@@ -326,11 +331,31 @@
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "数据库类型";
             // 
+            // labelControl3
+            // 
+            this.labelControl3.Location = new System.Drawing.Point(25, 105);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(111, 14);
+            this.labelControl3.TabIndex = 0;
+            this.labelControl3.Text = "返回串Body是否记录";
+            // 
+            // cbbody
+            // 
+            this.cbbody.Location = new System.Drawing.Point(148, 102);
+            this.cbbody.Name = "cbbody";
+            this.cbbody.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbbody.Properties.Items.AddRange(new object[] {
+            "是",
+            "否"});
+            this.cbbody.Size = new System.Drawing.Size(130, 20);
+            this.cbbody.TabIndex = 1;
+            // 
             // SettingsFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(706, 332);
+            this.ClientSize = new System.Drawing.Size(747, 332);
             this.ControlBox = false;
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
@@ -352,6 +377,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbisdblog.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbisautostart.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbdbtype.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbbody.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -378,5 +404,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.CheckEdit cesjm;
         private DevExpress.XtraEditors.SimpleButton btnyy;
+        private DevExpress.XtraEditors.ComboBoxEdit cbbody;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
     }
 }

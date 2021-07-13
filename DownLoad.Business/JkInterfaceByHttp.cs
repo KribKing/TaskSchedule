@@ -48,8 +48,10 @@ namespace DownLoad.Business
             ResultInfo info = new ResultInfo();
             try
             {
+               // Log4netUtil.Info("【" + cur_JobInfo.name + "】:" + cur_JobInfo.weburl + method+",body:"+ body);
                 info.ackmsg = GlobalWebRequestHelper.HttpGetRequest(cur_JobInfo.weburl + method, body, token: TokenInfo.access_token);
                 info.body = info.ackmsg;
+               // Log4netUtil.Info("【" + cur_JobInfo.name + "】Result:" + info.ackmsg);
                 info.ackflg = true;
             }
             catch (Exception ex)

@@ -70,6 +70,7 @@ namespace DownLoad.UI
             }
             try
             {
+                //GlobalInstanceManager<GlobalSqlManager>.Intance.GetTest(this.ConnectString);
                 GlobalInstanceManager<GlobalSqlManager>.Intance.GetDataTable(this.tabControl1.SelectedIndex == 1 ? 3 : 0, this.ConnectString, "select 1");
                 MessageBox.Show("连接串成功，请将加密后的字符串拷贝到相应的配置文件中");
             }
