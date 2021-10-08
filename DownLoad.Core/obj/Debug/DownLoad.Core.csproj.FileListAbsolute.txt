@@ -16,3 +16,4 @@ D:\GitHub\DownLoadExe\DownLoad.Core\obj\Debug\DownLoad.Core.csproj.CoreCompileIn
 D:\GitHub\DownLoadExe\DownLoad.Core\obj\Debug\DownLoad.Core.csproj.CopyComplete
 =======
 >>>>>>> 384463ff4e2d93c58490c80c8a2e36830f8ab475
+D:\GitHub\DownLoadExe\DownLoad.Core\obj\Debug\DownLoad.Core.csproj.AssemblyReference.cache
