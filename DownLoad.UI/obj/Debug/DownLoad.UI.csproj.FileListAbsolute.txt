@@ -36,3 +36,4 @@ D:\GitHub\DownLoadExe\DownLoad.UI\obj\Debug\DownLoad.UI.MapXmlFrm.resources
 D:\GitHub\DownLoadExe\DownLoad.UI\obj\Debug\DownLoad.UI.ShowPathFrm.resources
 D:\GitHub\DownLoadExe\DownLoad.UI\obj\Debug\DownLoad.UI.TestFrm.resources
 D:\GitHub\DownLoadExe\DownLoad.UI\obj\Debug\DownLoad.UI.TableFrm.resources
+D:\GitHub\DownLoadExe\DownLoad.UI\obj\Debug\DownLoad.UI.csproj.AssemblyReference.cache

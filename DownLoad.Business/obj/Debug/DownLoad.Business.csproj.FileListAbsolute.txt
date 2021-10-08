@@ -8,3 +8,4 @@ D:\康复数据下载程序\DownLoad.Business.pdb
 D:\GitHub\DownLoadExe\DownLoad.Business\obj\Debug\DownLoad.Business.csproj.AssemblyReference.cache
 D:\GitHub\DownLoadExe\DownLoad.Business\obj\Debug\DownLoad.Business.csproj.CoreCompileInputs.cache
 D:\GitHub\DownLoadExe\DownLoad.Business\obj\Debug\DownLoad.Business.csproj.CopyComplete
+D:\GitHub\DownLoadExe\DownLoad.Business\obj\Debug\DownLoad.Business.csprojResolveAssemblyReference.cache
