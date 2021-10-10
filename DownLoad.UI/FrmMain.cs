@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 
 namespace DownLoad.UI
 {
-    public partial class FrmMain : FrmBase
+    public partial class FrmMain : FrmBase,IQuickExcuteInterface
     {
         private JobInfo Cur_Job;
         private Dictionary<string, IntPtr> WinHandle = new Dictionary<string, IntPtr>();
@@ -93,6 +93,7 @@ namespace DownLoad.UI
             {
                 e.Cancel = true;    //取消"关闭窗口"事件
                 this.notifyIcon1.Visible = true;
+                this.ShowInTaskbar = false;
                 this.WindowState = FormWindowState.Minimized;    //使关闭时窗口向右下角缩小的效果               
                 this.Hide();
                 return;
@@ -161,6 +162,7 @@ namespace DownLoad.UI
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             this.notifyIcon1.Visible = false;
+            this.ShowInTaskbar = true;
             this.Show();
             this.WindowState = FormWindowState.Normal;
             this.Focus();

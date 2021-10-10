@@ -42,14 +42,14 @@
             this.map = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.relemap = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.txtCdata = new DevExpress.XtraEditors.TextEdit();
             this.txtns = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.txtnode = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.txtjson = new System.Windows.Forms.TextBox();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.txtCdata = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
@@ -61,11 +61,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCdata.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtns.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtnode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCdata.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -212,6 +212,16 @@
             this.panelControl2.Size = new System.Drawing.Size(525, 95);
             this.panelControl2.TabIndex = 2;
             // 
+            // txtCdata
+            // 
+            this.txtCdata.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCdata.Location = new System.Drawing.Point(88, 65);
+            this.txtCdata.Name = "txtCdata";
+            this.txtCdata.Size = new System.Drawing.Size(421, 20);
+            this.txtCdata.TabIndex = 1;
+            this.txtCdata.TextChanged += new System.EventHandler(this.txtnode_TextChanged);
+            // 
             // txtns
             // 
             this.txtns.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -221,6 +231,14 @@
             this.txtns.Size = new System.Drawing.Size(421, 20);
             this.txtns.TabIndex = 1;
             this.txtns.TextChanged += new System.EventHandler(this.txtnode_TextChanged);
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Location = new System.Drawing.Point(22, 66);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(39, 14);
+            this.labelControl3.TabIndex = 0;
+            this.labelControl3.Text = "CDATA";
             // 
             // txtnode
             // 
@@ -268,24 +286,6 @@
             this.txtjson.Size = new System.Drawing.Size(360, 397);
             this.txtjson.TabIndex = 1;
             // 
-            // labelControl3
-            // 
-            this.labelControl3.Location = new System.Drawing.Point(22, 66);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(39, 14);
-            this.labelControl3.TabIndex = 0;
-            this.labelControl3.Text = "CDATA";
-            // 
-            // txtCdata
-            // 
-            this.txtCdata.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCdata.Location = new System.Drawing.Point(88, 65);
-            this.txtCdata.Name = "txtCdata";
-            this.txtCdata.Size = new System.Drawing.Size(421, 20);
-            this.txtCdata.TabIndex = 1;
-            this.txtCdata.TextChanged += new System.EventHandler(this.txtnode_TextChanged);
-            // 
             // MapXmlFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -294,6 +294,7 @@
             this.Controls.Add(this.splitContainerControl1);
             this.Controls.Add(this.panelControl1);
             this.Name = "MapXmlFrm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Xml映射";
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
@@ -307,12 +308,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCdata.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtns.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtnode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             this.groupControl2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCdata.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

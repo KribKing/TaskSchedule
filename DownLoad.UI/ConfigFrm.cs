@@ -14,6 +14,8 @@ using DownLoad.Core;
 using DownLoad.Core.Schema;
 using DownLoad.UI.Properties;
 using System.Xml;
+using DevExpress.XtraEditors;
+using ICSharpCode.TextEditor.Document;
 
 namespace DownLoad.UI
 {
@@ -21,61 +23,23 @@ namespace DownLoad.UI
     {
         private JobInfo Cur_JobInfo;
         private TreeListNode Cur_JobNode;
-        private FrmMain ParentFrm;
+        private IQuickExcuteInterface ParentFrm;
+        private PopupContainerEdit Cur_popc;
         public ConfigFrm()
         {
             InitializeComponent();
         }
-        public ConfigFrm(JobInfo info, TreeListNode node, FrmMain Pat)
+        public ConfigFrm(JobInfo info, TreeListNode node, IQuickExcuteInterface Pat)
         {
             InitializeComponent();
             this.Cur_JobInfo = info;
             this.Cur_JobNode = node;
             this.ParentFrm = Pat;
-        }
-        private void ConfigFrm_Load(object sender, EventArgs e)
-        {
-            this.xtraTabControl1.ShowTabHeader = DevExpress.Utils.DefaultBoolean.False;
-            if (this.Cur_JobInfo != null)
-            {
-                this.Text = string.Format("作业【{0}】的属性", this.Cur_JobInfo.name);
-                this.teid.Text = this.Cur_JobInfo.id;
-                this.tename.Text = this.Cur_JobInfo.name;
-                this.tesystem.Text = this.Cur_JobInfo.system;
-                this.tesysname.Text = this.Cur_JobInfo.sysname;
-                this.txtexp.Text = this.Cur_JobInfo.expression;
-                this.cejlzt.SelectedIndex = int.Parse(this.Cur_JobInfo.jlzt);
-                this.cbtop.SelectedIndex = this.Cur_JobInfo.isbulkop ? 0 : 1;
-                this.gsource.Enabled = this.cbtop.SelectedIndex == 0 ? true : false;
-                this.cbetdbtype.SelectedIndex = this.Cur_JobInfo.targetdbtype;
-                this.cetjm.Checked = this.Cur_JobInfo.istargetdbencode;
-                this.txttstr.Text = this.cetjm.Checked ? EncodeAndDecode.Encode(this.Cur_JobInfo.targetdbstring) : this.Cur_JobInfo.targetdbstring;
-                this.txttmpname.Text = this.Cur_JobInfo.tmpname;
-                this.txttmp.Text = this.Cur_JobInfo.createtmp;
-                this.rttscript.Text = this.Cur_JobInfo.targetsql;
-                this.rbsweb.Checked = this.Cur_JobInfo.sourcetype == 0 ? true : false;
-                this.cbstype.SelectedIndex = this.Cur_JobInfo.servertype;
-                this.txtMethod.Text = this.Cur_JobInfo.servermethod;
-                this.txturl.Text = this.Cur_JobInfo.weburl;
-                this.cbejxlx.SelectedIndex = this.Cur_JobInfo.nodelx;
-                this.tenode.Text = this.Cur_JobInfo.node;
-                this.rtbxml.Text = this.Cur_JobInfo.xmlconfig;
-                this.rbsdb.Checked = this.Cur_JobInfo.sourcetype == 1 ? true : false;
-                this.cbesdbtype.SelectedIndex = this.Cur_JobInfo.sourcedbtype;
-                this.cesjm.Checked = this.Cur_JobInfo.issourcedbencode;
-                this.txtsstr.Text = this.cesjm.Checked ? EncodeAndDecode.Encode(this.Cur_JobInfo.sourcedbstring) : this.Cur_JobInfo.sourcedbstring;
-                this.rtsscript.Text = this.Cur_JobInfo.sourcesql;
-                this.teid.Properties.ReadOnly = this.Cur_JobNode == null ? false : true;
-                this.tesystem.Properties.ReadOnly = this.Cur_JobNode == null ? false : true;
-                this.tesysname.Properties.ReadOnly = this.Cur_JobNode == null ? false : true;
-                this.btnnew.Visible = this.Cur_JobNode == null ? true : false;
-            }
-            if (this.Cur_JobNode == null)
-            {
-                this.teid.Focus();
-            }
-        }
-
+            this.txttmp.Document.HighlightingStrategy = HighlightingStrategyFactory.CreateHighlightingStrategy("TSql");
+            this.rtsscript.Document.HighlightingStrategy = HighlightingStrategyFactory.CreateHighlightingStrategy("TSql");
+            this.rttscript.Document.HighlightingStrategy = HighlightingStrategyFactory.CreateHighlightingStrategy("TSql");
+            this.rtbxml.Document.HighlightingStrategy = HighlightingStrategyFactory.CreateHighlightingStrategy("XML");
+        }     
         private void btnsave_Click(object sender, EventArgs e)
         {
             try
@@ -143,11 +107,11 @@ namespace DownLoad.UI
                     this.Cur_JobNode.StateImageIndex = this.Cur_JobInfo.jlzt == "0" ? 1 : 0;
                 }
                 GlobalInstanceManager<JobInfoManager>.Intance.AddJobInfo(Cur_JobInfo);
-                MessageBox.Show("保存成功", "卫宁操作提示", MessageBoxButtons.OK);
+                MessageBox.Show("保存成功", "操作提示", MessageBoxButtons.OK);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("保存失败，异常原因：" + ex.Message, "卫宁操作提示", MessageBoxButtons.OK);
+                MessageBox.Show("保存失败，异常原因：" + ex.Message, "操作提示", MessageBoxButtons.OK);
             }
         }
 
@@ -171,12 +135,13 @@ namespace DownLoad.UI
             this.teid.Enabled = this.tesystem.Enabled = this.tesysname.Enabled = this.rbsweb.Checked = true;
             this.teid.Text = this.tename.Text = this.tesystem.Text = this.tesysname.Text = this.txtexp.Text = this.txturl.Text = this.txttmpname.Text = this.txttmp.Text = this.rttscript.Text = this.rtsscript.Text = this.tenode.Text = this.txtMethod.Text = "";
             this.cejlzt.SelectedIndex = 0;
-
         }
 
         private void rbsweb_CheckedChanged(object sender, EventArgs e)
         {
             this.xtraTabControl1.SelectedTabPageIndex = this.rbsweb.Checked ? 0 : 1;
+            this.xtraTabPage2.PageVisible = !this.rbsweb.Checked;
+            this.xtraTabPage1.PageVisible = this.rbsweb.Checked;
         }
 
         private void cbtop_SelectedIndexChanged(object sender, EventArgs e)
@@ -194,18 +159,6 @@ namespace DownLoad.UI
             }
         }
 
-        private void txttmp_DoubleClick(object sender, EventArgs e)
-        {
-            this.txttmp.Dock = this.txttmp.Dock == DockStyle.None ? DockStyle.Fill : DockStyle.None;
-            this.txttmp.BringToFront();
-        }
-
-        private void rttscript_DoubleClick(object sender, EventArgs e)
-        {
-            this.rttscript.Dock = this.rttscript.Dock == DockStyle.None ? DockStyle.Fill : DockStyle.None;
-            this.rttscript.BringToFront();
-        }
-
         private void cetjm_CheckedChanged(object sender, EventArgs e)
         {
             this.txttstr.Text = this.cetjm.Checked ? EncodeAndDecode.Encode(this.txttstr.Text.Trim()) : EncodeAndDecode.Decode(this.txttstr.Text.Trim());
@@ -219,13 +172,6 @@ namespace DownLoad.UI
         private void cbejxlx_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.pxml.Visible = this.cbejxlx.SelectedIndex == 0 ? false : true;
-        }
-
-        private void rtbxml_DoubleClick(object sender, EventArgs e)
-        {
-            this.webpanel.Dock = this.rtbxml.Dock == DockStyle.None ? DockStyle.Fill : DockStyle.None;
-            this.rtbxml.Dock = this.rtbxml.Dock == DockStyle.None ? DockStyle.Fill : DockStyle.None;
-            this.rtbxml.BringToFront();
         }
 
         private void btnxml_Click(object sender, EventArgs e)
@@ -247,13 +193,12 @@ namespace DownLoad.UI
                 MessageBox.Show("当前作业内容无效，请检查", "操作提示", MessageBoxButtons.OK);
                 return;
             }
-           
+
             try
             {
                 DataTable dt = new DataTable();
                 if (this.Cur_JobInfo.sourcetype == 0)
                 {
-
                     if (this.Cur_JobInfo.nodelx == 0)
                     {
                         string request = GlobalInstanceManager<JobInfoManager>.Intance.GetExcuteCondition(this.Cur_JobInfo);
@@ -280,7 +225,7 @@ namespace DownLoad.UI
                 {
                     dt = GlobalInstanceManager<GlobalSqlManager>.Intance.GetDataTable(this.Cur_JobInfo.sourcedbtype, this.Cur_JobInfo.sourcedbstring, this.Cur_JobInfo.sourcesql);
                 }
-                if (dt!=null)
+                if (dt != null)
                 {
                     string strtmp = "create table " + this.Cur_JobInfo.tmpname + Environment.NewLine + "(" + Environment.NewLine;
                     foreach (DataColumn dc in dt.Columns)
@@ -291,7 +236,7 @@ namespace DownLoad.UI
                     strtmp += ")";
                     this.txttmp.Text = strtmp;
                 }
-               
+
             }
             catch (Exception ex)
             {
@@ -344,6 +289,111 @@ namespace DownLoad.UI
         {
             TestFrm frm = new TestFrm(this.Cur_JobInfo);
             frm.Show();
+        }
+
+        private void popctarget_QueryPopUp(object sender, CancelEventArgs e)
+        {
+            this.Cur_popc = sender as PopupContainerEdit;
+            this.Cur_popc.Properties.PopupControl = this.pop_ctrl_combox;
+            this.LoadPopCtrl();
+        }
+
+        private void LoadPopCtrl()
+        {
+            List<JobInfo> list = GlobalInstanceManager<JobInfoManager>.Intance.JobInfoDic.Values.ToList();
+            this.gcjob.DataSource = list;
+            this.gcjob.RefreshDataSource();
+            foreach (JobInfo item in list.Where(a => a.system == this.tesystem.Text.Trim()))
+            {
+                int rowhanlde = this.gvjob.GetRowHandle(list.IndexOf(item));
+                this.gvjob.SelectRow(rowhanlde);
+            }
+        }
+
+        private void btnok_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<int> list = this.gvjob.GetSelectedRows().Where(a => a >= 0).ToList();
+                if (this.Cur_popc == null || list == null || list.Count <= 0) return;
+                foreach (int rowhanlde in list)
+                {
+                    JobInfo info = this.gvjob.GetRow(rowhanlde) as JobInfo;
+                    if (this.Cur_popc == this.popctarget)
+                    {
+                        info.targetdbtype = this.cbetdbtype.SelectedIndex;
+                        info.targetdbstring = this.txttstr.Text.Trim();
+                        info.istargetdbencode = this.cetjm.Checked;
+                    }
+                    else
+                    {
+                        info.sourcedbtype = this.cbesdbtype.SelectedIndex;
+                        info.sourcedbstring = this.txtsstr.Text.Trim();
+                        info.issourcedbencode = this.cesjm.Checked;
+                    }
+                }
+                GlobalInstanceManager<JobInfoManager>.Intance.SaveJobInfo();
+                MessageBox.Show("配置传递成功", "操作提示", MessageBoxButtons.OK);
+            }
+            catch (Exception ex)
+            {
+                Log4netUtil.Error("配置传递失败", ex);
+            }          
+        }
+
+        private void btnclosepop_Click(object sender, EventArgs e)
+        {
+            if (this.Cur_popc == null) return;
+            this.Cur_popc.ClosePopup();
+        }
+
+        private void btnright_Click(object sender, EventArgs e)
+        {
+            SimpleButton btn = sender as SimpleButton;
+            this.splitctrl.PanelVisibility = btn == this.btnright ? SplitPanelVisibility.Panel1 :
+                                            btn == this.btnleft ? SplitPanelVisibility.Panel2 : SplitPanelVisibility.Both;
+        }
+
+        private void ConfigFrm_Shown(object sender, EventArgs e)
+        {
+            if (this.Cur_JobInfo != null)
+            {
+                this.Text = string.Format("作业【{0}】的属性", this.Cur_JobInfo.name);
+                this.teid.Text = this.Cur_JobInfo.id;
+                this.tename.Text = this.Cur_JobInfo.name;
+                this.tesystem.Text = this.Cur_JobInfo.system;
+                this.tesysname.Text = this.Cur_JobInfo.sysname;
+                this.txtexp.Text = this.Cur_JobInfo.expression;
+                this.cejlzt.SelectedIndex = int.Parse(this.Cur_JobInfo.jlzt);
+                this.cbtop.SelectedIndex = this.Cur_JobInfo.isbulkop ? 0 : 1;
+                this.gsource.Enabled = this.Cur_JobInfo.isbulkop;
+                this.cbetdbtype.SelectedIndex = this.Cur_JobInfo.targetdbtype;
+                this.cetjm.Checked = this.Cur_JobInfo.istargetdbencode;
+                this.txttstr.Text = this.cetjm.Checked ? EncodeAndDecode.Encode(this.Cur_JobInfo.targetdbstring) : this.Cur_JobInfo.targetdbstring;
+                this.txttmpname.Text = this.Cur_JobInfo.tmpname;
+                this.txttmp.Text = this.Cur_JobInfo.createtmp;
+                this.rttscript.Text = this.Cur_JobInfo.targetsql;
+                this.rbsweb.Checked = this.Cur_JobInfo.sourcetype == 0;
+                this.rbsdb.Checked = this.Cur_JobInfo.sourcetype == 1;
+                this.cbstype.SelectedIndex = this.Cur_JobInfo.servertype;
+                this.txtMethod.Text = this.Cur_JobInfo.servermethod;
+                this.txturl.Text = this.Cur_JobInfo.weburl;
+                this.cbejxlx.SelectedIndex = this.Cur_JobInfo.nodelx;
+                this.tenode.Text = this.Cur_JobInfo.node;
+                this.rtbxml.Text = this.Cur_JobInfo.xmlconfig;
+                this.cbesdbtype.SelectedIndex = this.Cur_JobInfo.sourcedbtype;
+                this.cesjm.Checked = this.Cur_JobInfo.issourcedbencode;
+                this.txtsstr.Text = this.cesjm.Checked ? EncodeAndDecode.Encode(this.Cur_JobInfo.sourcedbstring) : this.Cur_JobInfo.sourcedbstring;
+                this.rtsscript.Text = this.Cur_JobInfo.sourcesql;
+                this.teid.Properties.ReadOnly = this.Cur_JobNode == null ? false : true;
+                this.tesystem.Properties.ReadOnly = this.Cur_JobNode == null ? false : true;
+                this.tesysname.Properties.ReadOnly = this.Cur_JobNode == null ? false : true;
+                this.btnnew.Visible = this.Cur_JobNode == null ? true : false;
+            }
+            if (this.Cur_JobNode == null)
+            {
+                this.teid.Focus();
+            }
         }
     }
 }

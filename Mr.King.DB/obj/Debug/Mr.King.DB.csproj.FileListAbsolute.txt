@@ -1,6 +1,0 @@
-D:\康复数据下载程序\Mr.King.DB.XML
-D:\康复数据下载程序\Mr.King.DB.dll
-D:\康复数据下载程序\Mr.King.DB.pdb
-D:\GitHub\DownLoadExe\Mr.King.DB\obj\Debug\Mr.King.DB.csprojResolveAssemblyReference.cache
-D:\GitHub\DownLoadExe\Mr.King.DB\obj\Debug\Mr.King.DB.dll
-D:\GitHub\DownLoadExe\Mr.King.DB\obj\Debug\Mr.King.DB.pdb

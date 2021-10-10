@@ -1,19 +1,8 @@
 D:\康复数据下载程序\DownLoad.Core.dll
-D:\GitHub\DownLoadExe\Winning.DownLoad.Core\obj\Debug\Winning.DownLoad.Core.ProcessBarFrm.resources
-D:\GitHub\DownLoadExe\Winning.DownLoad.Core\obj\Debug\DownLoad.Core.csproj.GenerateResource.Cache
-D:\GitHub\DownLoadExe\Winning.DownLoad.Core\obj\Debug\DownLoad.Core.dll.licenses
-D:\GitHub\DownLoadExe\Winning.DownLoad.Core\obj\Debug\DownLoad.Core.dll
-D:\GitHub\DownLoadExe\Winning.DownLoad.Core\obj\Debug\DownLoad.Core.pdb
-D:\GitHub\DownLoadExe\Winning.DownLoad.Core\obj\Debug\DownLoad.Core.csprojResolveAssemblyReference.cache
 D:\GitHub\DownLoadExe\DownLoad.Core\obj\Debug\DownLoad.Core.ProcessBarFrm.resources
 D:\GitHub\DownLoadExe\DownLoad.Core\obj\Debug\DownLoad.Core.csproj.GenerateResource.cache
 D:\GitHub\DownLoadExe\DownLoad.Core\obj\Debug\DownLoad.Core.dll.licenses
 D:\GitHub\DownLoadExe\DownLoad.Core\obj\Debug\DownLoad.Core.dll
 D:\GitHub\DownLoadExe\DownLoad.Core\obj\Debug\DownLoad.Core.pdb
 D:\康复数据下载程序\DownLoad.Core.pdb
-<<<<<<< HEAD
-D:\GitHub\DownLoadExe\DownLoad.Core\obj\Debug\DownLoad.Core.csproj.CoreCompileInputs.cache
-D:\GitHub\DownLoadExe\DownLoad.Core\obj\Debug\DownLoad.Core.csproj.CopyComplete
-=======
->>>>>>> 384463ff4e2d93c58490c80c8a2e36830f8ab475
-D:\GitHub\DownLoadExe\DownLoad.Core\obj\Debug\DownLoad.Core.csproj.AssemblyReference.cache
+D:\GitHub\DownLoadExe\DownLoad.Core\obj\Debug\DownLoad.Core.FrmBase.resources

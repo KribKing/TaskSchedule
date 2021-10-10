@@ -28,12 +28,13 @@ namespace DownLoad.UI
         {
             this.cbdbtype.SelectedIndex = Settings.Default.dbtype;
             this.cbisautostart.SelectedIndex = Settings.Default.isautostart ? 0 : 1;
-            this.cbisdblog.SelectedIndex = Settings.Default.ismovefollow ? 0 : 1;
+            this.cbisfollow.SelectedIndex = Settings.Default.ismovefollow ? 0 : 1;
             this.cbisfilelog.SelectedIndex = Settings.Default.islog ? 0 : 1;
             this.txtconnectstring.Text = Settings.Default.connstring;
             this.txtappname.Text = Settings.Default.appname;
             this.cbtheme.SelectedItem = Settings.Default.theme;
             this.cbbody.SelectedIndex = Settings.Default.isbodyrecord ? 0 : 1;
+            this.cbeformmode.SelectedIndex = Settings.Default.formmode;
         }
 
         private void btnclose_Click(object sender, EventArgs e)
@@ -50,9 +51,10 @@ namespace DownLoad.UI
                 Settings.Default.appname = this.txtappname.Text.Trim();
                 Settings.Default.isautostart = this.cbisautostart.SelectedIndex == 0 ? true : false;
                 Settings.Default.islog = this.cbisfilelog.SelectedIndex == 0 ? true : false;
-                Settings.Default.ismovefollow = this.cbisdblog.SelectedIndex == 0 ? true : false;
+                Settings.Default.ismovefollow = this.cbisfollow.SelectedIndex == 0 ? true : false;
                 Settings.Default.theme = this.cbtheme.SelectedItem.ToString();
                 Settings.Default.isbodyrecord = this.cbbody.SelectedIndex == 0 ? true : false;
+                Settings.Default.formmode = this.cbeformmode.SelectedIndex;
                 Settings.Default.Save();
                 Log4netUtil.IsLog = Settings.Default.islog;
                 FrmBase.defaultLookAndFeel.LookAndFeel.SkinName = Settings.Default.theme;
@@ -87,6 +89,11 @@ namespace DownLoad.UI
         private void cesjm_CheckedChanged(object sender, EventArgs e)
         {
             this.txtconnectstring.Text = !this.cesjm.Checked ? EncodeAndDecode.Decode(this.txtconnectstring.Text.Trim()) : EncodeAndDecode.Encode(this.txtconnectstring.Text.Trim()) ;
+        }
+
+        private void cbeformmode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.lblisfollow.Visible = this.cbisfollow.Visible = this.cbeformmode.SelectedIndex == 0;
         }
     }
 }

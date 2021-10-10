@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IQuickExcuteInterface.cs" />
     <Compile Include="JkInterface.cs" />
     <Compile Include="JkInterfaceByRest.cs" />
     <Compile Include="JobInfoManager.cs" />

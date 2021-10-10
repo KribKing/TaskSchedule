@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using DownLoad.Business;
+﻿using DownLoad.Business;
+using DownLoad.Core;
+using System;
 
 namespace DownLoad.UI
 {

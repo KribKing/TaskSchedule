@@ -74,6 +74,12 @@
     <Compile Include="EncodeAndDecode.cs" />
     <Compile Include="EncodeHelper.cs" />
     <Compile Include="FollowMainWinHelper.cs" />
+    <Compile Include="FrmBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBase.Designer.cs">
+      <DependentUpon>FrmBase.cs</DependentUpon>
+    </Compile>
     <Compile Include="GetStrJsonHelper.cs" />
     <Compile Include="GlobalInstanceManager.cs" />
     <Compile Include="GlobalWebRequestHelper.cs" />
@@ -97,6 +103,9 @@
     <Compile Include="XmlHelper.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FrmBase.resx">
+      <DependentUpon>FrmBase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProcessBarFrm.resx">
       <DependentUpon>ProcessBarFrm.cs</DependentUpon>
     </EmbeddedResource>

@@ -103,7 +103,7 @@
             this.Controls.Add(this.panelControl1);
             this.Name = "ConsoleFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "控制台输出";
+            this.Text = "日志监控";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ConsoleFrm_FormClosing);
             this.Load += new System.EventHandler(this.ConsoleFrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();

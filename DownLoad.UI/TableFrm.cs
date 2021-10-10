@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using DownLoad.Core;
+using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using DownLoad.Core;
 namespace DownLoad.UI
 {
     public partial class TableFrm : FrmBase

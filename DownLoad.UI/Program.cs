@@ -37,7 +37,7 @@ namespace DownLoad.UI
                 Mutex mutex = new Mutex(true, Settings.Default.appname, out flag);
                 if (flag)
                 {
-                    Application.Run(new FrmMain());
+                    Application.Run((Settings.Default.formmode == 1 ? (Form)new NewMainFrm() : (Form)new FrmMain()));
                 }
                 else
                 {
@@ -60,7 +60,7 @@ namespace DownLoad.UI
             }
             catch (Exception ex)
             {
-                Log4netUtil.Error("捕获系统异常发生错误，原因："+ex.Message,ex);
+                Log4netUtil.Error("捕获系统异常发生错误，原因：" + ex.Message, ex);
             }
         }
 

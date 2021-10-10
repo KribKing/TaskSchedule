@@ -1,10 +1,5 @@
-D:\GitHub\DownLoadExe\Winning.DownLoad.Business\obj\Debug\DownLoad.Business.csprojResolveAssemblyReference.cache
-D:\GitHub\DownLoadExe\Winning.DownLoad.Business\obj\Debug\Winning.DownLoad.Business.dll
-D:\GitHub\DownLoadExe\Winning.DownLoad.Business\obj\Debug\Winning.DownLoad.Business.pdb
 D:\康复数据下载程序\DownLoad.Business.dll
 D:\GitHub\DownLoadExe\DownLoad.Business\obj\Debug\DownLoad.Business.dll
 D:\GitHub\DownLoadExe\DownLoad.Business\obj\Debug\DownLoad.Business.pdb
 D:\康复数据下载程序\DownLoad.Business.pdb
-D:\GitHub\DownLoadExe\DownLoad.Business\obj\Debug\DownLoad.Business.csproj.CoreCompileInputs.cache
-D:\GitHub\DownLoadExe\DownLoad.Business\obj\Debug\DownLoad.Business.csproj.CopyComplete
-D:\GitHub\DownLoadExe\DownLoad.Business\obj\Debug\DownLoad.Business.csproj.AssemblyReference.cache
+D:\GitHub\DownLoadExe\DownLoad.Business\obj\Debug\DownLoad.Business.csprojResolveAssemblyReference.cache

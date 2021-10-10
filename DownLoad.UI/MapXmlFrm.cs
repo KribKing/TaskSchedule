@@ -1,13 +1,8 @@
-﻿using DownLoad.Business;
+﻿using DownLoad.Core;
 using DownLoad.Core.Schema;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace DownLoad.UI

@@ -119,5 +119,17 @@ namespace DownLoad.UI.Properties {
                 this["isbodyrecord"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int formmode {
+            get {
+                return ((int)(this["formmode"]));
+            }
+            set {
+                this["formmode"] = value;
+            }
+        }
     }
 }
