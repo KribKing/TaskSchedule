@@ -1,0 +1,172 @@
+
+ 
+记录时间：2021-10-08 14:00:38,398 
+线程ID:[1] 
+日志级别：  INFO  
+出错类：LogExcept property: [(null)] - 
+错误描述：初始化加载完成
+ 
+
+ 
+记录时间：2021-10-08 14:55:00,151 
+线程ID:[1] 
+日志级别：  INFO  
+出错类：LogExcept property: [(null)] - 
+错误描述：初始化加载完成
+ 
+
+ 
+记录时间：2021-10-08 14:55:51,997 
+线程ID:[5] 
+日志级别：  ERROR 
+出错类：LogExcept property: [(null)] - 
+错误描述：获取作业执行条件异常[RIMS_XMLIST]:[RIMS]找不到存储过程 'usp_jk_getjobzxtj'。
+ 
+System.Data.SqlClient.SqlException (0x80131904): 找不到存储过程 'usp_jk_getjobzxtj'。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 Dos.ORM.Database.DoLoadDataSet(DbCommand command, DataSet dataSet, String[] tableNames)
+   在 Dos.ORM.Database.LoadDataSet(DbCommand command, DataSet dataSet, String[] tableNames)
+   在 Dos.ORM.Database.LoadDataSet(DbCommand command, DataSet dataSet, String tableName)
+   在 Dos.ORM.Database.ExecuteDataSet(DbCommand command)
+   在 Dos.ORM.DbSession.ExecuteDataSet(DbCommand cmd)
+   在 Dos.ORM.Section.ToDataSet()
+   在 Dos.ORM.ProcSection.ToDataSet()
+   在 Dos.ORM.Section.ToDataTable()
+   在 DownLoad.Business.JobInfoManager.GetExcuteCondition(String id, String system) 位置 D:\GitHub\DownLoadExe\DownLoad.Business\JobInfoManager.cs:行号 187
+ClientConnectionId:bb3c88d4-d7ce-4743-81f2-fba6e7320f15
+Error Number:2812,State:62,Class:16
+
+ 
+记录时间：2021-10-08 14:55:52,433 
+线程ID:[4] 
+日志级别：  INFO  
+出错类：LogExcept property: [(null)] - 
+错误描述：原始数据:{"Request":{"Head":{"Version":"1.1","TranCode":"RIMS_XMLIST","TranName":"康复业务-同步住院已收费项目","TranSys":"RIMS","TranSysName":"康复业务","AckCode":null,"AckMessage":"请求访问","ContentType":"text/json","AppId":"RIMS","MessageId":"87e37618-cfe6-477a-bc42-93b1564cfd37"},"Body":""}}
+ 
+
+ 
+记录时间：2021-10-08 14:56:25,650 
+线程ID:[4] 
+日志级别：  ERROR 
+出错类：LogExcept property: [(null)] - 
+错误描述：【康复业务-同步住院已收费项目】JkInterfaceBySourceDb执行异常:在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+ 
+System.Data.SqlClient.SqlException (0x80131904): 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接) ---> System.ComponentModel.Win32Exception (0x80004005): 找不到网络路径。
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 Dos.ORM.Database.DoLoadDataSet(DbCommand command, DataSet dataSet, String[] tableNames)
+   在 Dos.ORM.Database.LoadDataSet(DbCommand command, DataSet dataSet, String[] tableNames)
+   在 Dos.ORM.Database.LoadDataSet(DbCommand command, DataSet dataSet, String tableName)
+   在 Dos.ORM.Database.ExecuteDataSet(DbCommand command)
+   在 Dos.ORM.DbSession.ExecuteDataSet(DbCommand cmd)
+   在 Dos.ORM.Section.ToDataSet()
+   在 Dos.ORM.Section.ToDataTable()
+   在 DownLoad.Core.GlobalSqlManager.GetDataTable(Int32 dbstyle, String connectstring, String commandsql) 位置 D:\GitHub\DownLoadExe\DownLoad.Core\GlobalSqlManager.cs:行号 48
+   在 DownLoad.Business.JkInterfaceBySourceDb.Run(String jobj) 位置 D:\GitHub\DownLoadExe\DownLoad.Business\JkInterfaceBySourceDb.cs:行号 28
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:53,State:0,Class:20
+
+ 
+记录时间：2021-10-08 14:56:25,684 
+线程ID:[4] 
+日志级别：  ERROR 
+出错类：LogExcept property: [(null)] - 
+错误描述：返回数据:{"Response":{"Head":{"Version":"1.1","TranCode":"RIMS_XMLIST","TranName":"康复业务-同步住院已收费项目","TranSys":"RIMS","TranSysName":"RIMS","AckCode":"300.1","AckMessage":"在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)","ContentType":"text/json","AppId":"RIMS","MessageId":"f1c4ae98-b3df-4733-868f-5d1e5faf7c01"},"Body":"[]"}}
+ 
+
+ 
+记录时间：2021-10-08 17:49:15,591 
+线程ID:[9] 
+日志级别：  INFO  
+出错类：LogExcept property: [(null)] - 
+错误描述：初始化加载完成
+ 
+
+ 
+记录时间：2021-10-08 20:25:08,100 
+线程ID:[9] 
+日志级别：  INFO  
+出错类：LogExcept property: [(null)] - 
+错误描述：初始化加载完成
+ 
+
+ 
+记录时间：2021-10-08 20:30:38,342 
+线程ID:[10] 
+日志级别：  INFO  
+出错类：LogExcept property: [(null)] - 
+错误描述：初始化加载完成
+ 
+
+ 
+记录时间：2021-10-08 20:51:50,268 
+线程ID:[10] 
+日志级别：  INFO  
+出错类：LogExcept property: [(null)] - 
+错误描述：初始化加载完成
+ 
+
+ 
+记录时间：2021-10-08 20:56:30,205 
+线程ID:[9] 
+日志级别：  INFO  
+出错类：LogExcept property: [(null)] - 
+错误描述：初始化加载完成
+ 
+
+ 
+记录时间：2021-10-08 20:57:23,921 
+线程ID:[9] 
+日志级别：  INFO  
+出错类：LogExcept property: [(null)] - 
+错误描述：初始化加载完成
+ 
+
+ 
+记录时间：2021-10-08 21:00:18,885 
+线程ID:[9] 
+日志级别：  INFO  
+出错类：LogExcept property: [(null)] - 
+错误描述：初始化加载完成
+ 
+
+ 
+记录时间：2021-10-08 21:01:58,801 
+线程ID:[9] 
+日志级别：  INFO  
+出错类：LogExcept property: [(null)] - 
+错误描述：初始化加载完成
+ 
+
+ 
+记录时间：2021-10-08 21:07:04,077 
+线程ID:[9] 
+日志级别：  INFO  
+出错类：LogExcept property: [(null)] - 
+错误描述：初始化加载完成
+ 

@@ -1,0 +1,35 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:good="http://goodwillcis.com" xmlns:bjg="http://bjgoodwillcis.com">
+   <soapenv:Header>
+      <good:JiaheSecurity>
+         <!--Optional:-->
+         <good:UserName>?</good:UserName>
+         <!--Optional:-->
+         <good:Password>?</good:Password>
+         <!--Optional:-->
+         <good:Timestamp>?</good:Timestamp>
+         <!--Optional:-->
+         <good:FromSYS>?</good:FromSYS>
+         <!--Optional:-->
+         <good:IV>?</good:IV>
+      </good:JiaheSecurity>
+   </soapenv:Header>
+   <soapenv:Body>
+      <bjg:XMLMessageServer>
+         <!--Optional:-->
+         <bjg:Message>
+
+<![CDATA[
+<Request>
+    <Security>
+	  <SeUser>xdt</SeUser>
+	  <SePwd>xdt321</SePwd>
+	</Security>  
+    <Lb>1</Lb>
+    <Info>{0}</Info>
+</Request> 
+]]>
+         
+         </bjg:Message>
+      </bjg:XMLMessageServer>
+   </soapenv:Body>
+</soapenv:Envelope>
