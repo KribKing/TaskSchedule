@@ -1,0 +1,10 @@
+D:\康复作业程序\TaskSchedule.UI.Base.pdb
+D:\GitHub\DownLoadExe\TaskSchedule.UI.Base\obj\Debug\TaskSchedule.UI.Base.FrmBase.resources
+D:\GitHub\DownLoadExe\TaskSchedule.UI.Base\obj\Debug\TaskSchedule.UI.Base.Properties.Resources.resources
+D:\GitHub\DownLoadExe\TaskSchedule.UI.Base\obj\Debug\TaskSchedule.UI.Base.ProcessBarFrm.resources
+D:\GitHub\DownLoadExe\TaskSchedule.UI.Base\obj\Debug\TaskSchedule.UI.DevBase.csproj.GenerateResource.Cache
+D:\GitHub\DownLoadExe\TaskSchedule.UI.Base\obj\Debug\TaskSchedule.UI.Base.pdb
+D:\康复作业程序\TaskSchedule.UI.Base.dll
+D:\GitHub\DownLoadExe\TaskSchedule.UI.Base\obj\Debug\TaskSchedule.UI.Base.dll.licenses
+D:\GitHub\DownLoadExe\TaskSchedule.UI.Base\obj\Debug\TaskSchedule.UI.Base.dll
+D:\GitHub\DownLoadExe\TaskSchedule.UI.Base\obj\Debug\TaskSchedule.UI.DevBase.csprojResolveAssemblyReference.cache

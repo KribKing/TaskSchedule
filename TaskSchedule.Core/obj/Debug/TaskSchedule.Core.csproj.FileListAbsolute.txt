@@ -1,0 +1,9 @@
+D:\GitHub\DownLoadExe\DownLoad.Core\obj\Debug\TaskSchedule.Core.dll.licenses
+D:\康复作业程序\TaskSchedule.Core.dll
+D:\康复作业程序\TaskSchedule.Core.pdb
+D:\GitHub\DownLoadExe\DownLoad.Core\obj\Debug\TaskSchedule.Core.dll
+D:\GitHub\DownLoadExe\DownLoad.Core\obj\Debug\TaskSchedule.Core.pdb
+D:\GitHub\DownLoadExe\TaskSchedule.Core\obj\Debug\TaskSchedule.Core.dll.licenses
+D:\GitHub\DownLoadExe\TaskSchedule.Core\obj\Debug\TaskSchedule.Core.dll
+D:\GitHub\DownLoadExe\TaskSchedule.Core\obj\Debug\TaskSchedule.Core.pdb
+D:\GitHub\DownLoadExe\TaskSchedule.Core\obj\Debug\TaskSchedule.Core.csprojResolveAssemblyReference.cache

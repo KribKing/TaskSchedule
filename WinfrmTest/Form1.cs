@@ -1,4 +1,4 @@
-﻿using DownLoad.Core;
+﻿using TaskSchedule.Core;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

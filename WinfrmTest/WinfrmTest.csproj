@@ -79,9 +79,9 @@
       <Project>{F0CBE52F-D672-4878-A56E-C1DAEDF24AFE}</Project>
       <Name>CommonLibrary.Ctrl</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DownLoad.Core\DownLoad.Core.csproj">
+    <ProjectReference Include="..\TaskSchedule.Core\TaskSchedule.Core.csproj">
       <Project>{5dd55889-557c-480b-9ab4-39936a384ecb}</Project>
-      <Name>DownLoad.Core</Name>
+      <Name>TaskSchedule.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
