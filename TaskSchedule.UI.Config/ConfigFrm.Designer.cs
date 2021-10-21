@@ -101,14 +101,12 @@
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.panelControl9 = new DevExpress.XtraEditors.PanelControl();
-            this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
-            this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
-            this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
+            this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
+            this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.txttmp = new ICSharpCode.TextEditor.TextEditorControl();
-            this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
             this.btnCreateTemp = new DevExpress.XtraEditors.SimpleButton();
-            this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
-            this.panelControl7 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
+            this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.rttscript = new ICSharpCode.TextEditor.TextEditorControl();
             this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
             this.popctarget = new DevExpress.XtraEditors.PopupContainerEdit();
@@ -174,14 +172,12 @@
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl9)).BeginInit();
             this.panelControl9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).BeginInit();
-            this.xtraTabControl2.SuspendLayout();
-            this.xtraTabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).BeginInit();
-            this.panelControl6.SuspendLayout();
-            this.xtraTabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).BeginInit();
-            this.panelControl7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
+            this.splitContainerControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
+            this.groupControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
+            this.groupControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).BeginInit();
             this.panelControl8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.popctarget.Properties)).BeginInit();
@@ -321,7 +317,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(4, 18);
+            this.labelControl3.Location = new System.Drawing.Point(5, 40);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(48, 14);
             this.labelControl3.TabIndex = 1;
@@ -339,9 +335,9 @@
             // 
             this.txttmpname.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txttmpname.Location = new System.Drawing.Point(70, 15);
+            this.txttmpname.Location = new System.Drawing.Point(71, 37);
             this.txttmpname.Name = "txttmpname";
-            this.txttmpname.Size = new System.Drawing.Size(361, 20);
+            this.txttmpname.Size = new System.Drawing.Size(182, 20);
             this.txttmpname.TabIndex = 0;
             // 
             // txturl
@@ -350,7 +346,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txturl.Location = new System.Drawing.Point(65, 38);
             this.txturl.Name = "txturl";
-            this.txturl.Size = new System.Drawing.Size(329, 20);
+            this.txturl.Size = new System.Drawing.Size(290, 20);
             this.txturl.TabIndex = 0;
             // 
             // panelControl3
@@ -461,7 +457,7 @@
             this.splitctrl.Panel2.Controls.Add(this.groupControl2);
             this.splitctrl.Panel2.Text = "Panel2";
             this.splitctrl.Size = new System.Drawing.Size(916, 443);
-            this.splitctrl.SplitterPosition = 458;
+            this.splitctrl.SplitterPosition = 419;
             this.splitctrl.TabIndex = 3;
             this.splitctrl.Text = "splitContainerControl2";
             // 
@@ -472,7 +468,7 @@
             this.gsource.Location = new System.Drawing.Point(0, 0);
             this.gsource.Margin = new System.Windows.Forms.Padding(0);
             this.gsource.Name = "gsource";
-            this.gsource.Size = new System.Drawing.Size(458, 443);
+            this.gsource.Size = new System.Drawing.Size(419, 443);
             this.gsource.TabIndex = 0;
             this.gsource.Text = "数据源";
             // 
@@ -487,7 +483,7 @@
             this.panelControl4.Location = new System.Drawing.Point(2, 22);
             this.panelControl4.Margin = new System.Windows.Forms.Padding(0);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(454, 419);
+            this.panelControl4.Size = new System.Drawing.Size(415, 419);
             this.panelControl4.TabIndex = 5;
             // 
             // panelControl5
@@ -496,7 +492,7 @@
             this.panelControl5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl5.Location = new System.Drawing.Point(0, 60);
             this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(454, 359);
+            this.panelControl5.Size = new System.Drawing.Size(415, 359);
             this.panelControl5.TabIndex = 6;
             // 
             // xtraTabControl1
@@ -507,7 +503,7 @@
             this.xtraTabControl1.Margin = new System.Windows.Forms.Padding(0);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-            this.xtraTabControl1.Size = new System.Drawing.Size(450, 355);
+            this.xtraTabControl1.Size = new System.Drawing.Size(411, 355);
             this.xtraTabControl1.TabIndex = 4;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
@@ -517,7 +513,7 @@
             // 
             this.xtraTabPage1.Controls.Add(this.webpanel);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(444, 326);
+            this.xtraTabPage1.Size = new System.Drawing.Size(405, 326);
             this.xtraTabPage1.Text = "服务配置";
             // 
             // webpanel
@@ -536,7 +532,7 @@
             this.webpanel.Location = new System.Drawing.Point(0, 0);
             this.webpanel.Margin = new System.Windows.Forms.Padding(0);
             this.webpanel.Name = "webpanel";
-            this.webpanel.Size = new System.Drawing.Size(444, 326);
+            this.webpanel.Size = new System.Drawing.Size(405, 326);
             this.webpanel.TabIndex = 3;
             // 
             // pxml
@@ -552,14 +548,14 @@
             this.pxml.Location = new System.Drawing.Point(3, 92);
             this.pxml.Margin = new System.Windows.Forms.Padding(0);
             this.pxml.Name = "pxml";
-            this.pxml.Size = new System.Drawing.Size(439, 239);
+            this.pxml.Size = new System.Drawing.Size(400, 239);
             this.pxml.TabIndex = 6;
             this.pxml.Visible = false;
             // 
             // pop_ctrl_combox
             // 
             this.pop_ctrl_combox.Controls.Add(this.groupControl1);
-            this.pop_ctrl_combox.Location = new System.Drawing.Point(179, 11);
+            this.pop_ctrl_combox.Location = new System.Drawing.Point(101, 98);
             this.pop_ctrl_combox.Margin = new System.Windows.Forms.Padding(0);
             this.pop_ctrl_combox.Name = "pop_ctrl_combox";
             this.pop_ctrl_combox.Padding = new System.Windows.Forms.Padding(2);
@@ -686,10 +682,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtbxml.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rtbxml.Highlighting = null;
             this.rtbxml.IsReadOnly = false;
             this.rtbxml.Location = new System.Drawing.Point(10, 40);
             this.rtbxml.Name = "rtbxml";
-            this.rtbxml.Size = new System.Drawing.Size(422, 187);
+            this.rtbxml.Size = new System.Drawing.Size(383, 187);
             this.rtbxml.TabIndex = 10;
             // 
             // btnxml
@@ -777,14 +774,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMethod.Location = new System.Drawing.Point(228, 12);
             this.txtMethod.Name = "txtMethod";
-            this.txtMethod.Size = new System.Drawing.Size(166, 20);
+            this.txtMethod.Size = new System.Drawing.Size(127, 20);
             this.txtMethod.TabIndex = 0;
             // 
             // xtraTabPage2
             // 
             this.xtraTabPage2.Controls.Add(this.psdb);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(444, 326);
+            this.xtraTabPage2.Size = new System.Drawing.Size(405, 326);
             this.xtraTabPage2.Text = "数据库配置";
             // 
             // psdb
@@ -800,7 +797,7 @@
             this.psdb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.psdb.Location = new System.Drawing.Point(0, 0);
             this.psdb.Name = "psdb";
-            this.psdb.Size = new System.Drawing.Size(444, 326);
+            this.psdb.Size = new System.Drawing.Size(405, 326);
             this.psdb.TabIndex = 2;
             // 
             // rtsscript
@@ -809,17 +806,18 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtsscript.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rtsscript.Highlighting = null;
             this.rtsscript.IsReadOnly = false;
             this.rtsscript.Location = new System.Drawing.Point(11, 75);
             this.rtsscript.Name = "rtsscript";
-            this.rtsscript.Size = new System.Drawing.Size(424, 246);
+            this.rtsscript.Size = new System.Drawing.Size(385, 246);
             this.rtsscript.TabIndex = 9;
             // 
             // popcsourcce
             // 
             this.popcsourcce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.popcsourcce.EditValue = "传递";
-            this.popcsourcce.Location = new System.Drawing.Point(410, 32);
+            this.popcsourcce.Location = new System.Drawing.Point(371, 32);
             this.popcsourcce.Name = "popcsourcce";
             this.popcsourcce.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -835,7 +833,7 @@
             this.cesjm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cesjm.AutoSizeInLayoutControl = true;
             this.cesjm.EditValue = true;
-            this.cesjm.Location = new System.Drawing.Point(362, 32);
+            this.cesjm.Location = new System.Drawing.Point(323, 32);
             this.cesjm.Name = "cesjm";
             this.cesjm.Properties.AutoWidth = true;
             this.cesjm.Properties.Caption = "加密";
@@ -891,7 +889,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtsstr.Location = new System.Drawing.Point(65, 30);
             this.txtsstr.Name = "txtsstr";
-            this.txtsstr.Size = new System.Drawing.Size(291, 20);
+            this.txtsstr.Size = new System.Drawing.Size(252, 20);
             this.txtsstr.TabIndex = 0;
             this.txtsstr.ToolTip = "数据库链接字符串，可双击进行配置";
             this.txtsstr.DoubleClick += new System.EventHandler(this.txtsstr_DoubleClick);
@@ -907,7 +905,7 @@
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(454, 60);
+            this.panelControl1.Size = new System.Drawing.Size(415, 60);
             this.panelControl1.TabIndex = 5;
             // 
             // rbsdb
@@ -938,7 +936,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tenode.Location = new System.Drawing.Point(68, 34);
             this.tenode.Name = "tenode";
-            this.tenode.Size = new System.Drawing.Size(370, 20);
+            this.tenode.Size = new System.Drawing.Size(331, 20);
             this.tenode.TabIndex = 0;
             // 
             // labelControl8
@@ -958,54 +956,50 @@
             this.groupControl2.Location = new System.Drawing.Point(0, 0);
             this.groupControl2.Margin = new System.Windows.Forms.Padding(0);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(453, 443);
+            this.groupControl2.Size = new System.Drawing.Size(492, 443);
             this.groupControl2.TabIndex = 0;
             this.groupControl2.Text = "目标库操作";
             // 
             // panelControl9
             // 
             this.panelControl9.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl9.Controls.Add(this.xtraTabControl2);
+            this.panelControl9.Controls.Add(this.splitContainerControl1);
             this.panelControl9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl9.Location = new System.Drawing.Point(2, 82);
             this.panelControl9.Margin = new System.Windows.Forms.Padding(0);
             this.panelControl9.Name = "panelControl9";
-            this.panelControl9.Size = new System.Drawing.Size(449, 359);
+            this.panelControl9.Size = new System.Drawing.Size(488, 359);
             this.panelControl9.TabIndex = 10;
             // 
-            // xtraTabControl2
+            // splitContainerControl1
             // 
-            this.xtraTabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraTabControl2.Location = new System.Drawing.Point(0, 0);
-            this.xtraTabControl2.Margin = new System.Windows.Forms.Padding(0);
-            this.xtraTabControl2.Name = "xtraTabControl2";
-            this.xtraTabControl2.SelectedTabPage = this.xtraTabPage3;
-            this.xtraTabControl2.Size = new System.Drawing.Size(449, 359);
-            this.xtraTabControl2.TabIndex = 8;
-            this.xtraTabControl2.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.xtraTabPage3,
-            this.xtraTabPage4});
+            this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerControl1.Margin = new System.Windows.Forms.Padding(0);
+            this.splitContainerControl1.Name = "splitContainerControl1";
+            this.splitContainerControl1.Panel1.Controls.Add(this.groupControl3);
+            this.splitContainerControl1.Panel1.Text = "Panel1";
+            this.splitContainerControl1.Panel2.Controls.Add(this.groupControl4);
+            this.splitContainerControl1.Panel2.Text = "Panel2";
+            this.splitContainerControl1.Size = new System.Drawing.Size(488, 359);
+            this.splitContainerControl1.SplitterPosition = 256;
+            this.splitContainerControl1.TabIndex = 9;
+            this.splitContainerControl1.Text = "splitContainerControl1";
             // 
-            // xtraTabPage3
+            // groupControl3
             // 
-            this.xtraTabPage3.Controls.Add(this.panelControl6);
-            this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(443, 330);
-            this.xtraTabPage3.Text = "临时表配置";
-            // 
-            // panelControl6
-            // 
-            this.panelControl6.Controls.Add(this.txttmp);
-            this.panelControl6.Controls.Add(this.labelControl3);
-            this.panelControl6.Controls.Add(this.labelControl18);
-            this.panelControl6.Controls.Add(this.btnCreateTemp);
-            this.panelControl6.Controls.Add(this.txttmpname);
-            this.panelControl6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl6.Location = new System.Drawing.Point(0, 0);
-            this.panelControl6.Margin = new System.Windows.Forms.Padding(0);
-            this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(443, 330);
-            this.panelControl6.TabIndex = 0;
+            this.groupControl3.Controls.Add(this.txttmp);
+            this.groupControl3.Controls.Add(this.labelControl3);
+            this.groupControl3.Controls.Add(this.btnCreateTemp);
+            this.groupControl3.Controls.Add(this.labelControl18);
+            this.groupControl3.Controls.Add(this.txttmpname);
+            this.groupControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl3.Location = new System.Drawing.Point(0, 0);
+            this.groupControl3.Margin = new System.Windows.Forms.Padding(0);
+            this.groupControl3.Name = "groupControl3";
+            this.groupControl3.Size = new System.Drawing.Size(256, 359);
+            this.groupControl3.TabIndex = 0;
+            this.groupControl3.Text = "临时表配置";
             // 
             // txttmp
             // 
@@ -1013,45 +1007,41 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txttmp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txttmp.Highlighting = null;
             this.txttmp.IsReadOnly = false;
-            this.txttmp.Location = new System.Drawing.Point(70, 48);
+            this.txttmp.Location = new System.Drawing.Point(5, 90);
             this.txttmp.Name = "txttmp";
-            this.txttmp.Size = new System.Drawing.Size(361, 275);
+            this.txttmp.Size = new System.Drawing.Size(248, 255);
             this.txttmp.TabIndex = 9;
-            // 
-            // labelControl18
-            // 
-            this.labelControl18.Location = new System.Drawing.Point(4, 48);
-            this.labelControl18.Name = "labelControl18";
-            this.labelControl18.Size = new System.Drawing.Size(60, 14);
-            this.labelControl18.TabIndex = 1;
-            this.labelControl18.Text = "临时表结构";
             // 
             // btnCreateTemp
             // 
             this.btnCreateTemp.Image = ((System.Drawing.Image)(resources.GetObject("btnCreateTemp.Image")));
-            this.btnCreateTemp.Location = new System.Drawing.Point(36, 68);
+            this.btnCreateTemp.Location = new System.Drawing.Point(71, 67);
             this.btnCreateTemp.Name = "btnCreateTemp";
             this.btnCreateTemp.Size = new System.Drawing.Size(25, 23);
             this.btnCreateTemp.TabIndex = 0;
             this.btnCreateTemp.ToolTip = "快速构建临时表";
             this.btnCreateTemp.Click += new System.EventHandler(this.btnCreateTemp_Click);
             // 
-            // xtraTabPage4
+            // labelControl18
             // 
-            this.xtraTabPage4.Controls.Add(this.panelControl7);
-            this.xtraTabPage4.Name = "xtraTabPage4";
-            this.xtraTabPage4.Size = new System.Drawing.Size(443, 330);
-            this.xtraTabPage4.Text = "目标库脚本配置";
+            this.labelControl18.Location = new System.Drawing.Point(5, 70);
+            this.labelControl18.Name = "labelControl18";
+            this.labelControl18.Size = new System.Drawing.Size(60, 14);
+            this.labelControl18.TabIndex = 1;
+            this.labelControl18.Text = "临时表结构";
             // 
-            // panelControl7
+            // groupControl4
             // 
-            this.panelControl7.Controls.Add(this.rttscript);
-            this.panelControl7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl7.Location = new System.Drawing.Point(0, 0);
-            this.panelControl7.Name = "panelControl7";
-            this.panelControl7.Size = new System.Drawing.Size(443, 330);
-            this.panelControl7.TabIndex = 0;
+            this.groupControl4.Controls.Add(this.rttscript);
+            this.groupControl4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl4.Location = new System.Drawing.Point(0, 0);
+            this.groupControl4.Margin = new System.Windows.Forms.Padding(0);
+            this.groupControl4.Name = "groupControl4";
+            this.groupControl4.Size = new System.Drawing.Size(227, 359);
+            this.groupControl4.TabIndex = 0;
+            this.groupControl4.Text = "目标库脚本配置";
             // 
             // rttscript
             // 
@@ -1059,10 +1049,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rttscript.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rttscript.Highlighting = null;
             this.rttscript.IsReadOnly = false;
-            this.rttscript.Location = new System.Drawing.Point(4, 6);
+            this.rttscript.Location = new System.Drawing.Point(5, 26);
             this.rttscript.Name = "rttscript";
-            this.rttscript.Size = new System.Drawing.Size(434, 315);
+            this.rttscript.Size = new System.Drawing.Size(212, 319);
             this.rttscript.TabIndex = 10;
             // 
             // panelControl8
@@ -1080,14 +1071,14 @@
             this.panelControl8.Location = new System.Drawing.Point(2, 22);
             this.panelControl8.Margin = new System.Windows.Forms.Padding(0);
             this.panelControl8.Name = "panelControl8";
-            this.panelControl8.Size = new System.Drawing.Size(449, 60);
+            this.panelControl8.Size = new System.Drawing.Size(488, 60);
             this.panelControl8.TabIndex = 9;
             // 
             // popctarget
             // 
             this.popctarget.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.popctarget.EditValue = "传递";
-            this.popctarget.Location = new System.Drawing.Point(416, 34);
+            this.popctarget.Location = new System.Drawing.Point(455, 34);
             this.popctarget.Name = "popctarget";
             this.popctarget.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1103,7 +1094,7 @@
             this.cetjm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cetjm.AutoSizeInLayoutControl = true;
             this.cetjm.EditValue = true;
-            this.cetjm.Location = new System.Drawing.Point(368, 36);
+            this.cetjm.Location = new System.Drawing.Point(407, 36);
             this.cetjm.Name = "cetjm";
             this.cetjm.Properties.AutoWidth = true;
             this.cetjm.Properties.Caption = "加密";
@@ -1117,7 +1108,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txttstr.Location = new System.Drawing.Point(71, 34);
             this.txttstr.Name = "txttstr";
-            this.txttstr.Size = new System.Drawing.Size(291, 20);
+            this.txttstr.Size = new System.Drawing.Size(330, 20);
             this.txttstr.TabIndex = 0;
             this.txttstr.ToolTip = "数据库链接字符串，可双击进行配置";
             this.txttstr.DoubleClick += new System.EventHandler(this.txttstr_DoubleClick);
@@ -1250,15 +1241,13 @@
             this.groupControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl9)).EndInit();
             this.panelControl9.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).EndInit();
-            this.xtraTabControl2.ResumeLayout(false);
-            this.xtraTabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).EndInit();
-            this.panelControl6.ResumeLayout(false);
-            this.panelControl6.PerformLayout();
-            this.xtraTabPage4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).EndInit();
-            this.panelControl7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
+            this.splitContainerControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
+            this.groupControl3.ResumeLayout(false);
+            this.groupControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
+            this.groupControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).EndInit();
             this.panelControl8.ResumeLayout(false);
             this.panelControl8.PerformLayout();
@@ -1334,11 +1323,6 @@
         private DevExpress.XtraEditors.PanelControl panelControl5;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.PanelControl panelControl9;
-        private DevExpress.XtraTab.XtraTabControl xtraTabControl2;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPage3;
-        private DevExpress.XtraEditors.PanelControl panelControl6;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPage4;
-        private DevExpress.XtraEditors.PanelControl panelControl7;
         private DevExpress.XtraEditors.PanelControl panelControl8;
         private DevExpress.XtraEditors.SimpleButton btntest;
         private DevExpress.XtraEditors.TextEdit txtMethod;
@@ -1364,5 +1348,8 @@
         private ICSharpCode.TextEditor.TextEditorControl rtbxml;
         private ICSharpCode.TextEditor.TextEditorControl txttmp;
         private ICSharpCode.TextEditor.TextEditorControl rttscript;
+        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
+        private DevExpress.XtraEditors.GroupControl groupControl3;
+        private DevExpress.XtraEditors.GroupControl groupControl4;
     }
 }

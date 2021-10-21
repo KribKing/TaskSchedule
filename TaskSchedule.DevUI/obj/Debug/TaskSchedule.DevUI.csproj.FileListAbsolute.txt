@@ -10,3 +10,4 @@ D:\康复作业程序\TaskSchedule.exe
 D:\康复作业程序\TaskSchedule.pdb
 D:\GitHub\DownLoadExe\TaskSchedule.DevUI\obj\Debug\TaskSchedule.exe
 D:\GitHub\DownLoadExe\TaskSchedule.DevUI\obj\Debug\TaskSchedule.pdb
+D:\GitHub\DownLoadExe\TaskSchedule.DevUI\obj\Debug\TaskSchedule.exe.licenses

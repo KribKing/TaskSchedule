@@ -1,0 +1,13 @@
+D:\GitHub\SharpDevelop_3.2.1.6466_Source\src\Libraries\ICSharpCode.TextEditor\ICSharpCode.TextEditor.FormTest\bin\Debug\ICSharpCode.TextEditor.FormTest.exe
+D:\GitHub\SharpDevelop_3.2.1.6466_Source\src\Libraries\ICSharpCode.TextEditor\ICSharpCode.TextEditor.FormTest\bin\Debug\ICSharpCode.TextEditor.FormTest.pdb
+D:\GitHub\SharpDevelop_3.2.1.6466_Source\src\Libraries\ICSharpCode.TextEditor\ICSharpCode.TextEditor.FormTest\bin\Debug\ICSharpCode.TextEditor.dll
+D:\GitHub\SharpDevelop_3.2.1.6466_Source\src\Libraries\ICSharpCode.TextEditor\ICSharpCode.TextEditor.FormTest\bin\Debug\ICSharpCode.TextEditor.pdb
+D:\GitHub\SharpDevelop_3.2.1.6466_Source\src\Libraries\ICSharpCode.TextEditor\ICSharpCode.TextEditor.FormTest\bin\Debug\ICSharpCode.TextEditor.xml
+D:\GitHub\SharpDevelop_3.2.1.6466_Source\src\Libraries\ICSharpCode.TextEditor\ICSharpCode.TextEditor.FormTest\obj\Debug\ICSharpCode.TextEditor.FormTest.csproj.AssemblyReference.cache
+D:\GitHub\SharpDevelop_3.2.1.6466_Source\src\Libraries\ICSharpCode.TextEditor\ICSharpCode.TextEditor.FormTest\obj\Debug\ICSharpCode.TextEditor.FormTest.Form1.resources
+D:\GitHub\SharpDevelop_3.2.1.6466_Source\src\Libraries\ICSharpCode.TextEditor\ICSharpCode.TextEditor.FormTest\obj\Debug\ICSharpCode.TextEditor.FormTest.Properties.Resources.resources
+D:\GitHub\SharpDevelop_3.2.1.6466_Source\src\Libraries\ICSharpCode.TextEditor\ICSharpCode.TextEditor.FormTest\obj\Debug\ICSharpCode.TextEditor.FormTest.csproj.GenerateResource.cache
+D:\GitHub\SharpDevelop_3.2.1.6466_Source\src\Libraries\ICSharpCode.TextEditor\ICSharpCode.TextEditor.FormTest\obj\Debug\ICSharpCode.TextEditor.FormTest.csproj.CoreCompileInputs.cache
+D:\GitHub\SharpDevelop_3.2.1.6466_Source\src\Libraries\ICSharpCode.TextEditor\ICSharpCode.TextEditor.FormTest\obj\Debug\ICSharpCode.TextEditor.FormTest.csproj.CopyComplete
+D:\GitHub\SharpDevelop_3.2.1.6466_Source\src\Libraries\ICSharpCode.TextEditor\ICSharpCode.TextEditor.FormTest\obj\Debug\ICSharpCode.TextEditor.FormTest.exe
+D:\GitHub\SharpDevelop_3.2.1.6466_Source\src\Libraries\ICSharpCode.TextEditor\ICSharpCode.TextEditor.FormTest\obj\Debug\ICSharpCode.TextEditor.FormTest.pdb

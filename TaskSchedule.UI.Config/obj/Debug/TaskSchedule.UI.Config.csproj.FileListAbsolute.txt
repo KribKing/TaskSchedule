@@ -34,3 +34,4 @@ D:\GitHub\DownLoadExe\TaskSchedule.UI.Config\obj\Debug\TaskSchedule.UI.Config.cs
 D:\GitHub\DownLoadExe\TaskSchedule.UI.Config\obj\Debug\TaskSchedule.UI.Config.exe.licenses
 D:\GitHub\DownLoadExe\TaskSchedule.UI.Config\obj\Debug\TaskSchedule.UI.Config.exe
 D:\GitHub\DownLoadExe\TaskSchedule.UI.Config\obj\Debug\TaskSchedule.UI.Config.pdb
+D:\康复作业程序\TaskSchedule.UI.Config.exe.config

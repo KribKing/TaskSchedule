@@ -94,6 +94,54 @@ namespace TaskSchedule.Core
         {
             WinApiHelper.SetForegroundWindow(WinHanles[key]);
         }
+        /// <summary>
+        /// 设置窗口显示状态
+        /// </summary>
+        /// <param name="cmdShow">
+        ///SW_FORCEMINIMIZE	11	无论拥有窗口的线程是否被挂起，均使窗口最小化。在从其他线程最小化窗口时才使用这个参数。有点类似强制最小化窗口
+        ///SW_HIDE	0	隐藏窗口并且激活其它窗口
+        ///SW_MAXIMIZE	3	最大化标识的窗口
+        ///SW_MINIMIZE	6	最小化窗口，并且按Z序激活下一个窗口
+        ///SW_RESTORE	9	激活并显示窗口，如果窗口最小化或最大化，系统恢复其原来的大小和位置。当恢复最小化窗口时，程序应该使用这个标志
+        ///SW_SHOW	5	在当前位置及大小情况下，激活并显示窗口
+        ///SW_SHOWDEFAULT	10	父进程通过 CreateProcess 创建当前进程时，使用此标志来按 STARTUPINFO 结构体中的标志显示窗口
+        ///SW_SHOWMAXIMIZED	3	激活，并按最大化方式显示窗口
+        ///SW_SHOWMINIMIZED	2	激活，并按最小化方式显示窗口
+        ///SW_SHOWMINNOACTIVE	7	最小化窗口。除了窗口不被激活，其它的类似SW_SHOWMINIMIZED
+        ///SW_SHOWNA	8	以当前的大小和位置显示窗口。除了窗口不被激活，其它的类似SW_SHOW
+        ///SW_SHOWNOACTIVATE	4	以最近的大小和位置显示窗口，除了窗口不被激活，其它的类似SW_SHOWNORMAL
+        ///SW_SHOWNORMAL	1	激活和显示窗口。如果窗口是最大化或最小化，恢复其大小和位置。程序不应该在第一次调用ShowWindow时设置此标志
+        ///   </param>
+        public void SetShow(int cmdShow)
+        {
+            foreach (IntPtr hanlde in WinHanles.Values)
+            {
+                SetSingleShow(cmdShow, hanlde);
+            }
+        }
+        /// <summary>
+        /// 设置单个窗口显示状态
+        /// </summary>
+        /// <param name="isshow">
+        ///SW_FORCEMINIMIZE	11	无论拥有窗口的线程是否被挂起，均使窗口最小化。在从其他线程最小化窗口时才使用这个参数。有点类似强制最小化窗口
+        ///SW_HIDE	0	隐藏窗口并且激活其它窗口
+        ///SW_MAXIMIZE	3	最大化标识的窗口
+        ///SW_MINIMIZE	6	最小化窗口，并且按Z序激活下一个窗口
+        ///SW_RESTORE	9	激活并显示窗口，如果窗口最小化或最大化，系统恢复其原来的大小和位置。当恢复最小化窗口时，程序应该使用这个标志
+        ///SW_SHOW	5	在当前位置及大小情况下，激活并显示窗口
+        ///SW_SHOWDEFAULT	10	父进程通过 CreateProcess 创建当前进程时，使用此标志来按 STARTUPINFO 结构体中的标志显示窗口
+        ///SW_SHOWMAXIMIZED	3	激活，并按最大化方式显示窗口
+        ///SW_SHOWMINIMIZED	2	激活，并按最小化方式显示窗口
+        ///SW_SHOWMINNOACTIVE	7	最小化窗口。除了窗口不被激活，其它的类似SW_SHOWMINIMIZED
+        ///SW_SHOWNA	8	以当前的大小和位置显示窗口。除了窗口不被激活，其它的类似SW_SHOW
+        ///SW_SHOWNOACTIVATE	4	以最近的大小和位置显示窗口，除了窗口不被激活，其它的类似SW_SHOWNORMAL
+        ///SW_SHOWNORMAL	1	激活和显示窗口。如果窗口是最大化或最小化，恢复其大小和位置。程序不应该在第一次调用ShowWindow时设置此标志
+        /// </param>
+        /// <param name="handle">窗口句柄</param>
+        public void SetSingleShow(int cmdShow, IntPtr handle)
+        {
+            WinApiHelper.ShowWindow(handle, cmdShow);
+        }
 
         public void LoadConsole(object wrapper)
         {

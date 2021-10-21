@@ -409,7 +409,6 @@
             this.Text = "康复下载程序";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.Shown += new System.EventHandler(this.FrmMain_Shown);
-            this.VisibleChanged += new System.EventHandler(this.FrmMain_VisibleChanged);
             this.Move += new System.EventHandler(this.FrmMain_Move);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();

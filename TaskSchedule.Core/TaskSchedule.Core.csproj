@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.2\lib\net40\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="Dos.ORM, Version=1.17.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\康复数据下载程序\Dos.ORM.dll</HintPath>
@@ -41,9 +44,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>D:\THIS5.0_RIMS\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Oracle.DataAccess">
-      <HintPath>..\packages\Oracle.DataAccess.x86.2.112.1.0\lib\Oracle.DataAccess.dll</HintPath>
-    </Reference>
     <Reference Include="RestSharp, Version=105.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\康复数据下载程序\RestSharp.dll</HintPath>
@@ -52,6 +52,7 @@
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Printing" />
     <Reference Include="System.Web" />
@@ -65,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConsoleLogHelper.cs" />
+    <Compile Include="DapperManager.cs" />
     <Compile Include="DTToken.cs" />
     <Compile Include="EncodeAndDecode.cs" />
     <Compile Include="EncodeHelper.cs" />
@@ -87,6 +89,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

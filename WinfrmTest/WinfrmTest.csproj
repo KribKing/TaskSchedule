@@ -79,6 +79,10 @@
       <Project>{F0CBE52F-D672-4878-A56E-C1DAEDF24AFE}</Project>
       <Name>CommonLibrary.Ctrl</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ICSharpCode.TextEditor\ICSharpCode.TextEditor.csproj">
+      <Project>{D9DF7A4D-01A8-43CA-87C2-C76E09A61F51}</Project>
+      <Name>ICSharpCode.TextEditor</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TaskSchedule.Core\TaskSchedule.Core.csproj">
       <Project>{5dd55889-557c-480b-9ab4-39936a384ecb}</Project>
       <Name>TaskSchedule.Core</Name>

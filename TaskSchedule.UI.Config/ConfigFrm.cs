@@ -144,7 +144,6 @@ namespace TaskSchedule.UI.Config
         private void cbtop_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.gsource.Enabled = this.cbtop.SelectedIndex == 0;
-            this.xtraTabControl2.SelectedTabPageIndex = this.cbtop.SelectedIndex;
         }
 
         private void btnquick_Click(object sender, EventArgs e)
@@ -319,13 +318,13 @@ namespace TaskSchedule.UI.Config
                     if (this.Cur_popc == this.popctarget)
                     {
                         info.targetdbtype = this.cbetdbtype.SelectedIndex;
-                        info.targetdbstring = this.txttstr.Text.Trim();
+                        info.targetdbstring = this.cetjm.Checked ? EncodeAndDecode.Decode(this.txttstr.Text.Trim()) : this.txttstr.Text.Trim();
                         info.istargetdbencode = this.cetjm.Checked;
                     }
                     else
                     {
                         info.sourcedbtype = this.cbesdbtype.SelectedIndex;
-                        info.sourcedbstring = this.txtsstr.Text.Trim();
+                        info.sourcedbstring = this.cesjm.Checked ? EncodeAndDecode.Decode(this.txtsstr.Text.Trim()) : this.txtsstr.Text.Trim();
                         info.issourcedbencode = this.cesjm.Checked;
                     }
                 }

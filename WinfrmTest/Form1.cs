@@ -27,5 +27,10 @@ namespace WinfrmTest
         {
             this.textBox2.Text = string.Format(this.txt.Text.Trim(), DateTime.Now, DateTime.Now.AddDays(+1));
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            GlobalInstanceManager<GlobalSqlManager>.Intance.GetDataTable(3, this.textBox2.Text, "select sysdate from dual");
+        }
     }
 }

@@ -32,7 +32,8 @@
             this.txt = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.syntaxEditor1 = new CommonLibrary.Ctrl.SyntaxEditor();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textEditorControl1 = new ICSharpCode.TextEditor.TextEditorControl();
             this.SuspendLayout();
             // 
             // textBox1
@@ -53,7 +54,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(126, 155);
+            this.button1.Location = new System.Drawing.Point(353, 30);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -68,22 +69,32 @@
             this.textBox2.Size = new System.Drawing.Size(271, 21);
             this.textBox2.TabIndex = 1;
             // 
-            // syntaxEditor1
+            // button2
             // 
-            this.syntaxEditor1.Language = CommonLibrary.Ctrl.SyntaxEditor.Languages.CSHARP;
-            this.syntaxEditor1.Location = new System.Drawing.Point(41, 184);
-            this.syntaxEditor1.Name = "syntaxEditor1";
-            this.syntaxEditor1.Size = new System.Drawing.Size(514, 340);
-            this.syntaxEditor1.TabIndex = 3;
-            this.syntaxEditor1.Text = "";
-            this.syntaxEditor1.WordWrap = false;
+            this.button2.Location = new System.Drawing.Point(461, 30);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "button1";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // textEditorControl1
+            // 
+            this.textEditorControl1.IsReadOnly = false;
+            this.textEditorControl1.Location = new System.Drawing.Point(26, 140);
+            this.textEditorControl1.Name = "textEditorControl1";
+            this.textEditorControl1.Size = new System.Drawing.Size(636, 250);
+            this.textEditorControl1.TabIndex = 3;
+            this.textEditorControl1.Text = "textEditorControl1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(576, 536);
-            this.Controls.Add(this.syntaxEditor1);
+            this.ClientSize = new System.Drawing.Size(724, 402);
+            this.Controls.Add(this.textEditorControl1);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.txt);
@@ -102,7 +113,8 @@
         private System.Windows.Forms.TextBox txt;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox2;
-        private CommonLibrary.Ctrl.SyntaxEditor syntaxEditor1;
+        private System.Windows.Forms.Button button2;
+        private ICSharpCode.TextEditor.TextEditorControl textEditorControl1;
     }
 }
 

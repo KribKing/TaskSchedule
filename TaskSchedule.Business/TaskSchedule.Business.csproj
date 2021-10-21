@@ -56,21 +56,21 @@
   <ItemGroup>
     <Compile Include="DefaultSetting.cs" />
     <Compile Include="Interface\IQuickExcuteInterface.cs" />
-    <Compile Include="JobManager\JkInterface.cs" />
-    <Compile Include="JobManager\JkInterfaceByRest.cs" />
+    <Compile Include="Interface\JkInterface.cs" />
+    <Compile Include="Interface\JkInterfaceByRest.cs" />
     <Compile Include="JobManager\JobInfo.cs" />
     <Compile Include="JobManager\JobInfoManager.cs" />
-    <Compile Include="JobManager\JkInterfaceByHttp.cs" />
+    <Compile Include="Interface\JkInterfaceByHttp.cs" />
     <Compile Include="Interface\RequestMessage.cs" />
     <Compile Include="Interface\ResponseMessage.cs" />
     <Compile Include="JobManager\JobNewInfo.cs" />
     <Compile Include="RimsInterface.cs" />
-    <Compile Include="JobManager\JkFactoryManager.cs" />
+    <Compile Include="Interface\JkFactoryManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SchedulerManger\SchedulerManager.cs" />
-    <Compile Include="JobManager\JkInterfaceBySourceDb.cs" />
-    <Compile Include="JobManager\JkInterfaceByTargetDb.cs" />
-    <Compile Include="JobManager\JkInterfaceByWs.cs" />
+    <Compile Include="Interface\JkInterfaceBySourceDb.cs" />
+    <Compile Include="Interface\JkInterfaceByTargetDb.cs" />
+    <Compile Include="Interface\JkInterfaceByWs.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TaskSchedule.Core\TaskSchedule.Core.csproj">

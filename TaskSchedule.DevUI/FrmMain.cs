@@ -21,7 +21,7 @@ using TaskSchedule.UI.Config;
 
 namespace TaskSchedule
 {
-    public partial class FrmMain : FrmBase,IQuickExcuteInterface
+    public partial class FrmMain : FrmBase, IQuickExcuteInterface
     {
         private JobInfo Cur_Job;
         private Dictionary<string, IntPtr> WinHandle = new Dictionary<string, IntPtr>();
@@ -98,6 +98,7 @@ namespace TaskSchedule
                 this.ShowInTaskbar = false;
                 this.WindowState = FormWindowState.Minimized;    //使关闭时窗口向右下角缩小的效果               
                 this.Hide();
+                GlobalInstanceManager<FollowMainWinHelper>.Intance.SetShow(0);
                 return;
             }
             else
@@ -167,6 +168,7 @@ namespace TaskSchedule
             this.ShowInTaskbar = true;
             this.Show();
             this.WindowState = FormWindowState.Normal;
+            GlobalInstanceManager<FollowMainWinHelper>.Intance.SetShow(5);
             this.Focus();
         }
 
@@ -442,7 +444,7 @@ namespace TaskSchedule
 
         private void FrmMain_Move(object sender, EventArgs e)
         {
-            if (DefaultSetting.Default.ismovefollow)
+            if (DefaultSetting.Default.ismovefollow && this.WindowState != FormWindowState.Minimized)
             {
                 GlobalInstanceManager<FollowMainWinHelper>.Intance.MoveWin();
             }
@@ -479,11 +481,6 @@ namespace TaskSchedule
                 }
             }
             GlobalInstanceManager<JobInfoManager>.Intance.SaveJobInfo();
-        }
-
-        private void FrmMain_VisibleChanged(object sender, EventArgs e)
-        {
-
         }
 
     }
