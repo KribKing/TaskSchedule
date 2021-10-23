@@ -62,18 +62,6 @@
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.webpanel = new DevExpress.XtraEditors.PanelControl();
             this.pxml = new DevExpress.XtraEditors.PanelControl();
-            this.pop_ctrl_combox = new DevExpress.XtraEditors.PopupContainerControl();
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.panelControl11 = new DevExpress.XtraEditors.PanelControl();
-            this.gcjob = new DevExpress.XtraGrid.GridControl();
-            this.gvjob = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.panelControl10 = new DevExpress.XtraEditors.PanelControl();
-            this.btnclosepop = new DevExpress.XtraEditors.SimpleButton();
-            this.btnok = new DevExpress.XtraEditors.SimpleButton();
             this.rtbxml = new ICSharpCode.TextEditor.TextEditorControl();
             this.btnxml = new DevExpress.XtraEditors.SimpleButton();
             this.btngeneratexml = new DevExpress.XtraEditors.SimpleButton();
@@ -86,6 +74,18 @@
             this.txtMethod = new DevExpress.XtraEditors.TextEdit();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.psdb = new DevExpress.XtraEditors.PanelControl();
+            this.pop_ctrl_combox = new DevExpress.XtraEditors.PopupContainerControl();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.panelControl11 = new DevExpress.XtraEditors.PanelControl();
+            this.gcjob = new DevExpress.XtraGrid.GridControl();
+            this.gvjob = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.panelControl10 = new DevExpress.XtraEditors.PanelControl();
+            this.btnclosepop = new DevExpress.XtraEditors.SimpleButton();
+            this.btnok = new DevExpress.XtraEditors.SimpleButton();
             this.rtsscript = new ICSharpCode.TextEditor.TextEditorControl();
             this.popcsourcce = new DevExpress.XtraEditors.PopupContainerEdit();
             this.cesjm = new DevExpress.XtraEditors.CheckEdit();
@@ -145,6 +145,12 @@
             this.webpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pxml)).BeginInit();
             this.pxml.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbstype.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbejxlx.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMethod.Properties)).BeginInit();
+            this.xtraTabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.psdb)).BeginInit();
+            this.psdb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pop_ctrl_combox)).BeginInit();
             this.pop_ctrl_combox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -155,12 +161,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvjob)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl10)).BeginInit();
             this.panelControl10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbstype.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbejxlx.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMethod.Properties)).BeginInit();
-            this.xtraTabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.psdb)).BeginInit();
-            this.psdb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.popcsourcce.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cesjm.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbesdbtype.Properties)).BeginInit();
@@ -352,6 +352,7 @@
             // panelControl3
             // 
             this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl3.Controls.Add(this.pop_ctrl_combox);
             this.panelControl3.Controls.Add(this.btnclose);
             this.panelControl3.Controls.Add(this.btnright);
             this.panelControl3.Controls.Add(this.btncenter);
@@ -541,7 +542,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pxml.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pxml.Controls.Add(this.pop_ctrl_combox);
             this.pxml.Controls.Add(this.rtbxml);
             this.pxml.Controls.Add(this.btnxml);
             this.pxml.Controls.Add(this.btngeneratexml);
@@ -551,130 +551,6 @@
             this.pxml.Size = new System.Drawing.Size(400, 239);
             this.pxml.TabIndex = 6;
             this.pxml.Visible = false;
-            // 
-            // pop_ctrl_combox
-            // 
-            this.pop_ctrl_combox.Controls.Add(this.groupControl1);
-            this.pop_ctrl_combox.Location = new System.Drawing.Point(101, 98);
-            this.pop_ctrl_combox.Margin = new System.Windows.Forms.Padding(0);
-            this.pop_ctrl_combox.Name = "pop_ctrl_combox";
-            this.pop_ctrl_combox.Padding = new System.Windows.Forms.Padding(2);
-            this.pop_ctrl_combox.Size = new System.Drawing.Size(400, 319);
-            this.pop_ctrl_combox.TabIndex = 2;
-            // 
-            // groupControl1
-            // 
-            this.groupControl1.Controls.Add(this.panelControl11);
-            this.groupControl1.Controls.Add(this.panelControl10);
-            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl1.Location = new System.Drawing.Point(2, 2);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(396, 315);
-            this.groupControl1.TabIndex = 2;
-            this.groupControl1.Text = "配置传递";
-            // 
-            // panelControl11
-            // 
-            this.panelControl11.Controls.Add(this.gcjob);
-            this.panelControl11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl11.Location = new System.Drawing.Point(68, 22);
-            this.panelControl11.Name = "panelControl11";
-            this.panelControl11.Size = new System.Drawing.Size(326, 291);
-            this.panelControl11.TabIndex = 2;
-            // 
-            // gcjob
-            // 
-            this.gcjob.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcjob.Location = new System.Drawing.Point(2, 2);
-            this.gcjob.MainView = this.gvjob;
-            this.gcjob.Name = "gcjob";
-            this.gcjob.Size = new System.Drawing.Size(322, 287);
-            this.gcjob.TabIndex = 1;
-            this.gcjob.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvjob});
-            // 
-            // gvjob
-            // 
-            this.gvjob.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn1,
-            this.gridColumn2,
-            this.gridColumn3,
-            this.gridColumn4});
-            this.gvjob.GridControl = this.gcjob;
-            this.gvjob.GroupCount = 1;
-            this.gvjob.Name = "gvjob";
-            this.gvjob.OptionsBehavior.AutoExpandAllGroups = true;
-            this.gvjob.OptionsSelection.MultiSelect = true;
-            this.gvjob.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
-            this.gvjob.OptionsSelection.ResetSelectionClickOutsideCheckboxSelector = true;
-            this.gvjob.OptionsSelection.ShowCheckBoxSelectorInGroupRow = DevExpress.Utils.DefaultBoolean.True;
-            this.gvjob.OptionsView.ColumnAutoWidth = false;
-            this.gvjob.OptionsView.ShowGroupPanel = false;
-            this.gvjob.OptionsView.ShowIndicator = false;
-            this.gvjob.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn2, DevExpress.Data.ColumnSortOrder.Ascending)});
-            // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "大类编码";
-            this.gridColumn1.FieldName = "system";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 1;
-            // 
-            // gridColumn2
-            // 
-            this.gridColumn2.Caption = "大类名称";
-            this.gridColumn2.FieldName = "sysname";
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 1;
-            // 
-            // gridColumn3
-            // 
-            this.gridColumn3.Caption = "作业编码";
-            this.gridColumn3.FieldName = "id";
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 2;
-            // 
-            // gridColumn4
-            // 
-            this.gridColumn4.Caption = "作业名称";
-            this.gridColumn4.FieldName = "name";
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 3;
-            // 
-            // panelControl10
-            // 
-            this.panelControl10.Controls.Add(this.btnclosepop);
-            this.panelControl10.Controls.Add(this.btnok);
-            this.panelControl10.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelControl10.Location = new System.Drawing.Point(2, 22);
-            this.panelControl10.Name = "panelControl10";
-            this.panelControl10.Size = new System.Drawing.Size(66, 291);
-            this.panelControl10.TabIndex = 0;
-            // 
-            // btnclosepop
-            // 
-            this.btnclosepop.Image = ((System.Drawing.Image)(resources.GetObject("btnclosepop.Image")));
-            this.btnclosepop.Location = new System.Drawing.Point(6, 41);
-            this.btnclosepop.Name = "btnclosepop";
-            this.btnclosepop.Size = new System.Drawing.Size(55, 23);
-            this.btnclosepop.TabIndex = 0;
-            this.btnclosepop.Text = "关闭";
-            this.btnclosepop.Click += new System.EventHandler(this.btnclosepop_Click);
-            // 
-            // btnok
-            // 
-            this.btnok.Image = ((System.Drawing.Image)(resources.GetObject("btnok.Image")));
-            this.btnok.Location = new System.Drawing.Point(6, 11);
-            this.btnok.Name = "btnok";
-            this.btnok.Size = new System.Drawing.Size(55, 23);
-            this.btnok.TabIndex = 0;
-            this.btnok.Text = "确认";
-            this.btnok.Click += new System.EventHandler(this.btnok_Click);
             // 
             // rtbxml
             // 
@@ -799,6 +675,132 @@
             this.psdb.Name = "psdb";
             this.psdb.Size = new System.Drawing.Size(405, 326);
             this.psdb.TabIndex = 2;
+            // 
+            // pop_ctrl_combox
+            // 
+            this.pop_ctrl_combox.Controls.Add(this.groupControl1);
+            this.pop_ctrl_combox.Location = new System.Drawing.Point(122, 6);
+            this.pop_ctrl_combox.Margin = new System.Windows.Forms.Padding(0);
+            this.pop_ctrl_combox.Name = "pop_ctrl_combox";
+            this.pop_ctrl_combox.Padding = new System.Windows.Forms.Padding(2);
+            this.pop_ctrl_combox.Size = new System.Drawing.Size(400, 319);
+            this.pop_ctrl_combox.TabIndex = 2;
+            // 
+            // groupControl1
+            // 
+            this.groupControl1.Controls.Add(this.panelControl11);
+            this.groupControl1.Controls.Add(this.panelControl10);
+            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl1.Location = new System.Drawing.Point(2, 2);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(396, 315);
+            this.groupControl1.TabIndex = 2;
+            this.groupControl1.Text = "配置传递";
+            // 
+            // panelControl11
+            // 
+            this.panelControl11.Controls.Add(this.gcjob);
+            this.panelControl11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl11.Location = new System.Drawing.Point(68, 22);
+            this.panelControl11.Name = "panelControl11";
+            this.panelControl11.Size = new System.Drawing.Size(326, 291);
+            this.panelControl11.TabIndex = 2;
+            // 
+            // gcjob
+            // 
+            this.gcjob.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcjob.Location = new System.Drawing.Point(2, 2);
+            this.gcjob.MainView = this.gvjob;
+            this.gcjob.Name = "gcjob";
+            this.gcjob.Size = new System.Drawing.Size(322, 287);
+            this.gcjob.TabIndex = 1;
+            this.gcjob.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvjob});
+            // 
+            // gvjob
+            // 
+            this.gvjob.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.gridColumn2,
+            this.gridColumn3,
+            this.gridColumn4});
+            this.gvjob.GridControl = this.gcjob;
+            this.gvjob.GroupCount = 1;
+            this.gvjob.Name = "gvjob";
+            this.gvjob.OptionsBehavior.AutoExpandAllGroups = true;
+            this.gvjob.OptionsSelection.MultiSelect = true;
+            this.gvjob.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
+            this.gvjob.OptionsSelection.ResetSelectionClickOutsideCheckboxSelector = true;
+            this.gvjob.OptionsSelection.ShowCheckBoxSelectorInGroupRow = DevExpress.Utils.DefaultBoolean.True;
+            this.gvjob.OptionsView.ColumnAutoWidth = false;
+            this.gvjob.OptionsView.ShowGroupPanel = false;
+            this.gvjob.OptionsView.ShowIndicator = false;
+            this.gvjob.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn2, DevExpress.Data.ColumnSortOrder.Ascending)});
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "大类编码";
+            this.gridColumn1.FieldName = "system";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 3;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "大类名称";
+            this.gridColumn2.FieldName = "sysname";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 1;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "作业编码";
+            this.gridColumn3.FieldName = "id";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 2;
+            this.gridColumn3.Width = 68;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "作业名称";
+            this.gridColumn4.FieldName = "name";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 1;
+            this.gridColumn4.Width = 172;
+            // 
+            // panelControl10
+            // 
+            this.panelControl10.Controls.Add(this.btnclosepop);
+            this.panelControl10.Controls.Add(this.btnok);
+            this.panelControl10.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelControl10.Location = new System.Drawing.Point(2, 22);
+            this.panelControl10.Name = "panelControl10";
+            this.panelControl10.Size = new System.Drawing.Size(66, 291);
+            this.panelControl10.TabIndex = 0;
+            // 
+            // btnclosepop
+            // 
+            this.btnclosepop.Image = ((System.Drawing.Image)(resources.GetObject("btnclosepop.Image")));
+            this.btnclosepop.Location = new System.Drawing.Point(6, 41);
+            this.btnclosepop.Name = "btnclosepop";
+            this.btnclosepop.Size = new System.Drawing.Size(55, 23);
+            this.btnclosepop.TabIndex = 0;
+            this.btnclosepop.Text = "关闭";
+            this.btnclosepop.Click += new System.EventHandler(this.btnclosepop_Click);
+            // 
+            // btnok
+            // 
+            this.btnok.Image = ((System.Drawing.Image)(resources.GetObject("btnok.Image")));
+            this.btnok.Location = new System.Drawing.Point(6, 11);
+            this.btnok.Name = "btnok";
+            this.btnok.Size = new System.Drawing.Size(55, 23);
+            this.btnok.TabIndex = 0;
+            this.btnok.Text = "确认";
+            this.btnok.Click += new System.EventHandler(this.btnok_Click);
             // 
             // rtsscript
             // 
@@ -1212,6 +1214,13 @@
             this.webpanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pxml)).EndInit();
             this.pxml.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cbstype.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbejxlx.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMethod.Properties)).EndInit();
+            this.xtraTabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.psdb)).EndInit();
+            this.psdb.ResumeLayout(false);
+            this.psdb.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pop_ctrl_combox)).EndInit();
             this.pop_ctrl_combox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
@@ -1222,13 +1231,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvjob)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl10)).EndInit();
             this.panelControl10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cbstype.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbejxlx.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMethod.Properties)).EndInit();
-            this.xtraTabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.psdb)).EndInit();
-            this.psdb.ResumeLayout(false);
-            this.psdb.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.popcsourcce.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cesjm.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbesdbtype.Properties)).EndInit();

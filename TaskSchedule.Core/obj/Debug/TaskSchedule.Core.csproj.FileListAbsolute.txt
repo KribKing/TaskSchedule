@@ -6,4 +6,3 @@ D:\GitHub\DownLoadExe\DownLoad.Core\obj\Debug\TaskSchedule.Core.pdb
 D:\GitHub\DownLoadExe\TaskSchedule.Core\obj\Debug\TaskSchedule.Core.dll.licenses
 D:\GitHub\DownLoadExe\TaskSchedule.Core\obj\Debug\TaskSchedule.Core.dll
 D:\GitHub\DownLoadExe\TaskSchedule.Core\obj\Debug\TaskSchedule.Core.pdb
-D:\GitHub\DownLoadExe\TaskSchedule.Core\obj\Debug\TaskSchedule.Core.csprojResolveAssemblyReference.cache
