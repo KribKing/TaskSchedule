@@ -1,0 +1,5 @@
+D:\任务管理程序\TaskSchedule.ConsoleTest.exe
+D:\任务管理程序\TaskSchedule.ConsoleTest.pdb
+D:\GitHub\DownLoadExe\TaskSchedule.ConsoleTest\obj\Debug\TaskSchedule.ConsoleTest.csprojResolveAssemblyReference.cache
+D:\GitHub\DownLoadExe\TaskSchedule.ConsoleTest\obj\Debug\TaskSchedule.ConsoleTest.exe
+D:\GitHub\DownLoadExe\TaskSchedule.ConsoleTest\obj\Debug\TaskSchedule.ConsoleTest.pdb

@@ -9,7 +9,14 @@ namespace TaskSchedule.Core
 {
     public class Log4netUtil
     {
-        public static bool IsLog { get; set; }
+        private static bool _islog = true;
+
+        public static bool IsLog
+        {
+            get { return _islog; }
+            set { _islog = value; }
+        }
+
         private static ILog _log;
         public static ILog Log
         {
@@ -25,8 +32,7 @@ namespace TaskSchedule.Core
 
         public static void Error(string message, Exception ex = null)
         {
-            if (!IsLog)
-                return;
+            if (!IsLog) return;
             GlobalInstanceManager<ConsoleLogHelper>.Intance.SetLog(new LogMessage() { Message = message, LogLevel = LogLevel.Error });
 
             if (ex == null)
@@ -41,8 +47,7 @@ namespace TaskSchedule.Core
 
         public static void Info(string message, Exception ex = null)
         {
-            if (!IsLog)
-                return;
+            if (!IsLog) return;
             GlobalInstanceManager<ConsoleLogHelper>.Intance.SetLog(new LogMessage() { Message = message, LogLevel = LogLevel.Info });
 
             if (ex == null)
@@ -57,8 +62,7 @@ namespace TaskSchedule.Core
 
         public static void Debug(string message, Exception ex = null)
         {
-            if (!IsLog)
-                return;
+            if (!IsLog) return;
             GlobalInstanceManager<ConsoleLogHelper>.Intance.SetLog(new LogMessage() { Message = message, LogLevel = LogLevel.Debug });
 
             if (ex == null)
@@ -73,8 +77,7 @@ namespace TaskSchedule.Core
 
         public static void Warn(string message, Exception ex = null)
         {
-            if (!IsLog)
-                return;
+            if (!IsLog) return;
             GlobalInstanceManager<ConsoleLogHelper>.Intance.SetLog(new LogMessage() { Message = message, LogLevel = LogLevel.Warn });
 
             if (ex == null)
@@ -89,8 +92,7 @@ namespace TaskSchedule.Core
 
         public static void Fatal(string message, Exception ex = null)
         {
-            if (!IsLog)
-                return;
+            if (!IsLog) return;
             GlobalInstanceManager<ConsoleLogHelper>.Intance.SetLog(new LogMessage() { Message = message, LogLevel = LogLevel.Fatal });
             if (ex == null)
             {

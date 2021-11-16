@@ -18,11 +18,11 @@ namespace TaskSchedule.Core
             {
                 using (SqlConnection con = new SqlConnection(connect))
                 {
-                    con.Open();              
+                    con.Open();
                 }
             }
             catch (Exception ex)
-            {              
+            {
                 Log4netUtil.Error(ex.Message);
                 return false;
             }
@@ -43,8 +43,8 @@ namespace TaskSchedule.Core
                 //return db.FromSql(commandsql).ToDataTable();
                 return DapperManager.GetTable(GetDbTyle(dbstyle), connectstring, commandsql);
             }
-            catch 
-            {             
+            catch
+            {
                 throw;
             }
         }
@@ -74,12 +74,12 @@ namespace TaskSchedule.Core
         /// <param name="connectstring">数据库链接字符串</param>
         /// <param name="commandsql">执行sql脚本</param>
         /// <returns></returns>
-        public DataSet GetDataSetFromProc(int dbstyle, string connectstring, string commandsql,params System.Data.Common.DbParameter[] parameters)
+        public DataSet GetDataSetFromProc(int dbstyle, string connectstring, string commandsql, params System.Data.Common.DbParameter[] parameters)
         {
             try
             {
                 var db = new DbSession(GetDbTyle(dbstyle), connectstring);
-                return db.FromProc(commandsql).AddParameter(parameters).ToDataSet();            
+                return db.FromProc(commandsql).AddParameter(parameters).ToDataSet();
             }
             catch
             {
@@ -100,11 +100,11 @@ namespace TaskSchedule.Core
                 var db = new DbSession(GetDbTyle(dbstyle), connectstring);
                 return db.FromSql(commandsql).ToDataSet();
             }
-            catch 
-            {               
+            catch
+            {
                 throw;
             }
-           
+
         }
         public DatabaseType GetDbTyle(int dbstyle)
         {
@@ -137,7 +137,7 @@ namespace TaskSchedule.Core
             var db = new DbSession(GetDbTyle(dbstyle), connectstring);
             return db.FromSql(commandsql).ExecuteNonQuery();
         }
-        public ResultInfo BulkDb(int dbtype,string connectionString, string creatTmp, string tmpname, string strSql, DataTable table, ref ResultInfo retInfo)
+        public ResultInfo BulkDb(int dbtype, string connectionString, string creatTmp, string tmpname, string strSql, DataTable table, ref ResultInfo retInfo)
         {
             try
             {
@@ -151,7 +151,7 @@ namespace TaskSchedule.Core
                         this.BulkDbByOracle(connectionString, creatTmp, tmpname, strSql, table, ref retInfo);
                         break;
                     case DatabaseType.SqlServer:
-                        this.BulkDbBySqlServer(connectionString,creatTmp,tmpname,strSql,table,ref retInfo);
+                        this.BulkDbBySqlServer(connectionString, creatTmp, tmpname, strSql, table, ref retInfo);
                         break;
                     case DatabaseType.SqlServer9:
                         break;
@@ -160,7 +160,7 @@ namespace TaskSchedule.Core
                     default:
                         break;
                 }
-               
+
             }
             catch (Exception e)
             {
@@ -173,6 +173,90 @@ namespace TaskSchedule.Core
                 //GC.Collect();
             }
             return retInfo;
+        }
+        public void BulkDb(int dbtype, string connectionString, string creatTmp, string tmpname, string strSql, DataTable table)
+        {
+            try
+            {
+                switch (GetDbTyle(dbtype))
+                {
+                    case DatabaseType.MsAccess:
+                        break;
+                    case DatabaseType.MySql:
+                        break;
+                    case DatabaseType.Oracle:
+                        //this.BulkDbByOracle(connectionString, creatTmp, tmpname, strSql, table);
+                        break;
+                    case DatabaseType.SqlServer:
+                        this.BulkDbBySqlServer(connectionString, creatTmp, tmpname, strSql, table);
+                        break;
+                    case DatabaseType.SqlServer9:
+                        break;
+                    case DatabaseType.Sqlite3:
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+            finally
+            {
+                //GC.Collect();
+            }
+        }
+        public void BulkDbBySqlServer(string connectionString, string creatTmp, string tmpname, string strSql, DataTable table)
+        {
+            #region 1.创建临时表
+            string strtmpsql = !string.IsNullOrEmpty(creatTmp) ? creatTmp : "truncate table " + tmpname;
+            #endregion
+            #region 2.将数据使用sqlbulk导入到临时表
+            //开始数据保存逻辑
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = strtmpsql;
+                cmd.ExecuteNonQuery();
+                //在插入数据的同时检查约束，如果发生错误调用sqlbulkTransaction事务
+                SqlBulkCopy bulkCopy = new SqlBulkCopy(conn);
+                bulkCopy.DestinationTableName = tmpname;//代表要插入数据的表名
+                foreach (DataColumn dc in table.Columns)  //传入上述table
+                {
+                    bulkCopy.ColumnMappings.Add(dc.ColumnName, dc.ColumnName);//将table中的列与数据库表这的列一一对应
+                }
+                try
+                {
+                    bulkCopy.WriteToServer(table);
+                }
+                catch (Exception ex)
+                {
+                    Log4netUtil.Error("BulkDbBySqlServer批量导入临时表发生异常:" + ex.Message, ex);
+                    throw new Exception("批量导入临时表发生异常：" + ex.Message);
+                }
+                finally
+                {
+                    bulkCopy.Close();
+                }
+                SqlTransaction tran = conn.BeginTransaction();//开启事务                
+                try
+                {
+                    cmd.Transaction = tran;
+                    cmd.CommandText = strSql;
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ee)
+                {
+                    tran.Rollback();
+                    Log4netUtil.Error("BulkDbBySqlServer批量导入发生异常:" + ee.Message, ee);
+                    throw new Exception("批量导入发生异常：" + ee.Message);
+                }
+                tran.Commit();
+            }
+            #endregion
         }
         public ResultInfo BulkDbBySqlServer(string connectionString, string creatTmp, string tmpname, string strSql, DataTable table, ref ResultInfo retInfo)
         {

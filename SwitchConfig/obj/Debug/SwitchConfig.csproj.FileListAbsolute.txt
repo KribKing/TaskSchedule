@@ -1,0 +1,8 @@
+D:\GitHub\DownLoadExe\SwitchConfig\obj\Debug\SwitchConfig.csprojResolveAssemblyReference.cache
+D:\GitHub\DownLoadExe\SwitchConfig\obj\Debug\SwitchConfig.FrmMain.resources
+D:\GitHub\DownLoadExe\SwitchConfig\obj\Debug\SwitchConfig.Properties.Resources.resources
+D:\GitHub\DownLoadExe\SwitchConfig\obj\Debug\SwitchConfig.csproj.GenerateResource.Cache
+D:\任务管理程序\SwitchConfig.exe
+D:\任务管理程序\SwitchConfig.pdb
+D:\GitHub\DownLoadExe\SwitchConfig\obj\Debug\SwitchConfig.exe
+D:\GitHub\DownLoadExe\SwitchConfig\obj\Debug\SwitchConfig.pdb

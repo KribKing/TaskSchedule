@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace TaskSchedule.Core
 {
-    public class GlobalInstanceManager<T>
+    public class GlobalInstanceManager<T> where T : class
     {
         private static T _intance;
         public static T Intance {
@@ -21,6 +22,12 @@ namespace TaskSchedule.Core
             {
                 _intance = value;
             }
+        }
+        public static T ReflectInstance(string assembly,string typename) 
+        {
+            Assembly assemblytask = Assembly.Load(assembly);
+            Type type = assemblytask.GetType(typename);
+            return Activator.CreateInstance(type) as T;
         }
     }
 }

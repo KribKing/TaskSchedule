@@ -32,7 +32,7 @@ namespace TaskSchedule.Core
                     ctrlColor = Color.Red;
                     break;
                 case LogLevel.Warn:
-                    ctrlColor = Color.Yellow;
+                    ctrlColor = Color.OrangeRed;
                     break;
                 case LogLevel.Fatal:
                     ctrlColor = Color.DarkRed;

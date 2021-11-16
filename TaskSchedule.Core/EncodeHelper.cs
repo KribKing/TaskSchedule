@@ -36,8 +36,7 @@ namespace TaskSchedule.Core
         /// <returns></returns>
         public static string EncodeBase64(Encoding encode, string source)
         {
-            if (string.IsNullOrEmpty(source))
-                return "";
+            if (string.IsNullOrEmpty(source)) return "";
             string strret = "";
             byte[] bytes = encode.GetBytes(source);
             try
@@ -68,8 +67,7 @@ namespace TaskSchedule.Core
         /// <returns>解密后的字符串</returns>
         public static string DecodeBase64(Encoding encode, string result)
         {
-            if (string.IsNullOrEmpty(result))
-                return "";
+            if (string.IsNullOrEmpty(result)) return "";
             string decode = "";
             byte[] bytes = Convert.FromBase64String(result);
             try

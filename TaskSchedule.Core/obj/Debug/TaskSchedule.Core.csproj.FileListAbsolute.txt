@@ -6,3 +6,5 @@ D:\GitHub\DownLoadExe\DownLoad.Core\obj\Debug\TaskSchedule.Core.pdb
 D:\GitHub\DownLoadExe\TaskSchedule.Core\obj\Debug\TaskSchedule.Core.dll.licenses
 D:\GitHub\DownLoadExe\TaskSchedule.Core\obj\Debug\TaskSchedule.Core.dll
 D:\GitHub\DownLoadExe\TaskSchedule.Core\obj\Debug\TaskSchedule.Core.pdb
+D:\任务管理程序\TaskSchedule.Core.dll
+D:\任务管理程序\TaskSchedule.Core.pdb

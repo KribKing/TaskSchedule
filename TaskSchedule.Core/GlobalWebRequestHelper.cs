@@ -74,6 +74,43 @@ namespace TaskSchedule.Core
             }
 
         }
+        public static string HttpPostRequestWithHeader(string url, string body, string accept = "json", string contentttype = "json", Dictionary<string, string> header = null)
+        {
+            try
+            {
+                Encoding encoding = Encoding.UTF8;
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                request.Method = "POST";
+                request.Accept = "application/" + accept;
+                request.ContentType = "application/" + contentttype + "; charset=utf-8";
+                //request.UserAgent = "Apache-HttpClient/4.1.1 (java 1.5)";
+                request.AllowAutoRedirect = false;
+                if (header != null && header.Count > 0)
+                {
+                    foreach (var item in header.Keys)
+                    {
+                        request.Headers.Add(item, header[item]);
+                    }
+                }
+
+                byte[] buffer = encoding.GetBytes(body);
+                request.ContentLength = buffer.Length;
+                request.GetRequestStream().Write(buffer, 0, buffer.Length);
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                using (StreamReader reader = new StreamReader(response.GetResponseStream(), encoding))
+                {
+                    return reader.ReadToEnd();
+                }
+                //response.Close();
+                //request.Abort();
+
+            }
+            catch
+            {
+                throw;
+            }
+
+        }
         public static string SoapRequest(string url, string method, object[] args)
         {
             //这里的namespace是需引用的webservices的命名空间，在这里是写死的，大家可以加一个参数从外面传进来。

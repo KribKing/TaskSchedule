@@ -592,6 +592,12 @@ namespace TaskSchedule.Core
                 return formatter.Deserialize(objectStream) as List<T>;
             }
         }
+
+        public static T CloneByJson<T>(object List)
+        {
+            string json = JsonConvert.SerializeObject(List);
+            return JsonConvert.DeserializeObject<T>(json);
+        }
         public static T CloneSingle<T>(object single)
         {
             using (Stream objectStream = new MemoryStream())
@@ -686,7 +692,7 @@ namespace TaskSchedule.Core
             }
             catch (Exception ex)
             {
-                Log4netUtil.Error(ex.Message,ex);
+                Log4netUtil.Error(ex.Message, ex);
             }
 
             return value;
@@ -732,7 +738,7 @@ namespace TaskSchedule.Core
             }
             catch (Exception ex)
             {
-                Log4netUtil.Error(ex.Message,ex);
+                Log4netUtil.Error(ex.Message, ex);
             }
             return table;
         }

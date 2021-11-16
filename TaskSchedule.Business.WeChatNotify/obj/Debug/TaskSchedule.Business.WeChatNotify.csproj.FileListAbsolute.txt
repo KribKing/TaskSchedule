@@ -1,0 +1,12 @@
+D:\GitHub\DownLoadExe\TaskSchedule.WechatBusiness\obj\Debug\TaskSchedule.Business.WeChatNotify.csprojResolveAssemblyReference.cache
+D:\GitHub\DownLoadExe\TaskSchedule.WechatBusiness\obj\Debug\TaskSchedule.Business.WeChatNotify.ConfigFrm.resources
+D:\GitHub\DownLoadExe\TaskSchedule.WechatBusiness\obj\Debug\TaskSchedule.Business.WeChatNotify.csproj.GenerateResource.Cache
+D:\GitHub\DownLoadExe\TaskSchedule.WechatBusiness\obj\Debug\TaskSchedule.Business.WeChatNotify.dll.licenses
+D:\GitHub\DownLoadExe\TaskSchedule.Business.WeChatNotify\obj\Debug\TaskSchedule.Business.WeChatNotify.csprojResolveAssemblyReference.cache
+D:\GitHub\DownLoadExe\TaskSchedule.Business.WeChatNotify\obj\Debug\TaskSchedule.Business.WeChatNotify.ConfigFrm.resources
+D:\GitHub\DownLoadExe\TaskSchedule.Business.WeChatNotify\obj\Debug\TaskSchedule.Business.WeChatNotify.csproj.GenerateResource.Cache
+D:\GitHub\DownLoadExe\TaskSchedule.Business.WeChatNotify\obj\Debug\TaskSchedule.Business.WeChatNotify.dll.licenses
+D:\任务管理程序\TaskSchedule.Business.WeChatNotify.dll
+D:\任务管理程序\TaskSchedule.Business.WeChatNotify.pdb
+D:\GitHub\DownLoadExe\TaskSchedule.Business.WeChatNotify\obj\Debug\TaskSchedule.Business.WeChatNotify.dll
+D:\GitHub\DownLoadExe\TaskSchedule.Business.WeChatNotify\obj\Debug\TaskSchedule.Business.WeChatNotify.pdb

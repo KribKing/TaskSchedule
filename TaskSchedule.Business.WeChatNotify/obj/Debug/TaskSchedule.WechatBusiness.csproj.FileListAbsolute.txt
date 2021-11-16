@@ -1,0 +1,5 @@
+D:\任务管理程序\TaskSchedule.WechatBusiness.dll
+D:\任务管理程序\TaskSchedule.WechatBusiness.pdb
+D:\GitHub\DownLoadExe\TaskSchedule.WechatBusiness\obj\Debug\TaskSchedule.WechatBusiness.csprojResolveAssemblyReference.cache
+D:\GitHub\DownLoadExe\TaskSchedule.WechatBusiness\obj\Debug\TaskSchedule.WechatBusiness.dll
+D:\GitHub\DownLoadExe\TaskSchedule.WechatBusiness\obj\Debug\TaskSchedule.WechatBusiness.pdb

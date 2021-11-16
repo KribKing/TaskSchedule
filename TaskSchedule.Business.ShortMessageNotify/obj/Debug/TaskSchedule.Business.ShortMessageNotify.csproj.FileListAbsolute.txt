@@ -1,0 +1,8 @@
+D:\GitHub\DownLoadExe\TaskSchedule.Business.ShortMessageNotify\obj\Debug\TaskSchedule.Business.ShortMessageNotify.csprojResolveAssemblyReference.cache
+D:\任务管理程序\TaskSchedule.Business.ShortMessageNotify.dll
+D:\任务管理程序\TaskSchedule.Business.ShortMessageNotify.pdb
+D:\GitHub\DownLoadExe\TaskSchedule.Business.ShortMessageNotify\obj\Debug\TaskSchedule.Business.ShortMessageNotify.dll
+D:\GitHub\DownLoadExe\TaskSchedule.Business.ShortMessageNotify\obj\Debug\TaskSchedule.Business.ShortMessageNotify.pdb
+D:\GitHub\DownLoadExe\TaskSchedule.Business.ShortMessageNotify\obj\Debug\TaskSchedule.Business.ShortMessageNotify.csproj.GenerateResource.Cache
+D:\GitHub\DownLoadExe\TaskSchedule.Business.ShortMessageNotify\obj\Debug\TaskSchedule.Business.ShortMessageNotify.dll.licenses
+D:\GitHub\DownLoadExe\TaskSchedule.Business.ShortMessageNotify\obj\Debug\TaskSchedule.Business.ShortMessageNotify.ConfigFrm.resources

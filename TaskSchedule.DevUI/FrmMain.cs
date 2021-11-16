@@ -295,8 +295,7 @@ namespace TaskSchedule
             if (node == null || node.Tag == null)
                 return;
             JobInfo info = node.Tag as JobInfo;
-            if (info == null)
-                return;
+            if (info == null) return;
             if (GlobalInstanceManager<FollowMainWinHelper>.Intance.IsExistsKey(info.id))
             {
                 GlobalInstanceManager<FollowMainWinHelper>.Intance.SetTopMost(info.id);
