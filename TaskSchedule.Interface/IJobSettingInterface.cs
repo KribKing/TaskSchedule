@@ -5,12 +5,12 @@ using System.Text;
 
 namespace TaskSchedule.Interface
 {
-    public interface IJobSettingInterface
+    public interface IJobSettingInterface<T>
     {
-        List<JobInfo> Default{get;}
+        List<T> Default{get;}
         void Save();
         void Init();
-        void Add(JobInfo info);
-        void Delete(JobInfo info);
+        void Add(T info);
+        void Delete(T info);
     }
 }

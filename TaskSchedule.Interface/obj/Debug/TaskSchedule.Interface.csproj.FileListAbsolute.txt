@@ -17,10 +17,6 @@ D:\GitHub\DownLoadExe\TaskSchedule.ScheduleInterface\bin\Debug\Dapper.xml
 D:\GitHub\DownLoadExe\TaskSchedule.ScheduleInterface\bin\Debug\RestSharp.xml
 D:\GitHub\DownLoadExe\TaskSchedule.ScheduleInterface\obj\Debug\TaskSchedule.Interface.dll
 D:\GitHub\DownLoadExe\TaskSchedule.ScheduleInterface\obj\Debug\TaskSchedule.Interface.pdb
-D:\GitHub\DownLoadExe\TaskSchedule.Interface\obj\Debug\TaskSchedule.Interface.csproj.GenerateResource.Cache
-D:\GitHub\DownLoadExe\TaskSchedule.Interface\obj\Debug\TaskSchedule.Interface.dll.licenses
-D:\GitHub\DownLoadExe\TaskSchedule.Interface\obj\Debug\TaskSchedule.Interface.dll
-D:\GitHub\DownLoadExe\TaskSchedule.Interface\obj\Debug\TaskSchedule.Interface.pdb
 D:\GitHub\DownLoadExe\TaskSchedule.Interface\bin\Debug\TaskSchedule.Interface.dll
 D:\GitHub\DownLoadExe\TaskSchedule.Interface\bin\Debug\TaskSchedule.Interface.pdb
 D:\GitHub\DownLoadExe\TaskSchedule.Interface\bin\Debug\Newtonsoft.Json.dll
@@ -38,8 +34,10 @@ D:\GitHub\DownLoadExe\TaskSchedule.Interface\bin\Debug\Dos.ORM.xml
 D:\GitHub\DownLoadExe\TaskSchedule.Interface\bin\Debug\log4net.xml
 D:\GitHub\DownLoadExe\TaskSchedule.Interface\bin\Debug\Dapper.xml
 D:\GitHub\DownLoadExe\TaskSchedule.Interface\bin\Debug\RestSharp.xml
-D:\GitHub\DownLoadExe\TaskSchedule.Interface\obj\Debug\TaskSchedule.Interface.ConsoleFrm.resources
 D:\GitHub\DownLoadExe\TaskSchedule.Interface\bin\Debug\TaskSchedule.UI.Base.pdb
-D:\GitHub\DownLoadExe\TaskSchedule.Interface\obj\Debug\TaskSchedule.Interface.csprojResolveAssemblyReference.cache
 D:\任务管理程序\TaskSchedule.Interface.dll
 D:\任务管理程序\TaskSchedule.Interface.pdb
+D:\GitHub\DownLoadExe\TaskSchedule.Interface\obj\Debug\TaskSchedule.Interface.csprojResolveAssemblyReference.cache
+D:\GitHub\DownLoadExe\TaskSchedule.Interface\obj\Debug\TaskSchedule.Interface.dll.licenses
+D:\GitHub\DownLoadExe\TaskSchedule.Interface\obj\Debug\TaskSchedule.Interface.dll
+D:\GitHub\DownLoadExe\TaskSchedule.Interface\obj\Debug\TaskSchedule.Interface.pdb

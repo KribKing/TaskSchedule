@@ -1,0 +1,18 @@
+[
+ 
+  {
+      "AssemblyName":"TaskSchedule.Business.PushMessage",
+	  "TaskStarter":"TaskSchedule.Business.PushMessage.PushMessageTaskStarter",
+	  "SettingInterface":"TaskSchedule.Business.PushMessage.PushMessageSetting",
+	  "JobInfo":"TaskSchedule.Business.PushMessage.JobInfoPushMessage",
+	  "ConfigUI":"TaskSchedule.UI.Config.Dev:TaskSchedule.UI.Config.Dev.PushMessageConfigFrm"	  
+  },
+  {
+      "AssemblyName":"TaskSchedule.Business.SyncData",
+	  "TaskStarter":"TaskSchedule.Business.SyncData.SyncDataTaskStarter",
+	  "SettingInterface":"TaskSchedule.Business.SyncData.SyncDataSetting",
+	  "JobInfo":"TaskSchedule.Business.SyncData.JobInfoSyncData",
+	  "ConfigUI":"TaskSchedule.UI.Config.Dev:TaskSchedule.UI.Config.Dev.SyncDataConfigFrm"	       
+  }
+  
+]

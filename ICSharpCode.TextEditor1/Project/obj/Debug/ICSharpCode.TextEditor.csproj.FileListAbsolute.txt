@@ -1,9 +1,0 @@
-D:\GitHub\SharpDevelop_3.2.1.6466_Source\bin\ICSharpCode.TextEditor.dll
-D:\GitHub\SharpDevelop_3.2.1.6466_Source\bin\ICSharpCode.TextEditor.pdb
-D:\GitHub\SharpDevelop_3.2.1.6466_Source\src\Libraries\ICSharpCode.TextEditor\Project\obj\Debug\ICSharpCode.TextEditor.dll
-D:\GitHub\SharpDevelop_3.2.1.6466_Source\src\Libraries\ICSharpCode.TextEditor\Project\obj\Debug\ICSharpCode.TextEditor.pdb
-D:\GitHub\SharpDevelop_3.2.1.6466_Source\bin\ICSharpCode.TextEditor.XML
-D:\GitHub\SharpDevelop_3.2.1.6466_Source\src\Libraries\ICSharpCode.TextEditor\Project\obj\Debug\ICSharpCode.TextEditor.csproj.CoreCompileInputs.cache
-D:\GitHub\SharpDevelop_3.2.1.6466_Source\src\Libraries\ICSharpCode.TextEditor\Project\obj\Debug\ICSharpCode.TextEditor.csproj.AssemblyReference.cache
-D:\GitHub\DownLoadExe\ICSharpCode.TextEditor\Project\obj\Debug\ICSharpCode.TextEditor.dll
-D:\GitHub\DownLoadExe\ICSharpCode.TextEditor\Project\obj\Debug\ICSharpCode.TextEditor.pdb

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Quartz;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,7 @@ using TaskSchedule.Core;
 
 namespace TaskSchedule.Interface
 {
-    public delegate void JobInfoChanged(JobInfoOp OpType,JobInfo info);
+    public delegate void JobInfoChanged(JobInfoOp OpType, JobInfo info);
     [Serializable]
     public class JobInfo
     {
@@ -108,10 +109,13 @@ namespace TaskSchedule.Interface
 
             }
         }
+        public bool IsExecuting { get; set; }
         [Newtonsoft.Json.JsonIgnore]
         public ITaskStarterInterface TaskStarter { get; set; }
         [Newtonsoft.Json.JsonIgnore]
-        public IJobSettingInterface SettingInterface { get; set; }
+        public IJobSettingInterface<JobInfo> SettingInterface { get; set; }
+        [Newtonsoft.Json.JsonIgnore]
+        public AddinsInfo AddinsInfo { get; set; }
         public void CreatJob()
         {
             GlobalInstanceManager<SchedulerManager>.Intance.CreatJob(this);
@@ -125,45 +129,59 @@ namespace TaskSchedule.Interface
         {
             GlobalInstanceManager<SchedulerManager>.Intance.RefreshJlzt(this);
         }
-
+        
 
         public virtual void Run()
         {
             try
             {
+                if (IsExecuting)
+                {
+                    Log4netUtil.Warn("请注意，作业【" + this.name + "】正在执行，请稍后");
+                    return;
+                }
                 IRunInterface irun = this.TaskStarter.CreateInstance(this);
                 if (irun == null)
                 {
                     Log4netUtil.Warn("作业【" + this.name + "】未找到对应的执行接口");
                     return;
                 }
+                IsExecuting = true;
                 Log4netUtil.Debug("作业【" + this.name + "】开始执行");
                 irun.Run();
                 Tools.FlushMemory();
                 Log4netUtil.Debug("作业【" + this.name + "】执行结束");
+                IsExecuting = false;
             }
             catch (Exception ex)
             {
                 Tools.FlushMemory();
-                Log4netUtil.Error("作业【" + this.name + "】执行发生异常"+ex.Message,ex);
+                Log4netUtil.Error("作业【" + this.name + "】执行发生异常" + ex.Message, ex);
+                IsExecuting = false;
             }
+        }
+        public virtual void SetTmpTableSchema()
+        {
+
         }
         public virtual string GetExcuteCondition()
         {
             return "";
         }
-        public virtual Form Config()
+        public virtual IConfigUIInterface Config()
         {
-            return null;
+            if (this.AddinsInfo == null || string.IsNullOrEmpty(this.AddinsInfo.ConfigUI)) return null;
+            IConfigUIInterface ui = GlobalInstanceManager<IConfigUIInterface>.ReflectInstance(this.AddinsInfo.ConfigUI.Split(':')[0], this.AddinsInfo.ConfigUI.Split(':')[1]);
+            ui.SetJobInfo(this);
+            return ui;
         }
         public virtual void Add()
         {
-            if(GlobalInstanceManager<JobInfoManager>.Intance.JobInfoDic.Keys.ToList().Exists(a=>a==GuId))return;
+            if (GlobalInstanceManager<JobInfoManager>.Intance.JobInfoDic.Keys.ToList().Exists(a => a == GuId)) return;
             this.SettingInterface.Add(this);
             GlobalInstanceManager<JobInfoManager>.Intance.JobInfoDic.Add(GuId, this);
             this.CreatJob();
-            if (onJobInfoChanged != null)
-                onJobInfoChanged(JobInfoOp.Add,this);
+
         }
         public virtual JobInfo Create()
         {
@@ -177,8 +195,11 @@ namespace TaskSchedule.Interface
         }
         public void Save()
         {
+            this.Add();
             if (SettingInterface != null)
                 SettingInterface.Save();
+            if (onJobInfoChanged != null)
+                onJobInfoChanged(JobInfoOp.Save, this);
         }
 
         public void Delete()
@@ -188,12 +209,13 @@ namespace TaskSchedule.Interface
             if (SettingInterface != null)
                 SettingInterface.Delete(this);
             if (onJobInfoChanged != null)
-                onJobInfoChanged(JobInfoOp.Delete,this);
+                onJobInfoChanged(JobInfoOp.Delete, this);
         }
     }
 
     public enum JobInfoOp
     {
+        Save,
         Add,
         Delete
     }

@@ -1,0 +1,14 @@
+D:\任务管理程序\TaskSchedule.UI.Config.Dev.dll
+D:\任务管理程序\TaskSchedule.UI.Config.Dev.pdb
+D:\GitHub\DownLoadExe\TaskSchedule.UI.Config.Dev\obj\Debug\TaskSchedule.UI.Config.Dev.csprojResolveAssemblyReference.cache
+D:\GitHub\DownLoadExe\TaskSchedule.UI.Config.Dev\obj\Debug\TaskSchedule.UI.Config.Dev.ConfigFrm.resources
+D:\GitHub\DownLoadExe\TaskSchedule.UI.Config.Dev\obj\Debug\TaskSchedule.UI.Config.Dev.MapXmlFrm.resources
+D:\GitHub\DownLoadExe\TaskSchedule.UI.Config.Dev\obj\Debug\TaskSchedule.UI.Config.Dev.PushMessageConfigFrm.resources
+D:\GitHub\DownLoadExe\TaskSchedule.UI.Config.Dev\obj\Debug\TaskSchedule.UI.Config.Dev.ShowPathFrm.resources
+D:\GitHub\DownLoadExe\TaskSchedule.UI.Config.Dev\obj\Debug\TaskSchedule.UI.Config.Dev.SyncDataConfigFrm.resources
+D:\GitHub\DownLoadExe\TaskSchedule.UI.Config.Dev\obj\Debug\TaskSchedule.UI.Config.Dev.TableFrm.resources
+D:\GitHub\DownLoadExe\TaskSchedule.UI.Config.Dev\obj\Debug\TaskSchedule.UI.Config.Dev.TestFrm.resources
+D:\GitHub\DownLoadExe\TaskSchedule.UI.Config.Dev\obj\Debug\TaskSchedule.UI.Config.Dev.csproj.GenerateResource.Cache
+D:\GitHub\DownLoadExe\TaskSchedule.UI.Config.Dev\obj\Debug\TaskSchedule.UI.Config.Dev.dll.licenses
+D:\GitHub\DownLoadExe\TaskSchedule.UI.Config.Dev\obj\Debug\TaskSchedule.UI.Config.Dev.dll
+D:\GitHub\DownLoadExe\TaskSchedule.UI.Config.Dev\obj\Debug\TaskSchedule.UI.Config.Dev.pdb

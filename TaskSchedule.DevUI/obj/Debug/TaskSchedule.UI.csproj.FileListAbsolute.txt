@@ -1,2 +1,0 @@
-D:\康复数据下载程序\TaskSchedule.exe.config
-D:\康复作业程序\TaskSchedule.exe.config

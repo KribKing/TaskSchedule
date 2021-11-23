@@ -1,4 +1,3 @@
-D:\GitHub\DownLoadExe\TaskSchedule.Business.SyncData\obj\Debug\TaskSchedule.Business.SyncData.csprojResolveAssemblyReference.cache
 D:\GitHub\DownLoadExe\TaskSchedule.Business.SyncData\bin\Debug\TaskSchedule.Business.SyncData.dll
 D:\GitHub\DownLoadExe\TaskSchedule.Business.SyncData\bin\Debug\TaskSchedule.Business.SyncData.pdb
 D:\GitHub\DownLoadExe\TaskSchedule.Business.SyncData\bin\Debug\Newtonsoft.Json.dll
@@ -19,18 +18,13 @@ D:\GitHub\DownLoadExe\TaskSchedule.Business.SyncData\bin\Debug\log4net.xml
 D:\GitHub\DownLoadExe\TaskSchedule.Business.SyncData\bin\Debug\Dapper.xml
 D:\GitHub\DownLoadExe\TaskSchedule.Business.SyncData\bin\Debug\RestSharp.xml
 D:\GitHub\DownLoadExe\TaskSchedule.Business.SyncData\bin\Debug\TaskSchedule.UI.Base.pdb
-D:\GitHub\DownLoadExe\TaskSchedule.Business.SyncData\obj\Debug\TaskSchedule.Business.SyncData.dll
-D:\GitHub\DownLoadExe\TaskSchedule.Business.SyncData\obj\Debug\TaskSchedule.Business.SyncData.pdb
-D:\GitHub\DownLoadExe\TaskSchedule.Business.SyncData\obj\Debug\TaskSchedule.Business.SyncData.ConfigFrm.resources
-D:\GitHub\DownLoadExe\TaskSchedule.Business.SyncData\obj\Debug\TaskSchedule.Business.SyncData.csproj.GenerateResource.Cache
-D:\GitHub\DownLoadExe\TaskSchedule.Business.SyncData\obj\Debug\TaskSchedule.Business.SyncData.dll.licenses
-D:\GitHub\DownLoadExe\TaskSchedule.Business.SyncData\obj\Debug\TaskSchedule.Business.SyncData.MapXmlFrm.resources
-D:\GitHub\DownLoadExe\TaskSchedule.Business.SyncData\obj\Debug\TaskSchedule.Business.SyncData.ShowPathFrm.resources
-D:\GitHub\DownLoadExe\TaskSchedule.Business.SyncData\obj\Debug\TaskSchedule.Business.SyncData.TableFrm.resources
-D:\GitHub\DownLoadExe\TaskSchedule.Business.SyncData\obj\Debug\TaskSchedule.Business.SyncData.TestFrm.resources
 D:\GitHub\DownLoadExe\TaskSchedule.Business.SyncData\bin\Debug\ICSharpCode.TextEditor.dll
 D:\GitHub\DownLoadExe\TaskSchedule.Business.SyncData\bin\Debug\ICSharpCode.TextEditor.pdb
 D:\GitHub\DownLoadExe\TaskSchedule.Business.SyncData\bin\Debug\ICSharpCode.TextEditor.xml
 D:\任务管理程序\TaskSchedule.Business.SyncData.dll
 D:\任务管理程序\TaskSchedule.Business.SyncData.pdb
+D:\GitHub\DownLoadExe\TaskSchedule.Business.SyncData\obj\Debug\TaskSchedule.Business.SyncData.csprojResolveAssemblyReference.cache
 D:\GitHub\DownLoadExe\TaskSchedule.Business.SyncData\obj\Debug\TaskSchedule.Business.SyncData.Properties.Resources.resources
+D:\GitHub\DownLoadExe\TaskSchedule.Business.SyncData\obj\Debug\TaskSchedule.Business.SyncData.csproj.GenerateResource.Cache
+D:\GitHub\DownLoadExe\TaskSchedule.Business.SyncData\obj\Debug\TaskSchedule.Business.SyncData.dll
+D:\GitHub\DownLoadExe\TaskSchedule.Business.SyncData\obj\Debug\TaskSchedule.Business.SyncData.pdb

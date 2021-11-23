@@ -1,0 +1,11 @@
+D:\任务管理程序\TaskSchedule.exe.config
+D:\GitHub\DownLoadExe\TaskSchedule.UI.DevUI.Main\obj\Debug\TaskSchedule.exe
+D:\GitHub\DownLoadExe\TaskSchedule.UI.DevUI.Main\obj\Debug\TaskSchedule.pdb
+D:\任务管理程序\TaskSchedule.exe
+D:\任务管理程序\TaskSchedule.pdb
+D:\GitHub\DownLoadExe\TaskSchedule.UI.DevUI.Main\obj\Debug\TaskSchedule.UI.Main.Dev.csprojResolveAssemblyReference.cache
+D:\GitHub\DownLoadExe\TaskSchedule.UI.DevUI.Main\obj\Debug\TaskSchedule.UI.DevUI.FrmMain.resources
+D:\GitHub\DownLoadExe\TaskSchedule.UI.DevUI.Main\obj\Debug\TaskSchedule.Properties.Resources.resources
+D:\GitHub\DownLoadExe\TaskSchedule.UI.DevUI.Main\obj\Debug\TaskSchedule.UI.DevUI.SettingsFrm.resources
+D:\GitHub\DownLoadExe\TaskSchedule.UI.DevUI.Main\obj\Debug\TaskSchedule.UI.Main.Dev.csproj.GenerateResource.Cache
+D:\GitHub\DownLoadExe\TaskSchedule.UI.DevUI.Main\obj\Debug\TaskSchedule.exe.licenses

@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -55,20 +56,27 @@
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.treeList1 = new DevExpress.XtraTreeList.TreeList();
             this.tPatKey = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.phead = new DevExpress.XtraEditors.PanelControl();
+            this.pop_ctrl_job = new DevExpress.XtraEditors.PopupContainerControl();
+            this.lbjob = new DevExpress.XtraEditors.ListBoxControl();
+            this.pop_job = new DevExpress.XtraEditors.PopupContainerEdit();
             this.btnlog = new DevExpress.XtraEditors.SimpleButton();
             this.btnconfig = new DevExpress.XtraEditors.SimpleButton();
-            this.btnaddjob = new DevExpress.XtraEditors.SimpleButton();
             this.btnPause = new DevExpress.XtraEditors.SimpleButton();
             this.btnStart = new DevExpress.XtraEditors.SimpleButton();
+            this.btnflushmemory = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeList1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.phead)).BeginInit();
+            this.phead.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pop_ctrl_job)).BeginInit();
+            this.pop_ctrl_job.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lbjob)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pop_job.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // imageList1
@@ -273,8 +281,9 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.pop_ctrl_job);
             this.groupControl1.Controls.Add(this.treeList1);
-            this.groupControl1.Controls.Add(this.panelControl1);
+            this.groupControl1.Controls.Add(this.phead);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
@@ -314,27 +323,66 @@
             this.tPatKey.Visible = true;
             this.tPatKey.VisibleIndex = 0;
             // 
-            // panelControl1
+            // phead
             // 
-            this.panelControl1.Controls.Add(this.btnlog);
-            this.panelControl1.Controls.Add(this.btnconfig);
-            this.panelControl1.Controls.Add(this.btnaddjob);
-            this.panelControl1.Controls.Add(this.btnPause);
-            this.panelControl1.Controls.Add(this.btnStart);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl1.Location = new System.Drawing.Point(2, 22);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(286, 29);
-            this.panelControl1.TabIndex = 1;
+            this.phead.Controls.Add(this.pop_job);
+            this.phead.Controls.Add(this.btnflushmemory);
+            this.phead.Controls.Add(this.btnlog);
+            this.phead.Controls.Add(this.btnconfig);
+            this.phead.Controls.Add(this.btnPause);
+            this.phead.Controls.Add(this.btnStart);
+            this.phead.Dock = System.Windows.Forms.DockStyle.Top;
+            this.phead.Location = new System.Drawing.Point(2, 22);
+            this.phead.Name = "phead";
+            this.phead.Size = new System.Drawing.Size(286, 29);
+            this.phead.TabIndex = 1;
+            // 
+            // pop_ctrl_job
+            // 
+            this.pop_ctrl_job.Controls.Add(this.lbjob);
+            this.pop_ctrl_job.Location = new System.Drawing.Point(124, 91);
+            this.pop_ctrl_job.Margin = new System.Windows.Forms.Padding(0);
+            this.pop_ctrl_job.Name = "pop_ctrl_job";
+            this.pop_ctrl_job.Padding = new System.Windows.Forms.Padding(1);
+            this.pop_ctrl_job.Size = new System.Drawing.Size(99, 86);
+            this.pop_ctrl_job.TabIndex = 2;
+            // 
+            // lbjob
+            // 
+            this.lbjob.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbjob.Location = new System.Drawing.Point(1, 1);
+            this.lbjob.Name = "lbjob";
+            this.lbjob.Size = new System.Drawing.Size(97, 84);
+            this.lbjob.TabIndex = 0;
+            this.lbjob.Click += new System.EventHandler(this.lbjob_Click);
+            // 
+            // pop_job
+            // 
+            this.pop_job.Location = new System.Drawing.Point(232, 3);
+            this.pop_job.MenuManager = this.barManager1;
+            this.pop_job.Name = "pop_job";
+            this.pop_job.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.pop_job.Properties.Appearance.Options.UseBackColor = true;
+            this.pop_job.Properties.AutoHeight = false;
+            this.pop_job.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("pop_job.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            this.pop_job.Properties.PopupControl = this.pop_ctrl_job;
+            this.pop_job.Properties.PopupFormMinSize = new System.Drawing.Size(80, 80);
+            this.pop_job.Properties.PopupFormSize = new System.Drawing.Size(100, 100);
+            this.pop_job.Properties.ShowPopupCloseButton = false;
+            this.pop_job.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.pop_job.Size = new System.Drawing.Size(20, 23);
+            this.pop_job.TabIndex = 1;
+            this.pop_job.ToolTip = "新增作业";
             // 
             // btnlog
             // 
             this.btnlog.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.btnlog.Image = ((System.Drawing.Image)(resources.GetObject("btnlog.Image")));
             this.btnlog.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnlog.Location = new System.Drawing.Point(106, 1);
+            this.btnlog.Location = new System.Drawing.Point(86, 2);
             this.btnlog.Name = "btnlog";
-            this.btnlog.Size = new System.Drawing.Size(27, 23);
+            this.btnlog.Size = new System.Drawing.Size(20, 23);
             this.btnlog.TabIndex = 0;
             this.btnlog.ToolTip = "查看控制台日志";
             this.btnlog.Click += new System.EventHandler(this.btnlog_Click);
@@ -346,32 +394,19 @@
             this.btnconfig.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnconfig.Location = new System.Drawing.Point(8, 2);
             this.btnconfig.Name = "btnconfig";
-            this.btnconfig.Size = new System.Drawing.Size(27, 23);
+            this.btnconfig.Size = new System.Drawing.Size(20, 23);
             this.btnconfig.TabIndex = 0;
             this.btnconfig.ToolTip = "参数配置";
             this.btnconfig.Click += new System.EventHandler(this.btnconfig_Click);
-            // 
-            // btnaddjob
-            // 
-            this.btnaddjob.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnaddjob.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.btnaddjob.Image = ((System.Drawing.Image)(resources.GetObject("btnaddjob.Image")));
-            this.btnaddjob.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnaddjob.Location = new System.Drawing.Point(254, 3);
-            this.btnaddjob.Name = "btnaddjob";
-            this.btnaddjob.Size = new System.Drawing.Size(27, 23);
-            this.btnaddjob.TabIndex = 0;
-            this.btnaddjob.ToolTip = "新增作业";
-            this.btnaddjob.Click += new System.EventHandler(this.btnreset_Click);
             // 
             // btnPause
             // 
             this.btnPause.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.btnPause.Image = ((System.Drawing.Image)(resources.GetObject("btnPause.Image")));
             this.btnPause.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnPause.Location = new System.Drawing.Point(73, 2);
+            this.btnPause.Location = new System.Drawing.Point(60, 2);
             this.btnPause.Name = "btnPause";
-            this.btnPause.Size = new System.Drawing.Size(27, 23);
+            this.btnPause.Size = new System.Drawing.Size(20, 23);
             this.btnPause.TabIndex = 0;
             this.btnPause.ToolTip = "暂停作业调度器";
             this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
@@ -381,12 +416,24 @@
             this.btnStart.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.btnStart.Image = ((System.Drawing.Image)(resources.GetObject("btnStart.Image")));
             this.btnStart.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnStart.Location = new System.Drawing.Point(40, 2);
+            this.btnStart.Location = new System.Drawing.Point(33, 2);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(27, 23);
+            this.btnStart.Size = new System.Drawing.Size(20, 23);
             this.btnStart.TabIndex = 0;
             this.btnStart.ToolTip = "重启作业调度器";
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            // 
+            // btnflushmemory
+            // 
+            this.btnflushmemory.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.btnflushmemory.Image = ((System.Drawing.Image)(resources.GetObject("btnflushmemory.Image")));
+            this.btnflushmemory.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnflushmemory.Location = new System.Drawing.Point(261, 3);
+            this.btnflushmemory.Name = "btnflushmemory";
+            this.btnflushmemory.Size = new System.Drawing.Size(20, 23);
+            this.btnflushmemory.TabIndex = 0;
+            this.btnflushmemory.ToolTip = "清理缓存";
+            this.btnflushmemory.Click += new System.EventHandler(this.btnflushmemory_Click);
             // 
             // FrmMain
             // 
@@ -411,8 +458,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.treeList1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.phead)).EndInit();
+            this.phead.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pop_ctrl_job)).EndInit();
+            this.pop_ctrl_job.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.lbjob)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pop_job.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -444,12 +495,15 @@
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraTreeList.TreeList treeList1;
         private DevExpress.XtraTreeList.Columns.TreeListColumn tPatKey;
-        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.PanelControl phead;
         private DevExpress.XtraEditors.SimpleButton btnlog;
         private DevExpress.XtraEditors.SimpleButton btnconfig;
-        private DevExpress.XtraEditors.SimpleButton btnaddjob;
         private DevExpress.XtraEditors.SimpleButton btnPause;
         private DevExpress.XtraEditors.SimpleButton btnStart;
         private DevExpress.XtraBars.BarButtonItem btnrename;
+        private DevExpress.XtraEditors.PopupContainerControl pop_ctrl_job;
+        private DevExpress.XtraEditors.PopupContainerEdit pop_job;
+        private DevExpress.XtraEditors.ListBoxControl lbjob;
+        private DevExpress.XtraEditors.SimpleButton btnflushmemory;
     }
 }

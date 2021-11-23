@@ -1,8 +1,9 @@
 D:\康复作业程序\ICSharpCode.TextEditor.XML
 D:\康复作业程序\ICSharpCode.TextEditor.dll
 D:\康复作业程序\ICSharpCode.TextEditor.pdb
-D:\GitHub\DownLoadExe\ICSharpCode.TextEditor\obj\Debug\ICSharpCode.TextEditor.dll
-D:\GitHub\DownLoadExe\ICSharpCode.TextEditor\obj\Debug\ICSharpCode.TextEditor.pdb
 D:\任务管理程序\ICSharpCode.TextEditor.XML
 D:\任务管理程序\ICSharpCode.TextEditor.dll
 D:\任务管理程序\ICSharpCode.TextEditor.pdb
+D:\GitHub\DownLoadExe\ICSharpCode.TextEditor\obj\Debug\ICSharpCode.TextEditor.csprojResolveAssemblyReference.cache
+D:\GitHub\DownLoadExe\ICSharpCode.TextEditor\obj\Debug\ICSharpCode.TextEditor.dll
+D:\GitHub\DownLoadExe\ICSharpCode.TextEditor\obj\Debug\ICSharpCode.TextEditor.pdb

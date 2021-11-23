@@ -9,7 +9,7 @@ using TaskSchedule.Interface;
 
 namespace TaskSchedule.Business.SyncData
 {
-    public class SyncDataSetting : IJobSettingInterface
+    public class SyncDataSetting : IJobSettingInterface<JobInfo>
     {
         private readonly string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Settings\\JobSettingForSyncData.json");
         public void Save()
@@ -65,14 +65,13 @@ namespace TaskSchedule.Business.SyncData
         public void Add(JobInfo info)
         {
             this.Default.Add(info);
-            this.Save();
         }
 
         public void Delete(JobInfo info)
         {
             string name = info.name;
             try
-            {             
+            {
                 this.Default.Remove(info);
                 this.Save();
             }

@@ -53,12 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddinsSetting.cs" />
-    <Compile Include="ConsoleFrm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ConsoleFrm.Designer.cs">
-      <DependentUpon>ConsoleFrm.cs</DependentUpon>
-    </Compile>
+    <Compile Include="IConfigUIInterface.cs" />
     <Compile Include="IQuickExcuteInterface.cs" />
     <Compile Include="IJobSettingInterface.cs" />
     <Compile Include="JobInfo.cs" />
@@ -79,9 +74,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ConsoleFrm.resx">
-      <DependentUpon>ConsoleFrm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

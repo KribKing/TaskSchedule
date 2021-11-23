@@ -1,0 +1,47 @@
+[
+  {
+    "weburl": "http://wx.fstcm.com.cn/pat-web/s/message/notify",
+    "dbtype": 0,
+    "dbstring": "VXNlciBJRD1zYTtQYXNzd29yZD1GU3p5eUAxMjM7UGVyc2lzdCBTZWN1cml0eSBJbmZvPVRydWU7SW5pdGlhbCBDYXRhbG9nPVJJTVM7RGF0YSBTb3VyY2U9MTAuNDYuMTIuMjMz",
+    "tokenweburl": "",
+    "GuId": "ffdbc596-d1ca-4a83-a888-3af7d8c4de5d",
+    "id": "WeChat_Doc",
+    "name": "微信推送-治疗师",
+    "system": "WeChat",
+    "sysname": "微信推送",
+    "memo": null,
+    "expression": "0/5 * * * * ?",
+    "jlzt": "0",
+    "IsExecuting": true
+  },
+  {
+    "weburl": "http://wx.fstcm.com.cn/pat-web/s/message/notify",
+    "dbtype": 0,
+    "dbstring": "VXNlciBJRD1zYTtQYXNzd29yZD1GU3p5eUAxMjM7UGVyc2lzdCBTZWN1cml0eSBJbmZvPVRydWU7SW5pdGlhbCBDYXRhbG9nPVJJTVM7RGF0YSBTb3VyY2U9MTAuNDYuMTIuMjMz",
+    "tokenweburl": "",
+    "GuId": "a36002d7-f323-419c-9f96-88c4d908ea01",
+    "id": "WeChat_Pat",
+    "name": "微信推送-患者",
+    "system": "WeChat",
+    "sysname": "微信推送",
+    "memo": null,
+    "expression": "0/10 * * * * ?",
+    "jlzt": "1",
+    "IsExecuting": false
+  },
+  {
+    "weburl": "http://10.55.10.7:12355/monitor-alarm/alarm/alerm",
+    "dbtype": 0,
+    "dbstring": "VXNlciBJRD1zYTtQYXNzd29yZD1GU3p5eUAxMjM7UGVyc2lzdCBTZWN1cml0eSBJbmZvPVRydWU7SW5pdGlhbCBDYXRhbG9nPVJJTVM7RGF0YSBTb3VyY2U9MTAuNDYuMTIuMjMz",
+    "tokenweburl": "",
+    "GuId": "8c921147-15af-44df-ac8e-f4dc4ed0eb96",
+    "id": "Sms_Pat",
+    "name": "短信推送-患者",
+    "system": "SMS",
+    "sysname": "短信推送",
+    "memo": null,
+    "expression": "0 0 19 * * ?",
+    "jlzt": "1",
+    "IsExecuting": false
+  }
+]

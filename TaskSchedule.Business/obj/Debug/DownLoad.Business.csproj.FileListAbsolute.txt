@@ -1,5 +1,0 @@
-D:\康复数据下载程序\DownLoad.Business.dll
-D:\GitHub\DownLoadExe\DownLoad.Business\obj\Debug\DownLoad.Business.dll
-D:\GitHub\DownLoadExe\DownLoad.Business\obj\Debug\DownLoad.Business.pdb
-D:\康复数据下载程序\DownLoad.Business.pdb
-D:\GitHub\DownLoadExe\DownLoad.Business\obj\Debug\DownLoad.Business.csprojResolveAssemblyReference.cache

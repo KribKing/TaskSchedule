@@ -74,5 +74,9 @@ namespace TaskSchedule.Business.SyncData
             return "";
         }
 
+        public virtual DataTable GetTmpTable()
+        {
+            return RunWithBody(WebRequest());
+        }
     }
 }

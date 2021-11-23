@@ -36,7 +36,7 @@ namespace TaskSchedule.Interface
                 if (info.jlzt == "1" || string.IsNullOrEmpty(info.expression)) return;
                 IJobDetail job = JobBuilder.Create<ParamJob>()
                                           .WithIdentity(info.GuId.ToString(), info.system)
-                                          .Build();
+                                          .Build();              
                 ITrigger trigger = TriggerBuilder.Create()
                        .WithIdentity(info.GuId.ToString(), info.system)
                        .StartNow()
@@ -48,7 +48,6 @@ namespace TaskSchedule.Interface
                     if (!this.scheduler.CheckExists(tri))
                     {
                         this.scheduler.ScheduleJob(job, trigger);
-
                     }
                 }
             }
@@ -56,6 +55,10 @@ namespace TaskSchedule.Interface
             {
                 Log4netUtil.Error("【" + info.name + "】创建发生异常:" + ex.Message, ex);
             }
+        }
+        public IJobDetail GetJob(JobInfo info)
+        {
+            return this.scheduler.GetJobDetail(new JobKey(info.GuId.ToString(),info.system));
         }
         public void DeleteJob(JobInfo info)
         {
@@ -121,6 +124,7 @@ namespace TaskSchedule.Interface
     /// <summary>
     /// 带参作业
     /// </summary>
+    [DisallowConcurrentExecution]
     public class ParamJob : IJob
     {
         public void Execute(IJobExecutionContext context)

@@ -1,0 +1,7 @@
+D:\任务管理程序\TaskSchedule.UI.Log.Dev.dll
+D:\任务管理程序\TaskSchedule.UI.Log.Dev.pdb
+D:\GitHub\DownLoadExe\TaskSchedule.UI.Log.Dev\obj\Debug\TaskSchedule.UI.Log.Dev.csprojResolveAssemblyReference.cache
+D:\GitHub\DownLoadExe\TaskSchedule.UI.Log.Dev\obj\Debug\TaskSchedule.UI.Log.Dev.ConsoleFrm.resources
+D:\GitHub\DownLoadExe\TaskSchedule.UI.Log.Dev\obj\Debug\TaskSchedule.UI.Log.Dev.csproj.GenerateResource.Cache
+D:\GitHub\DownLoadExe\TaskSchedule.UI.Log.Dev\obj\Debug\TaskSchedule.UI.Log.Dev.dll
+D:\GitHub\DownLoadExe\TaskSchedule.UI.Log.Dev\obj\Debug\TaskSchedule.UI.Log.Dev.pdb

@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using TaskSchedule.Core;
+using TaskSchedule.Core.Schema;
 using TaskSchedule.Interface;
 
 namespace TaskSchedule.Business.SyncData
@@ -100,13 +102,17 @@ namespace TaskSchedule.Business.SyncData
             }
             return strexcute;
         }
-        public override Form Config()
-        {
-            return new ConfigFrm(this);
-        }
         public override JobInfo Create()
         {
-            return new JobInfoSyncData() { system = system, sysname = sysname, TaskStarter = TaskStarter, SettingInterface = SettingInterface };
+            return new JobInfoSyncData()
+            {
+                system = system,
+                sysname = sysname,
+                jlzt = "0",
+                TaskStarter = TaskStarter,
+                SettingInterface = SettingInterface,
+                AddinsInfo = AddinsInfo
+            };
         }
         public override JobInfo Copy()
         {
@@ -114,7 +120,48 @@ namespace TaskSchedule.Business.SyncData
             newinfo.GuId = Guid.NewGuid();
             newinfo.id = "";
             newinfo.jlzt = "1";
+            newinfo.TaskStarter = TaskStarter;
+            newinfo.SettingInterface = SettingInterface;
+            newinfo.AddinsInfo = AddinsInfo;
             return newinfo;
+        }
+        public override void SetTmpTableSchema()
+        {
+            DataTable dt = new DataTable();
+            if (this.sourcetype == 0)
+            {
+                if (this.nodelx == 0)
+                {
+                    dt = ((RunInterface)this.TaskStarter.CreateInstance(this)).GetTmpTable();
+                    Tools.FlushMemory();
+                }
+                else if (this.nodelx == 1)
+                {
+                    SchemaInfo info = JsonConvert.DeserializeObject<SchemaInfo>(this.xmlconfig);
+                    if (info == null) return;
+                    dt = info.ToDt();
+                }
+            }
+            else if (this.sourcetype == 1)
+            {
+                dt = GlobalInstanceManager<GlobalSqlManager>.Intance.GetDataTable(this.sourcedbtype, this.sourcedbstring, this.sourcesql);
+            }
+            if (dt != null)
+            {
+                string strtmp = "create table " + this.tmpname + Environment.NewLine + "(" + Environment.NewLine;
+                foreach (DataColumn dc in dt.Columns)
+                {
+                    strtmp += "   " + dc.ColumnName + "   varchar(256) null," + Environment.NewLine;
+                }
+                strtmp = strtmp.Remove(strtmp.LastIndexOf(','), 1);
+                strtmp += ")";
+                this.createtmp = strtmp;
+            }
+        }
+
+        public override string ToString()
+        {
+            return "同步数据作业";
         }
     }
 }

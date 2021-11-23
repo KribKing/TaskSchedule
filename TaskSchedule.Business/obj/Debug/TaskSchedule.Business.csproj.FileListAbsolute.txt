@@ -1,8 +1,0 @@
-D:\GitHub\DownLoadExe\DownLoad.Business\obj\Debug\TaskSchedule.Business.csprojResolveAssemblyReference.cache
-D:\康复作业程序\TaskSchedule.Business.dll
-D:\康复作业程序\TaskSchedule.Business.pdb
-D:\GitHub\DownLoadExe\DownLoad.Business\obj\Debug\TaskSchedule.Business.dll
-D:\GitHub\DownLoadExe\DownLoad.Business\obj\Debug\TaskSchedule.Business.pdb
-D:\GitHub\DownLoadExe\TaskSchedule.Business\obj\Debug\TaskSchedule.Business.csprojResolveAssemblyReference.cache
-D:\GitHub\DownLoadExe\TaskSchedule.Business\obj\Debug\TaskSchedule.Business.dll
-D:\GitHub\DownLoadExe\TaskSchedule.Business\obj\Debug\TaskSchedule.Business.pdb

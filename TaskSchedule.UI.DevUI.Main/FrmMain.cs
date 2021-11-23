@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using TaskSchedule.Core;
 using TaskSchedule.UI.Base;
 using TaskSchedule.Interface;
+using TaskSchedule.UI.Log.Dev;
 
 namespace TaskSchedule.UI.DevUI
 {
@@ -31,12 +32,19 @@ namespace TaskSchedule.UI.DevUI
                 Log4netUtil.IsLog = AppSetting.Default.islog;
                 GlobalInstanceManager<SchedulerManager>.Intance.InitTask();
                 this.LoadJobInfo();
+                this.SetJobBaseInfo();
                 Log4netUtil.Info("初始化加载完成");
+                Tools.FlushMemory();
             }
             catch (Exception ex)
             {
                 Log4netUtil.Error("初始化发生异常：" + ex.Message, ex);
             }
+        }
+
+        private void SetJobBaseInfo()
+        {
+            this.lbjob.Items.AddRange(GlobalInstanceManager<SchedulerManager>.Intance.JobInfoManager.BaseJob.ToArray());
         }
         private void LoadJobInfo()
         {
@@ -76,6 +84,10 @@ namespace TaskSchedule.UI.DevUI
 
         public void onJobInfoChanged(JobInfoOp opType, JobInfo info)
         {
+            if (opType == JobInfoOp.Delete)
+            {
+                GlobalInstanceManager<FollowMainWinHelper>.Intance.CloseWin(info.GuId.ToString());
+            }
             this.LoadJobInfo();
         }
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -99,31 +111,21 @@ namespace TaskSchedule.UI.DevUI
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    Log4netUtil.Error("停止作业调度器异常：" + ex.Message, ex);
                 }
             }
         }
 
         private void treeList1_MouseUp(object sender, MouseEventArgs e)
         {
+            if (e.Button != MouseButtons.Right || ModifierKeys != Keys.None || this.treeList1.State != TreeListState.Regular) return;
             TreeList tree = sender as TreeList;
-            if (e.Button == MouseButtons.Right && ModifierKeys == Keys.None && this.treeList1.State == TreeListState.Regular)
-            {
-                Point p = new Point(Cursor.Position.X, Cursor.Position.Y);
-                TreeListHitInfo hitInfo = tree.CalcHitInfo(e.Location);
-                if (hitInfo.HitInfoType == HitInfoType.Cell)
-                {
-                    tree.SetFocusedNode(hitInfo.Node);
-                    TreeListNode node = hitInfo.Node;
-                }
-                else
-                {
-                    tree.SetFocusedNode(null);
-                }
-                if (tree.FocusedNode == null) return;
-                this.SetPop(tree.FocusedNode);
-                this.popupMenu1.ShowPopup(p);
-            }
+            Point p = new Point(Cursor.Position.X, Cursor.Position.Y);
+            TreeListHitInfo hitInfo = tree.CalcHitInfo(e.Location);
+            tree.SetFocusedNode(hitInfo.HitInfoType == HitInfoType.Cell ? hitInfo.Node : null);
+            if (tree.FocusedNode == null) return;
+            this.SetPop(tree.FocusedNode);
+            this.popupMenu1.ShowPopup(p);
         }
 
         private void SetPop(TreeListNode Node)
@@ -195,17 +197,11 @@ namespace TaskSchedule.UI.DevUI
                 {
                     item.StateImageIndex = 6;
                 }
-
             }
             catch (Exception ex)
             {
                 Log4netUtil.Debug("暂停调度器失败：" + ex.Message);
             }
-        }
-
-        private void btnreset_Click(object sender, EventArgs e)
-        {
-            this.AddJob(new JobInfo());
         }
 
         private void AddJob(JobInfo addinfo)
@@ -247,18 +243,18 @@ namespace TaskSchedule.UI.DevUI
 
         private void WatchConfigFrm(JobInfo info)
         {
-            if (info == null) return;       
+            if (info == null) return;
             if (GlobalInstanceManager<FollowMainWinHelper>.Intance.IsExistsKey(info.GuId.ToString()))
             {
                 GlobalInstanceManager<FollowMainWinHelper>.Intance.SetTopMost(info.GuId.ToString());
             }
             else
             {
-                Form frm = info.Config();
+                IConfigUIInterface frm = info.Config();
                 if (frm == null) return;
-                GlobalInstanceManager<FollowMainWinHelper>.Intance.AddWinHandle(info.GuId.ToString(), frm.Handle);
+                GlobalInstanceManager<FollowMainWinHelper>.Intance.AddWinHandle(info.GuId.ToString(), (IntPtr)frm.UIIndex);
                 GlobalInstanceManager<FollowMainWinHelper>.Intance.MoveWinByKey(info.GuId.ToString());
-                frm.Show();
+                frm.ShowConfig();
             }
         }
 
@@ -394,5 +390,17 @@ namespace TaskSchedule.UI.DevUI
             }
         }
 
+        private void lbjob_Click(object sender, EventArgs e)
+        {
+            JobInfo job = this.lbjob.SelectedItem as JobInfo;
+            if (job == null) return;
+            this.pop_job.ClosePopup();
+            this.AddJob(job);
+        }
+
+        private void btnflushmemory_Click(object sender, EventArgs e)
+        {
+            Tools.FlushMemory();
+        }
     }
 }

@@ -1,7 +1,0 @@
-D:\GitHub\DownLoadExe\CommonLibrary.Ctrl\bin\Debug\CommonLibrary.Ctrl.dll
-D:\GitHub\DownLoadExe\CommonLibrary.Ctrl\bin\Debug\CommonLibrary.Ctrl.pdb
-D:\GitHub\DownLoadExe\CommonLibrary.Ctrl\obj\Debug\CommonLibrary.Ctrl.dll
-D:\GitHub\DownLoadExe\CommonLibrary.Ctrl\obj\Debug\CommonLibrary.Ctrl.pdb
-D:\康复数据下载程序\CommonLibrary.Ctrl.dll
-D:\康复数据下载程序\CommonLibrary.Ctrl.pdb
-D:\康复数据下载程序\CommonLibrary.Ctrl.XML
