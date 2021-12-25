@@ -8,3 +8,11 @@ D:\任务管理程序\TaskSchedule.Core.pdb
 D:\GitHub\DownLoadExe\TaskSchedule.Core\obj\Debug\TaskSchedule.Core.dll.licenses
 D:\GitHub\DownLoadExe\TaskSchedule.Core\obj\Debug\TaskSchedule.Core.dll
 D:\GitHub\DownLoadExe\TaskSchedule.Core\obj\Debug\TaskSchedule.Core.pdb
+D:\Code\GitHub\TaskSchedule\bin\TaskSchedule.Core.dll
+D:\Code\GitHub\TaskSchedule\bin\TaskSchedule.Core.pdb
+D:\Code\GitHub\TaskSchedule\TaskSchedule.Core\obj\Debug\TaskSchedule.Core.dll.licenses
+D:\Code\GitHub\TaskSchedule\TaskSchedule.Core\obj\Debug\TaskSchedule.Core.csproj.CoreCompileInputs.cache
+D:\Code\GitHub\TaskSchedule\TaskSchedule.Core\obj\Debug\TaskSchedule.Core.csproj.CopyComplete
+D:\Code\GitHub\TaskSchedule\TaskSchedule.Core\obj\Debug\TaskSchedule.Core.dll
+D:\Code\GitHub\TaskSchedule\TaskSchedule.Core\obj\Debug\TaskSchedule.Core.pdb
+D:\Code\GitHub\TaskSchedule\TaskSchedule.Core\obj\Debug\TaskSchedule.Core.csproj.AssemblyReference.cache

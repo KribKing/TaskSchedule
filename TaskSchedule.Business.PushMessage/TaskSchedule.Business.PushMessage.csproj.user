@@ -3,4 +3,7 @@
   <PropertyGroup>
     <ProjectView>ProjectFiles</ProjectView>
   </PropertyGroup>
+  <PropertyGroup>
+    <ReferencePath>D:\Code\GitHub\TaskSchedule\bin\</ReferencePath>
+  </PropertyGroup>
 </Project>

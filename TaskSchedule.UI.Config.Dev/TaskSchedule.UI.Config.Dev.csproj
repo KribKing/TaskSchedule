@@ -16,7 +16,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\任务管理程序\</OutputPath>
+    <OutputPath>..\bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CloudHisConfigFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CloudHisConfigFrm.Designer.cs">
+      <DependentUpon>CloudHisConfigFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConfigFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,13 +103,16 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CloudHisConfigFrm.resx">
+      <DependentUpon>CloudHisConfigFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ConfigFrm.resx">
       <DependentUpon>ConfigFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MapXmlFrm.resx">
       <DependentUpon>MapXmlFrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
+    <None Include="Properties\licenses.licx" />
     <EmbeddedResource Include="PushMessageConfigFrm.resx">
       <DependentUpon>PushMessageConfigFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -124,6 +133,10 @@
     <ProjectReference Include="..\ICSharpCode.TextEditor\ICSharpCode.TextEditor.csproj">
       <Project>{d9df7a4d-01a8-43ca-87c2-c76e09a61f51}</Project>
       <Name>ICSharpCode.TextEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TaskSchedule.Business.CloudHis\TaskSchedule.Business.CloudHis.csproj">
+      <Project>{5526bd83-6ce8-4bd5-877e-3483bd161fb4}</Project>
+      <Name>TaskSchedule.Business.CloudHis</Name>
     </ProjectReference>
     <ProjectReference Include="..\TaskSchedule.Business.PushMessage\TaskSchedule.Business.PushMessage.csproj">
       <Project>{1f35d88b-78d4-4058-b6d8-e34903f72365}</Project>

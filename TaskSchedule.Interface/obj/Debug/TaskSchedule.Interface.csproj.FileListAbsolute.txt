@@ -41,3 +41,11 @@ D:\GitHub\DownLoadExe\TaskSchedule.Interface\obj\Debug\TaskSchedule.Interface.cs
 D:\GitHub\DownLoadExe\TaskSchedule.Interface\obj\Debug\TaskSchedule.Interface.dll.licenses
 D:\GitHub\DownLoadExe\TaskSchedule.Interface\obj\Debug\TaskSchedule.Interface.dll
 D:\GitHub\DownLoadExe\TaskSchedule.Interface\obj\Debug\TaskSchedule.Interface.pdb
+D:\Code\GitHub\TaskSchedule\bin\TaskSchedule.Interface.dll
+D:\Code\GitHub\TaskSchedule\bin\TaskSchedule.Interface.pdb
+D:\Code\GitHub\TaskSchedule\TaskSchedule.Interface\obj\Debug\TaskSchedule.Interface.csproj.AssemblyReference.cache
+D:\Code\GitHub\TaskSchedule\TaskSchedule.Interface\obj\Debug\TaskSchedule.Interface.dll.licenses
+D:\Code\GitHub\TaskSchedule\TaskSchedule.Interface\obj\Debug\TaskSchedule.Interface.csproj.CoreCompileInputs.cache
+D:\Code\GitHub\TaskSchedule\TaskSchedule.Interface\obj\Debug\TaskSchedule.Interface.csproj.CopyComplete
+D:\Code\GitHub\TaskSchedule\TaskSchedule.Interface\obj\Debug\TaskSchedule.Interface.dll
+D:\Code\GitHub\TaskSchedule\TaskSchedule.Interface\obj\Debug\TaskSchedule.Interface.pdb

@@ -1,0 +1,86 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "310d6e07-2e03-435c-866b-e2ea71e2fa8c": {
+      "ProjectGuid": "310d6e07-2e03-435c-866b-e2ea71e2fa8c",
+      "DisplayName": "TaskSchedule.UI.Main.Dev",
+      "ColorIndex": 0
+    },
+    "607f2c74-290c-4612-91f4-2af51f62d0b7": {
+      "ProjectGuid": "607f2c74-290c-4612-91f4-2af51f62d0b7",
+      "DisplayName": "Business",
+      "ColorIndex": 1
+    },
+    "1f35d88b-78d4-4058-b6d8-e34903f72365": {
+      "ProjectGuid": "1f35d88b-78d4-4058-b6d8-e34903f72365",
+      "DisplayName": "TaskSchedule.Business.PushMessage",
+      "ColorIndex": 2
+    },
+    "c5eab445-d15d-436c-8089-96e41e3705dd": {
+      "ProjectGuid": "c5eab445-d15d-436c-8089-96e41e3705dd",
+      "DisplayName": "TaskSchedule.Business.SyncData",
+      "ColorIndex": 3
+    },
+    "efa8b69f-ff4f-4d0d-a260-b2ed8e22cbdc": {
+      "ProjectGuid": "efa8b69f-ff4f-4d0d-a260-b2ed8e22cbdc",
+      "DisplayName": "TaskSchedule.Interface",
+      "ColorIndex": 4
+    },
+    "70a5c654-f9a0-47e9-8e5a-b53407821a73": {
+      "ProjectGuid": "70a5c654-f9a0-47e9-8e5a-b53407821a73",
+      "DisplayName": "Core",
+      "ColorIndex": 5
+    },
+    "d9df7a4d-01a8-43ca-87c2-c76e09a61f51": {
+      "ProjectGuid": "d9df7a4d-01a8-43ca-87c2-c76e09a61f51",
+      "DisplayName": "ICSharpCode.TextEditor",
+      "ColorIndex": 6
+    },
+    "5dd55889-557c-480b-9ab4-39936a384ecb": {
+      "ProjectGuid": "5dd55889-557c-480b-9ab4-39936a384ecb",
+      "DisplayName": "TaskSchedule.Core",
+      "ColorIndex": 7
+    },
+    "fa6c384d-b0c2-4a54-a9f1-3d31c7db3ed6": {
+      "ProjectGuid": "fa6c384d-b0c2-4a54-a9f1-3d31c7db3ed6",
+      "DisplayName": "UI.Dev",
+      "ColorIndex": 8
+    },
+    "a24e243d-5aa3-423a-8fe6-25a86bb72c5c": {
+      "ProjectGuid": "a24e243d-5aa3-423a-8fe6-25a86bb72c5c",
+      "DisplayName": "SwitchConfig",
+      "ColorIndex": 9
+    },
+    "0c9c1123-4283-40af-9dcc-a228b3eaf038": {
+      "ProjectGuid": "0c9c1123-4283-40af-9dcc-a228b3eaf038",
+      "DisplayName": "TaskSchedule.ConsoleTest",
+      "ColorIndex": 10
+    },
+    "23f3ab8b-0f3b-46ac-a8f8-b642dae0447a": {
+      "ProjectGuid": "23f3ab8b-0f3b-46ac-a8f8-b642dae0447a",
+      "DisplayName": "TaskSchedule.UI.Config.Dev",
+      "ColorIndex": 11
+    },
+    "6450a893-f934-491c-8cb2-8ed7afa4d1f7": {
+      "ProjectGuid": "6450a893-f934-491c-8cb2-8ed7afa4d1f7",
+      "DisplayName": "TaskSchedule.UI.DevBase",
+      "ColorIndex": 12
+    },
+    "edb6c37e-518c-452c-addd-a851072ec7ce": {
+      "ProjectGuid": "edb6c37e-518c-452c-addd-a851072ec7ce",
+      "DisplayName": "TaskSchedule.UI.Log.Dev",
+      "ColorIndex": 13
+    },
+    "ac635e67-23de-42fe-8b3b-d56061d29e3f": {
+      "ProjectGuid": "ac635e67-23de-42fe-8b3b-d56061d29e3f",
+      "DisplayName": "UI.Wpf",
+      "ColorIndex": 14
+    },
+    "3f7fe6f1-3300-40f8-8c32-89b09d6ff71d": {
+      "ProjectGuid": "3f7fe6f1-3300-40f8-8c32-89b09d6ff71d",
+      "DisplayName": "TaskSchedule.UI.Wpf",
+      "ColorIndex": 15
+    }
+  },
+  "NextColorIndex": 0
+}

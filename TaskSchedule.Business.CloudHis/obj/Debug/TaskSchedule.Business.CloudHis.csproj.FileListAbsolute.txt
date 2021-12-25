@@ -1,0 +1,8 @@
+D:\Code\GitHub\TaskSchedule\bin\TaskSchedule.Business.CloudHis.dll.config
+D:\Code\GitHub\TaskSchedule\bin\TaskSchedule.Business.CloudHis.dll
+D:\Code\GitHub\TaskSchedule\bin\TaskSchedule.Business.CloudHis.pdb
+D:\Code\GitHub\TaskSchedule\TaskSchedule.Business.CloudHis\obj\Debug\TaskSchedule.Business.CloudHis.csproj.AssemblyReference.cache
+D:\Code\GitHub\TaskSchedule\TaskSchedule.Business.CloudHis\obj\Debug\TaskSchedule.Business.CloudHis.csproj.CoreCompileInputs.cache
+D:\Code\GitHub\TaskSchedule\TaskSchedule.Business.CloudHis\obj\Debug\TaskSchedule.Business.CloudHis.csproj.CopyComplete
+D:\Code\GitHub\TaskSchedule\TaskSchedule.Business.CloudHis\obj\Debug\TaskSchedule.Business.CloudHis.dll
+D:\Code\GitHub\TaskSchedule\TaskSchedule.Business.CloudHis\obj\Debug\TaskSchedule.Business.CloudHis.pdb

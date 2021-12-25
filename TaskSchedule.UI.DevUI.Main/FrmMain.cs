@@ -281,6 +281,7 @@ namespace TaskSchedule.UI.DevUI
         {
             TreeListNode node = this.treeList1.FocusedNode;
             if (node == null || node.Tag == null || !node.HasChildren) return;
+
             this.AddJob((node.Tag as List<JobInfo>).FirstOrDefault());
         }
 
@@ -310,7 +311,10 @@ namespace TaskSchedule.UI.DevUI
         {
             TreeListNode node = this.treeList1.FocusedNode;
             if (node.HasChildren) return;
-            this.WatchConfigFrm((node.Tag as JobInfo).Copy());
+            JobInfo job = (node.Tag as JobInfo).Copy();
+            job.onJobInfoChanged -= onJobInfoChanged;
+            job.onJobInfoChanged += onJobInfoChanged;
+            this.WatchConfigFrm(job);
         }
 
         private void btndeletejob_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

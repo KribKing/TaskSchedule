@@ -25,7 +25,7 @@ namespace TaskSchedule.Business.SyncData
                     job.sourcesql = EncodeHelper.EncodeBase64(job.sourcesql);
                     job.sourcedbstring = EncodeAndDecode.Encode(job.sourcedbstring);
                     job.targetdbstring = EncodeAndDecode.Encode(job.targetdbstring);
-                    job.xmlconfig = EncodeAndDecode.Encode(job.xmlconfig);
+                    job.xmlconfig = EncodeHelper.EncodeBase64(job.xmlconfig);
                 }
                 File.WriteAllText(path, JsonConvert.DeserializeObject(JsonConvert.SerializeObject(list)).ToString());
             }
@@ -49,7 +49,7 @@ namespace TaskSchedule.Business.SyncData
                     job.sourcesql = EncodeHelper.DecodeBase64(job.sourcesql);
                     job.sourcedbstring = EncodeAndDecode.Decode(job.sourcedbstring);
                     job.targetdbstring = EncodeAndDecode.Decode(job.targetdbstring);
-                    job.xmlconfig = EncodeAndDecode.Decode(job.xmlconfig);
+                    job.xmlconfig = EncodeHelper.DecodeBase64(job.xmlconfig);
                     job.SettingInterface = this;
                     job.CreatJob();
                     _Default.Add(job);

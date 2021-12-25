@@ -6,3 +6,13 @@ D:\任务管理程序\SwitchConfig.exe
 D:\任务管理程序\SwitchConfig.pdb
 D:\GitHub\DownLoadExe\SwitchConfig\obj\Debug\SwitchConfig.exe
 D:\GitHub\DownLoadExe\SwitchConfig\obj\Debug\SwitchConfig.pdb
+D:\Code\GitHub\TaskSchedule\bin\SwitchConfig.exe
+D:\Code\GitHub\TaskSchedule\bin\SwitchConfig.pdb
+D:\Code\GitHub\TaskSchedule\SwitchConfig\obj\Debug\SwitchConfig.csproj.AssemblyReference.cache
+D:\Code\GitHub\TaskSchedule\SwitchConfig\obj\Debug\SwitchConfig.FrmMain.resources
+D:\Code\GitHub\TaskSchedule\SwitchConfig\obj\Debug\SwitchConfig.Properties.Resources.resources
+D:\Code\GitHub\TaskSchedule\SwitchConfig\obj\Debug\SwitchConfig.csproj.GenerateResource.cache
+D:\Code\GitHub\TaskSchedule\SwitchConfig\obj\Debug\SwitchConfig.csproj.CoreCompileInputs.cache
+D:\Code\GitHub\TaskSchedule\SwitchConfig\obj\Debug\SwitchConfig.csproj.CopyComplete
+D:\Code\GitHub\TaskSchedule\SwitchConfig\obj\Debug\SwitchConfig.exe
+D:\Code\GitHub\TaskSchedule\SwitchConfig\obj\Debug\SwitchConfig.pdb

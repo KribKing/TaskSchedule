@@ -9,3 +9,10 @@ D:\任务管理程序\TaskSchedule.Business.PushMessage.pdb
 D:\GitHub\DownLoadExe\TaskSchedule.Business.PushMessage\obj\Debug\TaskSchedule.Business.PushMessage.csprojResolveAssemblyReference.cache
 D:\GitHub\DownLoadExe\TaskSchedule.Business.PushMessage\obj\Debug\TaskSchedule.Business.PushMessage.dll
 D:\GitHub\DownLoadExe\TaskSchedule.Business.PushMessage\obj\Debug\TaskSchedule.Business.PushMessage.pdb
+D:\Code\GitHub\TaskSchedule\bin\TaskSchedule.Business.PushMessage.dll
+D:\Code\GitHub\TaskSchedule\bin\TaskSchedule.Business.PushMessage.pdb
+D:\Code\GitHub\TaskSchedule\TaskSchedule.Business.PushMessage\obj\Debug\TaskSchedule.Business.PushMessage.csproj.AssemblyReference.cache
+D:\Code\GitHub\TaskSchedule\TaskSchedule.Business.PushMessage\obj\Debug\TaskSchedule.Business.PushMessage.csproj.CoreCompileInputs.cache
+D:\Code\GitHub\TaskSchedule\TaskSchedule.Business.PushMessage\obj\Debug\TaskSchedule.Business.PushMessage.csproj.CopyComplete
+D:\Code\GitHub\TaskSchedule\TaskSchedule.Business.PushMessage\obj\Debug\TaskSchedule.Business.PushMessage.dll
+D:\Code\GitHub\TaskSchedule\TaskSchedule.Business.PushMessage\obj\Debug\TaskSchedule.Business.PushMessage.pdb

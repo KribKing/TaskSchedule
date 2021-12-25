@@ -9,3 +9,15 @@ D:\GitHub\DownLoadExe\TaskSchedule.UI.DevUI.Main\obj\Debug\TaskSchedule.Properti
 D:\GitHub\DownLoadExe\TaskSchedule.UI.DevUI.Main\obj\Debug\TaskSchedule.UI.DevUI.SettingsFrm.resources
 D:\GitHub\DownLoadExe\TaskSchedule.UI.DevUI.Main\obj\Debug\TaskSchedule.UI.Main.Dev.csproj.GenerateResource.Cache
 D:\GitHub\DownLoadExe\TaskSchedule.UI.DevUI.Main\obj\Debug\TaskSchedule.exe.licenses
+D:\Code\GitHub\TaskSchedule\bin\TaskSchedule.exe.config
+D:\Code\GitHub\TaskSchedule\bin\TaskSchedule.exe
+D:\Code\GitHub\TaskSchedule\bin\TaskSchedule.pdb
+D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.DevUI.Main\obj\Debug\TaskSchedule.UI.Main.Dev.csproj.AssemblyReference.cache
+D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.DevUI.Main\obj\Debug\TaskSchedule.UI.DevUI.FrmMain.resources
+D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.DevUI.Main\obj\Debug\TaskSchedule.Properties.Resources.resources
+D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.DevUI.Main\obj\Debug\TaskSchedule.UI.DevUI.SettingsFrm.resources
+D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.DevUI.Main\obj\Debug\TaskSchedule.UI.Main.Dev.csproj.GenerateResource.cache
+D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.DevUI.Main\obj\Debug\TaskSchedule.UI.Main.Dev.csproj.CoreCompileInputs.cache
+D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.DevUI.Main\obj\Debug\TaskSchedule.UI.Main.Dev.csproj.CopyComplete
+D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.DevUI.Main\obj\Debug\TaskSchedule.exe
+D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.DevUI.Main\obj\Debug\TaskSchedule.pdb

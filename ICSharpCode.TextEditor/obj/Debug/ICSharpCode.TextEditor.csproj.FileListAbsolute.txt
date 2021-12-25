@@ -7,3 +7,9 @@ D:\任务管理程序\ICSharpCode.TextEditor.pdb
 D:\GitHub\DownLoadExe\ICSharpCode.TextEditor\obj\Debug\ICSharpCode.TextEditor.csprojResolveAssemblyReference.cache
 D:\GitHub\DownLoadExe\ICSharpCode.TextEditor\obj\Debug\ICSharpCode.TextEditor.dll
 D:\GitHub\DownLoadExe\ICSharpCode.TextEditor\obj\Debug\ICSharpCode.TextEditor.pdb
+D:\Code\GitHub\TaskSchedule\bin\ICSharpCode.TextEditor.XML
+D:\Code\GitHub\TaskSchedule\bin\ICSharpCode.TextEditor.dll
+D:\Code\GitHub\TaskSchedule\bin\ICSharpCode.TextEditor.pdb
+D:\Code\GitHub\TaskSchedule\ICSharpCode.TextEditor\obj\Debug\ICSharpCode.TextEditor.csproj.CoreCompileInputs.cache
+D:\Code\GitHub\TaskSchedule\ICSharpCode.TextEditor\obj\Debug\ICSharpCode.TextEditor.dll
+D:\Code\GitHub\TaskSchedule\ICSharpCode.TextEditor\obj\Debug\ICSharpCode.TextEditor.pdb

@@ -28,3 +28,12 @@ D:\GitHub\DownLoadExe\TaskSchedule.Business.SyncData\obj\Debug\TaskSchedule.Busi
 D:\GitHub\DownLoadExe\TaskSchedule.Business.SyncData\obj\Debug\TaskSchedule.Business.SyncData.csproj.GenerateResource.Cache
 D:\GitHub\DownLoadExe\TaskSchedule.Business.SyncData\obj\Debug\TaskSchedule.Business.SyncData.dll
 D:\GitHub\DownLoadExe\TaskSchedule.Business.SyncData\obj\Debug\TaskSchedule.Business.SyncData.pdb
+D:\Code\GitHub\TaskSchedule\bin\TaskSchedule.Business.SyncData.dll
+D:\Code\GitHub\TaskSchedule\bin\TaskSchedule.Business.SyncData.pdb
+D:\Code\GitHub\TaskSchedule\TaskSchedule.Business.SyncData\obj\Debug\TaskSchedule.Business.SyncData.csproj.AssemblyReference.cache
+D:\Code\GitHub\TaskSchedule\TaskSchedule.Business.SyncData\obj\Debug\TaskSchedule.Business.SyncData.Properties.Resources.resources
+D:\Code\GitHub\TaskSchedule\TaskSchedule.Business.SyncData\obj\Debug\TaskSchedule.Business.SyncData.csproj.GenerateResource.cache
+D:\Code\GitHub\TaskSchedule\TaskSchedule.Business.SyncData\obj\Debug\TaskSchedule.Business.SyncData.csproj.CoreCompileInputs.cache
+D:\Code\GitHub\TaskSchedule\TaskSchedule.Business.SyncData\obj\Debug\TaskSchedule.Business.SyncData.csproj.CopyComplete
+D:\Code\GitHub\TaskSchedule\TaskSchedule.Business.SyncData\obj\Debug\TaskSchedule.Business.SyncData.dll
+D:\Code\GitHub\TaskSchedule\TaskSchedule.Business.SyncData\obj\Debug\TaskSchedule.Business.SyncData.pdb
