@@ -68,10 +68,11 @@ namespace TaskSchedule.Business.CloudHis
         {
             try
             {
-                string requestxml = string.Format(this.Cur_Job.requestxml, DateTime.Now.AddDays(-1).ToString("yyyy-MM-dd"), DateTime.Now.ToString("yyyy-MM-dd"));
+                string requestxml = !this.Cur_Job.isdbpara?this.Cur_Job.requestxml: GlobalInstanceManager<GlobalSqlManager>.Intance.GetDataTable(0,this.Cur_Job.targetdbstring,this.Cur_Job.requestxml).Rows[0][0].ToString();
+                Log4netUtil.Info("作业【" + this.Cur_Job.name + "】Run入参：" + requestxml);
                 string userid = this.Cur_Job.isencode ? SecurityHelper.DESEnCode(this.Cur_Job.CloudUserId, this.Cur_Job.Key) : this.Cur_Job.CloudUserId;
                 string password = this.Cur_Job.isencode ? SecurityHelper.DESEnCode(this.Cur_Job.CloudUserPassword, this.Cur_Job.Key) : this.Cur_Job.CloudUserPassword;
-                string xml = this.Cur_Job.isencode ? SecurityHelper.DESEnCode(this.Cur_Job.requestxml, this.Cur_Job.Key) : this.Cur_Job.requestxml;
+                string xml = this.Cur_Job.isencode ? SecurityHelper.DESEnCode(requestxml, this.Cur_Job.Key) : requestxml;
                 string retxml = "";
                 using (WebReference.NetHisWebService websrv = new WebReference.NetHisWebService())
                 {

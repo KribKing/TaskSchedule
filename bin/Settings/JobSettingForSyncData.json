@@ -1,0 +1,31 @@
+[
+  {
+    "createtmp": "",
+    "tmpname": "",
+    "nodelx": 0,
+    "node": "",
+    "xmlconfig": "",
+    "sourcetype": 0,
+    "sourcedbtype": 0,
+    "sourcedbstring": "",
+    "sourcesql": "",
+    "targetdbtype": 0,
+    "targetdbstring": "fKti04vHK0LqBv2mqFCEnvyjZAUv9ej76BjFAnjOzBn2YePWfT+HhLFHwZLxxdjQcfbn7FJsvvORsvCo5e0AJpYIdGxl5olEi9t11VUQxq6X6ZI/RuiNtLYDD5JO44Z7SqSfZt0xhbu0rLSGb4u6mg==",
+    "targetsql": "ZXhlYyB1c3Bfcmltc193enh4bV9jZm14",
+    "isbulkop": false,
+    "servertype": 0,
+    "servermethod": "",
+    "weburl": "",
+    "tjdbtype": 0,
+    "tjdbconnect": null,
+    "GuId": "0a5d523e-86f6-4e35-b7c9-a16c2d94c0e7",
+    "id": "RIMS_CFMX",
+    "name": "康复作业-项目拆分明细",
+    "system": "RIMS",
+    "sysname": "康复作业",
+    "memo": null,
+    "expression": "0 0/1 7-22 * * ?",
+    "jlzt": "1",
+    "IsExecuting": false
+  }
+]

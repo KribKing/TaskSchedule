@@ -1,0 +1,8 @@
+D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.ConfigForCloudHis.Dev\obj\Debug\TaskSchedule.UI.ConfigForCloudHis.Dev.csprojResolveAssemblyReference.cache
+D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.ConfigForCloudHis.Dev\obj\Debug\TaskSchedule.UI.ConfigForCloudHis.Dev.CloudHisConfigFrm.resources
+D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.ConfigForCloudHis.Dev\obj\Debug\TaskSchedule.UI.ConfigForCloudHis.Dev.csproj.GenerateResource.Cache
+D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.ConfigForCloudHis.Dev\obj\Debug\TaskSchedule.UI.ConfigForCloudHis.Dev.dll.licenses
+D:\Code\GitHub\TaskSchedule\bin\TaskSchedule.UI.ConfigForCloudHis.Dev.dll
+D:\Code\GitHub\TaskSchedule\bin\TaskSchedule.UI.ConfigForCloudHis.Dev.pdb
+D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.ConfigForCloudHis.Dev\obj\Debug\TaskSchedule.UI.ConfigForCloudHis.Dev.dll
+D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.ConfigForCloudHis.Dev\obj\Debug\TaskSchedule.UI.ConfigForCloudHis.Dev.pdb

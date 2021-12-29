@@ -23,6 +23,7 @@ namespace TaskSchedule.Business.CloudHis
         public string tmpname { get; set; }
         public string targetsql { get;  set; }
         public string Key { get; set; }
+        public bool isdbpara { get; set; }
 
         public override JobInfo Create()
         {

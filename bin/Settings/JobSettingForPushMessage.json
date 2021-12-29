@@ -11,7 +11,7 @@
     "sysname": "微信推送",
     "memo": null,
     "expression": "0/5 * * * * ?",
-    "jlzt": "0",
+    "jlzt": "1",
     "IsExecuting": true
   },
   {

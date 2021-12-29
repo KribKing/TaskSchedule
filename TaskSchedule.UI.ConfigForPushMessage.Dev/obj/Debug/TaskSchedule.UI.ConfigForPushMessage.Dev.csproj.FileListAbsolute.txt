@@ -1,0 +1,7 @@
+D:\Code\GitHub\TaskSchedule\bin\TaskSchedule.UI.ConfigForPushMessage.Dev.dll
+D:\Code\GitHub\TaskSchedule\bin\TaskSchedule.UI.ConfigForPushMessage.Dev.pdb
+D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.ConfigForPushMessage.Dev\obj\Debug\TaskSchedule.UI.ConfigForPushMessage.Dev.csprojResolveAssemblyReference.cache
+D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.ConfigForPushMessage.Dev\obj\Debug\TaskSchedule.UI.ConfigForPushMessage.Dev.PushMessageConfigFrm.resources
+D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.ConfigForPushMessage.Dev\obj\Debug\TaskSchedule.UI.ConfigForPushMessage.Dev.csproj.GenerateResource.Cache
+D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.ConfigForPushMessage.Dev\obj\Debug\TaskSchedule.UI.ConfigForPushMessage.Dev.dll
+D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.ConfigForPushMessage.Dev\obj\Debug\TaskSchedule.UI.ConfigForPushMessage.Dev.pdb

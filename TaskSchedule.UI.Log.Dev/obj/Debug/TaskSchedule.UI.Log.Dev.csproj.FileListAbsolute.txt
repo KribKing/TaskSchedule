@@ -7,10 +7,8 @@ D:\GitHub\DownLoadExe\TaskSchedule.UI.Log.Dev\obj\Debug\TaskSchedule.UI.Log.Dev.
 D:\GitHub\DownLoadExe\TaskSchedule.UI.Log.Dev\obj\Debug\TaskSchedule.UI.Log.Dev.pdb
 D:\Code\GitHub\TaskSchedule\bin\TaskSchedule.UI.Log.Dev.dll
 D:\Code\GitHub\TaskSchedule\bin\TaskSchedule.UI.Log.Dev.pdb
-D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.Log.Dev\obj\Debug\TaskSchedule.UI.Log.Dev.csproj.AssemblyReference.cache
 D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.Log.Dev\obj\Debug\TaskSchedule.UI.Log.Dev.ConsoleFrm.resources
 D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.Log.Dev\obj\Debug\TaskSchedule.UI.Log.Dev.csproj.GenerateResource.cache
-D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.Log.Dev\obj\Debug\TaskSchedule.UI.Log.Dev.csproj.CoreCompileInputs.cache
-D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.Log.Dev\obj\Debug\TaskSchedule.UI.Log.Dev.csproj.CopyComplete
 D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.Log.Dev\obj\Debug\TaskSchedule.UI.Log.Dev.dll
 D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.Log.Dev\obj\Debug\TaskSchedule.UI.Log.Dev.pdb
+D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.Log.Dev\obj\Debug\TaskSchedule.UI.Log.Dev.csprojResolveAssemblyReference.cache

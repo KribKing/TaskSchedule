@@ -15,8 +15,5 @@ D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.Base\obj\Debug\TaskSchedule.UI.Base.
 D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.Base\obj\Debug\TaskSchedule.UI.Base.Properties.Resources.resources
 D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.Base\obj\Debug\TaskSchedule.UI.Base.ProcessBarFrm.resources
 D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.Base\obj\Debug\TaskSchedule.UI.DevBase.csproj.GenerateResource.cache
-D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.Base\obj\Debug\TaskSchedule.UI.DevBase.csproj.CoreCompileInputs.cache
-D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.Base\obj\Debug\TaskSchedule.UI.DevBase.csproj.CopyComplete
 D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.Base\obj\Debug\TaskSchedule.UI.Base.dll
 D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.Base\obj\Debug\TaskSchedule.UI.Base.pdb
-D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.Base\obj\Debug\TaskSchedule.UI.DevBase.csproj.AssemblyReference.cache

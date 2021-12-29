@@ -1,0 +1,12 @@
+D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.ConfigForSyncData.Dev\obj\Debug\TaskSchedule.UI.ConfigForSyncData.Dev.csprojResolveAssemblyReference.cache
+D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.ConfigForSyncData.Dev\obj\Debug\TaskSchedule.UI.ConfigForSyncData.Dev.SyncDataConfigFrm.resources
+D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.ConfigForSyncData.Dev\obj\Debug\TaskSchedule.UI.ConfigForSyncData.Dev.csproj.GenerateResource.Cache
+D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.ConfigForSyncData.Dev\obj\Debug\TaskSchedule.UI.Config.Dev.MapXmlFrm.resources
+D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.ConfigForSyncData.Dev\obj\Debug\TaskSchedule.UI.ConfigForSyncData.Dev.ShowPathFrm.resources
+D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.ConfigForSyncData.Dev\obj\Debug\TaskSchedule.UI.ConfigForSyncData.Dev.TableFrm.resources
+D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.ConfigForSyncData.Dev\obj\Debug\TaskSchedule.UI.ConfigForSyncData.Dev.TestFrm.resources
+D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.ConfigForSyncData.Dev\obj\Debug\TaskSchedule.UI.ConfigForSyncData.Dev.dll.licenses
+D:\Code\GitHub\TaskSchedule\bin\TaskSchedule.UI.ConfigForSyncData.Dev.dll
+D:\Code\GitHub\TaskSchedule\bin\TaskSchedule.UI.ConfigForSyncData.Dev.pdb
+D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.ConfigForSyncData.Dev\obj\Debug\TaskSchedule.UI.ConfigForSyncData.Dev.dll
+D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.ConfigForSyncData.Dev\obj\Debug\TaskSchedule.UI.ConfigForSyncData.Dev.pdb

@@ -4,9 +4,10 @@
         <name>ICSharpCode.TextEditor</name>
     </assembly>
     <members>
-        <member name="T:ICSharpCode.TextEditor.Actions.IndentSelection">
+        <member name="T:ICSharpCode.TextEditor.Actions.AbstractEditAction">
             <summary>
-            This is a sample editaction plugin, it indents the selected area.
+            To define a new key for the textarea, you must write a class which
+            implements this interface.
             </summary>
         </member>
         <member name="T:ICSharpCode.TextEditor.Actions.IEditAction">
@@ -15,23 +16,12 @@
             implements this interface.
             </summary>
         </member>
-        <member name="P:ICSharpCode.TextEditor.Actions.IEditAction.Keys">
-            <value>
-            An array of keys on which this edit action occurs.
-            </value>
-        </member>
         <member name="M:ICSharpCode.TextEditor.Actions.IEditAction.Execute(ICSharpCode.TextEditor.TextArea)">
             <remarks>
             When the key which is defined per XML is pressed, this method will be launched.
             </remarks>
         </member>
-        <member name="T:ICSharpCode.TextEditor.Actions.AbstractEditAction">
-            <summary>
-            To define a new key for the textarea, you must write a class which
-            implements this interface.
-            </summary>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Actions.AbstractEditAction.Keys">
+        <member name="P:ICSharpCode.TextEditor.Actions.IEditAction.Keys">
             <value>
             An array of keys on which this edit action occurs.
             </value>
@@ -40,6 +30,16 @@
             <remarks>
             When the key which is defined per XML is pressed, this method will be launched.
             </remarks>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Actions.AbstractEditAction.Keys">
+            <value>
+            An array of keys on which this edit action occurs.
+            </value>
+        </member>
+        <member name="T:ICSharpCode.TextEditor.Actions.IndentSelection">
+            <summary>
+            This is a sample editaction plugin, it indents the selected area.
+            </summary>
         </member>
         <member name="M:ICSharpCode.TextEditor.Actions.Tab.Execute(ICSharpCode.TextEditor.TextArea)">
             <remarks>
@@ -157,6 +157,21 @@
             This interface is used to describe a span inside a text sequence
             </summary>
         </member>
+        <member name="T:ICSharpCode.TextEditor.Document.ISegment">
+            <summary>
+            This interface is used to describe a span inside a text sequence
+            </summary>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.ISegment.Offset">
+            <value>
+            The offset where the span begins
+            </value>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.ISegment.Length">
+            <value>
+            The length of the span
+            </value>
+        </member>
         <member name="T:ICSharpCode.TextEditor.Document.Bookmark">
             <summary>
             Description of Bookmark.
@@ -183,19 +198,9 @@
             This class handles the bookmarks for a buffer
             </summary>
         </member>
-        <member name="P:ICSharpCode.TextEditor.Document.BookmarkManager.Marks">
-            <value>
-            Contains all bookmarks
-            </value>
-        </member>
         <member name="M:ICSharpCode.TextEditor.Document.BookmarkManager.#ctor(ICSharpCode.TextEditor.Document.IDocument,ICSharpCode.TextEditor.Document.LineManager)">
             <summary>
             Creates a new instance of <see cref="T:ICSharpCode.TextEditor.Document.BookmarkManager"/>
-            </summary>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.BookmarkManager.Factory">
-            <summary>
-            Gets/Sets the bookmark factory used to create bookmarks for "ToggleMarkAt".
             </summary>
         </member>
         <member name="M:ICSharpCode.TextEditor.Document.BookmarkManager.ToggleMarkAt(ICSharpCode.TextEditor.TextLocation)">
@@ -240,15 +245,20 @@
             returns the next mark lower than cur, if it not exists it returns LastMark()
             </returns>
         </member>
+        <member name="P:ICSharpCode.TextEditor.Document.BookmarkManager.Marks">
+            <value>
+            Contains all bookmarks
+            </value>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.BookmarkManager.Factory">
+            <summary>
+            Gets/Sets the bookmark factory used to create bookmarks for "ToggleMarkAt".
+            </summary>
+        </member>
         <member name="T:ICSharpCode.TextEditor.Document.BookmarkManagerMemento">
             <summary>
             This class is used for storing the state of a bookmark manager 
             </summary>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.BookmarkManagerMemento.Bookmarks">
-            <value>
-            Contains all bookmarks as int values
-            </value>
         </member>
         <member name="M:ICSharpCode.TextEditor.Document.BookmarkManagerMemento.CheckMemento(ICSharpCode.TextEditor.Document.IDocument)">
             <summary>
@@ -280,6 +290,11 @@
             <summary>
             Converts this <see cref="T:ICSharpCode.TextEditor.Document.BookmarkManagerMemento"/> to a xml element
             </summary>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.BookmarkManagerMemento.Bookmarks">
+            <value>
+            Contains all bookmarks as int values
+            </value>
         </member>
         <member name="T:ICSharpCode.TextEditor.Document.LineViewerStyle">
             <summary>
@@ -358,536 +373,11 @@
             The default <see cref="T:ICSharpCode.TextEditor.Document.IDocument"/> implementation.
             </summary>
         </member>
-        <member name="T:ICSharpCode.TextEditor.Document.DocumentEventHandler">
-            <summary>
-            This delegate is used for document events.
-            </summary>
-        </member>
-        <member name="T:ICSharpCode.TextEditor.Document.DocumentEventArgs">
-            <summary>
-            This class contains more information on a document event
-            </summary>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.DocumentEventArgs.Document">
-            <returns>
-            always a valid Document which is related to the Event.
-            </returns>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.DocumentEventArgs.Offset">
-            <returns>
-            -1 if no offset was specified for this event
-            </returns>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.DocumentEventArgs.Text">
-            <returns>
-            null if no text was specified for this event
-            </returns>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.DocumentEventArgs.Length">
-            <returns>
-            -1 if no length was specified for this event
-            </returns>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.DocumentEventArgs.#ctor(ICSharpCode.TextEditor.Document.IDocument)">
-            <summary>
-            Creates a new instance off <see cref="T:ICSharpCode.TextEditor.Document.DocumentEventArgs"/>
-            </summary>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.DocumentEventArgs.#ctor(ICSharpCode.TextEditor.Document.IDocument,System.Int32)">
-            <summary>
-            Creates a new instance off <see cref="T:ICSharpCode.TextEditor.Document.DocumentEventArgs"/>
-            </summary>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.DocumentEventArgs.#ctor(ICSharpCode.TextEditor.Document.IDocument,System.Int32,System.Int32)">
-            <summary>
-            Creates a new instance off <see cref="T:ICSharpCode.TextEditor.Document.DocumentEventArgs"/>
-            </summary>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.DocumentEventArgs.#ctor(ICSharpCode.TextEditor.Document.IDocument,System.Int32,System.Int32,System.String)">
-            <summary>
-            Creates a new instance off <see cref="T:ICSharpCode.TextEditor.Document.DocumentEventArgs"/>
-            </summary>
-        </member>
-        <member name="T:ICSharpCode.TextEditor.Document.DocumentFactory">
-            <summary>
-            This interface represents a container which holds a text sequence and
-            all necessary information about it. It is used as the base for a text editor.
-            </summary>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.DocumentFactory.CreateDocument">
-            <remarks>
-            Creates a new <see cref="T:ICSharpCode.TextEditor.Document.IDocument"/> object. Only create
-            <see cref="T:ICSharpCode.TextEditor.Document.IDocument"/> with this method.
-            </remarks>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.DocumentFactory.CreateFromTextBuffer(ICSharpCode.TextEditor.Document.ITextBufferStrategy)">
-            <summary>
-            Creates a new document and loads the given file
-            </summary>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.DocumentFactory.CreateFromFile(System.String)">
-            <summary>
-            Creates a new document and loads the given file
-            </summary>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.CSharpFoldingStrategy.GenerateFoldMarkers(ICSharpCode.TextEditor.Document.IDocument,System.String,System.Object)">
-            <summary>
-            
-            </summary>
-            <param name="document"></param>
-            <param name="fileName"></param>
-            <param name="parseInformation"></param>
-            <returns></returns>
-        </member>
-        <member name="T:ICSharpCode.TextEditor.Document.IFoldingStrategy">
-            <summary>
-            This interface is used for the folding capabilities
-            of the textarea.
-            </summary>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.IFoldingStrategy.GenerateFoldMarkers(ICSharpCode.TextEditor.Document.IDocument,System.String,System.Object)">
-            <remarks>
-            Calculates the fold level of a specific line.
-            </remarks>
-        </member>
-        <member name="T:ICSharpCode.TextEditor.Document.IndentFoldingStrategy">
-            <summary>
-            A simple folding strategy which calculates the folding level
-            using the indent level of the line.
-            </summary>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.TSqlFoldingStrategy.GenerateFoldMarkers(ICSharpCode.TextEditor.Document.IDocument,System.String,System.Object)">
-            <summary>
-            
-            </summary>
-            <param name="document"></param>
-            <param name="fileName"></param>
-            <param name="parseInformation"></param>
-            <returns></returns>
-        </member>
-        <member name="T:ICSharpCode.TextEditor.Document.DefaultFormattingStrategy">
-            <summary>
-            This class handles the auto and smart indenting in the textbuffer while
-            you type.
-            </summary>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.DefaultFormattingStrategy.#ctor">
-            <summary>
-            Creates a new instance off <see cref="T:ICSharpCode.TextEditor.Document.DefaultFormattingStrategy"/>
-            </summary>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.DefaultFormattingStrategy.GetIndentation(ICSharpCode.TextEditor.TextArea,System.Int32)">
-            <summary>
-            returns the whitespaces which are before a non white space character in the line line
-            as a string.
-            </summary>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.DefaultFormattingStrategy.AutoIndentLine(ICSharpCode.TextEditor.TextArea,System.Int32)">
-            <summary>
-            Could be overwritten to define more complex indenting.
-            </summary>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.DefaultFormattingStrategy.SmartReplaceLine(ICSharpCode.TextEditor.Document.IDocument,ICSharpCode.TextEditor.Document.LineSegment,System.String)">
-            <summary>
-            Replaces the text in a line.
-            If only whitespace at the beginning and end of the line was changed, this method
-            only adjusts the whitespace and doesn't replace the other text.
-            </summary>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.DefaultFormattingStrategy.SmartIndentLine(ICSharpCode.TextEditor.TextArea,System.Int32)">
-            <summary>
-            Could be overwritten to define more complex indenting.
-            </summary>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.DefaultFormattingStrategy.FormatLine(ICSharpCode.TextEditor.TextArea,System.Int32,System.Int32,System.Char)">
-            <summary>
-            This function formats a specific line after <code>ch</code> is pressed.
-            </summary>
-            <returns>
-            the caret delta position the caret will be moved this number
-            of bytes (e.g. the number of bytes inserted before the caret, or
-            removed, if this number is negative)
-            </returns>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.DefaultFormattingStrategy.IndentLine(ICSharpCode.TextEditor.TextArea,System.Int32)">
-            <summary>
-            This function sets the indentation level in a specific line
-            </summary>
-            <returns>
-            the number of inserted characters.
-            </returns>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.DefaultFormattingStrategy.IndentLines(ICSharpCode.TextEditor.TextArea,System.Int32,System.Int32)">
-            <summary>
-            This function sets the indentlevel in a range of lines.
-            </summary>
-        </member>
-        <member name="T:ICSharpCode.TextEditor.Document.IFormattingStrategy">
-            <summary>
-            This interface handles the auto and smart indenting and formating
-            in the document while  you type. Language bindings could overwrite this 
-            interface and define their own indentation/formating.
-            </summary>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.IFormattingStrategy.FormatLine(ICSharpCode.TextEditor.TextArea,System.Int32,System.Int32,System.Char)">
-            <summary>
-            This function formats a specific line after <code>ch</code> is pressed.
-            </summary>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.IFormattingStrategy.IndentLine(ICSharpCode.TextEditor.TextArea,System.Int32)">
-            <summary>
-            This function sets the indentation level in a specific line
-            </summary>
-            <returns>
-            The target caret position (length of new indentation).
-            </returns>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.IFormattingStrategy.IndentLines(ICSharpCode.TextEditor.TextArea,System.Int32,System.Int32)">
-            <summary>
-            This function sets the indentlevel in a range of lines.
-            </summary>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.IFormattingStrategy.SearchBracketBackward(ICSharpCode.TextEditor.Document.IDocument,System.Int32,System.Char,System.Char)">
-            <summary>
-            Finds the offset of the opening bracket in the block defined by offset skipping
-            brackets in strings and comments.
-            </summary>
-            <param name="document">The document to search in.</param>
-            <param name="offset">The offset of an position in the block or the offset of the closing bracket.</param>
-            <param name="openBracket">The character for the opening bracket.</param>
-            <param name="closingBracket">The character for the closing bracket.</param>
-            <returns>Returns the offset of the opening bracket or -1 if no matching bracket was found.</returns>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.IFormattingStrategy.SearchBracketForward(ICSharpCode.TextEditor.Document.IDocument,System.Int32,System.Char,System.Char)">
-            <summary>
-            Finds the offset of the closing bracket in the block defined by offset skipping
-            brackets in strings and comments.
-            </summary>
-            <param name="document">The document to search in.</param>
-            <param name="offset">The offset of an position in the block or the offset of the opening bracket.</param>
-            <param name="openBracket">The character for the opening bracket.</param>
-            <param name="closingBracket">The character for the closing bracket.</param>
-            <returns>Returns the offset of the closing bracket or -1 if no matching bracket was found.</returns>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.DefaultHighlightingStrategy.PushCurWord(ICSharpCode.TextEditor.Document.IDocument,ICSharpCode.TextEditor.Document.HighlightColor@,System.Collections.Generic.List{ICSharpCode.TextEditor.Document.TextWord})">
-            <summary>
-            pushes the curWord string on the word list, with the
-            correct color.
-            </summary>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.DefaultHighlightingStrategy.GetRegString(ICSharpCode.TextEditor.Document.LineSegment,System.Char[],System.Int32,ICSharpCode.TextEditor.Document.IDocument)">
-            <summary>
-            get the string, which matches the regular expression expr,
-            in string s2 at index
-            </summary>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.DefaultHighlightingStrategy.MatchExpr(ICSharpCode.TextEditor.Document.LineSegment,System.Char[],System.Int32,ICSharpCode.TextEditor.Document.IDocument,System.Boolean)">
-            <summary>
-            returns true, if the get the string s2 at index matches the expression expr
-            </summary>
-        </member>
-        <member name="T:ICSharpCode.TextEditor.Document.FontContainer">
-            <summary>
-            This class is used to generate bold, italic and bold/italic fonts out
-            of a base font.
-            </summary>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.FontContainer.RegularFont">
-            <value>
-            The scaled, regular version of the base font
-            </value>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.FontContainer.BoldFont">
-            <value>
-            The scaled, bold version of the base font
-            </value>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.FontContainer.ItalicFont">
-            <value>
-            The scaled, italic version of the base font
-            </value>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.FontContainer.BoldItalicFont">
-            <value>
-            The scaled, bold/italic version of the base font
-            </value>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.FontContainer.DefaultFont">
-            <value>
-            The base font
-            </value>
-        </member>
-        <member name="T:ICSharpCode.TextEditor.Document.HighlightBackground">
-            <summary>
-            Extens the highlighting color with a background image.
-            </summary>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.HighlightBackground.BackgroundImage">
-            <value>
-            The image used as background
-            </value>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.HighlightBackground.#ctor(System.Xml.XmlElement)">
-            <summary>
-            Creates a new instance of <see cref="T:ICSharpCode.TextEditor.Document.HighlightBackground"/>
-            </summary>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.HighlightBackground.#ctor(System.Drawing.Color,System.Drawing.Color,System.Boolean,System.Boolean)">
-            <summary>
-            Creates a new instance of <see cref="T:ICSharpCode.TextEditor.Document.HighlightBackground"/>
-            </summary>
-        </member>
-        <member name="T:ICSharpCode.TextEditor.Document.HighlightColor">
-            <summary>
-            A color used for highlighting
-            </summary>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.HighlightColor.Bold">
-            <value>
-            If true the font will be displayed bold style
-            </value>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.HighlightColor.Italic">
-            <value>
-            If true the font will be displayed italic style
-            </value>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.HighlightColor.BackgroundColor">
-            <value>
-            The background color used
-            </value>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.HighlightColor.Color">
-            <value>
-            The foreground color used
-            </value>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.HighlightColor.GetFont(ICSharpCode.TextEditor.Document.FontContainer)">
-            <value>
-            The font used
-            </value>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.HighlightColor.#ctor(System.Xml.XmlElement)">
-            <summary>
-            Creates a new instance of <see cref="T:ICSharpCode.TextEditor.Document.HighlightColor"/>
-            </summary>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.HighlightColor.#ctor(System.Xml.XmlElement,ICSharpCode.TextEditor.Document.HighlightColor)">
-            <summary>
-            Creates a new instance of <see cref="T:ICSharpCode.TextEditor.Document.HighlightColor"/>
-            </summary>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.HighlightColor.#ctor(System.Drawing.Color,System.Boolean,System.Boolean)">
-            <summary>
-            Creates a new instance of <see cref="T:ICSharpCode.TextEditor.Document.HighlightColor"/>
-            </summary>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.HighlightColor.#ctor(System.Drawing.Color,System.Drawing.Color,System.Boolean,System.Boolean)">
-            <summary>
-            Creates a new instance of <see cref="T:ICSharpCode.TextEditor.Document.HighlightColor"/>
-            </summary>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.HighlightColor.#ctor(System.String,System.String,System.Boolean,System.Boolean)">
-            <summary>
-            Creates a new instance of <see cref="T:ICSharpCode.TextEditor.Document.HighlightColor"/>
-            </summary>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.HighlightColor.#ctor(System.String,System.Boolean,System.Boolean)">
-            <summary>
-            Creates a new instance of <see cref="T:ICSharpCode.TextEditor.Document.HighlightColor"/>
-            </summary>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.HighlightColor.ToString">
-            <summary>
-            Converts a <see cref="T:ICSharpCode.TextEditor.Document.HighlightColor"/> instance to string (for debug purposes)
-            </summary>
-        </member>
-        <member name="T:ICSharpCode.TextEditor.Document.HighlightingDefinitionInvalidException">
-            <summary>
-            Indicates that the highlighting definition that was tried to load was invalid.
-            You get this exception only once per highlighting definition, after that the definition
-            is replaced with the default highlighter.
-            </summary>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.HighlightRuleSet.MergeFrom(ICSharpCode.TextEditor.Document.HighlightRuleSet)">
-            <summary>
-            Merges spans etc. from the other rule set into this rule set.
-            </summary>
-        </member>
-        <member name="T:ICSharpCode.TextEditor.Document.IHighlightingStrategy">
-            <summary>
-            A highlighting strategy for a buffer.
-            </summary>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.IHighlightingStrategy.Name">
-            <value>
-            The name of the highlighting strategy, must be unique
-            </value>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.IHighlightingStrategy.Extensions">
-            <value>
-            The file extenstions on which this highlighting strategy gets
-            used
-            </value>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.IHighlightingStrategy.GetColorFor(System.String)">
-            <remarks>
-            Gets the color of an Environment element.
-            </remarks>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.IHighlightingStrategy.MarkTokens(ICSharpCode.TextEditor.Document.IDocument,System.Collections.Generic.List{ICSharpCode.TextEditor.Document.LineSegment})">
-            <remarks>
-            Used internally, do not call
-            </remarks>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.IHighlightingStrategy.MarkTokens(ICSharpCode.TextEditor.Document.IDocument)">
-            <remarks>
-            Used internally, do not call
-            </remarks>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.IHighlightingStrategyUsingRuleSets.GetRuleSet(ICSharpCode.TextEditor.Document.Span)">
-            <remarks>
-            Used internally, do not call
-            </remarks>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.IHighlightingStrategyUsingRuleSets.GetColor(ICSharpCode.TextEditor.Document.IDocument,ICSharpCode.TextEditor.Document.LineSegment,System.Int32,System.Int32)">
-            <remarks>
-            Used internally, do not call
-            </remarks>
-        </member>
-        <member name="T:ICSharpCode.TextEditor.Document.NextMarker">
-            <summary>
-            Used for mark next token
-            </summary>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.NextMarker.What">
-            <value>
-            String value to indicate to mark next token
-            </value>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.NextMarker.Color">
-            <value>
-            Color for marking next token
-            </value>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.NextMarker.MarkMarker">
-            <value>
-            If true the indication text will be marked with the same color
-            too
-            </value>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.NextMarker.#ctor(System.Xml.XmlElement)">
-            <summary>
-            Creates a new instance of <see cref="T:ICSharpCode.TextEditor.Document.NextMarker"/>
-            </summary>
-        </member>
-        <member name="T:ICSharpCode.TextEditor.Document.PrevMarker">
-            <summary>
-            Used for mark previous token
-            </summary>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.PrevMarker.What">
-            <value>
-            String value to indicate to mark previous token
-            </value>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.PrevMarker.Color">
-            <value>
-            Color for marking previous token
-            </value>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.PrevMarker.MarkMarker">
-            <value>
-            If true the indication text will be marked with the same color
-            too
-            </value>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.PrevMarker.#ctor(System.Xml.XmlElement)">
-            <summary>
-            Creates a new instance of <see cref="T:ICSharpCode.TextEditor.Document.PrevMarker"/>
-            </summary>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.Span.EscapeCharacter">
-            <summary>
-            Gets the escape character of the span. The escape character is a character that can be used in front
-            of the span end to make it not end the span. The escape character followed by another escape character
-            means the escape character was escaped like in @"a "" b" literals in C#.
-            The default value '\0' means no escape character is allowed.
-            </summary>
-        </member>
-        <member name="T:ICSharpCode.TextEditor.Document.SpanStack">
-            <summary>
-            A stack of Span instances. Works like Stack&lt;Span&gt;, but can be cloned quickly
-            because it is implemented as linked list.
-            </summary>
-        </member>
-        <member name="T:ICSharpCode.TextEditor.Document.TextWord">
-            <summary>
-            This class represents single words with color information, two special versions of a word are
-            spaces and tabs.
-            </summary>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.TextWord.Split(ICSharpCode.TextEditor.Document.TextWord@,System.Int32)">
-            <summary>
-            Splits the <paramref name="word"/> into two parts: the part before <paramref name="pos"/> is assigned to
-            the reference parameter <paramref name="word"/>, the part after <paramref name="pos"/> is returned.
-            </summary>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.TextWord.ToString">
-            <summary>
-            Converts a <see cref="T:ICSharpCode.TextEditor.Document.TextWord"/> instance to string (for debug purposes)
-            </summary>
-        </member>
         <member name="T:ICSharpCode.TextEditor.Document.IDocument">
             <summary>
             This interface represents a container which holds a text sequence and
             all necessary information about it. It is used as the base for a text editor.
             </summary>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.IDocument.ReadOnly">
-            <value>
-            If true the document can't be altered
-            </value>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.IDocument.FormattingStrategy">
-            <summary>
-            The <see cref="T:ICSharpCode.TextEditor.Document.IFormattingStrategy"/> attached to the <see cref="T:ICSharpCode.TextEditor.Document.IDocument"/> instance
-            </summary>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.IDocument.TextBufferStrategy">
-            <summary>
-            The <see cref="T:ICSharpCode.TextEditor.Document.ITextBufferStrategy"/> attached to the <see cref="T:ICSharpCode.TextEditor.Document.IDocument"/> instance
-            </summary>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.IDocument.FoldingManager">
-            <summary>
-            The <see cref="P:ICSharpCode.TextEditor.Document.IDocument.FoldingManager"/> attached to the <see cref="T:ICSharpCode.TextEditor.Document.IDocument"/> instance
-            </summary>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.IDocument.HighlightingStrategy">
-            <summary>
-            The <see cref="T:ICSharpCode.TextEditor.Document.IHighlightingStrategy"/> attached to the <see cref="T:ICSharpCode.TextEditor.Document.IDocument"/> instance
-            </summary>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.IDocument.BookmarkManager">
-            <summary>
-            The <see cref="!:IBookMarkManager"/> attached to the <see cref="T:ICSharpCode.TextEditor.Document.IDocument"/> instance
-            </summary>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.IDocument.LineSegmentCollection">
-            <value>
-            A collection of all line segments
-            </value>
-            <remarks>
-            The collection should only be used if you're aware
-            of the 'last line ends with a delimiter problem'. Otherwise
-            the <see cref="M:ICSharpCode.TextEditor.Document.IDocument.GetLineSegment(System.Int32)"/> method should be used.
-            </remarks>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.IDocument.TotalNumberOfLines">
-            <value>
-            The total number of lines in the document.
-            </value>
         </member>
         <member name="M:ICSharpCode.TextEditor.Document.IDocument.GetLineNumberForOffset(System.Int32)">
             <remarks>
@@ -963,19 +453,6 @@
             Get the next visible line below lineNumber
             </remarks>
         </member>
-        <member name="P:ICSharpCode.TextEditor.Document.IDocument.TextContent">
-            <value>
-            Get the whole text as string.
-            When setting the text using the TextContent property, the undo stack is cleared.
-            Set TextContent only for actions such as loading a file; if you want to change the current document
-            use the Replace method instead.
-            </value>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.IDocument.TextLength">
-            <value>
-            The current length of the sequence of characters that can be edited.
-            </value>
-        </member>
         <member name="M:ICSharpCode.TextEditor.Document.IDocument.Insert(System.Int32,System.String)">
             <summary>
             Inserts a string of characters into the sequence.
@@ -1041,11 +518,6 @@
             returns the offset from a logical line/column position
             </summary>
         </member>
-        <member name="P:ICSharpCode.TextEditor.Document.IDocument.UpdateQueue">
-            <value>
-            A container where all TextAreaUpdate objects get stored
-            </value>
-        </member>
         <member name="M:ICSharpCode.TextEditor.Document.IDocument.RequestUpdate(ICSharpCode.TextEditor.TextAreaUpdate)">
             <remarks>
             Requests an update of the textarea
@@ -1062,6 +534,69 @@
             Moves, Resizes, Removes a list of segments on insert/remove/replace events.
             </summary>
         </member>
+        <member name="P:ICSharpCode.TextEditor.Document.IDocument.ReadOnly">
+            <value>
+            If true the document can't be altered
+            </value>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.IDocument.FormattingStrategy">
+            <summary>
+            The <see cref="T:ICSharpCode.TextEditor.Document.IFormattingStrategy"/> attached to the <see cref="T:ICSharpCode.TextEditor.Document.IDocument"/> instance
+            </summary>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.IDocument.TextBufferStrategy">
+            <summary>
+            The <see cref="T:ICSharpCode.TextEditor.Document.ITextBufferStrategy"/> attached to the <see cref="T:ICSharpCode.TextEditor.Document.IDocument"/> instance
+            </summary>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.IDocument.FoldingManager">
+            <summary>
+            The <see cref="P:ICSharpCode.TextEditor.Document.IDocument.FoldingManager"/> attached to the <see cref="T:ICSharpCode.TextEditor.Document.IDocument"/> instance
+            </summary>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.IDocument.HighlightingStrategy">
+            <summary>
+            The <see cref="T:ICSharpCode.TextEditor.Document.IHighlightingStrategy"/> attached to the <see cref="T:ICSharpCode.TextEditor.Document.IDocument"/> instance
+            </summary>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.IDocument.BookmarkManager">
+            <summary>
+            The <see cref="!:IBookMarkManager"/> attached to the <see cref="T:ICSharpCode.TextEditor.Document.IDocument"/> instance
+            </summary>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.IDocument.LineSegmentCollection">
+            <value>
+            A collection of all line segments
+            </value>
+            <remarks>
+            The collection should only be used if you're aware
+            of the 'last line ends with a delimiter problem'. Otherwise
+            the <see cref="M:ICSharpCode.TextEditor.Document.IDocument.GetLineSegment(System.Int32)"/> method should be used.
+            </remarks>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.IDocument.TotalNumberOfLines">
+            <value>
+            The total number of lines in the document.
+            </value>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.IDocument.TextContent">
+            <value>
+            Get the whole text as string.
+            When setting the text using the TextContent property, the undo stack is cleared.
+            Set TextContent only for actions such as loading a file; if you want to change the current document
+            use the Replace method instead.
+            </value>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.IDocument.TextLength">
+            <value>
+            The current length of the sequence of characters that can be edited.
+            </value>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.IDocument.UpdateQueue">
+            <value>
+            A container where all TextAreaUpdate objects get stored
+            </value>
+        </member>
         <member name="E:ICSharpCode.TextEditor.Document.IDocument.UpdateCommited">
             <summary>
             Is fired when CommitUpdate is called
@@ -1075,21 +610,6 @@
             <summary>
             </summary>
         </member>
-        <member name="T:ICSharpCode.TextEditor.Document.ISegment">
-            <summary>
-            This interface is used to describe a span inside a text sequence
-            </summary>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.ISegment.Offset">
-            <value>
-            The offset where the span begins
-            </value>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.ISegment.Length">
-            <value>
-            The length of the span
-            </value>
-        </member>
         <member name="P:ICSharpCode.TextEditor.Document.ITextEditorProperties.TabIndent">
             <summary>
             The width of a tab.
@@ -1098,6 +618,486 @@
         <member name="P:ICSharpCode.TextEditor.Document.ITextEditorProperties.IndentationSize">
             <summary>
             The amount of spaces a tab is converted to if ConvertTabsToSpaces is true.
+            </summary>
+        </member>
+        <member name="T:ICSharpCode.TextEditor.Document.DocumentEventHandler">
+            <summary>
+            This delegate is used for document events.
+            </summary>
+        </member>
+        <member name="T:ICSharpCode.TextEditor.Document.DocumentEventArgs">
+            <summary>
+            This class contains more information on a document event
+            </summary>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.DocumentEventArgs.#ctor(ICSharpCode.TextEditor.Document.IDocument)">
+            <summary>
+            Creates a new instance off <see cref="T:ICSharpCode.TextEditor.Document.DocumentEventArgs"/>
+            </summary>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.DocumentEventArgs.#ctor(ICSharpCode.TextEditor.Document.IDocument,System.Int32)">
+            <summary>
+            Creates a new instance off <see cref="T:ICSharpCode.TextEditor.Document.DocumentEventArgs"/>
+            </summary>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.DocumentEventArgs.#ctor(ICSharpCode.TextEditor.Document.IDocument,System.Int32,System.Int32)">
+            <summary>
+            Creates a new instance off <see cref="T:ICSharpCode.TextEditor.Document.DocumentEventArgs"/>
+            </summary>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.DocumentEventArgs.#ctor(ICSharpCode.TextEditor.Document.IDocument,System.Int32,System.Int32,System.String)">
+            <summary>
+            Creates a new instance off <see cref="T:ICSharpCode.TextEditor.Document.DocumentEventArgs"/>
+            </summary>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.DocumentEventArgs.Document">
+            <returns>
+            always a valid Document which is related to the Event.
+            </returns>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.DocumentEventArgs.Offset">
+            <returns>
+            -1 if no offset was specified for this event
+            </returns>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.DocumentEventArgs.Text">
+            <returns>
+            null if no text was specified for this event
+            </returns>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.DocumentEventArgs.Length">
+            <returns>
+            -1 if no length was specified for this event
+            </returns>
+        </member>
+        <member name="T:ICSharpCode.TextEditor.Document.DocumentFactory">
+            <summary>
+            This interface represents a container which holds a text sequence and
+            all necessary information about it. It is used as the base for a text editor.
+            </summary>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.DocumentFactory.CreateDocument">
+            <remarks>
+            Creates a new <see cref="T:ICSharpCode.TextEditor.Document.IDocument"/> object. Only create
+            <see cref="T:ICSharpCode.TextEditor.Document.IDocument"/> with this method.
+            </remarks>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.DocumentFactory.CreateFromTextBuffer(ICSharpCode.TextEditor.Document.ITextBufferStrategy)">
+            <summary>
+            Creates a new document and loads the given file
+            </summary>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.DocumentFactory.CreateFromFile(System.String)">
+            <summary>
+            Creates a new document and loads the given file
+            </summary>
+        </member>
+        <member name="T:ICSharpCode.TextEditor.Document.IFoldingStrategy">
+            <summary>
+            This interface is used for the folding capabilities
+            of the textarea.
+            </summary>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.IFoldingStrategy.GenerateFoldMarkers(ICSharpCode.TextEditor.Document.IDocument,System.String,System.Object)">
+            <remarks>
+            Calculates the fold level of a specific line.
+            </remarks>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.CSharpFoldingStrategy.GenerateFoldMarkers(ICSharpCode.TextEditor.Document.IDocument,System.String,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="document"></param>
+            <param name="fileName"></param>
+            <param name="parseInformation"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ICSharpCode.TextEditor.Document.IndentFoldingStrategy">
+            <summary>
+            A simple folding strategy which calculates the folding level
+            using the indent level of the line.
+            </summary>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.TSqlFoldingStrategy.GenerateFoldMarkers(ICSharpCode.TextEditor.Document.IDocument,System.String,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="document"></param>
+            <param name="fileName"></param>
+            <param name="parseInformation"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ICSharpCode.TextEditor.Document.DefaultFormattingStrategy">
+            <summary>
+            This class handles the auto and smart indenting in the textbuffer while
+            you type.
+            </summary>
+        </member>
+        <member name="T:ICSharpCode.TextEditor.Document.IFormattingStrategy">
+            <summary>
+            This interface handles the auto and smart indenting and formating
+            in the document while  you type. Language bindings could overwrite this 
+            interface and define their own indentation/formating.
+            </summary>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.IFormattingStrategy.FormatLine(ICSharpCode.TextEditor.TextArea,System.Int32,System.Int32,System.Char)">
+            <summary>
+            This function formats a specific line after <code>ch</code> is pressed.
+            </summary>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.IFormattingStrategy.IndentLine(ICSharpCode.TextEditor.TextArea,System.Int32)">
+            <summary>
+            This function sets the indentation level in a specific line
+            </summary>
+            <returns>
+            The target caret position (length of new indentation).
+            </returns>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.IFormattingStrategy.IndentLines(ICSharpCode.TextEditor.TextArea,System.Int32,System.Int32)">
+            <summary>
+            This function sets the indentlevel in a range of lines.
+            </summary>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.IFormattingStrategy.SearchBracketBackward(ICSharpCode.TextEditor.Document.IDocument,System.Int32,System.Char,System.Char)">
+            <summary>
+            Finds the offset of the opening bracket in the block defined by offset skipping
+            brackets in strings and comments.
+            </summary>
+            <param name="document">The document to search in.</param>
+            <param name="offset">The offset of an position in the block or the offset of the closing bracket.</param>
+            <param name="openBracket">The character for the opening bracket.</param>
+            <param name="closingBracket">The character for the closing bracket.</param>
+            <returns>Returns the offset of the opening bracket or -1 if no matching bracket was found.</returns>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.IFormattingStrategy.SearchBracketForward(ICSharpCode.TextEditor.Document.IDocument,System.Int32,System.Char,System.Char)">
+            <summary>
+            Finds the offset of the closing bracket in the block defined by offset skipping
+            brackets in strings and comments.
+            </summary>
+            <param name="document">The document to search in.</param>
+            <param name="offset">The offset of an position in the block or the offset of the opening bracket.</param>
+            <param name="openBracket">The character for the opening bracket.</param>
+            <param name="closingBracket">The character for the closing bracket.</param>
+            <returns>Returns the offset of the closing bracket or -1 if no matching bracket was found.</returns>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.DefaultFormattingStrategy.#ctor">
+            <summary>
+            Creates a new instance off <see cref="T:ICSharpCode.TextEditor.Document.DefaultFormattingStrategy"/>
+            </summary>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.DefaultFormattingStrategy.GetIndentation(ICSharpCode.TextEditor.TextArea,System.Int32)">
+            <summary>
+            returns the whitespaces which are before a non white space character in the line line
+            as a string.
+            </summary>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.DefaultFormattingStrategy.AutoIndentLine(ICSharpCode.TextEditor.TextArea,System.Int32)">
+            <summary>
+            Could be overwritten to define more complex indenting.
+            </summary>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.DefaultFormattingStrategy.SmartReplaceLine(ICSharpCode.TextEditor.Document.IDocument,ICSharpCode.TextEditor.Document.LineSegment,System.String)">
+            <summary>
+            Replaces the text in a line.
+            If only whitespace at the beginning and end of the line was changed, this method
+            only adjusts the whitespace and doesn't replace the other text.
+            </summary>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.DefaultFormattingStrategy.SmartIndentLine(ICSharpCode.TextEditor.TextArea,System.Int32)">
+            <summary>
+            Could be overwritten to define more complex indenting.
+            </summary>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.DefaultFormattingStrategy.FormatLine(ICSharpCode.TextEditor.TextArea,System.Int32,System.Int32,System.Char)">
+            <summary>
+            This function formats a specific line after <code>ch</code> is pressed.
+            </summary>
+            <returns>
+            the caret delta position the caret will be moved this number
+            of bytes (e.g. the number of bytes inserted before the caret, or
+            removed, if this number is negative)
+            </returns>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.DefaultFormattingStrategy.IndentLine(ICSharpCode.TextEditor.TextArea,System.Int32)">
+            <summary>
+            This function sets the indentation level in a specific line
+            </summary>
+            <returns>
+            the number of inserted characters.
+            </returns>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.DefaultFormattingStrategy.IndentLines(ICSharpCode.TextEditor.TextArea,System.Int32,System.Int32)">
+            <summary>
+            This function sets the indentlevel in a range of lines.
+            </summary>
+        </member>
+        <member name="T:ICSharpCode.TextEditor.Document.IHighlightingStrategy">
+            <summary>
+            A highlighting strategy for a buffer.
+            </summary>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.IHighlightingStrategy.GetColorFor(System.String)">
+            <remarks>
+            Gets the color of an Environment element.
+            </remarks>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.IHighlightingStrategy.MarkTokens(ICSharpCode.TextEditor.Document.IDocument,System.Collections.Generic.List{ICSharpCode.TextEditor.Document.LineSegment})">
+            <remarks>
+            Used internally, do not call
+            </remarks>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.IHighlightingStrategy.MarkTokens(ICSharpCode.TextEditor.Document.IDocument)">
+            <remarks>
+            Used internally, do not call
+            </remarks>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.IHighlightingStrategy.Name">
+            <value>
+            The name of the highlighting strategy, must be unique
+            </value>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.IHighlightingStrategy.Extensions">
+            <value>
+            The file extenstions on which this highlighting strategy gets
+            used
+            </value>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.IHighlightingStrategyUsingRuleSets.GetRuleSet(ICSharpCode.TextEditor.Document.Span)">
+            <remarks>
+            Used internally, do not call
+            </remarks>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.IHighlightingStrategyUsingRuleSets.GetColor(ICSharpCode.TextEditor.Document.IDocument,ICSharpCode.TextEditor.Document.LineSegment,System.Int32,System.Int32)">
+            <remarks>
+            Used internally, do not call
+            </remarks>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.DefaultHighlightingStrategy.PushCurWord(ICSharpCode.TextEditor.Document.IDocument,ICSharpCode.TextEditor.Document.HighlightColor@,System.Collections.Generic.List{ICSharpCode.TextEditor.Document.TextWord})">
+            <summary>
+            pushes the curWord string on the word list, with the
+            correct color.
+            </summary>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.DefaultHighlightingStrategy.GetRegString(ICSharpCode.TextEditor.Document.LineSegment,System.Char[],System.Int32,ICSharpCode.TextEditor.Document.IDocument)">
+            <summary>
+            get the string, which matches the regular expression expr,
+            in string s2 at index
+            </summary>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.DefaultHighlightingStrategy.MatchExpr(ICSharpCode.TextEditor.Document.LineSegment,System.Char[],System.Int32,ICSharpCode.TextEditor.Document.IDocument,System.Boolean)">
+            <summary>
+            returns true, if the get the string s2 at index matches the expression expr
+            </summary>
+        </member>
+        <member name="T:ICSharpCode.TextEditor.Document.FontContainer">
+            <summary>
+            This class is used to generate bold, italic and bold/italic fonts out
+            of a base font.
+            </summary>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.FontContainer.RegularFont">
+            <value>
+            The scaled, regular version of the base font
+            </value>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.FontContainer.BoldFont">
+            <value>
+            The scaled, bold version of the base font
+            </value>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.FontContainer.ItalicFont">
+            <value>
+            The scaled, italic version of the base font
+            </value>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.FontContainer.BoldItalicFont">
+            <value>
+            The scaled, bold/italic version of the base font
+            </value>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.FontContainer.DefaultFont">
+            <value>
+            The base font
+            </value>
+        </member>
+        <member name="T:ICSharpCode.TextEditor.Document.HighlightBackground">
+            <summary>
+            Extens the highlighting color with a background image.
+            </summary>
+        </member>
+        <member name="T:ICSharpCode.TextEditor.Document.HighlightColor">
+            <summary>
+            A color used for highlighting
+            </summary>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.HighlightColor.GetFont(ICSharpCode.TextEditor.Document.FontContainer)">
+            <value>
+            The font used
+            </value>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.HighlightColor.#ctor(System.Xml.XmlElement)">
+            <summary>
+            Creates a new instance of <see cref="T:ICSharpCode.TextEditor.Document.HighlightColor"/>
+            </summary>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.HighlightColor.#ctor(System.Xml.XmlElement,ICSharpCode.TextEditor.Document.HighlightColor)">
+            <summary>
+            Creates a new instance of <see cref="T:ICSharpCode.TextEditor.Document.HighlightColor"/>
+            </summary>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.HighlightColor.#ctor(System.Drawing.Color,System.Boolean,System.Boolean)">
+            <summary>
+            Creates a new instance of <see cref="T:ICSharpCode.TextEditor.Document.HighlightColor"/>
+            </summary>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.HighlightColor.#ctor(System.Drawing.Color,System.Drawing.Color,System.Boolean,System.Boolean)">
+            <summary>
+            Creates a new instance of <see cref="T:ICSharpCode.TextEditor.Document.HighlightColor"/>
+            </summary>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.HighlightColor.#ctor(System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Creates a new instance of <see cref="T:ICSharpCode.TextEditor.Document.HighlightColor"/>
+            </summary>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.HighlightColor.#ctor(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Creates a new instance of <see cref="T:ICSharpCode.TextEditor.Document.HighlightColor"/>
+            </summary>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.HighlightColor.ToString">
+            <summary>
+            Converts a <see cref="T:ICSharpCode.TextEditor.Document.HighlightColor"/> instance to string (for debug purposes)
+            </summary>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.HighlightColor.Bold">
+            <value>
+            If true the font will be displayed bold style
+            </value>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.HighlightColor.Italic">
+            <value>
+            If true the font will be displayed italic style
+            </value>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.HighlightColor.BackgroundColor">
+            <value>
+            The background color used
+            </value>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.HighlightColor.Color">
+            <value>
+            The foreground color used
+            </value>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.HighlightBackground.#ctor(System.Xml.XmlElement)">
+            <summary>
+            Creates a new instance of <see cref="T:ICSharpCode.TextEditor.Document.HighlightBackground"/>
+            </summary>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.HighlightBackground.#ctor(System.Drawing.Color,System.Drawing.Color,System.Boolean,System.Boolean)">
+            <summary>
+            Creates a new instance of <see cref="T:ICSharpCode.TextEditor.Document.HighlightBackground"/>
+            </summary>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.HighlightBackground.BackgroundImage">
+            <value>
+            The image used as background
+            </value>
+        </member>
+        <member name="T:ICSharpCode.TextEditor.Document.HighlightingDefinitionInvalidException">
+            <summary>
+            Indicates that the highlighting definition that was tried to load was invalid.
+            You get this exception only once per highlighting definition, after that the definition
+            is replaced with the default highlighter.
+            </summary>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.HighlightRuleSet.MergeFrom(ICSharpCode.TextEditor.Document.HighlightRuleSet)">
+            <summary>
+            Merges spans etc. from the other rule set into this rule set.
+            </summary>
+        </member>
+        <member name="T:ICSharpCode.TextEditor.Document.NextMarker">
+            <summary>
+            Used for mark next token
+            </summary>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.NextMarker.#ctor(System.Xml.XmlElement)">
+            <summary>
+            Creates a new instance of <see cref="T:ICSharpCode.TextEditor.Document.NextMarker"/>
+            </summary>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.NextMarker.What">
+            <value>
+            String value to indicate to mark next token
+            </value>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.NextMarker.Color">
+            <value>
+            Color for marking next token
+            </value>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.NextMarker.MarkMarker">
+            <value>
+            If true the indication text will be marked with the same color
+            too
+            </value>
+        </member>
+        <member name="T:ICSharpCode.TextEditor.Document.PrevMarker">
+            <summary>
+            Used for mark previous token
+            </summary>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.PrevMarker.#ctor(System.Xml.XmlElement)">
+            <summary>
+            Creates a new instance of <see cref="T:ICSharpCode.TextEditor.Document.PrevMarker"/>
+            </summary>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.PrevMarker.What">
+            <value>
+            String value to indicate to mark previous token
+            </value>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.PrevMarker.Color">
+            <value>
+            Color for marking previous token
+            </value>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.PrevMarker.MarkMarker">
+            <value>
+            If true the indication text will be marked with the same color
+            too
+            </value>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.Span.EscapeCharacter">
+            <summary>
+            Gets the escape character of the span. The escape character is a character that can be used in front
+            of the span end to make it not end the span. The escape character followed by another escape character
+            means the escape character was escaped like in @"a "" b" literals in C#.
+            The default value '\0' means no escape character is allowed.
+            </summary>
+        </member>
+        <member name="T:ICSharpCode.TextEditor.Document.SpanStack">
+            <summary>
+            A stack of Span instances. Works like Stack&lt;Span&gt;, but can be cloned quickly
+            because it is implemented as linked list.
+            </summary>
+        </member>
+        <member name="T:ICSharpCode.TextEditor.Document.TextWord">
+            <summary>
+            This class represents single words with color information, two special versions of a word are
+            spaces and tabs.
+            </summary>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.TextWord.Split(ICSharpCode.TextEditor.Document.TextWord@,System.Int32)">
+            <summary>
+            Splits the <paramref name="word"/> into two parts: the part before <paramref name="pos"/> is assigned to
+            the reference parameter <paramref name="word"/>, the part after <paramref name="pos"/> is returned.
+            </summary>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.TextWord.ToString">
+            <summary>
+            Converts a <see cref="T:ICSharpCode.TextEditor.Document.TextWord"/> instance to string (for debug purposes)
             </summary>
         </member>
         <member name="T:ICSharpCode.TextEditor.Document.DeferredEventList">
@@ -1170,24 +1170,9 @@
             NOTE: The tree is never empty, Clear() causes it to contain an empty segment.
             </summary>
         </member>
-        <member name="P:ICSharpCode.TextEditor.Document.LineSegmentTree.TotalLength">
-            <summary>
-            Gets the total length of all line segments. Runs in O(1).
-            </summary>
-        </member>
         <member name="M:ICSharpCode.TextEditor.Document.LineSegmentTree.SetSegmentLength(ICSharpCode.TextEditor.Document.LineSegment,System.Int32)">
             <summary>
             Updates the length of a line segment. Runs in O(lg n).
-            </summary>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.LineSegmentTree.Count">
-            <summary>
-            Gets the number of items in the collections. Runs in O(1).
-            </summary>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.LineSegmentTree.Item(System.Int32)">
-            <summary>
-            Gets or sets an item by index. Runs in O(lg n).
             </summary>
         </member>
         <member name="M:ICSharpCode.TextEditor.Document.LineSegmentTree.IndexOf(ICSharpCode.TextEditor.Document.LineSegment)">
@@ -1210,10 +1195,35 @@
             Copies all elements from the list to the array.
             </summary>
         </member>
+        <member name="P:ICSharpCode.TextEditor.Document.LineSegmentTree.TotalLength">
+            <summary>
+            Gets the total length of all line segments. Runs in O(1).
+            </summary>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.LineSegmentTree.Count">
+            <summary>
+            Gets the number of items in the collections. Runs in O(1).
+            </summary>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.LineSegmentTree.Item(System.Int32)">
+            <summary>
+            Gets or sets an item by index. Runs in O(lg n).
+            </summary>
+        </member>
         <member name="F:ICSharpCode.TextEditor.Document.LineSegmentTree.Enumerator.Invalid">
             <summary>
             An invalid enumerator value. Calling MoveNext on the invalid enumerator
             will always return false, accessing Current will throw an exception.
+            </summary>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.LineSegmentTree.Enumerator.MoveNext">
+            <summary>
+            Moves to the next index. Runs in O(lg n), but for k calls, the combined time is only O(k+lg n).
+            </summary>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.LineSegmentTree.Enumerator.MoveBack">
+            <summary>
+            Moves to the previous index. Runs in O(lg n), but for k calls, the combined time is only O(k+lg n).
             </summary>
         </member>
         <member name="P:ICSharpCode.TextEditor.Document.LineSegmentTree.Enumerator.Current">
@@ -1229,16 +1239,6 @@
         <member name="P:ICSharpCode.TextEditor.Document.LineSegmentTree.Enumerator.CurrentOffset">
             <summary>
             Gets the offset of the current value. Runs in O(lg n).
-            </summary>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.LineSegmentTree.Enumerator.MoveNext">
-            <summary>
-            Moves to the next index. Runs in O(lg n), but for k calls, the combined time is only O(k+lg n).
-            </summary>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.LineSegmentTree.Enumerator.MoveBack">
-            <summary>
-            Moves to the previous index. Runs in O(lg n), but for k calls, the combined time is only O(k+lg n).
             </summary>
         </member>
         <member name="T:ICSharpCode.TextEditor.Document.MarkerStrategy">
@@ -1266,31 +1266,6 @@
             Default implementation of the <see cref="T:ICSharpCode.TextEditor.Document.ISelection"/> interface.
             </summary>
         </member>
-        <member name="P:ICSharpCode.TextEditor.Document.DefaultSelection.IsEmpty">
-            <value>
-            Returns true, if the selection is empty
-            </value>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.DefaultSelection.IsRectangularSelection">
-            <value>
-            Returns true, if the selection is rectangular
-            </value>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.DefaultSelection.SelectedText">
-            <value>
-            The text which is selected by this selection.
-            </value>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.DefaultSelection.#ctor(ICSharpCode.TextEditor.Document.IDocument,ICSharpCode.TextEditor.TextLocation,ICSharpCode.TextEditor.TextLocation)">
-            <summary>
-            Creates a new instance of <see cref="T:ICSharpCode.TextEditor.Document.DefaultSelection"/>
-            </summary>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Document.DefaultSelection.ToString">
-            <summary>
-            Converts a <see cref="T:ICSharpCode.TextEditor.Document.DefaultSelection"/> instance to string (for debug purposes)
-            </summary>
-        </member>
         <member name="T:ICSharpCode.TextEditor.Document.ISelection">
             <summary>
             An interface representing a portion of the current selection.
@@ -1311,25 +1286,35 @@
             The text which is selected by this selection.
             </value>
         </member>
+        <member name="M:ICSharpCode.TextEditor.Document.DefaultSelection.#ctor(ICSharpCode.TextEditor.Document.IDocument,ICSharpCode.TextEditor.TextLocation,ICSharpCode.TextEditor.TextLocation)">
+            <summary>
+            Creates a new instance of <see cref="T:ICSharpCode.TextEditor.Document.DefaultSelection"/>
+            </summary>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.Document.DefaultSelection.ToString">
+            <summary>
+            Converts a <see cref="T:ICSharpCode.TextEditor.Document.DefaultSelection"/> instance to string (for debug purposes)
+            </summary>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.DefaultSelection.IsEmpty">
+            <value>
+            Returns true, if the selection is empty
+            </value>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.DefaultSelection.IsRectangularSelection">
+            <value>
+            Returns true, if the selection is rectangular
+            </value>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.DefaultSelection.SelectedText">
+            <value>
+            The text which is selected by this selection.
+            </value>
+        </member>
         <member name="T:ICSharpCode.TextEditor.Document.SelectionManager">
             <summary>
             This class manages the selections in a document.
             </summary>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.SelectionManager.SelectionCollection">
-            <value>
-            A collection containing all selections.
-            </value>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.SelectionManager.HasSomethingSelected">
-            <value>
-            true if the <see cref="P:ICSharpCode.TextEditor.Document.SelectionManager.SelectionCollection"/> is not empty, false otherwise.
-            </value>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.SelectionManager.SelectedText">
-            <value>
-            The text that is currently selected.
-            </value>
         </member>
         <member name="M:ICSharpCode.TextEditor.Document.SelectionManager.#ctor(ICSharpCode.TextEditor.Document.IDocument)">
             <summary>
@@ -1388,6 +1373,21 @@
             Used internally, do not call.
             </remarks>
         </member>
+        <member name="P:ICSharpCode.TextEditor.Document.SelectionManager.SelectionCollection">
+            <value>
+            A collection containing all selections.
+            </value>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.SelectionManager.HasSomethingSelected">
+            <value>
+            true if the <see cref="P:ICSharpCode.TextEditor.Document.SelectionManager.SelectionCollection"/> is not empty, false otherwise.
+            </value>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Document.SelectionManager.SelectedText">
+            <value>
+            The text that is currently selected.
+            </value>
+        </member>
         <member name="F:ICSharpCode.TextEditor.Document.AnchorMovementType.BeforeInsertion">
             <summary>
             Behaves like a start marker - when text is inserted at the anchor position, the anchor will stay
@@ -1414,11 +1414,6 @@
             <summary>
             Interface to describe a sequence of characters that can be edited. 	
             </summary>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Document.ITextBufferStrategy.Length">
-            <value>
-            The current length of the sequence of characters that can be edited.
-            </value>
         </member>
         <member name="M:ICSharpCode.TextEditor.Document.ITextBufferStrategy.Insert(System.Int32,System.String)">
             <summary>
@@ -1483,11 +1478,27 @@
             The string that represents the character sequence.
             </param>
         </member>
+        <member name="P:ICSharpCode.TextEditor.Document.ITextBufferStrategy.Length">
+            <value>
+            The current length of the sequence of characters that can be edited.
+            </value>
+        </member>
         <member name="T:ICSharpCode.TextEditor.Document.StringTextBufferStrategy">
             <summary>
             Simple implementation of the ITextBuffer interface implemented using a
             string.
             Only for fall-back purposes.
+            </summary>
+        </member>
+        <member name="T:ICSharpCode.TextEditor.TextLocation">
+            <summary>
+            A line/column position.
+            Text editor lines/columns are counting from zero.
+            </summary>
+        </member>
+        <member name="F:ICSharpCode.TextEditor.TextLocation.Empty">
+            <summary>
+            Represents no text location (-1, -1).
             </summary>
         </member>
         <member name="M:ICSharpCode.TextEditor.Document.TextUtilities.LeadingWhiteSpaceToTabs(System.String,System.Int32)">
@@ -1519,17 +1530,6 @@
             Returns true, if the line lineNumber is empty or filled with whitespaces.
             </remarks>
         </member>
-        <member name="T:ICSharpCode.TextEditor.TextLocation">
-            <summary>
-            A line/column position.
-            Text editor lines/columns are counting from zero.
-            </summary>
-        </member>
-        <member name="F:ICSharpCode.TextEditor.TextLocation.Empty">
-            <summary>
-            Represents no text location (-1, -1).
-            </summary>
-        </member>
         <member name="T:ICSharpCode.TextEditor.AbstractMargin">
             <summary>
             This class views the line numbers and folding markers.
@@ -1558,6 +1558,12 @@
             overwrite the character at the caret position
             </summary>
         </member>
+        <member name="M:ICSharpCode.TextEditor.Caret.ValidateCaretPos">
+            <remarks>
+            If the caret position is outside the document text bounds
+            it is set to the correct position by calling ValidateCaretPos.
+            </remarks>
+        </member>
         <member name="P:ICSharpCode.TextEditor.Caret.DesiredColumn">
             <value>
             The 'prefered' xPos in which the caret moves, when it is moved
@@ -1568,12 +1574,6 @@
             <value>
             The current caret mode.
             </value>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Caret.ValidateCaretPos">
-            <remarks>
-            If the caret position is outside the document text bounds
-            it is set to the correct position by calling ValidateCaretPos.
-            </remarks>
         </member>
         <member name="E:ICSharpCode.TextEditor.Caret.PositionChanged">
             <remarks>
@@ -1611,13 +1611,6 @@
             Description of CodeCompletionListView.
             </summary>
         </member>
-        <member name="P:ICSharpCode.TextEditor.Gui.CompletionWindow.CodeCompletionWindow.CloseWhenCaretAtBeginning">
-            <summary>
-            When this flag is set, code completion closes if the caret moves to the
-            beginning of the allowed range. This is useful in Ctrl+Space and "complete when typing",
-            but not in dot-completion.
-            </summary>
-        </member>
         <member name="M:ICSharpCode.TextEditor.Gui.CompletionWindow.CodeCompletionWindow.GetListViewWidth(System.Int32,System.Int32)">
             <summary>
             Gets the list view width large enough to handle the longest completion data
@@ -1629,11 +1622,11 @@
             <returns>The list view width to accommodate the longest completion
             data text string; otherwise the default width.</returns>
         </member>
-        <member name="P:ICSharpCode.TextEditor.Gui.CompletionWindow.ICompletionData.Priority">
+        <member name="P:ICSharpCode.TextEditor.Gui.CompletionWindow.CodeCompletionWindow.CloseWhenCaretAtBeginning">
             <summary>
-            Gets a priority value for the completion data item.
-            When selecting items by their start characters, the item with the highest
-            priority is selected first.
+            When this flag is set, code completion closes if the caret moves to the
+            beginning of the allowed range. This is useful in Ctrl+Space and "complete when typing",
+            but not in dot-completion.
             </summary>
         </member>
         <member name="M:ICSharpCode.TextEditor.Gui.CompletionWindow.ICompletionData.InsertAction(ICSharpCode.TextEditor.TextArea,System.Char)">
@@ -1647,9 +1640,11 @@
             <returns>Returns true when the insert action has processed the character
             <paramref name="ch"/>; false when the character was not processed.</returns>
         </member>
-        <member name="P:ICSharpCode.TextEditor.Gui.CompletionWindow.ICompletionDataProvider.DefaultIndex">
+        <member name="P:ICSharpCode.TextEditor.Gui.CompletionWindow.ICompletionData.Priority">
             <summary>
-            Gets the index of the element in the list that is chosen by default.
+            Gets a priority value for the completion data item.
+            When selecting items by their start characters, the item with the highest
+            priority is selected first.
             </summary>
         </member>
         <member name="M:ICSharpCode.TextEditor.Gui.CompletionWindow.ICompletionDataProvider.ProcessKey(System.Char)">
@@ -1668,6 +1663,11 @@
             Generates the completion data. This method is called by the text editor control.
             </summary>
         </member>
+        <member name="P:ICSharpCode.TextEditor.Gui.CompletionWindow.ICompletionDataProvider.DefaultIndex">
+            <summary>
+            Gets the index of the element in the list that is chosen by default.
+            </summary>
+        </member>
         <member name="F:ICSharpCode.TextEditor.Gui.CompletionWindow.CompletionDataProviderKeyResult.NormalKey">
             <summary>
             Normal key, used to choose an entry from the completion list
@@ -1683,6 +1683,36 @@
             Increment both start and end offset of completion region when inserting this
             key. Can be used to insert whitespace (or other characters) in front of the expression
             while the completion window is open.
+            </summary>
+        </member>
+        <member name="T:ICSharpCode.TextEditor.DrawableLine">
+            <summary>
+            A class that is able to draw a line on any control (outside the text editor)
+            </summary>
+        </member>
+        <member name="T:ICSharpCode.TextEditor.FoldMargin">
+            <summary>
+            This class views the line numbers and folding markers.
+            </summary>
+        </member>
+        <member name="T:ICSharpCode.TextEditor.GutterMargin">
+            <summary>
+            This class views the line numbers and folding markers.
+            </summary>
+        </member>
+        <member name="T:ICSharpCode.TextEditor.HRuler">
+            <summary>
+            Horizontal ruler - text column measuring ruler at the top of the text area.
+            </summary>
+        </member>
+        <member name="T:ICSharpCode.TextEditor.IconBarMargin">
+            <summary>
+            This class views the line numbers and folding markers.
+            </summary>
+        </member>
+        <member name="T:ICSharpCode.TextEditor.Ime">
+            <summary>
+            Used internally, not for own use.
             </summary>
         </member>
         <member name="M:ICSharpCode.TextEditor.Gui.InsightWindow.IInsightDataProvider.SetupDataProvider(System.String,ICSharpCode.TextEditor.TextArea)">
@@ -1718,36 +1748,6 @@
         <member name="P:ICSharpCode.TextEditor.Gui.InsightWindow.IInsightDataProvider.DefaultIndex">
             <summary>
             Gets the index of the entry to initially select.
-            </summary>
-        </member>
-        <member name="T:ICSharpCode.TextEditor.DrawableLine">
-            <summary>
-            A class that is able to draw a line on any control (outside the text editor)
-            </summary>
-        </member>
-        <member name="T:ICSharpCode.TextEditor.FoldMargin">
-            <summary>
-            This class views the line numbers and folding markers.
-            </summary>
-        </member>
-        <member name="T:ICSharpCode.TextEditor.GutterMargin">
-            <summary>
-            This class views the line numbers and folding markers.
-            </summary>
-        </member>
-        <member name="T:ICSharpCode.TextEditor.HRuler">
-            <summary>
-            Horizontal ruler - text column measuring ruler at the top of the text area.
-            </summary>
-        </member>
-        <member name="T:ICSharpCode.TextEditor.IconBarMargin">
-            <summary>
-            This class views the line numbers and folding markers.
-            </summary>
-        </member>
-        <member name="T:ICSharpCode.TextEditor.Ime">
-            <summary>
-            Used internally, not for own use.
             </summary>
         </member>
         <member name="T:ICSharpCode.TextEditor.TextArea">
@@ -1892,6 +1892,59 @@
             action.
             </summary>
         </member>
+        <member name="M:ICSharpCode.TextEditor.TextEditorControlBase.BeginUpdate">
+            <remarks>
+            Call this method before a long update operation this
+            'locks' the text area so that no screen update occurs.
+            </remarks>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.TextEditorControlBase.EndUpdate">
+            <remarks>
+            Call this method to 'unlock' the text area. After this call
+            screen update can occur. But no automatical refresh occurs you
+            have to commit the updates in the queue.
+            </remarks>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.TextEditorControlBase.LoadFile(System.String,System.Boolean,System.Boolean)">
+            <remarks>
+            Loads a file given by fileName
+            </remarks>
+            <param name="fileName">The name of the file to open</param>
+            <param name="autoLoadHighlighting">Automatically load the highlighting for the file</param>
+            <param name="autodetectEncoding">Automatically detect file encoding and set Encoding property to the detected encoding.</param>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.TextEditorControlBase.LoadFile(System.String,System.IO.Stream,System.Boolean,System.Boolean)">
+            <remarks>
+            Loads a file from the specified stream.
+            </remarks>
+            <param name="fileName">The name of the file to open. Used to find the correct highlighting strategy
+            if autoLoadHighlighting is active, and sets the filename property to this value.</param>
+            <param name="stream">The stream to actually load the file content from.</param>
+            <param name="autoLoadHighlighting">Automatically load the highlighting for the file</param>
+            <param name="autodetectEncoding">Automatically detect file encoding and set Encoding property to the detected encoding.</param>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.TextEditorControlBase.CanSaveWithCurrentEncoding">
+            <summary>
+            Gets if the document can be saved with the current encoding without losing data.
+            </summary>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.TextEditorControlBase.SaveFile(System.String)">
+            <remarks>
+            Saves the text editor content into the file.
+            </remarks>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.TextEditorControlBase.SaveFile(System.IO.Stream)">
+            <remarks>
+            Saves the text editor content into the specified stream.
+            Does not close the stream.
+            </remarks>
+        </member>
+        <member name="M:ICSharpCode.TextEditor.TextEditorControlBase.Refresh">
+            <remarks>
+            Overwritten refresh method that does nothing if the control is in
+            an update cycle.
+            </remarks>
+        </member>
         <member name="P:ICSharpCode.TextEditor.TextEditorControlBase.Encoding">
             <value>
             Current file's character encoding
@@ -2016,77 +2069,9 @@
             purposes.
             </value>
         </member>
-        <member name="M:ICSharpCode.TextEditor.TextEditorControlBase.BeginUpdate">
-            <remarks>
-            Call this method before a long update operation this
-            'locks' the text area so that no screen update occurs.
-            </remarks>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.TextEditorControlBase.EndUpdate">
-            <remarks>
-            Call this method to 'unlock' the text area. After this call
-            screen update can occur. But no automatical refresh occurs you
-            have to commit the updates in the queue.
-            </remarks>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.TextEditorControlBase.LoadFile(System.String,System.Boolean,System.Boolean)">
-            <remarks>
-            Loads a file given by fileName
-            </remarks>
-            <param name="fileName">The name of the file to open</param>
-            <param name="autoLoadHighlighting">Automatically load the highlighting for the file</param>
-            <param name="autodetectEncoding">Automatically detect file encoding and set Encoding property to the detected encoding.</param>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.TextEditorControlBase.LoadFile(System.String,System.IO.Stream,System.Boolean,System.Boolean)">
-            <remarks>
-            Loads a file from the specified stream.
-            </remarks>
-            <param name="fileName">The name of the file to open. Used to find the correct highlighting strategy
-            if autoLoadHighlighting is active, and sets the filename property to this value.</param>
-            <param name="stream">The stream to actually load the file content from.</param>
-            <param name="autoLoadHighlighting">Automatically load the highlighting for the file</param>
-            <param name="autodetectEncoding">Automatically detect file encoding and set Encoding property to the detected encoding.</param>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.TextEditorControlBase.CanSaveWithCurrentEncoding">
-            <summary>
-            Gets if the document can be saved with the current encoding without losing data.
-            </summary>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.TextEditorControlBase.SaveFile(System.String)">
-            <remarks>
-            Saves the text editor content into the file.
-            </remarks>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.TextEditorControlBase.SaveFile(System.IO.Stream)">
-            <remarks>
-            Saves the text editor content into the specified stream.
-            Does not close the stream.
-            </remarks>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.TextEditorControlBase.Refresh">
-            <remarks>
-            Overwritten refresh method that does nothing if the control is in
-            an update cycle.
-            </remarks>
-        </member>
         <member name="T:ICSharpCode.TextEditor.TextView">
             <summary>
             This class paints the textarea.
-            </summary>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.TextView.FirstVisibleLine">
-            <summary>Gets the first visible <b>logical</b> line.</summary>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.TextView.SpaceWidth">
-            <summary>
-            Gets the width of a space character.
-            This value can be quite small in some fonts - consider using WideSpaceWidth instead.
-            </summary>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.TextView.WideSpaceWidth">
-            <summary>
-            Gets the width of a 'wide space' (=one quarter of a tab, if tab is set to 4 spaces).
-            On monospaced fonts, this is the same value as spaceWidth.
             </summary>
         </member>
         <member name="M:ICSharpCode.TextEditor.TextView.GetMarkerBrushAt(System.Int32,System.Int32,System.Drawing.Color@,System.Collections.Generic.IList{ICSharpCode.TextEditor.Document.TextMarker}@)">
@@ -2116,6 +2101,21 @@
         <member name="M:ICSharpCode.TextEditor.TextView.GetLogicalLine(System.Int32)">
             <summary>
             returns logical line number for a visual point
+            </summary>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.TextView.FirstVisibleLine">
+            <summary>Gets the first visible <b>logical</b> line.</summary>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.TextView.SpaceWidth">
+            <summary>
+            Gets the width of a space character.
+            This value can be quite small in some fonts - consider using WideSpaceWidth instead.
+            </summary>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.TextView.WideSpaceWidth">
+            <summary>
+            Gets the width of a 'wide space' (=one quarter of a tab, if tab is set to 4 spaces).
+            On monospaced fonts, this is the same value as spaceWidth.
             </summary>
         </member>
         <member name="P:ICSharpCode.TextEditor.ToolTipRequestEventArgs.ToolTipShown">
@@ -2214,38 +2214,10 @@
             This class implements an undo stack
             </summary>
         </member>
-        <member name="E:ICSharpCode.TextEditor.Undo.UndoStack.ActionUndone">
-            <summary>
-            </summary>
-        </member>
-        <member name="E:ICSharpCode.TextEditor.Undo.UndoStack.ActionRedone">
-            <summary>
-            </summary>
-        </member>
         <member name="F:ICSharpCode.TextEditor.Undo.UndoStack.AcceptChanges">
             <summary>
             Gets/Sets if changes to the document are protocolled by the undo stack.
             Used internally to disable the undo stack temporarily while undoing an action.
-            </summary>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Undo.UndoStack.CanUndo">
-            <summary>
-            Gets if there are actions on the undo stack.
-            </summary>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Undo.UndoStack.CanRedo">
-            <summary>
-            Gets if there are actions on the redo stack.
-            </summary>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Undo.UndoStack.UndoItemCount">
-            <summary>
-            Gets the number of actions on the undo stack.
-            </summary>
-        </member>
-        <member name="P:ICSharpCode.TextEditor.Undo.UndoStack.RedoItemCount">
-            <summary>
-            Gets the number of actions on the redo stack.
             </summary>
         </member>
         <member name="M:ICSharpCode.TextEditor.Undo.UndoStack.Undo">
@@ -2280,6 +2252,34 @@
         </member>
         <member name="M:ICSharpCode.TextEditor.Undo.UndoStack.OnActionRedone">
             <summary>
+            </summary>
+        </member>
+        <member name="E:ICSharpCode.TextEditor.Undo.UndoStack.ActionUndone">
+            <summary>
+            </summary>
+        </member>
+        <member name="E:ICSharpCode.TextEditor.Undo.UndoStack.ActionRedone">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Undo.UndoStack.CanUndo">
+            <summary>
+            Gets if there are actions on the undo stack.
+            </summary>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Undo.UndoStack.CanRedo">
+            <summary>
+            Gets if there are actions on the redo stack.
+            </summary>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Undo.UndoStack.UndoItemCount">
+            <summary>
+            Gets the number of actions on the undo stack.
+            </summary>
+        </member>
+        <member name="P:ICSharpCode.TextEditor.Undo.UndoStack.RedoItemCount">
+            <summary>
+            Gets the number of actions on the redo stack.
             </summary>
         </member>
         <member name="T:ICSharpCode.TextEditor.Util.AugmentableRedBlackTree`2">
@@ -2339,6 +2339,11 @@
             a word.
             </summary>
         </member>
+        <member name="M:ICSharpCode.TextEditor.Util.LookupTable.#ctor(System.Boolean)">
+            <summary>
+            Creates a new instance of <see cref="T:ICSharpCode.TextEditor.Util.LookupTable"/>
+            </summary>
+        </member>
         <member name="P:ICSharpCode.TextEditor.Util.LookupTable.Count">
             <value>
             The number of elements in the table
@@ -2353,11 +2358,6 @@
         <member name="P:ICSharpCode.TextEditor.Util.LookupTable.Item(System.String)">
             <summary>
             Inserts an object in the tree, under keyword
-            </summary>
-        </member>
-        <member name="M:ICSharpCode.TextEditor.Util.LookupTable.#ctor(System.Boolean)">
-            <summary>
-            Creates a new instance of <see cref="T:ICSharpCode.TextEditor.Util.LookupTable"/>
             </summary>
         </member>
         <member name="T:ICSharpCode.TextEditor.Util.MouseWheelHandler">

@@ -69,15 +69,17 @@
             this.panelControl1.Controls.Add(this.btnsave);
             this.panelControl1.Controls.Add(this.btnclose);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl1.Location = new System.Drawing.Point(0, 207);
+            this.panelControl1.Location = new System.Drawing.Point(0, 268);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(609, 50);
+            this.panelControl1.Size = new System.Drawing.Size(696, 40);
             this.panelControl1.TabIndex = 2;
             // 
             // btnsave
             // 
             this.btnsave.Image = ((System.Drawing.Image)(resources.GetObject("btnsave.Image")));
-            this.btnsave.Location = new System.Drawing.Point(431, 15);
+            this.btnsave.Location = new System.Drawing.Point(517, 9);
+            this.btnsave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnsave.Name = "btnsave";
             this.btnsave.Size = new System.Drawing.Size(75, 23);
             this.btnsave.TabIndex = 0;
@@ -87,7 +89,8 @@
             // btnclose
             // 
             this.btnclose.Image = ((System.Drawing.Image)(resources.GetObject("btnclose.Image")));
-            this.btnclose.Location = new System.Drawing.Point(523, 15);
+            this.btnclose.Location = new System.Drawing.Point(598, 9);
+            this.btnclose.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnclose.Name = "btnclose";
             this.btnclose.Size = new System.Drawing.Size(75, 23);
             this.btnclose.TabIndex = 0;
@@ -115,41 +118,46 @@
             this.panelControl2.Controls.Add(this.labelControl1);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
+            this.panelControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(609, 207);
+            this.panelControl2.Size = new System.Drawing.Size(696, 268);
             this.panelControl2.TabIndex = 3;
             // 
             // btnyy
             // 
-            this.btnyy.Location = new System.Drawing.Point(549, 136);
+            this.btnyy.Location = new System.Drawing.Point(627, 175);
+            this.btnyy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnyy.Name = "btnyy";
-            this.btnyy.Size = new System.Drawing.Size(49, 23);
+            this.btnyy.Size = new System.Drawing.Size(56, 23);
             this.btnyy.TabIndex = 0;
             this.btnyy.Text = "应用";
             this.btnyy.Click += new System.EventHandler(this.btnyy_Click);
             // 
             // txtappname
             // 
-            this.txtappname.Location = new System.Drawing.Point(148, 96);
+            this.txtappname.Location = new System.Drawing.Point(169, 123);
+            this.txtappname.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtappname.Name = "txtappname";
-            this.txtappname.Size = new System.Drawing.Size(395, 20);
+            this.txtappname.Size = new System.Drawing.Size(451, 24);
             this.txtappname.TabIndex = 2;
             // 
             // cbisfilelog
             // 
-            this.cbisfilelog.Location = new System.Drawing.Point(413, 53);
+            this.cbisfilelog.Location = new System.Drawing.Point(472, 68);
+            this.cbisfilelog.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbisfilelog.Name = "cbisfilelog";
             this.cbisfilelog.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbisfilelog.Properties.Items.AddRange(new object[] {
             "是",
             "否"});
-            this.cbisfilelog.Size = new System.Drawing.Size(130, 20);
+            this.cbisfilelog.Size = new System.Drawing.Size(149, 24);
             this.cbisfilelog.TabIndex = 1;
             // 
             // cbtheme
             // 
-            this.cbtheme.Location = new System.Drawing.Point(148, 137);
+            this.cbtheme.Location = new System.Drawing.Point(169, 176);
+            this.cbtheme.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbtheme.Name = "cbtheme";
             this.cbtheme.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -205,61 +213,66 @@
             "Blueprint",
             "Metropolis Dark",
             "Metropolis"});
-            this.cbtheme.Size = new System.Drawing.Size(395, 20);
+            this.cbtheme.Size = new System.Drawing.Size(451, 24);
             this.cbtheme.TabIndex = 1;
             // 
             // cbbody
             // 
-            this.cbbody.Location = new System.Drawing.Point(148, 53);
+            this.cbbody.Location = new System.Drawing.Point(169, 68);
+            this.cbbody.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbbody.Name = "cbbody";
             this.cbbody.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbbody.Properties.Items.AddRange(new object[] {
             "是",
             "否"});
-            this.cbbody.Size = new System.Drawing.Size(130, 20);
+            this.cbbody.Size = new System.Drawing.Size(149, 24);
             this.cbbody.TabIndex = 1;
             // 
             // cbeformmode
             // 
-            this.cbeformmode.Location = new System.Drawing.Point(148, 179);
+            this.cbeformmode.Location = new System.Drawing.Point(169, 230);
+            this.cbeformmode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbeformmode.Name = "cbeformmode";
             this.cbeformmode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbeformmode.Properties.Items.AddRange(new object[] {
             "主从",
             "Tab页"});
-            this.cbeformmode.Size = new System.Drawing.Size(130, 20);
+            this.cbeformmode.Size = new System.Drawing.Size(149, 24);
             this.cbeformmode.TabIndex = 1;
             this.cbeformmode.SelectedIndexChanged += new System.EventHandler(this.cbeformmode_SelectedIndexChanged);
             // 
             // cbisfollow
             // 
-            this.cbisfollow.Location = new System.Drawing.Point(413, 179);
+            this.cbisfollow.Location = new System.Drawing.Point(472, 230);
+            this.cbisfollow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbisfollow.Name = "cbisfollow";
             this.cbisfollow.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbisfollow.Properties.Items.AddRange(new object[] {
             "是",
             "否"});
-            this.cbisfollow.Size = new System.Drawing.Size(130, 20);
+            this.cbisfollow.Size = new System.Drawing.Size(149, 24);
             this.cbisfollow.TabIndex = 1;
             // 
             // cbisautostart
             // 
-            this.cbisautostart.Location = new System.Drawing.Point(413, 17);
+            this.cbisautostart.Location = new System.Drawing.Point(472, 22);
+            this.cbisautostart.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbisautostart.Name = "cbisautostart";
             this.cbisautostart.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbisautostart.Properties.Items.AddRange(new object[] {
             "是",
             "否"});
-            this.cbisautostart.Size = new System.Drawing.Size(130, 20);
+            this.cbisautostart.Size = new System.Drawing.Size(149, 24);
             this.cbisautostart.TabIndex = 1;
             // 
             // cbdbtype
             // 
-            this.cbdbtype.Location = new System.Drawing.Point(148, 17);
+            this.cbdbtype.Location = new System.Drawing.Point(169, 22);
+            this.cbdbtype.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbdbtype.Name = "cbdbtype";
             this.cbdbtype.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -270,81 +283,90 @@
             "Oracle",
             "Sqlite3",
             "MySql"});
-            this.cbdbtype.Size = new System.Drawing.Size(130, 20);
+            this.cbdbtype.Size = new System.Drawing.Size(149, 24);
             this.cbdbtype.TabIndex = 1;
             // 
             // labelControl8
             // 
-            this.labelControl8.Location = new System.Drawing.Point(37, 140);
+            this.labelControl8.Location = new System.Drawing.Point(42, 180);
+            this.labelControl8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(48, 14);
+            this.labelControl8.Size = new System.Drawing.Size(60, 18);
             this.labelControl8.TabIndex = 0;
             this.labelControl8.Text = "主题风格";
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(37, 99);
+            this.labelControl4.Location = new System.Drawing.Point(42, 127);
+            this.labelControl4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(48, 14);
+            this.labelControl4.Size = new System.Drawing.Size(60, 18);
             this.labelControl4.TabIndex = 0;
             this.labelControl4.Text = "程序名称";
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(25, 56);
+            this.labelControl3.Location = new System.Drawing.Point(29, 72);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(111, 14);
+            this.labelControl3.Size = new System.Drawing.Size(138, 18);
             this.labelControl3.TabIndex = 0;
             this.labelControl3.Text = "返回串Body是否记录";
             // 
             // labelControl9
             // 
-            this.labelControl9.Location = new System.Drawing.Point(25, 182);
+            this.labelControl9.Location = new System.Drawing.Point(29, 234);
+            this.labelControl9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(60, 14);
+            this.labelControl9.Size = new System.Drawing.Size(75, 18);
             this.labelControl9.TabIndex = 0;
             this.labelControl9.Text = "子窗体模式";
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(313, 56);
+            this.labelControl6.Location = new System.Drawing.Point(358, 72);
+            this.labelControl6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(72, 14);
+            this.labelControl6.Size = new System.Drawing.Size(90, 18);
             this.labelControl6.TabIndex = 0;
             this.labelControl6.Text = "日志是否输出";
             // 
             // lblisfollow
             // 
-            this.lblisfollow.Location = new System.Drawing.Point(284, 182);
+            this.lblisfollow.Location = new System.Drawing.Point(325, 234);
+            this.lblisfollow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lblisfollow.Name = "lblisfollow";
-            this.lblisfollow.Size = new System.Drawing.Size(108, 14);
+            this.lblisfollow.Size = new System.Drawing.Size(135, 18);
             this.lblisfollow.TabIndex = 0;
             this.lblisfollow.Text = "子窗体是否移动跟随";
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(313, 20);
+            this.labelControl5.Location = new System.Drawing.Point(358, 26);
+            this.labelControl5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(72, 14);
+            this.labelControl5.Size = new System.Drawing.Size(90, 18);
             this.labelControl5.TabIndex = 0;
             this.labelControl5.Text = "是否开机启动";
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(25, 20);
+            this.labelControl1.Location = new System.Drawing.Point(29, 26);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(60, 14);
+            this.labelControl1.Size = new System.Drawing.Size(75, 18);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "数据库类型";
             // 
             // SettingsFrm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
-            this.ClientSize = new System.Drawing.Size(609, 257);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
+            this.ClientSize = new System.Drawing.Size(696, 308);
             this.ControlBox = false;
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "SettingsFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "参数配置";
