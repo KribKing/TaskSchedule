@@ -17,3 +17,4 @@ D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.Base\obj\Debug\TaskSchedule.UI.Base.
 D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.Base\obj\Debug\TaskSchedule.UI.DevBase.csproj.GenerateResource.cache
 D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.Base\obj\Debug\TaskSchedule.UI.Base.dll
 D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.Base\obj\Debug\TaskSchedule.UI.Base.pdb
+D:\Code\GitHub\TaskSchedule\TaskSchedule.UI.Base\obj\Debug\TaskSchedule.UI.DevBase.csprojResolveAssemblyReference.cache

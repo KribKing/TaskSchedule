@@ -4,20 +4,23 @@
 	  "TaskStarter":"TaskSchedule.Business.SyncData.SyncDataTaskStarter",
 	  "SettingInterface":"TaskSchedule.Business.SyncData.SyncDataSetting",
 	  "JobInfo":"TaskSchedule.Business.SyncData.JobInfoSyncData",
-	  "ConfigUI":"TaskSchedule.UI.ConfigForSyncData.Dev:TaskSchedule.UI.ConfigForSyncData.Dev.SyncDataConfigFrm"	       
+	  "ConfigUI":"TaskSchedule.UI.ConfigForSyncData.Dev:TaskSchedule.UI.ConfigForSyncData.Dev.SyncDataConfigFrm",
+      "IsUse":true	  
   },
   {
       "AssemblyName":"TaskSchedule.Business.CloudHis",
 	  "TaskStarter":"TaskSchedule.Business.CloudHis.CloudHisTaskStarter",
 	  "SettingInterface":"TaskSchedule.Business.CloudHis.CloudHisSetting",
 	  "JobInfo":"TaskSchedule.Business.CloudHis.JobInfoCloudHis",
-	  "ConfigUI":"TaskSchedule.UI.ConfigForCloudHis.Dev:TaskSchedule.UI.ConfigForCloudHis.Dev.CloudHisConfigFrm"	       
+	  "ConfigUI":"TaskSchedule.UI.ConfigForCloudHis.Dev:TaskSchedule.UI.ConfigForCloudHis.Dev.CloudHisConfigFrm",
+	  "IsUse":false		  
   }, 
    {
       "AssemblyName":"TaskSchedule.Business.PushMessage",
 	  "TaskStarter":"TaskSchedule.Business.PushMessage.PushMessageTaskStarter",
 	  "SettingInterface":"TaskSchedule.Business.PushMessage.PushMessageSetting",
 	  "JobInfo":"TaskSchedule.Business.PushMessage.JobInfoPushMessage",
-	  "ConfigUI":"TaskSchedule.UI.ConfigForPushMessage.Dev:TaskSchedule.UI.ConfigForPushMessage.Dev.PushMessageConfigFrm"	       
+	  "ConfigUI":"TaskSchedule.UI.ConfigForPushMessage.Dev:TaskSchedule.UI.ConfigForPushMessage.Dev.PushMessageConfigFrm",
+      "IsUse":false		  
   }
 ]

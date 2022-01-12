@@ -1,0 +1,506 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:MainDataTable="CronJob" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="CronJob">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="id" type="xs:string" minOccurs="0" />
+                <xs:element name="name" type="xs:string" minOccurs="0" />
+                <xs:element name="system" type="xs:string" minOccurs="0" />
+                <xs:element name="sysname" type="xs:string" minOccurs="0" />
+                <xs:element name="memo" type="xs:string" minOccurs="0" />
+                <xs:element name="oper_date" type="xs:string" minOccurs="0" />
+                <xs:element name="weburl" type="xs:string" minOccurs="0" />
+                <xs:element name="expression" type="xs:string" minOccurs="0" />
+                <xs:element name="createtmp" type="xs:string" minOccurs="0" />
+                <xs:element name="tmpname" type="xs:string" minOccurs="0" />
+                <xs:element name="targetsql" type="xs:string" minOccurs="0" />
+                <xs:element name="nodelx" type="xs:int" minOccurs="0" />
+                <xs:element name="node" type="xs:string" minOccurs="0" />
+                <xs:element name="xmlconfig" type="xs:string" minOccurs="0" />
+                <xs:element name="jlzt" type="xs:string" minOccurs="0" />
+                <xs:element name="xmlschema" type="xs:string" minOccurs="0" />
+                <xs:element name="sourcetype" type="xs:int" minOccurs="0" />
+                <xs:element name="sourcedbtype" type="xs:int" minOccurs="0" />
+                <xs:element name="issourcedbencode" type="xs:boolean" minOccurs="0" />
+                <xs:element name="sourcedbstring" type="xs:string" minOccurs="0" />
+                <xs:element name="sourcesql" type="xs:string" minOccurs="0" />
+                <xs:element name="targetdbtype" type="xs:int" minOccurs="0" />
+                <xs:element name="istargetdbencode" type="xs:boolean" minOccurs="0" />
+                <xs:element name="targetdbstring" type="xs:string" minOccurs="0" />
+                <xs:element name="isbulkop" type="xs:boolean" minOccurs="0" />
+                <xs:element name="servertype" type="xs:int" minOccurs="0" />
+                <xs:element name="servermethod" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <CronJob>
+    <id>Kingdee00</id>
+    <name>金蝶HIS-获取医院信息</name>
+    <system>Kingdee</system>
+    <sysname>金蝶HIS</sysname>
+    <memo />
+    <oper_date>2020/11/23 12:09:33</oper_date>
+    <weburl>http://10.2.0.19:8088/api/app/his/rmis_yydmk</weburl>
+    <expression>0 0 0 * * ?</expression>
+    <createtmp>Y3JlYXRlIHRhYmxlICNXTkRBVEFfWVlETUsKKAogICBZWURNICAgdmFyY2hhcigzMikgbnVsbCwKICAgTkFNRSAgIHZhcmNoYXIoMjU2KSBudWxsLAogICBZTEpHRE0gICB2YXJjaGFyKDMyKSBudWxsCik=</createtmp>
+    <tmpname>#WNDATA_YYDMK</tmpname>
+    <targetsql>aW5zZXJ0IGludG8gUklNU19ZWURNSyhpZCxuYW1lLHl5ZG0seXlkaixsYikKc2VsZWN0ICcwMScsTkFNRSxZTEpHRE0sMCwwIGZyb20gI1dOREFUQV9ZWURNSyBhKG5vbG9jaykKd2hlcmUgbm90IGV4aXN0cyhzZWxlY3QgMSBmcm9tIFJJTVNfWVlETUsgYihub2xvY2spIHdoZXJlIGEuWUxKR0RNPWIueXlkbSkKCmluc2VydCBpbnRvIFNZU19IT1NQSVRBTChJRCxOQU1FLFlMSkdETSxKTFpULFlZSkIsQkVEUyxTWVosWllYWixGV0RYKQpzZWxlY3QgJzAxJyxOQU1FLFlMSkdETSwwLDAsMCwwLDAsMCBmcm9tICNXTkRBVEFfWVlETUsgYShub2xvY2spCndoZXJlIG5vdCBleGlzdHMoc2VsZWN0IDEgZnJvbSBTWVNfSE9TUElUQUwgYihub2xvY2spIHdoZXJlIGEuWUxKR0RNPWIuWUxKR0RNKQ==</targetsql>
+    <nodelx>0</nodelx>
+    <node>[]</node>
+    <xmlconfig />
+    <jlzt>0</jlzt>
+    <xmlschema />
+    <sourcetype>1</sourcetype>
+    <sourcedbtype>3</sourcedbtype>
+    <issourcedbencode>false</issourcedbencode>
+    <sourcedbstring>oUNFHhCJ7Vh4A8SP/7igIywTp85ddoOGm+go+L08ln4ZyoF9btGXgPH+BqZe5XojKS9LxinE9N2E2bnIpaY0xlDmUh4g2AgpUvnXMLKXEl7qONJ2jJmhfEpIJaTVRGHJNbUv4O6erAzooHOiQ7Aef0hiJH6O6fyDsO0hSscp6oyKx++5tCRyasqmgDbhq/JkqgKn4rTYHpi6r4zHA/2ZUAoZ8OxfUZsSKCt+2BdrI1w=</sourcedbstring>
+    <sourcesql>c2VsZWN0ICogZnJvbSBSSU1TX1lZRE1L</sourcesql>
+    <targetdbtype>0</targetdbtype>
+    <istargetdbencode>true</istargetdbencode>
+    <targetdbstring>fKti04vHK0LqBv2mqFCEniEDTSUV41lE4T11vN+nSWg1MawxLGMJuqrKv/hhAD7cm5DhjcBfEerwuGsIWDdfudEbJdeL+aUkocZJzIZ7hidK39H0AqAoYK1xW6Ul0Yn1p6iMxKQPnTA=</targetdbstring>
+    <isbulkop>true</isbulkop>
+    <servertype>0</servertype>
+    <servermethod>post</servermethod>
+  </CronJob>
+  <CronJob>
+    <id>Kingdee01</id>
+    <name>金蝶HIS-获取科室信息</name>
+    <system>Kingdee</system>
+    <sysname>金蝶HIS</sysname>
+    <memo />
+    <oper_date>2020/11/23 12:09:33</oper_date>
+    <weburl>http://10.2.0.19:8088/api/app/his/rims_ksbmk</weburl>
+    <expression>0 0 0 * * ?</expression>
+    <createtmp>Y3JlYXRlIHRhYmxlICNXTkRBVEFfS1NCTUsKKAogICBJRCAgIHZhcmNoYXIoMzIpIG51bGwsCiAgIE5BTUUgICB2YXJjaGFyKDMyKSBudWxsLAogICBLU0xCICAgdmFyY2hhcigzMikgbnVsbCwKICAgS1NCWiAgIHZhcmNoYXIoMzIpIG51bGwsCiAgIEpMWlQgICB2YXJjaGFyKDMyKSBudWxsCik=</createtmp>
+    <tmpname>#WNDATA_KSBMK</tmpname>
+    <targetsql>dHJ1bmNhdGUgdGFibGUgIFJJTVNfS1NESUNUCgppbnNlcnQgaW50byBSSU1TX0tTRElDVChpZCxuYW1lLHB5LHdiLHl5ZG0seWprc19pZCx5amtzX21jLHlia3NfaWQseWJrc19tYyxlamtzX2lkLAplamtzX21jLGtzbGIsa3Nieixjd3Msamx6dCxtZW1vLGVrYnosemtieixtanpieix5ZmJ6KQpzZWxlY3QgSUQsTkFNRSxkYm8uZnVuX2dldHB5KE5BTUUpLGRiby5mdW5fZ2V0cHkoTkFNRSksJzAxJywnJywnJywnJywnJywnJywKJycsS1NMQiwnJywnJyxKTFpULCcnLCcnLCcnLCcnLCcnICAgZnJvbSAjV05EQVRBX0tTQk1LIGEobm9sb2NrKQp3aGVyZSBub3QgZXhpc3RzKHNlbGVjdCAxIGZyb20gUklNU19LU0RJQ1QgYihub2xvY2spIHdoZXJlIGEuSUQ9Yi5pZCkKCnRydW5jYXRlIHRhYmxlIFNZU19LU0RNSwppbnNlcnQgaW50byBTWVNfS1NETUsoSUQsTkFNRSxQWSxXQixZWURNLFlKS1NfSUQsWUpLU19NQyxZQktTX0lELFlCS1NfTUMsRUpLU19JRCwKRUpLU19NQyxLU0xCLEtTQlosQ1dTLEpMWlQsTUVNTyxFS0JaLE1KWkJaICkKc2VsZWN0IElELE5BTUUsZGJvLmZ1bl9nZXRweShOQU1FKSxkYm8uZnVuX2dldHB5KE5BTUUpLCcwMScsJycsJycsJycsJycsJycsCicnLEtTTEIsJycsJycsSkxaVCwnJywnJywnJyAgIGZyb20gI1dOREFUQV9LU0JNSyBhKG5vbG9jaykKd2hlcmUgbm90IGV4aXN0cyhzZWxlY3QgMSBmcm9tIFNZU19LU0RNSyBiKG5vbG9jaykgd2hlcmUgYS5JRD1iLklEKQ==</targetsql>
+    <nodelx>0</nodelx>
+    <node>[]</node>
+    <xmlconfig />
+    <jlzt>0</jlzt>
+    <xmlschema />
+    <sourcetype>1</sourcetype>
+    <sourcedbtype>3</sourcedbtype>
+    <issourcedbencode>false</issourcedbencode>
+    <sourcedbstring>oUNFHhCJ7Vh4A8SP/7igIywTp85ddoOGm+go+L08ln4ZyoF9btGXgPH+BqZe5XojKS9LxinE9N2E2bnIpaY0xlDmUh4g2AgpUvnXMLKXEl7qONJ2jJmhfEpIJaTVRGHJNbUv4O6erAzooHOiQ7Aef0hiJH6O6fyDsO0hSscp6oyKx++5tCRyasqmgDbhq/JkqgKn4rTYHpi6r4zHA/2ZUAoZ8OxfUZsSKCt+2BdrI1w=</sourcedbstring>
+    <sourcesql>c2VsZWN0ICogZnJvbSBSSU1TX0tTQk1L</sourcesql>
+    <targetdbtype>0</targetdbtype>
+    <istargetdbencode>true</istargetdbencode>
+    <targetdbstring>fKti04vHK0LqBv2mqFCEniEDTSUV41lE4T11vN+nSWg1MawxLGMJuqrKv/hhAD7cm5DhjcBfEerwuGsIWDdfudEbJdeL+aUkocZJzIZ7hidK39H0AqAoYK1xW6Ul0Yn1p6iMxKQPnTA=</targetdbstring>
+    <isbulkop>true</isbulkop>
+    <servertype>0</servertype>
+    <servermethod>post</servermethod>
+  </CronJob>
+  <CronJob>
+    <id>Kingdee02</id>
+    <name>金蝶HIS-获取人员信息</name>
+    <system>Kingdee</system>
+    <sysname>金蝶HIS</sysname>
+    <memo />
+    <oper_date>2020/11/23 12:09:33</oper_date>
+    <weburl>http://10.2.0.19:8088/api/app/his/rims_zgbmk</weburl>
+    <expression>0 0 0 * * ?</expression>
+    <createtmp>Y3JlYXRlIHRhYmxlICNXTkRBVEFfWkdCTUsKKAogICBJRCAgIHZhcmNoYXIoMzIpIG51bGwsCiAgIE5BTUUgICB2YXJjaGFyKDMyKSBudWxsLAogICBKTFpUICAgdmFyY2hhcigzMikgbnVsbAop</createtmp>
+    <tmpname>#WNDATA_ZGBMK</tmpname>
+    <targetsql>aW5zZXJ0IGludG8gUklNU19aR0JNSyhpZCxuYW1lLHB5LHdiLHNleCxiaXJ0aCxoeXprLHNmemgsa3NfaWQsa3NfbWMsYnFfaWQsYnFfbWMsemdsYixqbHp0LG1lbW8sY2ZieikKc2VsZWN0IElELE5BTUUsZGJvLmZ1bl9nZXRweShOQU1FKSxkYm8uZnVuX2dldHB5KE5BTUUpLCcyJywnJywnJywnJywnJywnJywnJywnJywnJyxKTFpULCcnLDAgZnJvbSAjV05EQVRBX1pHQk1LIGEobm9sb2NrKQp3aGVyZSBub3QgZXhpc3RzKHNlbGVjdCAxIGZyb20gUklNU19aR0JNSyBiKG5vbG9jaykgd2hlcmUgYS5JRD1iLmlkKQoKaW5zZXJ0IGludG8gU1lTX1pHRE1LKElELE5BTUUsUFksV0IsU0VYLEJJUlRILFNGWkgsS1NETSxLU19NQyxCUURNLEJRX01DLFpHTEIsSkxaVCxJU0RMLFJPTEVfSUQsUEFTU1dPUkQsUkVHSVNUX1RJTUUsSVNTRCxMU1lIQlopCnNlbGVjdCBJRCxOQU1FLGRiby5mdW5fZ2V0cHkoTkFNRSksZGJvLmZ1bl9nZXRweShOQU1FKSwnMicsJycsJycsJycsJycsJycsJycsSkxaVCwKMSwxLCcnLCdnVm1YcHdCbEdNYz0nLCcyMDExMDUyMDIzOjExOjI5JywwLDEgZnJvbSAjV05EQVRBX1pHQk1LIGEobm9sb2NrKQp3aGVyZSBub3QgZXhpc3RzKHNlbGVjdCAxIGZyb20gU1lTX1pHRE1LIGIobm9sb2NrKSB3aGVyZSBhLklEPWIuSUQp</targetsql>
+    <nodelx>0</nodelx>
+    <node>[]</node>
+    <xmlconfig />
+    <jlzt>0</jlzt>
+    <xmlschema />
+    <sourcetype>1</sourcetype>
+    <sourcedbtype>3</sourcedbtype>
+    <issourcedbencode>false</issourcedbencode>
+    <sourcedbstring>oUNFHhCJ7Vh4A8SP/7igIywTp85ddoOGm+go+L08ln4ZyoF9btGXgPH+BqZe5XojKS9LxinE9N2E2bnIpaY0xlDmUh4g2AgpUvnXMLKXEl7qONJ2jJmhfEpIJaTVRGHJNbUv4O6erAzooHOiQ7Aef0hiJH6O6fyDsO0hSscp6oyKx++5tCRyasqmgDbhq/JkqgKn4rTYHpi6r4zHA/2ZUAoZ8OxfUZsSKCt+2BdrI1w=</sourcedbstring>
+    <sourcesql>U0VMRUNUICogRlJPTSBSSU1TX1pHQk1L</sourcesql>
+    <targetdbtype>0</targetdbtype>
+    <istargetdbencode>true</istargetdbencode>
+    <targetdbstring>fKti04vHK0LqBv2mqFCEniEDTSUV41lE4T11vN+nSWg1MawxLGMJuqrKv/hhAD7cm5DhjcBfEerwuGsIWDdfudEbJdeL+aUkocZJzIZ7hidK39H0AqAoYK1xW6Ul0Yn1p6iMxKQPnTA=</targetdbstring>
+    <isbulkop>true</isbulkop>
+    <servertype>0</servertype>
+    <servermethod>post</servermethod>
+  </CronJob>
+  <CronJob>
+    <id>Kingdee03</id>
+    <name>金蝶HIS-获取病区信息</name>
+    <system>Kingdee</system>
+    <sysname>金蝶HIS</sysname>
+    <memo />
+    <oper_date>2020/11/23 12:09:33</oper_date>
+    <weburl>http://10.2.0.19:8088/api/app/his/rims_bqbmk</weburl>
+    <expression>0 0 0 * * ?</expression>
+    <createtmp>Y3JlYXRlIHRhYmxlICNXTkRBVEFfQlFCTUsKKAogICBJRCAgIHZhcmNoYXIoMzIpIG51bGwsCiAgIE5BTUUgICB2YXJjaGFyKDMyKSBudWxsLAogICBMQiAgIHZhcmNoYXIoMzIpIG51bGwsCiAgIEpMWlQgICB2YXJjaGFyKDMyKSBudWxsCik=</createtmp>
+    <tmpname>#WNDATA_BQBMK</tmpname>
+    <targetsql>VFJVTkNBVEUgVEFCTEUgIFJJTVNfQlFCTUsgCmluc2VydCBpbnRvIFJJTVNfQlFCTUsgKGlkLG5hbWUscHksd2IseXlkbSxsYixqbHp0KQpzZWxlY3QgSUQsTkFNRSxkYm8uZnVuX2dldHB5KE5BTUUpLGRiby5mdW5fZ2V0cHkoTkFNRSksJzAxJywnJyxKTFpUCmZyb20gI1dOREFUQV9CUUJNSyBhKG5vbG9jaykKd2hlcmUgIG5vdCBleGlzdHMoc2VsZWN0IDEgZnJvbSBSSU1TX0JRQk1LIGIobm9sb2NrKSB3aGVyZSBhLklEPWIuaWQpCgpUUlVOQ0FURSBUQUJMRSAgU1lTX0JRRE1LIAppbnNlcnQgaW50byBTWVNfQlFETUsgKElELE5BTUUsUFksV0IsWVlETSxMQixKTFpUKQpzZWxlY3QgSUQsTkFNRSxkYm8uZnVuX2dldHB5KE5BTUUpLGRiby5mdW5fZ2V0cHkoTkFNRSksJzAxJywnJyxKTFpUCmZyb20gI1dOREFUQV9CUUJNSyBhKG5vbG9jaykKd2hlcmUgIG5vdCBleGlzdHMoc2VsZWN0IDEgZnJvbSBTWVNfQlFETUsgYihub2xvY2spIHdoZXJlIGEuSUQ9Yi5JRCk=</targetsql>
+    <nodelx>0</nodelx>
+    <node>[]</node>
+    <xmlconfig />
+    <jlzt>0</jlzt>
+    <xmlschema />
+    <sourcetype>1</sourcetype>
+    <sourcedbtype>3</sourcedbtype>
+    <issourcedbencode>false</issourcedbencode>
+    <sourcedbstring>oUNFHhCJ7Vh4A8SP/7igIywTp85ddoOGm+go+L08ln4ZyoF9btGXgPH+BqZe5XojKS9LxinE9N2E2bnIpaY0xlDmUh4g2AgpUvnXMLKXEl7qONJ2jJmhfEpIJaTVRGHJNbUv4O6erAzooHOiQ7Aef0hiJH6O6fyDsO0hSscp6oyKx++5tCRyasqmgDbhq/JkqgKn4rTYHpi6r4zHA/2ZUAoZ8OxfUZsSKCt+2BdrI1w=</sourcedbstring>
+    <sourcesql>U0VMRUNUICAqIEZST00gUklNU19CUUJNSw==</sourcesql>
+    <targetdbtype>0</targetdbtype>
+    <istargetdbencode>true</istargetdbencode>
+    <targetdbstring>fKti04vHK0LqBv2mqFCEniEDTSUV41lE4T11vN+nSWg1MawxLGMJuqrKv/hhAD7cm5DhjcBfEerwuGsIWDdfudEbJdeL+aUkocZJzIZ7hidK39H0AqAoYK1xW6Ul0Yn1p6iMxKQPnTA=</targetdbstring>
+    <isbulkop>true</isbulkop>
+    <servertype>0</servertype>
+    <servermethod>post</servermethod>
+  </CronJob>
+  <CronJob>
+    <id>Kingdee04</id>
+    <name>金蝶HIS-获取收费项目信息</name>
+    <system>Kingdee</system>
+    <sysname>金蝶HIS</sysname>
+    <memo />
+    <oper_date>2020/11/23 12:09:33</oper_date>
+    <weburl>http://10.2.0.19:8088/api/app/his/rims_sfxxmk</weburl>
+    <expression>0 0 0 * * ?</expression>
+    <createtmp>Y3JlYXRlIHRhYmxlICNXTkRBVEFfU0ZYWE1LCigKICAgSUQgICB2YXJjaGFyKDMyKSBudWxsLAogICBOQU1FICAgdmFyY2hhcigxMjgpIG51bGwsCiAgIFhNREogICB2YXJjaGFyKDMyKSBudWxsLAogICBYTUxCICAgdmFyY2hhcigzMikgbnVsbCwKICAgSkxaVCAgIHZhcmNoYXIoMzIpIG51bGwKKQ==</createtmp>
+    <tmpname>#WNDATA_SFXXMK</tmpname>
+    <targetsql>dHJ1bmNhdGUgIHRhYmxlICBSSU1TX1NGWFhNSwppbnNlcnQgaW50byBSSU1TX1NGWFhNSyhpZCxuYW1lLHB5LHdiLGR4bWRtLHhtZHcseG1nZyx4bWRqLHhtbGIseWpieixtemJ6LHp5YnosbWVtbykKc2VsZWN0IElELE5BTUUsZGJvLmZ1bl9nZXRweShOQU1FKSxkYm8uZnVuX2dldHB5KE5BTUUpLCcnLCcnLCcnLFhNREosWE1MQiwnJywnJywnJywnJyBmcm9tICNXTkRBVEFfU0ZYWE1LIGEobm9sb2NrKQp3aGVyZSBub3QgZXhpc3RzKHNlbGVjdCAxIGZyb20gUklNU19TRlhYTUsgYihub2xvY2spIHdoZXJlIGEuSUQ9Yi5pZCk=</targetsql>
+    <nodelx>0</nodelx>
+    <node>[]</node>
+    <xmlconfig />
+    <jlzt>0</jlzt>
+    <xmlschema />
+    <sourcetype>1</sourcetype>
+    <sourcedbtype>3</sourcedbtype>
+    <issourcedbencode>false</issourcedbencode>
+    <sourcedbstring>oUNFHhCJ7Vh4A8SP/7igIywTp85ddoOGm+go+L08ln4ZyoF9btGXgPH+BqZe5XojKS9LxinE9N2E2bnIpaY0xlDmUh4g2AgpUvnXMLKXEl7qONJ2jJmhfEpIJaTVRGHJNbUv4O6erAzooHOiQ7Aef0hiJH6O6fyDsO0hSscp6oyKx++5tCRyasqmgDbhq/JkqgKn4rTYHpi6r4zHA/2ZUAoZ8OxfUZsSKCt+2BdrI1w=</sourcedbstring>
+    <sourcesql>U0VMRUNUICogRlJPTSBSSU1TX1NGWFhNSyBXSEVSRSBKTFpUPTEgYW5kIFhNTEI9MA==</sourcesql>
+    <targetdbtype>0</targetdbtype>
+    <istargetdbencode>true</istargetdbencode>
+    <targetdbstring>fKti04vHK0LqBv2mqFCEniEDTSUV41lE4T11vN+nSWg1MawxLGMJuqrKv/hhAD7cm5DhjcBfEerwuGsIWDdfudEbJdeL+aUkocZJzIZ7hidK39H0AqAoYK1xW6Ul0Yn1p6iMxKQPnTA=</targetdbstring>
+    <isbulkop>true</isbulkop>
+    <servertype>0</servertype>
+    <servermethod>post</servermethod>
+  </CronJob>
+  <CronJob>
+    <id>Kingdee05</id>
+    <name>金蝶HIS-获取临床项目信息</name>
+    <system>Kingdee</system>
+    <sysname>金蝶HIS</sysname>
+    <memo />
+    <oper_date>2020/11/23 12:09:33</oper_date>
+    <weburl>http://10.2.0.19:8088/api/app/his/rims_lcsfxmk</weburl>
+    <expression>0 0 0 * * ?</expression>
+    <createtmp>Y3JlYXRlIHRhYmxlICNXTkRBVEFfTENTRlhNSwooCiAgIElEICAgdmFyY2hhcigzMikgbnVsbCwKICAgTkFNRSAgIHZhcmNoYXIoMTI4KSBudWxsLAogICBYTURKICAgdmFyY2hhcigzMikgbnVsbCwKICAgWE1MQiAgIHZhcmNoYXIoMzIpIG51bGwsCiAgIEpMWlQgICB2YXJjaGFyKDMyKSBudWxsCik=</createtmp>
+    <tmpname>#WNDATA_LCSFXMK</tmpname>
+    <targetsql>VFJVTkNBVEUgVEFCTEUgUklNU19MQ1NGWE1LCmluc2VydCBpbnRvIFJJTVNfTENTRlhNSyhpZCxuYW1lLHB5LHdiLHhtZHcseG1kaix4bWxiLHp4bWRtLGpsenQsbWVtbykKc2VsZWN0IElELE5BTUUsZGJvLmZ1bl9nZXRweShOQU1FKSxkYm8uZnVuX2dldHB5KE5BTUUpLCcnLFhNREosWE1MQiwnJywwLCcnIGZyb20gI1dOREFUQV9MQ1NGWE1LIGEobm9sb2NrKQp3aGVyZSBub3QgZXhpc3RzKHNlbGVjdCAxIGZyb20gUklNU19MQ1NGWE1LIGIobm9sb2NrKSB3aGVyZSBhLklEPWIuaWQp</targetsql>
+    <nodelx>0</nodelx>
+    <node>[]</node>
+    <xmlconfig />
+    <jlzt>0</jlzt>
+    <xmlschema />
+    <sourcetype>1</sourcetype>
+    <sourcedbtype>3</sourcedbtype>
+    <issourcedbencode>false</issourcedbencode>
+    <sourcedbstring>oUNFHhCJ7Vh4A8SP/7igIywTp85ddoOGm+go+L08ln4ZyoF9btGXgPH+BqZe5XojKS9LxinE9N2E2bnIpaY0xlDmUh4g2AgpUvnXMLKXEl7qONJ2jJmhfEpIJaTVRGHJNbUv4O6erAzooHOiQ7Aef0hiJH6O6fyDsO0hSscp6oyKx++5tCRyasqmgDbhq/JkqgKn4rTYHpi6r4zHA/2ZUAoZ8OxfUZsSKCt+2BdrI1w=</sourcedbstring>
+    <sourcesql>U0VMRUNUICogRlJPTSBSSU1TX0xDU0ZYTUsgV0hFUkUgSkxaVD0x</sourcesql>
+    <targetdbtype>0</targetdbtype>
+    <istargetdbencode>true</istargetdbencode>
+    <targetdbstring>fKti04vHK0LqBv2mqFCEniEDTSUV41lE4T11vN+nSWg1MawxLGMJuqrKv/hhAD7cm5DhjcBfEerwuGsIWDdfudEbJdeL+aUkocZJzIZ7hidK39H0AqAoYK1xW6Ul0Yn1p6iMxKQPnTA=</targetdbstring>
+    <isbulkop>true</isbulkop>
+    <servertype>0</servertype>
+    <servermethod>post</servermethod>
+  </CronJob>
+  <CronJob>
+    <id>Kingdee06</id>
+    <name>金蝶HIS-获取临床收费项目对应信息</name>
+    <system>Kingdee</system>
+    <sysname>金蝶HIS</sysname>
+    <memo />
+    <oper_date>2020/11/23 12:09:33</oper_date>
+    <weburl>http://10.2.0.19:8088/api/app/his/rims_lcsfxmdyk</weburl>
+    <expression>0 0 0 * * ?</expression>
+    <createtmp>Y3JlYXRlIHRhYmxlICNXTkRBVEFfTENTRlhNRFlLCigKICAgTENYTURNICAgdmFyY2hhcigzMikgbnVsbCwKICAgWE1ETSAgIHZhcmNoYXIoMzIpIG51bGwsCiAgIFhNU0wgICB2YXJjaGFyKDMyKSBudWxsCik=</createtmp>
+    <tmpname>#WNDATA_LCSFXMDYK</tmpname>
+    <targetsql>aW5zZXJ0IGludG8gUklNU19MQ1NGWE1EWUsobGN4bWRtLHhtZG0seG1zbCkKc2VsZWN0IERJU1RJTkNUIExDWE1ETSxYTURNICxYTVNMIGZyb20gI1dOREFUQV9MQ1NGWE1EWUsgYShub2xvY2spCndoZXJlIG5vdCBleGlzdHMoc2VsZWN0IDEgZnJvbSBSSU1TX0xDU0ZYTURZSyBiKG5vbG9jaykgd2hlcmUgYS5MQ1hNRE09Yi5sY3htZG0gYW5kIGEuWE1ETT1iLnhtZG0p</targetsql>
+    <nodelx>0</nodelx>
+    <node>[]</node>
+    <xmlconfig />
+    <jlzt>0</jlzt>
+    <xmlschema />
+    <sourcetype>1</sourcetype>
+    <sourcedbtype>3</sourcedbtype>
+    <issourcedbencode>false</issourcedbencode>
+    <sourcedbstring>oUNFHhCJ7Vh4A8SP/7igIywTp85ddoOGm+go+L08ln4ZyoF9btGXgPH+BqZe5XojKS9LxinE9N2E2bnIpaY0xlDmUh4g2AgpUvnXMLKXEl7qONJ2jJmhfEpIJaTVRGHJNbUv4O6erAzooHOiQ7Aef0hiJH6O6fyDsO0hSscp6oyKx++5tCRyasqmgDbhq/JkqgKn4rTYHpi6r4zHA/2ZUAoZ8OxfUZsSKCt+2BdrI1w=</sourcedbstring>
+    <sourcesql>U0VMRUNUICpGUk9NIFJJTVNfTENTRlhNRFlL</sourcesql>
+    <targetdbtype>0</targetdbtype>
+    <istargetdbencode>true</istargetdbencode>
+    <targetdbstring>fKti04vHK0LqBv2mqFCEniEDTSUV41lE4T11vN+nSWg1MawxLGMJuqrKv/hhAD7cm5DhjcBfEerwuGsIWDdfudEbJdeL+aUkocZJzIZ7hidK39H0AqAoYK1xW6Ul0Yn1p6iMxKQPnTA=</targetdbstring>
+    <isbulkop>true</isbulkop>
+    <servertype>0</servertype>
+    <servermethod>post</servermethod>
+  </CronJob>
+  <CronJob>
+    <id>Kingdee07</id>
+    <name>金蝶HIS-获取诊断基础信息</name>
+    <system>Kingdee</system>
+    <sysname>金蝶HIS</sysname>
+    <memo />
+    <oper_date>2020/11/23 12:09:33</oper_date>
+    <weburl>http://10.2.0.19:8088/api/app/his/rims_zddmk</weburl>
+    <expression>0 0 0 * * ?</expression>
+    <createtmp>Y3JlYXRlIHRhYmxlICNXTkRBVEFfWkRETUsKKAogICBJRCAgIHZhcmNoYXIoMzIpIG51bGwsCiAgIE5BTUUgICB2YXJjaGFyKDEyOCkgbnVsbCwKICAgSkxaVCAgIHZhcmNoYXIoMzIpIG51bGwKKQ==</createtmp>
+    <tmpname>#WNDATA_ZDDMK</tmpname>
+    <targetsql>aW5zZXJ0IGludG8gUklNU19aRERNSyhpZCxuYW1lLHB5LHdiLHh3bWMsaWNkOSxpY2QxMCxzeWJ6LGpsenQpCnNlbGVjdCBJRCxOQU1FLGRiby5mdW5fZ2V0cHkoTkFNRSksZGJvLmZ1bl9nZXRweShOQU1FKSwnJywnJywnJywwLDAgZnJvbSAjV05EQVRBX1pERE1LIGEobm9sb2NrKQp3aGVyZSBub3QgZXhpc3RzKHNlbGVjdCAxIGZyb20gUklNU19aRERNSyBiKG5vbG9jaykgd2hlcmUgYS5JRD1iLmlkKQ==</targetsql>
+    <nodelx>0</nodelx>
+    <node>[]</node>
+    <xmlconfig />
+    <jlzt>0</jlzt>
+    <xmlschema />
+    <sourcetype>1</sourcetype>
+    <sourcedbtype>3</sourcedbtype>
+    <issourcedbencode>false</issourcedbencode>
+    <sourcedbstring>oUNFHhCJ7Vh4A8SP/7igIywTp85ddoOGm+go+L08ln4ZyoF9btGXgPH+BqZe5XojKS9LxinE9N2E2bnIpaY0xlDmUh4g2AgpUvnXMLKXEl7qONJ2jJmhfEpIJaTVRGHJNbUv4O6erAzooHOiQ7Aef0hiJH6O6fyDsO0hSscp6oyKx++5tCRyasqmgDbhq/JkqgKn4rTYHpi6r4zHA/2ZUAoZ8OxfUZsSKCt+2BdrI1w=</sourcedbstring>
+    <sourcesql>c2VsZWN0IC8qKyBvcHRfcGFyYW0oJ19vcHRpbWl6ZXJfdXNlX2ZlZWRiYWNrJyAnZmFsc2UnKSAqLyBhLiogDQpGUk9NIFJJTVNfWkRETUsgYSBXSEVSRSBKTFpUPTE=</sourcesql>
+    <targetdbtype>0</targetdbtype>
+    <istargetdbencode>true</istargetdbencode>
+    <targetdbstring>fKti04vHK0LqBv2mqFCEniEDTSUV41lE4T11vN+nSWg1MawxLGMJuqrKv/hhAD7cm5DhjcBfEerwuGsIWDdfudEbJdeL+aUkocZJzIZ7hidK39H0AqAoYK1xW6Ul0Yn1p6iMxKQPnTA=</targetdbstring>
+    <isbulkop>true</isbulkop>
+    <servertype>0</servertype>
+    <servermethod>post</servermethod>
+  </CronJob>
+  <CronJob>
+    <id>Kingdee08</id>
+    <name>金蝶HIS-获取患者基本信息</name>
+    <system>Kingdee</system>
+    <sysname>金蝶HIS</sysname>
+    <memo />
+    <oper_date>2020/11/23 12:09:33</oper_date>
+    <weburl>http://10.46.12.233:8080/Patinfo/getPatInfo</weburl>
+    <expression>0 0/2 7-22 * * ?</expression>
+    <createtmp>Y3JlYXRlIHRhYmxlICNXTkRBVEFfQlJYWEsKKAogICBQQVRJRCAgIHZhcmNoYXIoMjU2KSBudWxsLAogICBCTEggICB2YXJjaGFyKDI1NikgbnVsbCwKICAgSFpYTSAgIHZhcmNoYXIoMjU2KSBudWxsLAogICBDQVJETk8gICB2YXJjaGFyKDI1NikgbnVsbCwKICAgU0VYICAgdmFyY2hhcigyNTYpIG51bGwsCiAgIEJJUlRIICAgdmFyY2hhcigyNTYpIG51bGwsCiAgIExYRFogICB2YXJjaGFyKDI1NikgbnVsbCwKICAgTFhESCAgIHZhcmNoYXIoMjU2KSBudWxsLAogICBYVEJaICAgdmFyY2hhcigyNTYpIG51bGwsCiAgIERKU0ogICB2YXJjaGFyKDI1NikgbnVsbCwKICAgTFJDWllIICAgdmFyY2hhcigyNTYpIG51bGwsCiAgIFBfREFURSAgIHZhcmNoYXIoMjU2KSBudWxsLAogICBQX0RBVEVUSU1FICAgdmFyY2hhcigyNTYpIG51bGwKKQ==</createtmp>
+    <tmpname>#WNDATA_BRXXK</tmpname>
+    <targetsql>REVDTEFSRSBAYmVnaW4gVkFSQ0hBUigzMikKREVDTEFSRSBAZW5kIFZBUkNIQVIoMzIpCgpzZXQgQGJlZ2luPWNvbnZlcnQodmFyY2hhcigzMiksR0VUREFURSgpLDExMikrJzAwOjAwOjAwJwpzZXQgQGVuZD1jb252ZXJ0KHZhcmNoYXIoMzIpLEdFVERBVEUoKSsxLDExMikrJzIzOjU5OjU5JwoKICBzZWxlY3QgRElTVElOQ1QgcGF0aWQseHRieiBpbnRvICN0ZW1wYnJ4eCBmcm9NIFJJTVNfWkxEWE1MSVNUKE5PTE9DSykgV0hFUkUgcXFycSBCRVRXRUVOIEBiZWdpbiBBTkQgIEBlbmQKCmluc2VydCBpbnRvIFJJTVNfQlJYWEsocGF0aWQsYmxoLGh6eG0scHksd2IsY2FyZG5vLHNmemgsc2V4LGJpcnRoLGx4ZHosbHhkaCxseHIsY3p5aCx4dGJ6LHl5ZG0sbHJycSkKc2VsZWN0IGRpc3RpbmN0IFBBVElELCAgCihzZWxlY3QgTUFYKCBCTEgpIGZyb20gI1dOREFUQV9CUlhYSyBjIHdoZXJlIGEuUEFUSUQ9Yy5QQVRJRCAgKSBhcyBCTEgsCkhaWE0sZGJvLmZ1bl9nZXRweShIWlhNKSwKZGJvLmZ1bl9nZXRweShIWlhNKSwKKHNlbGVjdCBNQVgoIENBUkROTykgZnJvbSAjV05EQVRBX0JSWFhLIGMgd2hlcmUgYS5QQVRJRD1jLlBBVElEICApIGFzIENBUkROTywKJycsClNFWCwKKHNlbGVjdCBUT1AgMSggaXNudWxsKEJJUlRILCcnKSkgZnJvbSAjV05EQVRBX0JSWFhLIGMgd2hlcmUgYS5QQVRJRD1jLlBBVElEICApIGFzIEJJUlRILAooc2VsZWN0IFRPUCAxKCBpc251bGwoTFhEWiwnJykpIGZyb20gI1dOREFUQV9CUlhYSyBjIHdoZXJlIGEuUEFUSUQ9Yy5QQVRJRCAgKSBhcyBMWERaLAooc2VsZWN0IFRPUCAxKCBpc251bGwoTFhESCwnJykpIGZyb20gI1dOREFUQV9CUlhYSyBjIHdoZXJlIGEuUEFUSUQ9Yy5QQVRJRCAgKSBhcyBMWERILAonJywnJyxYVEJaLCcwMScsKHNlbGVjdCBNQVgoREpTSikgZnJvbSAjV05EQVRBX0JSWFhLIGMgd2hlcmUgYS5QQVRJRD1jLlBBVElEICkgYXMgZGpzagpmcm9tICNXTkRBVEFfQlJYWEsgYShub2xvY2spCmlubmVyIGpvaW4gI3RlbXBicnh4IGMgb24gYS5QQVRJRD1jLnBhdGlkIGFuZCBhLlhUQlo9Yy54dGJ6CiB3aGVyZSBub3QgZXhpc3RzKHNlbGVjdCAxIGZyb20gUklNU19CUlhYSyBiKG5vbG9jaykgd2hlcmUgYS5QQVRJRD1iLnBhdGlkIGFuZCBhLlhUQlo9Yi54dGJ6KQpBTkQgYS5QQVRJRCBJUyBOT1QgTlVMTA==</targetsql>
+    <nodelx>0</nodelx>
+    <node>[]</node>
+    <xmlconfig />
+    <jlzt>0</jlzt>
+    <xmlschema />
+    <sourcetype>1</sourcetype>
+    <sourcedbtype>3</sourcedbtype>
+    <issourcedbencode>false</issourcedbencode>
+    <sourcedbstring>oUNFHhCJ7Vh4A8SP/7igIywTp85ddoOGm+go+L08ln4ZyoF9btGXgPH+BqZe5XojKS9LxinE9N2E2bnIpaY0xlDmUh4g2AgpUvnXMLKXEl7qONJ2jJmhfEpIJaTVRGHJNbUv4O6erAzooHOiQ7Aef0hiJH6O6fyDsO0hSscp6oyKx++5tCRyasqmgDbhq/JkqgKn4rTYHpi6r4zHA/2ZUAoZ8OxfUZsSKCt+2BdrI1w=</sourcedbstring>
+    <sourcesql>c2VsZWN0IC8qKyBvcHRfcGFyYW0oJ19vcHRpbWl6ZXJfdXNlX2ZlZWRiYWNrJyAnZmFsc2UnKSAqLyBhLiogDQpmcm9tIFJJTVNfQlJYWEsgYQ0KIHdoZXJlICBhLlBfREFURSAgYmV0d2VlbiB0cnVuYyhzeXNkYXRlLCAnZGQnKSAgYW5kIHRydW5jKHN5c2RhdGUrMSwgJ2RkJykNCmFuZCANCmEuUF9EQVRFVElNRSBiZXR3ZWVuIHRydW5jKHN5c2RhdGUsICdkZCcpICBhbmQgdHJ1bmMoc3lzZGF0ZSsxLCAnZGQnKQ==</sourcesql>
+    <targetdbtype>0</targetdbtype>
+    <istargetdbencode>true</istargetdbencode>
+    <targetdbstring>fKti04vHK0LqBv2mqFCEniEDTSUV41lE4T11vN+nSWg1MawxLGMJuqrKv/hhAD7cm5DhjcBfEerwuGsIWDdfudEbJdeL+aUkocZJzIZ7hidK39H0AqAoYK1xW6Ul0Yn1p6iMxKQPnTA=</targetdbstring>
+    <isbulkop>true</isbulkop>
+    <servertype>0</servertype>
+    <servermethod>get</servermethod>
+  </CronJob>
+  <CronJob>
+    <id>Kingdee09</id>
+    <name>金蝶HIS-获取患者就诊信息</name>
+    <system>Kingdee</system>
+    <sysname>金蝶HIS</sysname>
+    <memo />
+    <oper_date>2020/11/23 12:09:33</oper_date>
+    <weburl>http://10.46.12.233:8080/Patinfo/getPatVisit</weburl>
+    <expression>0 0/2 7-22 * * ?</expression>
+    <createtmp>Y3JlYXRlIHRhYmxlICNXTkRBVEFfQlJMSVNUCigKICAgUEFUSUQgICB2YXJjaGFyKDI1NikgbnVsbCwKICAgQkxIICAgdmFyY2hhcigyNTYpIG51bGwsCiAgIEhaWE0gICB2YXJjaGFyKDI1NikgbnVsbCwKICAgQ0FSRE5PICAgdmFyY2hhcigyNTYpIG51bGwsCiAgIFNFWCAgIHZhcmNoYXIoMjU2KSBudWxsLAogICBCSVJUSCAgIHZhcmNoYXIoMjU2KSBudWxsLAogICBTWVhIICAgdmFyY2hhcigyNTYpIG51bGwsCiAgIEJSWlQgICB2YXJjaGFyKDI1NikgbnVsbCwKICAgWFRCWiAgIHZhcmNoYXIoMjU2KSBudWxsLAogICBKWlJRICAgdmFyY2hhcigyNTYpIG51bGwsCiAgIENSQlogICB2YXJjaGFyKDI1NikgbnVsbCwKICAgUF9EQVRFICAgdmFyY2hhcigyNTYpIG51bGwsCiAgIFBfREFURVRJTUUgICB2YXJjaGFyKDI1NikgbnVsbAop</createtmp>
+    <tmpname>#WNDATA_BRLIST</tmpname>
+    <targetsql>REVDTEFSRSBAYmVnaW4gVkFSQ0hBUigzMikKREVDTEFSRSBAZW5kIFZBUkNIQVIoMzIpCgpkZWNsYXJlIEBzcWwgdmFyY2hhcihtYXgpCgpzZXQgQGJlZ2luPWNvbnZlcnQodmFyY2hhcigzMiksR0VUREFURSgpLDExMikrJyAwMDowMDowMCcKc2V0IEBlbmQ9Y29udmVydCh2YXJjaGFyKDMyKSxHRVREQVRFKCkrMSwxMTIpKycgMjM6NTk6NTknCgotLeiOt+WPluW9k+aXpemhueebruS/oeaBrwoKc2VsZWN0ICBESVNUSU5DVCBwYXRpZCxzeXhoLHh0YnogaW50byAjdGVtcHBhdCAgZnJvbSBSSU1TX1pMRFhNTElTVChOT0xPQ0spIFdIRVJFICBxcXJxIEJFVFdFRU4gQGJlZ2luIEFORCBAZW5kCgppbnNlcnQgaW50byBSSU1TX1pMQlJMSVNUIChwYXRpZCxibGgsaHp4bSxraCxzZnpoLHhiLGNzcnEsc3l4aCxjd2RtLGJyenQseHRieix5eWRtLGp6cnEscnlycSxjeXJxLGtzZG0sa3NtYyxicWRtLGJxbWMsY3JieikKc2VsZWN0IGRpc3RpbmN0IFBBVElELEJMSCxIWlhNLENBUkROTywnJyxTRVgsQklSVEgsU1lYSCwnJyxCUlpULFhUQlosJzAxJyxKWlJRLCcnLCcnLCcnLCcnLCcnLCcnLENSQloKZnJvbSAjV05EQVRBX0JSTElTVCBhKG5vbG9jaykKaW5uZXIgam9pbiAgI3RlbXBwYXQgYyBvbiBhLlBBVElEPWMucGF0aWQgYW5kIGEuU1lYSD1jLnN5eGggYW5kIGEuWFRCWj1jLnh0YnoKd2hlcmUgbm90IGV4aXN0cyhzZWxlY3QgMSBmcm9tIFJJTVNfWkxCUkxJU1QgYihub2xvY2spIHdoZXJlIGEuUEFUSUQ9Yi5wYXRpZCBhbmQgYS5YVEJaPWIueHRieiBhbmQgYS5TWVhIPWIuc3l4aCApIEFORCBhLlBBVElEIGlzIG5vdCBudWxsCgoKCnVwZGF0ZSBhIHNldCBicnp0PTEgZnJvbSBSSU1TX1pMQlJMSVNUIGEobm9sb2NrICkKaW5uZXIgam9pbiAjV05EQVRBX0JSTElTVCBiKG5vbG9jaykgb24gYS5wYXRpZD1iLlBBVElEIGFuZCBhLnh0Yno9Yi5YVEJaIGFuZCBhLnN5eGg9Yi5TWVhICndoZXJlIGEuYnJ6dD0wIGFuZCBhLnh0Yno9MSBhbmQgYi5CUlpUPTE=</targetsql>
+    <nodelx>0</nodelx>
+    <node>[]</node>
+    <xmlconfig />
+    <jlzt>0</jlzt>
+    <xmlschema />
+    <sourcetype>1</sourcetype>
+    <sourcedbtype>3</sourcedbtype>
+    <issourcedbencode>false</issourcedbencode>
+    <sourcedbstring>oUNFHhCJ7Vh4A8SP/7igIywTp85ddoOGm+go+L08ln4ZyoF9btGXgPH+BqZe5XojKS9LxinE9N2E2bnIpaY0xlDmUh4g2AgpUvnXMLKXEl7qONJ2jJmhfEpIJaTVRGHJNbUv4O6erAzooHOiQ7Aef0hiJH6O6fyDsO0hSscp6oyKx++5tCRyasqmgDbhq/JkqgKn4rTYHpi6r4zHA/2ZUAoZ8OxfUZsSKCt+2BdrI1w=</sourcedbstring>
+    <sourcesql>c2VsZWN0IC8qKyBvcHRfcGFyYW0oJ19vcHRpbWl6ZXJfdXNlX2ZlZWRiYWNrJyAnZmFsc2UnKSAqLyBhLiogDQpmcm9tIFJJTVNfWkxCUkxJU1QgYQ0KIHdoZXJlICAgYS5QX0RBVEUgIGJldHdlZW4gdHJ1bmMoc3lzZGF0ZSwgJ2RkJykgIGFuZCB0cnVuYyhzeXNkYXRlKzEsICdkZCcpDQphbmQgDQogYS5QX0RBVEVUSU1FIGJldHdlZW4gdHJ1bmMoc3lzZGF0ZSwgJ2RkJykgIGFuZCB0cnVuYyhzeXNkYXRlKzEsICdkZCcp</sourcesql>
+    <targetdbtype>0</targetdbtype>
+    <istargetdbencode>true</istargetdbencode>
+    <targetdbstring>fKti04vHK0LqBv2mqFCEniEDTSUV41lE4T11vN+nSWg1MawxLGMJuqrKv/hhAD7cm5DhjcBfEerwuGsIWDdfudEbJdeL+aUkocZJzIZ7hidK39H0AqAoYK1xW6Ul0Yn1p6iMxKQPnTA=</targetdbstring>
+    <isbulkop>true</isbulkop>
+    <servertype>0</servertype>
+    <servermethod>get</servermethod>
+  </CronJob>
+  <CronJob>
+    <id>Kingdee_CFMX</id>
+    <name>金蝶HIS-拆分作业</name>
+    <system>Kingdee</system>
+    <sysname>金蝶HIS</sysname>
+    <weburl />
+    <expression>0 0/2 7-22 * * ? *</expression>
+    <createtmp />
+    <tmpname />
+    <targetsql>ZXhlYyB1c3Bfcmltc193enh4bV9jZm14</targetsql>
+    <nodelx>0</nodelx>
+    <node />
+    <xmlconfig />
+    <jlzt>0</jlzt>
+    <xmlschema />
+    <sourcetype>0</sourcetype>
+    <sourcedbtype>0</sourcedbtype>
+    <issourcedbencode>false</issourcedbencode>
+    <sourcedbstring />
+    <sourcesql />
+    <targetdbtype>0</targetdbtype>
+    <istargetdbencode>true</istargetdbencode>
+    <targetdbstring>fKti04vHK0LqBv2mqFCEniEDTSUV41lE4T11vN+nSWg1MawxLGMJuqrKv/hhAD7cm5DhjcBfEerwuGsIWDdfudEbJdeL+aUkocZJzIZ7hidK39H0AqAoYK1xW6Ul0Yn1p6iMxKQPnTA=</targetdbstring>
+    <isbulkop>false</isbulkop>
+    <servertype>0</servertype>
+    <servermethod>POST</servermethod>
+  </CronJob>
+  <CronJob>
+    <id>Kingdee11</id>
+    <name>金蝶HIS-获取患者诊断信息</name>
+    <system>Kingdee</system>
+    <sysname>金蝶HIS</sysname>
+    <memo />
+    <oper_date>2020/11/23 12:09:33</oper_date>
+    <weburl>http://10.2.0.19:8088/api/app/his/rims_brzdqk</weburl>
+    <expression>0 0/20 7-22 * * ?</expression>
+    <createtmp>Y3JlYXRlIHRhYmxlICNXTkRBVEFfWkRMSVNUCigKICAgUEFUSUQgICB2YXJjaGFyKDI1NikgbnVsbCwKICAgWFRCWiAgIHZhcmNoYXIoMjU2KSBudWxsLAogICBZWURNICAgdmFyY2hhcigyNTYpIG51bGwsCiAgIFNZWEggICB2YXJjaGFyKDI1NikgbnVsbCwKICAgWVNETSAgIHZhcmNoYXIoMjU2KSBudWxsLAogICBZU01DICAgdmFyY2hhcigyNTYpIG51bGwsCiAgIFpETFggICB2YXJjaGFyKDI1NikgbnVsbCwKICAgWkRMQiAgIHZhcmNoYXIoMjU2KSBudWxsLAogICBaRERNICAgdmFyY2hhcigyNTYpIG51bGwsCiAgIFpETUMgICB2YXJjaGFyKDI1NikgbnVsbCwKICAgTFJSUSAgIHZhcmNoYXIoMjU2KSBudWxsLAogICBQX0RBVEUgICB2YXJjaGFyKDI1NikgbnVsbCwKICAgUF9EQVRFVElNRSAgIHZhcmNoYXIoMjU2KSBudWxsCik=</createtmp>
+    <tmpname>#WNDATA_ZDLIST</tmpname>
+    <targetsql>aW5zZXJ0IGludG8gUklNU19CUlpEUUsgKHBhdGlkLHh0YnoseXlkbSxnaHhoLHN5eGgseXNkbSx5c21jLHpkbHgsemRsYix6ZGRtLHpkbWMsbHJycSkKc2VsZWN0IFBBVElELFhUQlosJzAxJywnJywnMCcsWVNETSxZU01DLFpETFgsWkRMQixaRERNLFpETUMsTFJSUQpmcm9tICNXTkRBVEFfWkRMSVNUIGEobm9sb2NrKQp3aGVyZSBhLlhUQlo9MCBhbmQgbm90IGV4aXN0cyhzZWxlY3QgMSBmcm9tIFJJTVNfQlJaRFFLIGIobm9sb2NrKSB3aGVyZSBhLlBBVElEPWIucGF0aWQgYW5kIGEuWFRCWj1iLnh0YnogYW5kIGEuWVNETT1iLnlzZG0gYW5kIGEuWkRMWD1iLnpkbHggYW5kIGEuWkRMQj1iLnpkbGIgYW5kIGEuWkRETT1iLnpkZG0gYW5kIGEuTFJSUT1iLmxycnEgKQp1bmlvbiAKc2VsZWN0IFBBVElELFhUQlosJzAxJywnMCcsJycsWVNETSxZU01DLFpETFgsWkRMQixaRERNLFpETUMsTFJSUQpmcm9tICNXTkRBVEFfWkRMSVNUIGEobm9sb2NrKQp3aGVyZSBhLlhUQlo9MSBhbmQgbm90IGV4aXN0cyhzZWxlY3QgMSBmcm9tIFJJTVNfQlJaRFFLIGIobm9sb2NrKSB3aGVyZSBhLlBBVElEPWIucGF0aWQgYW5kIGEuWFRCWj1iLnh0YnogYW5kIGEuWVNETT1iLnlzZG0gYW5kIGEuWkRMWD1iLnpkbHggYW5kIGEuWkRMQj1iLnpkbGIgYW5kIGEuWkRETT1iLnpkZG0gYW5kIGEuTFJSUT1iLmxycnEgKQoKLS1EUk9QICBUQUJMRSAgI1dOREFUQV9aRExJU1Q=</targetsql>
+    <nodelx>0</nodelx>
+    <node>[]</node>
+    <xmlconfig />
+    <jlzt>0</jlzt>
+    <xmlschema />
+    <sourcetype>1</sourcetype>
+    <sourcedbtype>3</sourcedbtype>
+    <issourcedbencode>false</issourcedbencode>
+    <sourcedbstring>oUNFHhCJ7Vh4A8SP/7igIywTp85ddoOGm+go+L08ln4ZyoF9btGXgPH+BqZe5XojKS9LxinE9N2E2bnIpaY0xlDmUh4g2AgpUvnXMLKXEl7qONJ2jJmhfEpIJaTVRGHJNbUv4O6erAzooHOiQ7Aef0hiJH6O6fyDsO0hSscp6oyKx++5tCRyasqmgDbhq/JkqgKn4rTYHpi6r4zHA/2ZUAoZ8OxfUZsSKCt+2BdrI1w=</sourcedbstring>
+    <sourcesql>c2VsZWN0IC8qKyBvcHRfcGFyYW0oJ19vcHRpbWl6ZXJfdXNlX2ZlZWRiYWNrJyAnZmFsc2UnKSAqLyBhLiogDQpmcm9tICBSSU1TX1pETElTVCAgYQ0Kd2hlcmUgIGEuUF9EQVRFICBiZXR3ZWVuIHRydW5jKHN5c2RhdGUsICdkZCcpICBhbmQgdHJ1bmMoc3lzZGF0ZSsxLCAnZGQnKQ0KYW5kIA0KYS5QX0RBVEVUSU1FIGJldHdlZW4gdHJ1bmMoc3lzZGF0ZSwgJ2RkJykgIGFuZCB0cnVuYyhzeXNkYXRlKzEsICdkZCcp</sourcesql>
+    <targetdbtype>0</targetdbtype>
+    <istargetdbencode>true</istargetdbencode>
+    <targetdbstring>fKti04vHK0LqBv2mqFCEniEDTSUV41lE4T11vN+nSWg1MawxLGMJuqrKv/hhAD7cm5DhjcBfEerwuGsIWDdfudEbJdeL+aUkocZJzIZ7hidK39H0AqAoYK1xW6Ul0Yn1p6iMxKQPnTA=</targetdbstring>
+    <isbulkop>true</isbulkop>
+    <servertype>0</servertype>
+    <servermethod>post</servermethod>
+  </CronJob>
+  <CronJob>
+    <id>Kingdee_MZXM</id>
+    <name>金蝶HIS-获取患者门诊项目信息</name>
+    <system>Kingdee</system>
+    <sysname>金蝶HIS</sysname>
+    <memo />
+    <oper_date>2020/11/23 12:09:33</oper_date>
+    <weburl>http://10.46.12.233:8080/Patinfo/getPatSubject_MZ</weburl>
+    <expression>0 0/2 7-22 * * ?</expression>
+    <createtmp>Y3JlYXRlIHRhYmxlICNXTkRBVEFfWE1MSVNUCigKICAgUEFUSUQgICB2YXJjaGFyKDI1NikgbnVsbCwKICAgQkxIICAgdmFyY2hhcigyNTYpIG51bGwsCiAgIFhUQlogICB2YXJjaGFyKDI1NikgbnVsbCwKICAgU1lYSCAgIHZhcmNoYXIoMjU2KSBudWxsLAogICBRUUtTRE0gICB2YXJjaGFyKDI1NikgbnVsbCwKICAgUVFLU01DICAgdmFyY2hhcigyNTYpIG51bGwsCiAgIFlaWEggICB2YXJjaGFyKDI1NikgbnVsbCwKICAgUVFMWCAgIHZhcmNoYXIoMjU2KSBudWxsLAogICBRUVhIICAgdmFyY2hhcigyNTYpIG51bGwsCiAgIFFRTVhYSCAgIHZhcmNoYXIoMjU2KSBudWxsLAogICBZU0RNICAgdmFyY2hhcigyNTYpIG51bGwsCiAgIFlTTUMgICB2YXJjaGFyKDI1NikgbnVsbCwKICAgUVFSUSAgIHZhcmNoYXIoMjU2KSBudWxsLAogICBYTUxCICAgdmFyY2hhcigyNTYpIG51bGwsCiAgIFhNRE0gICB2YXJjaGFyKDI1NikgbnVsbCwKICAgWE1NQyAgIHZhcmNoYXIoMjU2KSBudWxsLAogICBYTURKICAgdmFyY2hhcigyNTYpIG51bGwsCiAgIFhNU0wgICB2YXJjaGFyKDI1NikgbnVsbCwKICAgWE1EVyAgIHZhcmNoYXIoMjU2KSBudWxsLAogICBaWEtTRE0gICB2YXJjaGFyKDI1NikgbnVsbCwKICAgRENaTEwgICB2YXJjaGFyKDI1NikgbnVsbCwKICAgVFMgICB2YXJjaGFyKDI1NikgbnVsbCwKICAgUENETSAgIHZhcmNoYXIoMjU2KSBudWxsLAogICBQQ01DICAgdmFyY2hhcigyNTYpIG51bGwsCiAgIFBfREFURSAgIHZhcmNoYXIoMjU2KSBudWxsLAogICBQX0RBVEVUSU1FICAgdmFyY2hhcigyNTYpIG51bGwsCiAgIFRGU0wgICB2YXJjaGFyKDI1NikgbnVsbAop</createtmp>
+    <tmpname>#WNDATA_XMLIST</tmpname>
+    <targetsql>ZGVjbGFyZSBAY29uZmlnUjEyMyB2YXJjaGFyKDEwKSxAY29uZmlnUjEyNCB2YXJjaGFyKDEwKSxAbm93IHZhcmNoYXIoMzIpCgpzZWxlY3QgQGNvbmZpZ1IxMjM9Q09ORklHIGZyb20gU1lTX0NPTkZJRyhub2xvY2spIHdoZXJlIElEPSdSMTIzJwoKc2VsZWN0IEBub3c9Y29udmVydCh2YXJjaGFyLGdldGRhdGUoKSwxMTIpK2NvbnZlcnQodmFyY2hhcixnZXRkYXRlKCksMTA4KQoKaW5zZXJ0IGludG8gUklNU19aTERYTUxJU1QocGF0aWQsYmxoLHh0YnoseXlkbSxzeXhoLHFxa3NkbSxxcWtzbWMsa2Zrc21jLHl6eGgscXFseCxxcXhoLHFxbXh4aCx5c2RtLHlzbWMscXFycSxscnJxLGl0ZW10eXBlLGl0ZW1jb2RlLGl0ZW1uYW1lLHByaWNlLGl0ZW1xdHksaXRlbXVuaXQseXBnZyxzcWR4aCx6eGtzZG0sdHN5ZmRtLHlwamwsdHMsCnlwcGMscGNtYyx5enp0LHl6bHJycSx5enp4cnEseXprc3NqLHl6dHpzaixzaHosdHp6LGNmYnosdGJycSxyaW1zYnoscXJ6dCx5cXJzbCxrcXJzbCxjeHNsLGt0c2wsZnp4aDEsdHpieix6ZmJ6KQoKc2VsZWN0IGRpc3RpbmN0IGEuUEFUSUQsQkxILGEuWFRCWiwnMDEnLGEuU1lYSCxhLlFRS1NETSxhLlFRS1NNQyxhLlFRS1NNQyxhLllaWEgsYS5RUUxYLGEuUVFYSCxhLlFRTVhYSCxhLllTRE0sYS5ZU01DLGEuUVFSUSxhLlFRUlEsYS5YTUxCLGEuWE1ETSxhLlhNTUMsYS5YTURKLGEuWE1TTCxhLlhNRFcsCicnLCcnLGEuWlhLU0RNLGEuWlhLU0RNLCcxJyxhLlRTLGEuUENETSxhLlBDTUMsJzAnLCcnLCcnLCcnLCcnLCcnLCcnLDAsQG5vdywKY2FzZSB3aGVuICBpc251bGwoQGNvbmZpZ1IxMjMsJ+WQpicpPSflkKYnIHRoZW4gMyAgZWxzZSAwIGVuZCwwLDAsYS5YTVNMLDAsYS5YTVNMLDAsMCwwCmZyb20gI1dOREFUQV9YTUxJU1QgYShub2xvY2spCmlubmVyIGpvaW4gUklNU19YTUZMRFlLIGIobm9sb2NrKSBvbiBhLlhNRE09Yi54bWRtIGFuZCBiLmpsenQ9MAppbm5lciBqb2luIFJJTVNfWkxGTEsgYyhub2xvY2spIG9uIGIuZmxkbT1jLmlkIGFuZCBhLlpYS1NETT1jLnRza3MKd2hlcmUgCm5vdCBleGlzdHMoc2VsZWN0IDEgZnJvbSBSSU1TX1pMRFhNTElTVCBkKG5vbG9jaykgCndoZXJlIGEuUVFYSD1kLnFxeGggYW5kIGEuUVFNWFhIPWQucXFteHhoIGFuZCBhLlhUQlo9ZC54dGJ6IGFuZCBhLlBBVElEPWQucGF0aWQgYW5kIGEuU1lYSD1kLnN5eGgp</targetsql>
+    <nodelx>0</nodelx>
+    <node>[]</node>
+    <xmlconfig />
+    <jlzt>0</jlzt>
+    <xmlschema />
+    <sourcetype>1</sourcetype>
+    <sourcedbtype>3</sourcedbtype>
+    <issourcedbencode>false</issourcedbencode>
+    <sourcedbstring>oUNFHhCJ7Vh4A8SP/7igIywTp85ddoOGm+go+L08ln4ZyoF9btGXgPH+BqZe5XojKS9LxinE9N2E2bnIpaY0xlDmUh4g2AgpUvnXMLKXEl7qONJ2jJmhfEpIJaTVRGHJNbUv4O6erAzooHOiQ7Aef0hiJH6O6fyDsO0hSscp6oyKx++5tCRyasqmgDbhq/JkqgKn4rTYHpi6r4zHA/2ZUAoZ8OxfUZsSKCt+2BdrI1w=</sourcedbstring>
+    <sourcesql>c2VsZWN0IC8qKyBvcHRfcGFyYW0oJ19vcHRpbWl6ZXJfdXNlX2ZlZWRiYWNrJyAnZmFsc2UnKSAqLyBhLiogDQpmcm9tICBSSU1TX1hNTElTVF9NWiBhICANCndoZXJlICAgYS5QX0RBVEUgIGJldHdlZW4gdHJ1bmMoc3lzZGF0ZSwgJ2RkJykgIGFuZCB0cnVuYyhzeXNkYXRlKzEsICdkZCcpDQphbmQgDQphLlBfREFURVRJTUUgYmV0d2VlbiB0cnVuYyhzeXNkYXRlLCAnZGQnKSAgYW5kIHRydW5jKHN5c2RhdGUrMSwgJ2RkJyk=</sourcesql>
+    <targetdbtype>0</targetdbtype>
+    <istargetdbencode>true</istargetdbencode>
+    <targetdbstring>fKti04vHK0LqBv2mqFCEniEDTSUV41lE4T11vN+nSWg1MawxLGMJuqrKv/hhAD7cm5DhjcBfEerwuGsIWDdfudEbJdeL+aUkocZJzIZ7hidK39H0AqAoYK1xW6Ul0Yn1p6iMxKQPnTA=</targetdbstring>
+    <isbulkop>true</isbulkop>
+    <servertype>0</servertype>
+    <servermethod>get</servermethod>
+  </CronJob>
+  <CronJob>
+    <id>Kingdee_ZYCQXM</id>
+    <name>金蝶HIS-获取患者住院长期项目信息</name>
+    <system>Kingdee</system>
+    <sysname>金蝶HIS</sysname>
+    <memo />
+    <oper_date>2020/11/23 12:09:33</oper_date>
+    <weburl>http://10.46.12.233:8080/Patinfo/getPatSubject_CQ</weburl>
+    <expression>0 0/2 7-22 * * ?</expression>
+    <createtmp>Y3JlYXRlIHRhYmxlICNXTkRBVEFfWE1MSVNUDQooDQogICBQQVRJRCAgIHZhcmNoYXIoMjU2KSBudWxsLA0KICAgQkxIICAgdmFyY2hhcigyNTYpIG51bGwsDQogICBYVEJaICAgdmFyY2hhcigyNTYpIG51bGwsDQogICBTWVhIICAgdmFyY2hhcigyNTYpIG51bGwsDQogICBRUUtTRE0gICB2YXJjaGFyKDI1NikgbnVsbCwNCiAgIFFRS1NNQyAgIHZhcmNoYXIoMjU2KSBudWxsLA0KICAgWVpYSCAgIHZhcmNoYXIoMjU2KSBudWxsLA0KICAgUVFMWCAgIHZhcmNoYXIoMjU2KSBudWxsLA0KICAgUVFYSCAgIHZhcmNoYXIoMjU2KSBudWxsLA0KICAgUVFNWFhIICAgdmFyY2hhcigyNTYpIG51bGwsDQogICBZU0RNICAgdmFyY2hhcigyNTYpIG51bGwsDQogICBZU01DICAgdmFyY2hhcigyNTYpIG51bGwsDQogICBRUVJRICAgdmFyY2hhcigyNTYpIG51bGwsDQogICBYTUxCICAgdmFyY2hhcigyNTYpIG51bGwsDQogICBYTURNICAgdmFyY2hhcigyNTYpIG51bGwsDQogICBYTU1DICAgdmFyY2hhcigyNTYpIG51bGwsDQogICBYTURKICAgdmFyY2hhcigyNTYpIG51bGwsDQogICBYTVNMICAgdmFyY2hhcigyNTYpIG51bGwsDQogICBYTURXICAgdmFyY2hhcigyNTYpIG51bGwsDQogICBaWEtTRE0gICB2YXJjaGFyKDI1NikgbnVsbCwNCiAgIERDWkxMICAgdmFyY2hhcigyNTYpIG51bGwsDQogICBUUyAgIHZhcmNoYXIoMjU2KSBudWxsLA0KICAgUENETSAgIHZhcmNoYXIoMjU2KSBudWxsLA0KICAgUENNQyAgIHZhcmNoYXIoMjU2KSBudWxsLA0KICAgVEZTTCAgIHZhcmNoYXIoMjU2KSBudWxsLA0KICAgWVpMUlJRICAgdmFyY2hhcigyNTYpIG51bGwsDQogICBZWktTU0ogICB2YXJjaGFyKDI1NikgbnVsbCwNCiAgIFBfREFURSAgIHZhcmNoYXIoMjU2KSBudWxsLA0KICAgUF9EQVRFVElNRSAgIHZhcmNoYXIoMjU2KSBudWxsDQop</createtmp>
+    <tmpname>#WNDATA_XMLIST</tmpname>
+    <targetsql>ZGVjbGFyZSBAY29uZmlnUjEyNCB2YXJjaGFyKDEwKSxAbm93IHZhcmNoYXIoMzIpCnNlbGVjdCBAY29uZmlnUjEyND1DT05GSUcgZnJvbSBTWVNfQ09ORklHKG5vbG9jaykgd2hlcmUgSUQ9J1IxMjQnCnNlbGVjdCBAbm93PWNvbnZlcnQodmFyY2hhcixnZXRkYXRlKCksMTEyKStjb252ZXJ0KHZhcmNoYXIsZ2V0ZGF0ZSgpLDEwOCkKCmluc2VydCBpbnRvIFJJTVNfWkxEWE1MSVNUKHBhdGlkLGJsaCx4dGJ6LHl5ZG0sc3l4aCxxcWtzZG0scXFrc21jLGtma3NtYyx5enhoLHFxbHgscXF4aCwNCnFxbXh4aCx5c2RtLHlzbWMscXFycSxscnJxLGl0ZW10eXBlLGl0ZW1jb2RlLGl0ZW1uYW1lLHByaWNlLGl0ZW1xdHksaXRlbXVuaXQseXBnZyxzcWR4aCwNCnp4a3NkbSx0c3lmZG0seXBqbCx0cyx5cHBjLHBjbWMseXp6dCx5emxycnEseXp6eHJxLHl6a3Nzaix5enR6c2osc2h6LHR6eixjZmJ6LHRicnEscmltc2J6LA0KcXJ6dCx5cXJzbCxrcXJzbCxjeHNsLGt0c2wsZnp4aDEsdHpieix6ZmJ6KQoKc2VsZWN0IGRpc3RpbmN0IGEuUEFUSUQsQkxILGEuWFRCWiwnMDEnLGEuU1lYSCxhLlFRS1NETSxhLlFRS1NNQyxhLlFRS1NNQyxhLlFRWEgsYS5RUUxYLGEuUVFNWFhILA0KYS5RUU1YWEgsYS5ZU0RNLGEuWVNNQyxhLlFRUlEsYS5RUVJRLGEuWE1MQixhLlhNRE0sYS5YTU1DLGEuWE1ESixhLlhNU0wsYS5YTURXLCcnLGEuWVpYSCwNCmEuWlhLU0RNLGEuWlhLU0RNLCcxJyxhLlRTLGEuUENETSxhLlBDTUMsJzAnLCcnLCcnLCcnLCcnLCcnLCcnLDAsQG5vdywKY2FzZSB3aGVuICBpc251bGwoQGNvbmZpZ1IxMjQsJ+WQpicpPSflkKYnIHRoZW4gMyBlbHNlIDAgZW5kLDAsMCxhLlhNU0wsMCxhLlhNU0wsMCwwLDAKZnJvbSAjV05EQVRBX1hNTElTVCBhKG5vbG9jaykKaW5uZXIgam9pbiBSSU1TX1hNRkxEWUsgYihub2xvY2spIG9uIGEuWE1ETT1iLnhtZG0gYW5kIGIuamx6dD0wCmlubmVyIGpvaW4gUklNU19aTEZMSyBjKG5vbG9jaykgb24gYi5mbGRtPWMuaWQgYW5kIGEuWlhLU0RNPWMudHNrcwp3aGVyZSAKbm90IGV4aXN0cyhzZWxlY3QgMSBmcm9tIFJJTVNfWkxEWE1MSVNUIGQobm9sb2NrKSB3aGVyZSBhLlFRWEg9ZC55enhoIGFuZCBhLlFRTVhYSD1kLnFxeGggYW5kIGEuUVFNWFhIPWQucXFteHhoIGFuZCBhLlhUQlo9ZC54dGJ6IGFuZCBhLlBBVElEPWQucGF0aWQgYW5kIGEuU1lYSD1kLnN5eGgp</targetsql>
+    <nodelx>0</nodelx>
+    <node>[]</node>
+    <xmlconfig />
+    <jlzt>0</jlzt>
+    <xmlschema />
+    <sourcetype>1</sourcetype>
+    <sourcedbtype>3</sourcedbtype>
+    <issourcedbencode>false</issourcedbencode>
+    <sourcedbstring>oUNFHhCJ7Vh4A8SP/7igIywTp85ddoOGm+go+L08ln4ZyoF9btGXgPH+BqZe5XojKS9LxinE9N2E2bnIpaY0xlDmUh4g2AgpUvnXMLKXEl7qONJ2jJmhfEpIJaTVRGHJNbUv4O6erAzooHOiQ7Aef0hiJH6O6fyDsO0hSscp6oyKx++5tCRyasqmgDbhq/JkqgKn4rTYHpi6r4zHA/2ZUAoZ8OxfUZsSKCt+2BdrI1w=</sourcedbstring>
+    <sourcesql>c2VsZWN0IC8qKyBvcHRfcGFyYW0oJ19vcHRpbWl6ZXJfdXNlX2ZlZWRiYWNrJyAnZmFsc2UnKSAqLyBhLioNCiBmcm9tIFJJTVNfWE1MSVNUX0NaIGEgIA0Kd2hlcmUgIGEuUF9EQVRFICBiZXR3ZWVuIHRydW5jKHN5c2RhdGUsICdkZCcpICBhbmQgdHJ1bmMoc3lzZGF0ZSsxLCAnZGQnKQ0KYW5kIA0KIGEuUF9EQVRFVElNRSBiZXR3ZWVuIHRydW5jKHN5c2RhdGUsICdkZCcpICBhbmQgdHJ1bmMoc3lzZGF0ZSsxLCAnZGQnKQ==</sourcesql>
+    <targetdbtype>0</targetdbtype>
+    <istargetdbencode>true</istargetdbencode>
+    <targetdbstring>fKti04vHK0LqBv2mqFCEniEDTSUV41lE4T11vN+nSWg1MawxLGMJuqrKv/hhAD7cm5DhjcBfEerwuGsIWDdfudEbJdeL+aUkocZJzIZ7hidK39H0AqAoYK1xW6Ul0Yn1p6iMxKQPnTA=</targetdbstring>
+    <isbulkop>true</isbulkop>
+    <servertype>0</servertype>
+    <servermethod>get</servermethod>
+  </CronJob>
+  <CronJob>
+    <id>Kingdee_ZYLSXM</id>
+    <name>金蝶HIS-获取患者住院临时项目信息</name>
+    <system>Kingdee</system>
+    <sysname>金蝶HIS</sysname>
+    <memo />
+    <oper_date>2020/11/23 12:09:33</oper_date>
+    <weburl>http://10.46.12.233:8080/Patinfo/getPatSubject_LS</weburl>
+    <expression>0 0/2 7-22 * * ?</expression>
+    <createtmp>Y3JlYXRlIHRhYmxlICNXTkRBVEFfWE1MSVNUDQooDQogICBQQVRJRCAgIHZhcmNoYXIoMjU2KSBudWxsLA0KICAgQkxIICAgdmFyY2hhcigyNTYpIG51bGwsDQogICBYVEJaICAgdmFyY2hhcigyNTYpIG51bGwsDQogICBTWVhIICAgdmFyY2hhcigyNTYpIG51bGwsDQogICBRUUtTRE0gICB2YXJjaGFyKDI1NikgbnVsbCwNCiAgIFFRS1NNQyAgIHZhcmNoYXIoMjU2KSBudWxsLA0KICAgWVpYSCAgIHZhcmNoYXIoMjU2KSBudWxsLA0KICAgUVFMWCAgIHZhcmNoYXIoMjU2KSBudWxsLA0KICAgUVFYSCAgIHZhcmNoYXIoMjU2KSBudWxsLA0KICAgUVFNWFhIICAgdmFyY2hhcigyNTYpIG51bGwsDQogICBZU0RNICAgdmFyY2hhcigyNTYpIG51bGwsDQogICBZU01DICAgdmFyY2hhcigyNTYpIG51bGwsDQogICBRUVJRICAgdmFyY2hhcigyNTYpIG51bGwsDQogICBYTUxCICAgdmFyY2hhcigyNTYpIG51bGwsDQogICBYTURNICAgdmFyY2hhcigyNTYpIG51bGwsDQogICBYTU1DICAgdmFyY2hhcigyNTYpIG51bGwsDQogICBYTURKICAgdmFyY2hhcigyNTYpIG51bGwsDQogICBYTVNMICAgdmFyY2hhcigyNTYpIG51bGwsDQogICBYTURXICAgdmFyY2hhcigyNTYpIG51bGwsDQogICBaWEtTRE0gICB2YXJjaGFyKDI1NikgbnVsbCwNCiAgIERDWkxMICAgdmFyY2hhcigyNTYpIG51bGwsDQogICBUUyAgIHZhcmNoYXIoMjU2KSBudWxsLA0KICAgUENETSAgIHZhcmNoYXIoMjU2KSBudWxsLA0KICAgUENNQyAgIHZhcmNoYXIoMjU2KSBudWxsLA0KICAgVEZTTCAgIHZhcmNoYXIoMjU2KSBudWxsLA0KICAgWVpMUlJRICAgdmFyY2hhcigyNTYpIG51bGwsDQogICBZWktTU0ogICB2YXJjaGFyKDI1NikgbnVsbCwNCiAgIFBfREFURSAgIHZhcmNoYXIoMjU2KSBudWxsLA0KICAgUF9EQVRFVElNRSAgIHZhcmNoYXIoMjU2KSBudWxsDQop</createtmp>
+    <tmpname>#WNDATA_XMLIST</tmpname>
+    <targetsql>ZGVjbGFyZSBAY29uZmlnUjEyNCB2YXJjaGFyKDEwKSxAbm93IHZhcmNoYXIoMzIpCgpzZWxlY3QgQGNvbmZpZ1IxMjQ9Q09ORklHIGZyb20gU1lTX0NPTkZJRyhub2xvY2spIHdoZXJlIElEPSdSMTI0JwpzZWxlY3QgQG5vdz1jb252ZXJ0KHZhcmNoYXIsZ2V0ZGF0ZSgpLDExMikrY29udmVydCh2YXJjaGFyLGdldGRhdGUoKSwxMDgpCgppbnNlcnQgaW50byBSSU1TX1pMRFhNTElTVChwYXRpZCxibGgseHRieix5eWRtLHN5eGgscXFrc2RtLHFxa3NtYyxrZmtzbWMseXp4aCxxcWx4LHFxeGgscXFteHhoLA0KeXNkbSx5c21jLHFxcnEsbHJycSxpdGVtdHlwZSxpdGVtY29kZSxpdGVtbmFtZSxwcmljZSxpdGVtcXR5LGl0ZW11bml0LHlwZ2csc3FkeGgsenhrc2RtLHRzeWZkbSx5cGpsLHRzLAp5cHBjLHBjbWMseXp6dCx5emxycnEseXp6eHJxLHl6a3Nzaix5enR6c2osc2h6LHR6eixjZmJ6LHRicnEscmltc2J6LHFyenQseXFyc2wsa3Fyc2wsY3hzbCxrdHNsLGZ6eGgxLHR6YnosemZieikKc2VsZWN0IGRpc3RpbmN0IGEuUEFUSUQsQkxILGEuWFRCWiwnMDEnLGEuU1lYSCxhLlFRS1NETSxhLlFRS1NNQyxhLlFRS1NNQyxhLlFRWEgsYS5RUUxYLGEuUVFNWFhILGEuUVFNWFhILA0KYS5ZU0RNLGEuWVNNQyxhLlFRUlEsYS5RUVJRLGEuWE1MQixhLlhNRE0sYS5YTU1DLGEuWE1ESixhLlhNU0wsYS5YTURXLCcnLGEuWVpYSCxhLlpYS1NETSxhLlpYS1NETSwnMScsYS5UUywNCmEuUENETSxhLlBDTUMsJzAnLCcnLCcnLCcnLCcnLCcnLCcnLDAsQG5vdyxjYXNlIHdoZW4gIGlzbnVsbChAY29uZmlnUjEyNCwn5ZCmJyk9J+WQpicgdGhlbiAzIGVsc2UgMCBlbmQsMCwwLGEuWE1TTCwwLGEuWE1TTCwwLDAsMApmcm9tICNXTkRBVEFfWE1MSVNUIGEobm9sb2NrKQppbm5lciBqb2luIFJJTVNfWE1GTERZSyBiKG5vbG9jaykgb24gYS5YTURNPWIueG1kbSBhbmQgYi5qbHp0PTAKaW5uZXIgam9pbiBSSU1TX1pMRkxLIGMobm9sb2NrKSBvbiBiLmZsZG09Yy5pZCBhbmQgYS5aWEtTRE09Yy50c2tzCndoZXJlIG5vdCBleGlzdHMoc2VsZWN0IDEgZnJvbSBSSU1TX1pMRFhNTElTVCBkKG5vbG9jaykgd2hlcmUgYS5RUVhIPWQueXp4aCBhbmQgYS5RUU1YWEg9ZC5xcXhoIGFuZCBhLlFRTVhYSD1kLnFxbXh4aCBhbmQgYS5YVEJaPWQueHRieiBhbmQgYS5QQVRJRD1kLnBhdGlkIGFuZCBhLlNZWEg9ZC5zeXhoKQ==</targetsql>
+    <nodelx>0</nodelx>
+    <node>[]</node>
+    <xmlconfig />
+    <jlzt>0</jlzt>
+    <xmlschema />
+    <sourcetype>1</sourcetype>
+    <sourcedbtype>3</sourcedbtype>
+    <issourcedbencode>false</issourcedbencode>
+    <sourcedbstring>oUNFHhCJ7Vh4A8SP/7igIywTp85ddoOGm+go+L08ln4ZyoF9btGXgPH+BqZe5XojKS9LxinE9N2E2bnIpaY0xlDmUh4g2AgpUvnXMLKXEl7qONJ2jJmhfEpIJaTVRGHJNbUv4O6erAzooHOiQ7Aef0hiJH6O6fyDsO0hSscp6oyKx++5tCRyasqmgDbhq/JkqgKn4rTYHpi6r4zHA/2ZUAoZ8OxfUZsSKCt+2BdrI1w=</sourcedbstring>
+    <sourcesql>c2VsZWN0IC8qKyBvcHRfcGFyYW0oJ19vcHRpbWl6ZXJfdXNlX2ZlZWRiYWNrJyAnZmFsc2UnKSAqLyBhLiogDQpmcm9tICBSSU1TX1hNTElTVF9MWiBhICANCndoZXJlICBhLlBfREFURSAgYmV0d2VlbiB0cnVuYyhzeXNkYXRlLCAnZGQnKSAgYW5kIHRydW5jKHN5c2RhdGUrMSwgJ2RkJykNCmFuZCANCmEuUF9EQVRFVElNRSBiZXR3ZWVuIHRydW5jKHN5c2RhdGUsICdkZCcpICBhbmQgdHJ1bmMoc3lzZGF0ZSsxLCAnZGQnKQ==</sourcesql>
+    <targetdbtype>0</targetdbtype>
+    <istargetdbencode>true</istargetdbencode>
+    <targetdbstring>fKti04vHK0LqBv2mqFCEniEDTSUV41lE4T11vN+nSWg1MawxLGMJuqrKv/hhAD7cm5DhjcBfEerwuGsIWDdfudEbJdeL+aUkocZJzIZ7hidK39H0AqAoYK1xW6Ul0Yn1p6iMxKQPnTA=</targetdbstring>
+    <isbulkop>true</isbulkop>
+    <servertype>0</servertype>
+    <servermethod>get</servermethod>
+  </CronJob>
+  <CronJob>
+    <id>Kingdee_TFXM</id>
+    <name>金蝶HIS-获取患者退费项目信息</name>
+    <system>Kingdee</system>
+    <sysname>金蝶HIS</sysname>
+    <memo />
+    <oper_date>2020/11/23 12:09:33</oper_date>
+    <weburl>http://10.46.12.233:8080/Patinfo/getPatSubject_TF</weburl>
+    <expression>0 0/2 7-22 * * ?</expression>
+    <createtmp>Y3JlYXRlIHRhYmxlICNXTkRBVEFfWE1MSVNUCigKICAgVEZYSCAgIHZhcmNoYXIoMjU2KSBudWxsLAogICBTTCAgIHZhcmNoYXIoMjU2KSBudWxsLAogICBYVEJaICAgdmFyY2hhcigyNTYpIG51bGwsCiAgIFNZWEggICB2YXJjaGFyKDI1NikgbnVsbCwKICAgUVFMWCAgIHZhcmNoYXIoMjU2KSBudWxsLAogICBRUU1YWEggICB2YXJjaGFyKDI1NikgbnVsbCwKICAgUF9EQVRFICAgdmFyY2hhcigyNTYpIG51bGwsCiAgIFBfREFURVRJTUUgICB2YXJjaGFyKDI1NikgbnVsbAop</createtmp>
+    <tmpname>#WNDATA_XMLIST</tmpname>
+    <targetsql>dXBkYXRlIGEgc2V0IGEudHpiej0xCmZyb20gUklNU19aTERYTUxJU1QgYQppbm5lciBqb2luICNXTkRBVEFfWE1MSVNUIHQobm9sb2NrKSBvbiB0LlFRTVhYSD1hLnFxbXh4aCBhbmQgdC5TTDwwCndoZXJlIGEuemZiej0wIAoKdXBkYXRlIGEgc2V0IGEuemZiej0xCmZyb20gUklNU19aTERYTUxJU1RNWCBhCiBpbm5lciBqb2luIFJJTVNfWkxEWE1MSVNUIGIobm9sb2NrKSBvbiBiLnhoPWEuY2Z4aAp3aGVyZSBiLnR6Yno9MQ==</targetsql>
+    <nodelx>0</nodelx>
+    <node>[]</node>
+    <xmlconfig />
+    <jlzt>0</jlzt>
+    <xmlschema />
+    <sourcetype>1</sourcetype>
+    <sourcedbtype>3</sourcedbtype>
+    <issourcedbencode>false</issourcedbencode>
+    <sourcedbstring>oUNFHhCJ7Vh4A8SP/7igIywTp85ddoOGm+go+L08ln4ZyoF9btGXgPH+BqZe5XojKS9LxinE9N2E2bnIpaY0xlDmUh4g2AgpUvnXMLKXEl7qONJ2jJmhfEpIJaTVRGHJNbUv4O6erAzooHOiQ7Aef0hiJH6O6fyDsO0hSscp6oyKx++5tCRyasqmgDbhq/JkqgKn4rTYHpi6r4zHA/2ZUAoZ8OxfUZsSKCt+2BdrI1w=</sourcedbstring>
+    <sourcesql>c2VsZWN0IC8qKyBvcHRfcGFyYW0oJ19vcHRpbWl6ZXJfdXNlX2ZlZWRiYWNrJyAnZmFsc2UnKSAqLyBhLiogDQpmcm9tIFJJTVNfVEYgYSANCndoZXJlICAgYS5QX0RBVEUgIGJldHdlZW4gdHJ1bmMoc3lzZGF0ZSwgJ2RkJykgIGFuZCB0cnVuYyhzeXNkYXRlKzEsICdkZCcpDQphbmQgDQphLlBfREFURVRJTUUgYmV0d2VlbiB0cnVuYyhzeXNkYXRlLCAnZGQnKSAgYW5kIHRydW5jKHN5c2RhdGUrMSwgJ2RkJyk=</sourcesql>
+    <targetdbtype>0</targetdbtype>
+    <istargetdbencode>true</istargetdbencode>
+    <targetdbstring>fKti04vHK0LqBv2mqFCEniEDTSUV41lE4T11vN+nSWg1MawxLGMJuqrKv/hhAD7cm5DhjcBfEerwuGsIWDdfudEbJdeL+aUkocZJzIZ7hidK39H0AqAoYK1xW6Ul0Yn1p6iMxKQPnTA=</targetdbstring>
+    <isbulkop>true</isbulkop>
+    <servertype>0</servertype>
+    <servermethod>get</servermethod>
+  </CronJob>
+</NewDataSet>

@@ -76,5 +76,6 @@ namespace TaskSchedule.Interface
         public string JobInfo { get; set; }
 
         public string ConfigUI { get; set; }
+        public bool IsUse { get; set; }
     }
 }

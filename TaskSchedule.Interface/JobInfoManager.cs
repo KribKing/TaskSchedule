@@ -18,6 +18,7 @@ namespace TaskSchedule.Interface
             if (GlobalInstanceManager<AddinsSetting>.Intance.Default == null || GlobalInstanceManager<AddinsSetting>.Intance.Default.Count <= 0) return;
             foreach (AddinsInfo ai in GlobalInstanceManager<AddinsSetting>.Intance.Default)
             {
+                if (!ai.IsUse) continue;
                 ITaskStarterInterface task = GlobalInstanceManager<ITaskStarterInterface>.ReflectInstance(ai.AssemblyName, ai.TaskStarter);
                 IJobSettingInterface<JobInfo> setting = GlobalInstanceManager<IJobSettingInterface<JobInfo>>.ReflectInstance(ai.AssemblyName, ai.SettingInterface);
                 setting.Init();

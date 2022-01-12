@@ -11,7 +11,6 @@ namespace TaskSchedule.Interface
         void LoadChildInfo();
         bool CollectChildJobInfo();
         void ShowConfig();
-
         void SetJobInfo(JobInfo info);
     }
 }
